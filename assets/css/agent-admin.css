@@ -1,0 +1,418 @@
+/* Agent Admin Styles */
+.smart-ai-chatbot-admin {
+    max-width: 1200px;
+}
+
+.smart-ai-chatbot-admin h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+/* Tabs */
+.swc-admin-tabs {
+    display: flex;
+    gap: 0;
+    margin: 20px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.swc-tab-btn {
+    padding: 12px 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: #666;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s ease;
+}
+
+.swc-tab-btn:hover {
+    color: #6366f1;
+}
+
+.swc-tab-btn.active {
+    color: #6366f1;
+    border-bottom-color: #6366f1;
+}
+
+.swc-tab-content {
+    display: none;
+    padding: 20px 0;
+}
+
+.swc-tab-content.active {
+    display: block;
+}
+
+/* Section */
+.swc-section {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.swc-section h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Tools Grid */
+.swc-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.swc-tool-card {
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.swc-tool-card.enabled {
+    border-color: #6366f1;
+    background: #f8f7ff;
+}
+
+.swc-tool-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.swc-tool-icon {
+    font-size: 28px;
+}
+
+.swc-tool-header h3 {
+    margin: 0;
+    flex: 1;
+    font-size: 16px;
+}
+
+.swc-tool-description {
+    color: #666;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+}
+
+.swc-tool-config {
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.swc-tool-config h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.swc-tool-requires {
+    margin-top: 10px;
+    color: #888;
+}
+
+/* Toggle Switch */
+.swc-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.swc-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.swc-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 26px;
+}
+
+.swc-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .swc-slider {
+    background-color: #6366f1;
+}
+
+input:checked + .swc-slider:before {
+    transform: translateX(24px);
+}
+
+/* Fields */
+.swc-field {
+    margin-bottom: 12px;
+}
+
+.swc-field label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.swc-field input[type="text"],
+.swc-field input[type="email"],
+.swc-field input[type="time"],
+.swc-field input[type="number"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.swc-multicheck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.swc-multicheck label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal;
+}
+
+/* Prompts */
+.swc-prompts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.swc-prompt-item {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.swc-prompt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.swc-prompt-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.swc-prompt-priority {
+    color: #888;
+    font-size: 13px;
+}
+
+.swc-prompt-content {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+    resize: vertical;
+}
+
+.swc-prompt-priority-input {
+    width: 80px;
+    margin-top: 10px;
+}
+
+.swc-prompt-variables {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+
+.swc-prompt-variables h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+
+.swc-prompt-variables code {
+    background: #fff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin: 3px;
+    display: inline-block;
+}
+
+.swc-add-prompt {
+    background: #fff;
+    padding: 20px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.swc-add-prompt h3 {
+    margin-top: 0;
+}
+
+.swc-add-prompt input,
+.swc-add-prompt textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Skills */
+.swc-skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.swc-skill-card {
+    background: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.swc-skill-card.active {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.swc-skill-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.swc-skill-icon {
+    font-size: 32px;
+}
+
+.swc-skill-info {
+    flex: 1;
+}
+
+.swc-skill-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.swc-skill-info p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.swc-skill-requirements {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.swc-requirement-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin: 3px;
+}
+
+.swc-requirement-badge.met {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.swc-requirement-badge.unmet {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.swc-skill-preview {
+    margin-top: 15px;
+}
+
+.swc-skill-preview summary {
+    cursor: pointer;
+    color: #6366f1;
+    font-size: 13px;
+}
+
+.swc-skill-preview pre {
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 12px;
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.swc-add-skill {
+    background: #fff;
+    padding: 20px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.swc-add-skill h3 {
+    margin-top: 0;
+}
+
+.swc-add-skill textarea {
+    width: 100%;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+/* Buttons */
+.button-primary.swc-save-tools,
+.button-primary.swc-save-prompts,
+.button-primary.swc-save-skills {
+    background: #6366f1;
+    border-color: #5558e3;
+    padding: 8px 20px;
+    height: auto;
+}
+
+.button-primary.swc-save-tools:hover,
+.button-primary.swc-save-prompts:hover,
+.button-primary.swc-save-skills:hover {
+    background: #5558e3;
+}

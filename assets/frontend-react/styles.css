@@ -1,0 +1,290 @@
+/**
+ * Chat Widget Tailwind Styles
+ * 
+ * Custom styles for the React-based chat widget.
+ * Uses CSS custom properties for theming.
+ */
+
+/* Base animations */
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce-light {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+}
+
+/* Animation utilities */
+.animate-slide-up {
+    animation: slide-up 0.3s ease-out forwards;
+}
+
+.animate-slide-down {
+    animation: slide-down 0.3s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fade-in 0.2s ease-out forwards;
+}
+
+.animate-bounce-light {
+    animation: bounce-light 1.4s infinite ease-in-out both;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+}
+
+/* Animation delays */
+.animation-delay-100 {
+    animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+    animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+    animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+    animation-delay: 400ms;
+}
+
+/* Chat widget container */
+#smart-ai-chatbot-root {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#smart-ai-chatbot-root *,
+#smart-ai-chatbot-root *::before,
+#smart-ai-chatbot-root *::after {
+    box-sizing: border-box;
+}
+
+/* Scrollbar styling */
+#smart-ai-chatbot-root ::-webkit-scrollbar {
+    width: 6px;
+}
+
+#smart-ai-chatbot-root ::-webkit-scrollbar-track {
+    background: var(--swc-bg-light, #f8fafc);
+    border-radius: 3px;
+}
+
+#smart-ai-chatbot-root ::-webkit-scrollbar-thumb {
+    background: var(--swc-border, #e2e8f0);
+    border-radius: 3px;
+}
+
+#smart-ai-chatbot-root ::-webkit-scrollbar-thumb:hover {
+    background: var(--swc-text-secondary, #64748b);
+}
+
+/* Primary color utilities */
+.bg-primary {
+    background-color: var(--swc-primary, #6366f1);
+}
+
+.text-primary {
+    color: var(--swc-primary, #6366f1);
+}
+
+.border-primary {
+    border-color: var(--swc-primary, #6366f1);
+}
+
+.ring-primary {
+    --tw-ring-color: var(--swc-primary, #6366f1);
+}
+
+/* Glassmorphism effect */
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Force all widget buttons to have predictable text color (WordPress theme override protection) */
+#smart-ai-chatbot-root button {
+    color: #334155 !important;
+}
+
+#smart-ai-chatbot-root button:hover,
+#smart-ai-chatbot-root button:focus,
+#smart-ai-chatbot-root button:active {
+    color: #334155 !important;
+}
+
+/* Buttons that use white text (primary colored backgrounds) need explicit override */
+#smart-ai-chatbot-root button[style*="color: white"],
+#smart-ai-chatbot-root button[style*="color:#fff"],
+#smart-ai-chatbot-root button[style*="color: #fff"] {
+    color: #ffffff !important;
+}
+
+/* Focus styles */
+#smart-ai-chatbot-root button:focus-visible,
+#smart-ai-chatbot-root input:focus-visible,
+#smart-ai-chatbot-root textarea:focus-visible {
+    outline: 2px solid var(--swc-primary, #6366f1);
+    outline-offset: 2px;
+}
+
+/* Message bubble animations */
+.message-bubble {
+    opacity: 0;
+    animation: slide-up 0.2s ease-out forwards;
+}
+
+/* Typing indicator */
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--swc-text-secondary, #64748b);
+    border-radius: 50%;
+    animation: bounce-light 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+/* Toggle button pulse */
+.toggle-pulse {
+    animation: pulse-glow 2s infinite;
+}
+
+/* Line clamping utilities */
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Hover effects */
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .dark-mode {
+        --swc-bg-main: #1e293b;
+        --swc-bg-light: #0f172a;
+        --swc-text-primary: #f8fafc;
+        --swc-text-secondary: #94a3b8;
+        --swc-border: #334155;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    #smart-ai-chatbot {
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        padding: 0.5rem;
+    }
+
+    #smart-ai-chatbot .chat-window {
+        width: 100% !important;
+        max-width: none !important;
+        height: calc(100vh - 80px) !important;
+        max-height: none !important;
+        border-radius: 1rem 1rem 0 0 !important;
+    }
+}
+
+/* Print styles - hide widget */
+@media print {
+    #smart-ai-chatbot-root {
+        display: none !important;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    #smart-ai-chatbot-root *,
+    #smart-ai-chatbot-root *::before,
+    #smart-ai-chatbot-root *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

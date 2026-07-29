@@ -1,0 +1,36 @@
+/**
+ * Search Enhancement Styles
+ * 
+ * Provides visual cues for AI-enhanced search inputs.
+ */
+
+/* Add a subtle icon or indicator */
+input.swc-ai-enhanced-search {
+    transition: all 0.3s ease;
+}
+
+/* On focus, show a magical glow */
+input.swc-ai-enhanced-search:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25) !important;
+    /* using primary color */
+    border-color: #6366f1 !important;
+}
+
+/* Add a sparkle badge using a pseudo-element on the wrapper if possible, 
+   but since inputs are void elements, we rely on the placeholder. 
+   However, we can style the input itself to look premium. */
+
+/* If the theme supports it, add a background gradient on focus */
+@media (prefers-color-scheme: light) {
+    input.swc-ai-enhanced-search:focus {
+        background-color: #fcfcff !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    input.swc-ai-enhanced-search:focus {
+        background-color: #1e293b !important;
+        border-color: #818cf8 !important;
+        color: #f8fafc;
+    }
+}

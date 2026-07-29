@@ -1,0 +1,90 @@
+<?php
+
+declare(strict_types=1);
+
+namespace NeuronAI\Console;
+
+use NeuronAI\Console\Evaluation\EvaluationCommand;
+use NeuronAI\Console\Make\MakeAgentCommand;
+use NeuronAI\Console\Make\MakeEvaluatorsCommand;
+use NeuronAI\Console\Make\MakeEventCommand;
+use NeuronAI\Console\Make\MakeMiddlewareCommand;
+use NeuronAI\Console\Make\MakeNodeCommand;
+use NeuronAI\Console\Make\MakeRagCommand;
+use NeuronAI\Console\Make\MakeToolCommand;
+use NeuronAI\Console\Make\MakeWorkflowCommand;
+use Throwable;
+
+use function array_shift;
+use function fwrite;
+
+use const PHP_EOL;
+use const STDERR;
+
+class NeuronCli
+{
+    private const AVAILABLE_COMMANDS = [
+        'evaluation' => EvaluationCommand::class,
+        'make:agent' => MakeAgentCommand::class,
+        'make:middleware' => MakeMiddlewareCommand::class,
+        'make:node' => MakeNodeCommand::class,
+        'make:tool' => MakeToolCommand::class,
+        'make:rag' => MakeRagCommand::class,
+        'make:workflow' => MakeWorkflowCommand::class,
+        'make:event' => MakeEventCommand::class,
+        'make:evaluators' => MakeEvaluatorsCommand::class,
+    ];
+
+    /**
+     * @param array<string> $args
+     */
+    public function run(array $args): int
+    {
+        // Skip script name
+        array_shift($args);
+
+        if ($args === []) {
+            $this->printUsage();
+            return 1;
+        }
+
+        $commandName = array_shift($args);
+
+        if ($commandName === '--help' || $commandName === '-h') {
+            $this->printUsage();
+            return 0;
+        }
+
+        if (!isset(self::AVAILABLE_COMMANDS[$commandName])) {
+            $this->printError("Unknown command: {$commandName}");
+            $this->printUsage();
+            return 1;
+        }
+
+        $commandClass = self::AVAILABLE_COMMANDS[$commandName];
+
+        try {
+            $command = new $commandClass();
+
+            // Prepare arguments for the sub-command (restore script name simulation)
+            $subCommandArgs = ['neuron', ...$args];
+
+            return $command->run($subCommandArgs);
+        } catch (Throwable $e) {
+            $this->printError("Error executing command '{$commandName}': " . $e->getMessage());
+            return 1;
+        }
+    }
+
+    private function printUsage(): void
+    {
+        $usage = "            Neuron AI CLI Tool\n\n            Usage: neuron <command> [options]\n\n            Available Commands:\n              evaluation      Run AI evaluation tests on a directory of evaluators\n              make:agent      Create a new Agent class\n              make:middleware Create a new Workflow Middleware class\n              make:node       Create a new Node class\n              make:tool       Create a new Tool class\n              make:rag        Create a new RAG class\n              make:workflow   Create a new Workflow class\n              make:event      Create a new Event class\n\n            Options:\n              --help, -h   Show this help message\n\n            Examples:\n              neuron evaluation --path=\/path\/to\/evaluators\n              neuron evaluation \/path\/to\/evaluators --verbose\n              neuron make:agent MyAgent\n              neuron make:tool MyApp\\Tools\\MyTool\n              neuron --help\n\n            For command-specific help, use:\n              neuron <command> --help";
+
+        echo $usage . PHP_EOL;
+    }
+
+    private function printError(string $message): void
+    {
+        fwrite(STDERR, "Error: {$message}" . PHP_EOL);
+    }
+}

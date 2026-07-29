@@ -1,0 +1,1544 @@
+/**
+ * Smart WooCommerce Chatbot - Metronic Theme Override
+ * 
+ * Complete Metronic-inspired design system override.
+ * Replaces the default indigo/glassmorphism aesthetic with 
+ * Metronic's clean, professional blue-toned design.
+ * 
+ * @version 1.0.0
+ * @package SWC
+ */
+
+/* ============================================
+   METRONIC DESIGN TOKENS (Variable Overrides)
+   ============================================ */
+
+:root {
+    /* ---- Primary Brand: Metronic Blue ---- */
+    --swc-primary-50: #EFF6FF;
+    --swc-primary-100: #DBEAFE;
+    --swc-primary-200: #BFDBFE;
+    --swc-primary-300: #93C5FD;
+    --swc-primary-400: #60A5FA;
+    --swc-primary-500: #1B84FF;
+    --swc-primary-600: #1870DB;
+    --swc-primary-700: #1558B0;
+    --swc-primary-800: #11408A;
+    --swc-primary-900: #0C2D62;
+
+    /* Semantic Aliases */
+    --swc-primary: var(--swc-primary-500);
+    --swc-primary-hover: var(--swc-primary-600);
+    --swc-primary-active: var(--swc-primary-700);
+    --swc-primary-light: var(--swc-primary-50);
+    --swc-primary-muted: var(--swc-primary-100);
+
+    /* ---- Metronic Gray (Neutral) ---- */
+    --swc-gray-25: #FCFCFC;
+    --swc-gray-50: #F5F8FA;
+    --swc-gray-100: #EFF2F5;
+    --swc-gray-200: #E1E3EA;
+    --swc-gray-300: #C4CBD3;
+    --swc-gray-400: #99A1B7;
+    --swc-gray-500: #78829D;
+    --swc-gray-600: #4B5675;
+    --swc-gray-700: #3F4254;
+    --swc-gray-800: #252F4A;
+    --swc-gray-900: #071437;
+    --swc-gray-950: #030C1A;
+
+    /* ---- Metronic Status Colors ---- */
+    --swc-success-50: #EAFCF4;
+    --swc-success-100: #C6F7DC;
+    --swc-success-200: #8CEDB9;
+    --swc-success-500: #17C653;
+    --swc-success-600: #12A344;
+    --swc-success-700: #0E8036;
+
+    --swc-error-50: #FFF5F5;
+    --swc-error-100: #FFE0E0;
+    --swc-error-500: #F8285A;
+    --swc-error-600: #D91E48;
+    --swc-error-700: #B81638;
+
+    --swc-warning-50: #FFF8EB;
+    --swc-warning-100: #FFEDC5;
+    --swc-warning-500: #F6B100;
+    --swc-warning-600: #D19600;
+    --swc-warning-700: #A87800;
+
+    --swc-info-50: #F0F4FF;
+    --swc-info-100: #D4E1FF;
+    --swc-info-500: #5014D0;
+    --swc-info-600: #4210AE;
+    --swc-info-700: #340D8D;
+
+    /* ---- Metronic Gradients → Solid Colors ---- */
+    --swc-gradient-primary: #1B84FF;
+    --swc-gradient-primary-hover: #1870DB;
+    --swc-gradient-subtle: linear-gradient(180deg, #ffffff 0%, #F5F8FA 100%);
+    --swc-gradient-card: linear-gradient(180deg, #ffffff 0%, #FCFCFC 100%);
+    --swc-gradient-card-hover: linear-gradient(180deg, #ffffff 0%, #F0F4FF 100%);
+    --swc-gradient-accent: #1B84FF;
+    --swc-gradient-border: linear-gradient(135deg, var(--swc-primary-200) 0%, var(--swc-primary-400) 100%);
+
+    /* ---- Metronic Typography ---- */
+    --swc-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --swc-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+    /* ---- Metronic Border Radius (Slightly more rounded) ---- */
+    --swc-radius-sm: 0.375rem;
+    /* 6px */
+    --swc-radius-md: 0.625rem;
+    /* 10px */
+    --swc-radius-lg: 0.75rem;
+    /* 12px */
+    --swc-radius-xl: 0.875rem;
+    /* 14px */
+    --swc-radius-2xl: 1rem;
+    /* 16px */
+    --swc-radius-3xl: 1.25rem;
+    /* 20px */
+
+    /* ---- Metronic Shadows (Cleaner, less dramatic) ---- */
+    --swc-shadow-xs: 0 1px 2px 0 rgba(7, 20, 55, 0.04);
+    --swc-shadow-sm: 0 1px 3px 0 rgba(7, 20, 55, 0.06),
+        0 1px 2px -1px rgba(7, 20, 55, 0.04);
+    --swc-shadow-md: 0 4px 8px -2px rgba(7, 20, 55, 0.08),
+        0 2px 4px -2px rgba(7, 20, 55, 0.04);
+    --swc-shadow-lg: 0 10px 20px -5px rgba(7, 20, 55, 0.08),
+        0 4px 8px -4px rgba(7, 20, 55, 0.04);
+    --swc-shadow-xl: 0 20px 40px -8px rgba(7, 20, 55, 0.10),
+        0 8px 16px -6px rgba(7, 20, 55, 0.04);
+    --swc-shadow-2xl: 0 24px 50px -12px rgba(7, 20, 55, 0.18);
+
+    /* Colored Shadows */
+    --swc-shadow-primary: 0 4px 12px 0 rgba(27, 132, 255, 0.20);
+    --swc-shadow-primary-lg: 0 8px 24px -4px rgba(27, 132, 255, 0.25);
+    --swc-shadow-success: 0 4px 12px 0 rgba(23, 198, 83, 0.20);
+    --swc-shadow-error: 0 4px 12px 0 rgba(248, 40, 90, 0.20);
+
+    /* Glows — toned down for Metronic */
+    --swc-glow-primary: 0 0 16px rgba(27, 132, 255, 0.15);
+    --swc-glow-success: 0 0 16px rgba(23, 198, 83, 0.15);
+    --swc-glow-error: 0 0 16px rgba(248, 40, 90, 0.15);
+    --swc-glow-warning: 0 0 16px rgba(246, 177, 0, 0.15);
+
+    /* ---- Glassmorphism → Replaced with Clean Solid Backgrounds ---- */
+    --swc-glass-bg: #ffffff;
+    --swc-glass-bg-light: #FCFCFC;
+    --swc-glass-bg-heavy: #ffffff;
+    --swc-glass-border: var(--swc-gray-200);
+    --swc-glass-blur: none;
+    --swc-glass-blur-lg: none;
+
+    /* ---- Metronic Focus Ring ---- */
+    --swc-ring-width: 3px;
+    --swc-ring-color: rgba(27, 132, 255, 0.25);
+    --swc-ring: 0 0 0 var(--swc-ring-width) var(--swc-ring-color);
+
+    /* ---- Category Colors — Metronic palette ---- */
+    --swc-cat-woocommerce: #7239EA;
+    --swc-cat-woocommerce-light: #F3EEFF;
+    --swc-cat-wordpress: #1B84FF;
+    --swc-cat-wordpress-light: #EFF6FF;
+    --swc-cat-support: #0BB197;
+    --swc-cat-support-light: #E7FAF5;
+    --swc-cat-general: #5014D0;
+    --swc-cat-general-light: #F0F0FF;
+    --swc-cat-analytics: #17C653;
+    --swc-cat-analytics-light: #EAFCF4;
+}
+
+
+/* ============================================
+   GLOBAL BASE (Metronic Shell)
+   ============================================ */
+
+.swc-admin {
+    background: #F5F8FA;
+    color: var(--swc-gray-900);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ============================================
+   METRONIC NAVIGATION BAR
+   ============================================ */
+
+/* Override Tailwind-based nav */
+.swc-admin nav.flex {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+    box-shadow: var(--swc-shadow-sm) !important;
+    backdrop-filter: none !important;
+    padding: 0.625rem 1rem !important;
+}
+
+/* Logo/Brand area */
+.swc-admin nav .flex.items-center.gap-3 span.flex {
+    background: var(--swc-primary-50) !important;
+    color: var(--swc-primary-500) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-admin nav .flex.items-center.gap-3 span.text-base {
+    color: var(--swc-gray-900) !important;
+    font-weight: 600 !important;
+    font-size: 0.9375rem !important;
+}
+
+/* Nav Tab Buttons */
+.swc-admin nav button.inline-flex {
+    border-radius: var(--swc-radius-sm) !important;
+    font-weight: 500 !important;
+    font-size: 0.8125rem !important;
+    letter-spacing: -0.01em !important;
+    padding: 0.5rem 0.75rem !important;
+    transition: all 0.15s ease !important;
+    border: none !important;
+}
+
+/* Active Nav Tab — Metronic style: light bg + colored text */
+.swc-admin nav button.bg-primary,
+.swc-admin nav button[class*="bg-primary"] {
+    background: var(--swc-primary-50) !important;
+    color: var(--swc-primary-500) !important;
+    box-shadow: none !important;
+}
+
+/* Inactive Nav Tab */
+.swc-admin nav button.text-slate-600,
+.swc-admin nav button[class*="text-slate-600"] {
+    color: var(--swc-gray-500) !important;
+}
+
+.swc-admin nav button.text-slate-600:hover,
+.swc-admin nav button[class*="text-slate-600"]:hover {
+    color: var(--swc-primary-500) !important;
+    background: var(--swc-gray-50) !important;
+}
+
+/* Dropdown */
+.swc-admin nav .absolute {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-lg) !important;
+    box-shadow: var(--swc-shadow-lg) !important;
+    padding: 0.5rem !important;
+}
+
+.swc-admin nav .absolute button {
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+.swc-admin nav .absolute button[class*="bg-primary"] {
+    background: var(--swc-primary-50) !important;
+    color: var(--swc-primary-500) !important;
+}
+
+.swc-admin nav .absolute button:hover {
+    background: var(--swc-gray-50) !important;
+}
+
+
+/* ============================================
+   METRONIC LAYOUT OVERRIDES
+   ============================================ */
+
+/* Main layout shell */
+.swc-admin .min-h-screen {
+    background: #F5F8FA !important;
+}
+
+/* Sticky header bg */
+.swc-admin header.sticky {
+    background: rgba(245, 248, 250, 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Section headers */
+.swc-admin .flex.items-center.justify-between.gap-4.rounded-2xl {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+/* Page H1 titles */
+.swc-admin h1.text-2xl {
+    color: var(--swc-gray-900) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+    font-size: 1.375rem !important;
+}
+
+/* Sub-navigation tabs (edit agent inline tabs) */
+.swc-admin .flex.items-center.gap-1 button.inline-flex {
+    border-radius: var(--swc-radius-sm) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    padding: 0.375rem 0.75rem !important;
+}
+
+/* Active sub tab — Metronic style */
+.swc-admin .flex.items-center.gap-1 button.bg-slate-900,
+.swc-admin .flex.items-center.gap-1 button[class*="bg-slate-900"] {
+    background: var(--swc-primary-500) !important;
+    color: #ffffff !important;
+    box-shadow: var(--swc-shadow-primary) !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+
+/* ============================================
+   METRONIC CARDS
+   ============================================ */
+
+.swc-card {
+    background: #ffffff;
+    border: 1px solid var(--swc-gray-200);
+    border-radius: var(--swc-radius-xl);
+    box-shadow: var(--swc-shadow-xs);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+/* Remove gradient overlay */
+.swc-card::before {
+    display: none !important;
+}
+
+/* Metronic hover — subtle lift, no color change */
+.swc-card:hover,
+.swc-card--hover:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--swc-shadow-md) !important;
+    border-color: var(--swc-gray-200) !important;
+}
+
+.swc-card--hover:hover::before {
+    display: none !important;
+}
+
+/* Selected card */
+.swc-card--selected {
+    border-color: var(--swc-primary-500) !important;
+    background: linear-gradient(135deg, var(--swc-primary-50) 0%, #ffffff 100%) !important;
+    box-shadow: 0 0 0 1px var(--swc-primary-200), var(--swc-shadow-sm) !important;
+}
+
+/* Glass card → solid in Metronic */
+.swc-card--glass {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-card__title {
+    color: var(--swc-gray-900);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.swc-card__subtitle {
+    color: var(--swc-gray-500);
+}
+
+
+/* ============================================
+   METRONIC-STYLE AGENT CARDS
+   ============================================ */
+
+.swc-agent-name {
+    color: var(--swc-gray-900) !important;
+    font-weight: 600 !important;
+}
+
+.swc-agent-id {
+    background: var(--swc-gray-100) !important;
+    color: var(--swc-gray-600) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-sm) !important;
+    font-size: 0.6875rem !important;
+}
+
+.swc-agent-desc {
+    color: var(--swc-gray-500);
+}
+
+.swc-agent-footer {
+    border-top: 1px solid var(--swc-gray-100);
+}
+
+
+/* ============================================
+   METRONIC BUTTONS
+   ============================================ */
+
+.swc-btn {
+    border-radius: var(--swc-radius-md);
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
+    transition: all 0.15s ease;
+}
+
+/* Primary — solid blue, no gradient by default */
+.swc-btn--primary {
+    background: var(--swc-primary-500) !important;
+    border-color: var(--swc-primary-500) !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+.swc-btn--primary:hover:not(:disabled) {
+    background: var(--swc-primary-600) !important;
+    border-color: var(--swc-primary-600) !important;
+    transform: none !important;
+    box-shadow: var(--swc-shadow-primary) !important;
+}
+
+.swc-btn--primary:active:not(:disabled) {
+    background: var(--swc-primary-700) !important;
+    box-shadow: none !important;
+}
+
+/* Secondary — clean outline */
+.swc-btn--secondary {
+    background: #ffffff !important;
+    color: var(--swc-gray-700) !important;
+    border-color: var(--swc-gray-200) !important;
+    box-shadow: none !important;
+}
+
+.swc-btn--secondary:hover:not(:disabled) {
+    background: var(--swc-gray-50) !important;
+    border-color: var(--swc-gray-300) !important;
+    color: var(--swc-gray-900) !important;
+}
+
+/* Ghost */
+.swc-btn--ghost {
+    color: var(--swc-gray-600) !important;
+}
+
+.swc-btn--ghost:hover:not(:disabled) {
+    background: var(--swc-gray-100) !important;
+    color: var(--swc-gray-900) !important;
+}
+
+/* Danger */
+.swc-btn--danger {
+    background: var(--swc-error-500) !important;
+    border-color: var(--swc-error-500) !important;
+}
+
+.swc-btn--danger:hover:not(:disabled) {
+    background: var(--swc-error-600) !important;
+    box-shadow: var(--swc-shadow-error) !important;
+}
+
+/* Success */
+.swc-btn--success {
+    background: var(--swc-success-500) !important;
+    border-color: var(--swc-success-500) !important;
+}
+
+.swc-btn--success:hover:not(:disabled) {
+    background: var(--swc-success-600) !important;
+    box-shadow: var(--swc-shadow-success) !important;
+}
+
+
+/* ============================================
+   METRONIC BADGES
+   ============================================ */
+
+.swc-badge {
+    border-radius: var(--swc-radius-sm);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0;
+}
+
+.swc-badge--primary {
+    background: var(--swc-primary-50) !important;
+    color: var(--swc-primary-600) !important;
+}
+
+.swc-badge--success {
+    background: var(--swc-success-50) !important;
+    color: var(--swc-success-600) !important;
+}
+
+.swc-badge--error {
+    background: var(--swc-error-50) !important;
+    color: var(--swc-error-600) !important;
+}
+
+.swc-badge--warning {
+    background: var(--swc-warning-50) !important;
+    color: var(--swc-warning-600) !important;
+}
+
+.swc-badge--info {
+    background: #F0F0FF !important;
+    color: #5014D0 !important;
+}
+
+/* Status badges — Metronic compact */
+.smart-ai-chatbot-status {
+    border-radius: var(--swc-radius-sm) !important;
+    font-size: 0.6875rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.03em !important;
+}
+
+.smart-ai-chatbot-status.active {
+    background: var(--swc-success-50) !important;
+    color: var(--swc-success-600) !important;
+    border: 1px solid var(--swc-success-200) !important;
+}
+
+.smart-ai-chatbot-status.inactive {
+    background: var(--swc-gray-100) !important;
+    color: var(--swc-gray-600) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+}
+
+/* Toolkit badges */
+.swc-toolkit-badge {
+    background: var(--swc-primary-50) !important;
+    color: var(--swc-primary-600) !important;
+    border: 1px solid var(--swc-primary-100) !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+
+/* ============================================
+   METRONIC FORM CONTROLS
+   ============================================ */
+
+.swc-input,
+.swc-textarea {
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+    background: var(--swc-gray-50) !important;
+    padding: 0.625rem 0.875rem !important;
+    font-size: 0.875rem !important;
+    color: var(--swc-gray-900) !important;
+    box-shadow: none !important;
+    transition: all 0.15s ease !important;
+}
+
+.swc-input:hover:not(:disabled):not(:focus),
+.swc-textarea:hover:not(:disabled):not(:focus) {
+    border-color: var(--swc-gray-300) !important;
+    background: #ffffff !important;
+}
+
+.swc-input:focus,
+.swc-textarea:focus {
+    border-color: var(--swc-primary-500) !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(27, 132, 255, 0.15) !important;
+    outline: none !important;
+}
+
+.swc-input::placeholder,
+.swc-textarea::placeholder {
+    color: var(--swc-gray-400) !important;
+}
+
+/* Metronic-style labels */
+.swc-label {
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    color: var(--swc-gray-700) !important;
+    margin-bottom: 0.375rem !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+/* Select */
+.swc-select,
+select.swc-input {
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+    background-color: var(--swc-gray-50) !important;
+}
+
+/* WordPress Control Overrides */
+.swc-agent-editor .components-text-control__input,
+.swc-agent-editor .components-textarea-control__input,
+.swc-container .components-text-control__input,
+.swc-container .components-textarea-control__input,
+.swc-settings-content .components-text-control__input,
+.swc-settings-content .components-textarea-control__input {
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+    background: var(--swc-gray-50) !important;
+    padding: 0.625rem 0.875rem !important;
+    font-size: 0.875rem !important;
+    color: var(--swc-gray-900) !important;
+    box-shadow: none !important;
+    transition: all 0.15s ease !important;
+}
+
+.swc-agent-editor .components-text-control__input:hover,
+.swc-agent-editor .components-textarea-control__input:hover,
+.swc-container .components-text-control__input:hover,
+.swc-container .components-textarea-control__input:hover {
+    border-color: var(--swc-gray-300) !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.swc-agent-editor .components-text-control__input:focus,
+.swc-agent-editor .components-textarea-control__input:focus,
+.swc-container .components-text-control__input:focus,
+.swc-container .components-textarea-control__input:focus {
+    border-color: var(--swc-primary-500) !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(27, 132, 255, 0.15) !important;
+    outline: none !important;
+}
+
+/* Labels — Metronic-style (not uppercase) */
+.swc-agent-editor .swc-form-group>label,
+.swc-agent-editor .components-base-control__label,
+.swc-container .components-base-control__label,
+.swc-settings-content .components-base-control__label {
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    color: var(--swc-gray-700) !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    margin-bottom: 0.375rem !important;
+}
+
+/* Select controls */
+.swc-container .components-select-control__input,
+.swc-settings-content .components-select-control__input {
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+    background: var(--swc-gray-50) !important;
+    font-size: 0.875rem !important;
+    box-shadow: none !important;
+    min-height: 40px !important;
+}
+
+/* Toggle switches — Metronic style */
+.swc-agent-editor .components-form-toggle .components-form-toggle__track,
+.swc-container .components-form-toggle .components-form-toggle__track,
+.swc-settings-content .components-form-toggle .components-form-toggle__track {
+    background: var(--swc-gray-200) !important;
+    border-radius: 12px !important;
+    width: 40px !important;
+    height: 22px !important;
+}
+
+.swc-agent-editor .components-form-toggle.is-checked .components-form-toggle__track,
+.swc-container .components-form-toggle.is-checked .components-form-toggle__track,
+.swc-settings-content .components-form-toggle.is-checked .components-form-toggle__track {
+    background: var(--swc-primary-500) !important;
+    box-shadow: none !important;
+}
+
+.swc-agent-editor .components-form-toggle .components-form-toggle__thumb,
+.swc-container .components-form-toggle .components-form-toggle__thumb,
+.swc-settings-content .components-form-toggle .components-form-toggle__thumb {
+    width: 18px !important;
+    height: 18px !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+.swc-agent-editor .components-form-toggle.is-checked .components-form-toggle__thumb,
+.swc-container .components-form-toggle.is-checked .components-form-toggle__thumb,
+.swc-settings-content .components-form-toggle.is-checked .components-form-toggle__thumb {
+    transform: translateX(18px) !important;
+}
+
+
+/* ============================================
+   METRONIC TAB PANELS
+   ============================================ */
+
+/* Agent editor tab panels */
+.swc-agent-tabs .components-tab-panel__tabs {
+    background: var(--swc-gray-50) !important;
+    border-radius: var(--swc-radius-md) !important;
+    padding: 0.25rem !important;
+    box-shadow: none !important;
+    border: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-agent-tabs .components-tab-panel__tabs-item {
+    color: var(--swc-gray-500) !important;
+    border-radius: var(--swc-radius-sm) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 0.75rem !important;
+}
+
+.swc-agent-tabs .components-tab-panel__tabs-item:hover {
+    color: var(--swc-gray-700) !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.swc-agent-tabs .components-tab-panel__tabs-item.is-active {
+    background: #ffffff !important;
+    color: var(--swc-primary-500) !important;
+    font-weight: 600 !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+/* Custom swc-tabs */
+.swc-tabs {
+    background: var(--swc-gray-50) !important;
+    border-radius: var(--swc-radius-md) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    box-shadow: none !important;
+    padding: 0.25rem !important;
+}
+
+.swc-tab {
+    border-radius: var(--swc-radius-sm) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    color: var(--swc-gray-500) !important;
+}
+
+.swc-tab:hover {
+    color: var(--swc-gray-700) !important;
+}
+
+.swc-tab--active {
+    background: #ffffff !important;
+    color: var(--swc-primary-500) !important;
+    font-weight: 600 !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+/* Knowledge page tabs */
+.swc-knowledge-tabs .components-tab-panel__tabs,
+.knowledge-tabs .components-tab-panel__tabs {
+    border-bottom: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-knowledge-tabs .components-tab-panel__tabs button,
+.knowledge-tabs .components-tab-panel__tabs button {
+    color: var(--swc-gray-500) !important;
+    font-weight: 500 !important;
+    font-size: 0.8125rem !important;
+}
+
+.swc-knowledge-tabs .components-tab-panel__tabs button.is-active,
+.knowledge-tabs .components-tab-panel__tabs button.is-active {
+    color: var(--swc-primary-500) !important;
+    box-shadow: inset 0 -2px 0 var(--swc-primary-500) !important;
+}
+
+
+/* ============================================
+   METRONIC MODALS  
+   ============================================ */
+
+.swc-modal-overlay {
+    background: rgba(7, 20, 55, 0.5) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+.swc-modal {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+    box-shadow: var(--swc-shadow-2xl) !important;
+}
+
+.swc-modal__header {
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--swc-gray-200) !important;
+    padding: 1.25rem 1.5rem !important;
+}
+
+.swc-modal__title {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    color: var(--swc-gray-900) !important;
+    letter-spacing: -0.01em !important;
+}
+
+.swc-modal__subtitle {
+    color: var(--swc-gray-500) !important;
+    font-size: 0.8125rem !important;
+}
+
+.swc-modal__content {
+    padding: 1.5rem !important;
+}
+
+.swc-modal__footer {
+    background: var(--swc-gray-50) !important;
+    border-top: 1px solid var(--swc-gray-200) !important;
+    padding: 1rem 1.5rem !important;
+}
+
+/* WordPress Modals */
+.components-modal__screen-overlay {
+    background: rgba(7, 20, 55, 0.5) !important;
+}
+
+.components-modal__frame {
+    border-radius: var(--swc-radius-xl) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    box-shadow: var(--swc-shadow-2xl) !important;
+}
+
+.components-modal__header {
+    border-bottom: 1px solid var(--swc-gray-200) !important;
+}
+
+.components-modal__header .components-modal__header-heading {
+    font-weight: 600 !important;
+    color: var(--swc-gray-900) !important;
+}
+
+
+/* ============================================
+   METRONIC STATS BAR
+   ============================================ */
+
+.swc-inline-stats-bar {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-lg) !important;
+}
+
+.swc-inline-stat {
+    background: var(--swc-gray-50) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+.swc-inline-stat:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    background: var(--swc-gray-100) !important;
+}
+
+
+/* ============================================
+   METRONIC TOOLKIT ITEMS
+   ============================================ */
+
+.swc-toolkit-header {
+    background: #ffffff !important;
+}
+
+.swc-toolkit-item.enabled .swc-toolkit-header {
+    background: linear-gradient(to right, var(--swc-success-50), #ffffff) !important;
+}
+
+.swc-toolkit-icon {
+    background: var(--swc-gray-50) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-toolkit-count {
+    background: var(--swc-primary-50) !important;
+    color: var(--swc-primary-600) !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+.swc-toolkit-settings {
+    background: var(--swc-primary-50) !important;
+    border-top: 1px solid var(--swc-primary-100) !important;
+}
+
+.swc-toolkit-tools {
+    background: var(--swc-gray-50) !important;
+    border-top: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-tool-item {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-tool-item:hover {
+    border-color: var(--swc-primary-200) !important;
+    box-shadow: var(--swc-shadow-sm) !important;
+    transform: none !important;
+}
+
+
+/* ============================================
+   METRONIC EMPTY STATES
+   ============================================ */
+
+.swc-empty,
+.swc-knowledge-empty,
+.knowledge-empty {
+    background: #ffffff !important;
+    border: 2px dashed var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+    backdrop-filter: none !important;
+}
+
+.swc-empty::before {
+    display: none !important;
+}
+
+.swc-empty:hover {
+    border-color: var(--swc-primary-200) !important;
+    box-shadow: none !important;
+}
+
+.swc-empty__icon {
+    animation: none !important;
+    filter: none !important;
+    opacity: 0.6 !important;
+}
+
+
+/* ============================================
+   METRONIC MODULE CARDS
+   ============================================ */
+
+.swc-module-card {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+}
+
+.swc-module-card:hover {
+    box-shadow: var(--swc-shadow-md) !important;
+    transform: none !important;
+}
+
+.swc-module-card.swc-module--active {
+    border-color: var(--swc-success-500) !important;
+    background: linear-gradient(135deg, #ffffff, var(--swc-success-50)) !important;
+    box-shadow: 0 0 0 1px var(--swc-success-500) !important;
+}
+
+
+/* ============================================
+   METRONIC KNOWLEDGE SOURCE CARDS
+   ============================================ */
+
+.swc-knowledge-source-card,
+.knowledge-source-card {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+}
+
+.swc-knowledge-source-card:hover,
+.knowledge-source-card:hover {
+    box-shadow: var(--swc-shadow-md) !important;
+    transform: none !important;
+    border-color: var(--swc-gray-300) !important;
+}
+
+
+/* ============================================
+   METRONIC AVATAR PICKER
+   ============================================ */
+
+.swc-avatar-picker {
+    background: var(--swc-gray-50) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-lg) !important;
+}
+
+.swc-avatar-option {
+    border: 2px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+}
+
+.swc-avatar-option::before {
+    display: none !important;
+}
+
+.swc-avatar-option:hover {
+    border-color: var(--swc-primary-300) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--swc-shadow-sm) !important;
+}
+
+.swc-avatar-option.selected {
+    border-color: var(--swc-primary-500) !important;
+    background: var(--swc-primary-50) !important;
+    box-shadow: 0 0 0 3px rgba(27, 132, 255, 0.15) !important;
+    transform: translateY(-1px) !important;
+}
+
+
+/* ============================================
+   METRONIC SKILL EDITOR & TREE
+   ============================================ */
+
+.swc-skill-editor {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+}
+
+.swc-skill-tree {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    border: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-tree-node:hover {
+    background: var(--swc-primary-50) !important;
+}
+
+.swc-tree-node--selected {
+    background: var(--swc-primary-100) !important;
+    color: var(--swc-primary-700) !important;
+}
+
+
+/* ============================================
+   METRONIC SKILL FILTERS
+   ============================================ */
+
+.swc-skill-filters {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    border: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-filter-toggle--active {
+    background: var(--swc-primary-500) !important;
+    border-color: var(--swc-primary-500) !important;
+    box-shadow: none !important;
+}
+
+.swc-filter-toggle--active:hover {
+    background: var(--swc-primary-600) !important;
+}
+
+
+/* ============================================
+   METRONIC CHECKBOX LABELS
+   ============================================ */
+
+.swc-checkbox-label {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-checkbox-label:hover {
+    border-color: var(--swc-primary-300) !important;
+    background: var(--swc-primary-50) !important;
+}
+
+
+/* ============================================
+   METRONIC SEARCH RESULTS
+   ============================================ */
+
+.swc-result-item,
+.result-item {
+    background: var(--swc-gray-50) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-result-item:hover,
+.result-item:hover {
+    background: #ffffff !important;
+    border-color: var(--swc-gray-300) !important;
+}
+
+.swc-result-score,
+.result-score {
+    background: var(--swc-success-50) !important;
+    color: var(--swc-success-600) !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+
+/* ============================================
+   METRONIC CHAT PREVIEW
+   ============================================ */
+
+.swc-chat-preview {
+    background: var(--swc-gray-50) !important;
+    border-radius: var(--swc-radius-lg) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+}
+
+/* Header — clean white, no gradient */
+.swc-chat-preview__header {
+    background: #ffffff !important;
+    color: var(--swc-gray-900) !important;
+    border-bottom: 1px solid var(--swc-gray-200) !important;
+    padding: 14px 16px !important;
+}
+
+.swc-chat-preview__avatar {
+    background: var(--swc-primary-50) !important;
+    border: 1px solid var(--swc-primary-100) !important;
+}
+
+.swc-chat-preview__agent-name {
+    color: var(--swc-gray-900) !important;
+    font-weight: 600 !important;
+}
+
+.swc-chat-preview__status {
+    color: var(--swc-gray-500) !important;
+    opacity: 1 !important;
+}
+
+.swc-chat-preview__status-dot {
+    background: var(--swc-success-500) !important;
+    box-shadow: 0 0 4px rgba(23, 198, 83, 0.5) !important;
+}
+
+/* Message bubbles */
+.swc-chat-preview__message--user {
+    background: var(--swc-primary-500) !important;
+    border-radius: var(--swc-radius-lg) !important;
+    border-bottom-right-radius: var(--swc-radius-sm) !important;
+}
+
+.swc-chat-preview__message--bot {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-lg) !important;
+    border-bottom-left-radius: var(--swc-radius-sm) !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+/* Bot avatar in message group */
+.swc-chat-preview__msg-avatar {
+    background: var(--swc-gray-50) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+}
+
+/* Timestamps */
+.swc-chat-preview__timestamp {
+    color: var(--swc-gray-400) !important;
+}
+
+/* Typing indicator */
+.swc-chat-preview__typing {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+.swc-chat-preview__typing-dot {
+    background: var(--swc-gray-400) !important;
+}
+
+/* Input area */
+.swc-chat-preview__input {
+    background: #ffffff !important;
+    border-top: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-chat-preview__input input,
+.swc-chat-preview__input-field input {
+    border: 1px solid var(--swc-gray-200) !important;
+    background: var(--swc-gray-50) !important;
+}
+
+.swc-chat-preview__input input:focus,
+.swc-chat-preview__input-field input:focus {
+    border-color: var(--swc-primary-500) !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(27, 132, 255, 0.15) !important;
+}
+
+/* Send button — Metronic squared style */
+.swc-chat-preview__send-btn,
+.swc-chat-preview__input button {
+    background: var(--swc-primary-500) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-chat-preview__send-btn:hover,
+.swc-chat-preview__input button:hover {
+    background: var(--swc-primary-600) !important;
+    transform: none !important;
+    box-shadow: var(--swc-shadow-primary) !important;
+}
+
+/* Agent info panel */
+.swc-chat-preview__agent-panel {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-lg) !important;
+}
+
+.swc-chat-preview__agent-panel-avatar {
+    background: var(--swc-gray-50) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-chat-preview__agent-panel-name {
+    color: var(--swc-gray-900) !important;
+}
+
+.swc-chat-preview__agent-panel-id {
+    color: var(--swc-gray-500) !important;
+}
+
+
+
+/* ============================================
+   METRONIC NOTICE / NOTIFICATION 
+   ============================================ */
+
+.swc-admin .components-notice {
+    border-radius: var(--swc-radius-md) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    box-shadow: var(--swc-shadow-sm) !important;
+}
+
+
+/* ============================================
+   METRONIC PAGE HEADER STYLES
+   ============================================ */
+
+.swc-page__header {
+    border-bottom: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-page__header::after {
+    display: none !important;
+}
+
+.swc-page__header h1 {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: var(--swc-gray-900) !important;
+    color: var(--swc-gray-900) !important;
+}
+
+
+/* ============================================
+   METRONIC KNOWLEDGE STATS GRADIENT BAR
+   ============================================ */
+
+.swc-knowledge-stats,
+.knowledge-stats {
+    background: linear-gradient(135deg, var(--swc-primary-500) 0%, #5014D0 100%) !important;
+    border-radius: var(--swc-radius-xl) !important;
+    box-shadow: var(--swc-shadow-md) !important;
+}
+
+
+/* ============================================
+   METRONIC LOADING STATE
+   ============================================ */
+
+.swc-admin.swc-loading {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+}
+
+
+/* ============================================
+   METRONIC SCROLLBAR STYLING
+   ============================================ */
+
+.swc-admin ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.swc-admin ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.swc-admin ::-webkit-scrollbar-thumb {
+    background: var(--swc-gray-300);
+    border-radius: 3px;
+}
+
+.swc-admin ::-webkit-scrollbar-thumb:hover {
+    background: var(--swc-gray-400);
+}
+
+
+/* ============================================
+   METRONIC ANIMATIONS (Subtle/Minimal)
+   ============================================ */
+
+@keyframes swc-fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes swc-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Disable floating/bounce animations (not Metronic style) */
+@keyframes swc-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes swc-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================
+   METRONIC RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .swc-admin nav.flex {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+
+    .swc-admin nav button.inline-flex {
+        font-size: 0.75rem !important;
+        padding: 0.375rem 0.5rem !important;
+    }
+}
+
+
+/* ============================================
+   METRONIC SETTINGS SECTION ICONS
+   ============================================ */
+
+.swc-settings-section__icon {
+    background: linear-gradient(135deg, #1B84FF 0%, #2196F3 100%) !important;
+    box-shadow: 0 2px 8px rgba(27, 132, 255, 0.25) !important;
+    border-radius: var(--swc-radius-lg) !important;
+}
+
+.swc-settings-section__icon::before {
+    display: none !important;
+}
+
+.swc-settings-section:hover .swc-settings-section__icon {
+    transform: none !important;
+    box-shadow: 0 4px 12px rgba(27, 132, 255, 0.30) !important;
+}
+
+.swc-settings-section__header {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.swc-settings-section {
+    background: #ffffff !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+    border-radius: var(--swc-radius-xl) !important;
+}
+
+.swc-settings-section:hover {
+    box-shadow: var(--swc-shadow-sm) !important;
+}
+
+
+/* ============================================
+   METRONIC SETTINGS NAVIGATION
+   ============================================ */
+
+.swc-settings-nav {
+    background: var(--swc-gray-50) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-settings-nav__item--active {
+    color: var(--swc-primary-500) !important;
+    background: #ffffff !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+
+/* ============================================
+   METRONIC APPEARANCE / TEMPLATE CARDS
+   ============================================ */
+
+.swc-template-card {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+}
+
+.swc-template-card:hover {
+    border-color: var(--swc-primary-300) !important;
+    box-shadow: var(--swc-shadow-md) !important;
+    transform: translateY(-2px) !important;
+}
+
+.swc-template-card.active {
+    border-color: var(--swc-primary-500) !important;
+    box-shadow: 0 0 0 2px var(--swc-primary-100), var(--swc-shadow-md) !important;
+}
+
+.swc-category-btn.active {
+    background: var(--swc-primary-500) !important;
+    border-color: var(--swc-primary-500) !important;
+    box-shadow: var(--swc-shadow-primary) !important;
+}
+
+.swc-template-actions {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+.swc-template-active-badge {
+    background: var(--swc-success-500) !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+
+/* ============================================
+   METRONIC VIEW TOGGLE
+   ============================================ */
+
+.swc-view-toggle {
+    background: var(--swc-gray-50) !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-view-toggle .swc-btn--active {
+    background: #ffffff !important;
+    color: var(--swc-primary-500) !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+
+/* ============================================
+   METRONIC ANALYTICS PAGE
+   ============================================ */
+
+.swc-analytics-card {
+    background: #ffffff !important;
+    border: 1px solid var(--swc-gray-200) !important;
+    border-radius: var(--swc-radius-xl) !important;
+}
+
+.swc-analytics-card:hover {
+    box-shadow: var(--swc-shadow-sm) !important;
+    transform: none !important;
+}
+
+
+/* ============================================
+   METRONIC DANGER ZONE
+   ============================================ */
+
+.swc-danger-zone {
+    border-color: var(--swc-error-500) !important;
+}
+
+.swc-danger-zone .swc-settings-section__icon {
+    background: var(--swc-error-500) !important;
+    box-shadow: 0 2px 8px rgba(248, 40, 90, 0.25) !important;
+}
+
+.swc-danger-zone .swc-settings-section__header {
+    background: var(--swc-error-50) !important;
+}
+
+
+/* ============================================
+   METRONIC TAILWIND COLOR OVERRIDES
+   Clean up Tailwind utility colors to Metronic palette
+   ============================================ */
+
+/* Override tailwind bg-primary */
+.swc-admin .bg-primary {
+    background-color: var(--swc-primary-500) !important;
+}
+
+/* Override tailwind text-primary */
+.swc-admin .text-primary {
+    color: var(--swc-primary-500) !important;
+}
+
+/* Consistent focus ring across Tailwind */
+.swc-admin .ring-primary {
+    --tw-ring-color: var(--swc-primary-500) !important;
+}
+
+/* Override slate colors for Metronic gray */
+.swc-admin .bg-slate-50 {
+    background-color: var(--swc-gray-50) !important;
+}
+
+.swc-admin .bg-slate-100 {
+    background-color: var(--swc-gray-100) !important;
+}
+
+.swc-admin .border-slate-200 {
+    border-color: var(--swc-gray-200) !important;
+}
+
+.swc-admin .text-slate-500 {
+    color: var(--swc-gray-500) !important;
+}
+
+.swc-admin .text-slate-600 {
+    color: var(--swc-gray-600) !important;
+}
+
+.swc-admin .text-slate-700 {
+    color: var(--swc-gray-700) !important;
+}
+
+.swc-admin .text-slate-900 {
+    color: var(--swc-gray-900) !important;
+}

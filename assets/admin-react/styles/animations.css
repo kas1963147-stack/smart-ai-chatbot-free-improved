@@ -1,0 +1,793 @@
+/**
+ * Smart WooCommerce Chatbot - Animations
+ * 
+ * Micro-interactions and animation utilities.
+ * 
+ * @version 2.0.0
+ * @package SWC
+ */
+
+/* ============================================
+   BASE ANIMATIONS
+   ============================================ */
+
+/* Fade In */
+@keyframes swc-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Up */
+@keyframes swc-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Down */
+@keyframes swc-fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Scale */
+@keyframes swc-fade-in-scale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Slide In Right */
+@keyframes swc-slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide In Left */
+@keyframes swc-slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Bounce In */
+@keyframes swc-bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Spin */
+@keyframes swc-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulse */
+@keyframes swc-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Ping */
+@keyframes swc-ping {
+
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Shake */
+@keyframes swc-shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-4px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+/* Wiggle */
+@keyframes swc-wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-3deg);
+    }
+
+    75% {
+        transform: rotate(3deg);
+    }
+}
+
+/* ============================================
+   ANIMATION UTILITY CLASSES
+   ============================================ */
+
+.swc-animate-in {
+    animation: swc-fade-in-up 300ms var(--swc-ease-out) forwards;
+}
+
+.swc-animate-fade-in {
+    animation: swc-fade-in 200ms var(--swc-ease-out) forwards;
+}
+
+.swc-animate-fade-in-up {
+    animation: swc-fade-in-up 300ms var(--swc-ease-out) forwards;
+}
+
+.swc-animate-fade-in-down {
+    animation: swc-fade-in-down 300ms var(--swc-ease-out) forwards;
+}
+
+.swc-animate-fade-in-scale {
+    animation: swc-fade-in-scale 200ms var(--swc-ease-out) forwards;
+}
+
+.swc-animate-slide-in-right {
+    animation: swc-slide-in-right 300ms var(--swc-ease-out) forwards;
+}
+
+.swc-animate-slide-in-left {
+    animation: swc-slide-in-left 300ms var(--swc-ease-out) forwards;
+}
+
+.swc-animate-bounce-in {
+    animation: swc-bounce-in 500ms var(--swc-ease-out) forwards;
+}
+
+.swc-animate-spin {
+    animation: swc-spin 1s linear infinite;
+}
+
+.swc-animate-pulse {
+    animation: swc-pulse 2s ease-in-out infinite;
+}
+
+.swc-animate-ping {
+    animation: swc-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.swc-animate-shake {
+    animation: swc-shake 500ms ease-in-out;
+}
+
+.swc-animate-wiggle {
+    animation: swc-wiggle 200ms ease-in-out;
+}
+
+/* ============================================
+   STAGGERED ANIMATIONS
+   ============================================ */
+
+.swc-stagger>* {
+    opacity: 0;
+    animation: swc-fade-in-up 300ms var(--swc-ease-out) forwards;
+}
+
+.swc-stagger>*:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.swc-stagger>*:nth-child(2) {
+    animation-delay: 50ms;
+}
+
+.swc-stagger>*:nth-child(3) {
+    animation-delay: 100ms;
+}
+
+.swc-stagger>*:nth-child(4) {
+    animation-delay: 150ms;
+}
+
+.swc-stagger>*:nth-child(5) {
+    animation-delay: 200ms;
+}
+
+.swc-stagger>*:nth-child(6) {
+    animation-delay: 250ms;
+}
+
+.swc-stagger>*:nth-child(7) {
+    animation-delay: 300ms;
+}
+
+.swc-stagger>*:nth-child(8) {
+    animation-delay: 350ms;
+}
+
+.swc-stagger>*:nth-child(9) {
+    animation-delay: 400ms;
+}
+
+.swc-stagger>*:nth-child(10) {
+    animation-delay: 450ms;
+}
+
+.swc-stagger>*:nth-child(11) {
+    animation-delay: 500ms;
+}
+
+.swc-stagger>*:nth-child(12) {
+    animation-delay: 550ms;
+}
+
+/* Faster stagger */
+.swc-stagger-fast>* {
+    opacity: 0;
+    animation: swc-fade-in-up 200ms var(--swc-ease-out) forwards;
+}
+
+.swc-stagger-fast>*:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.swc-stagger-fast>*:nth-child(2) {
+    animation-delay: 30ms;
+}
+
+.swc-stagger-fast>*:nth-child(3) {
+    animation-delay: 60ms;
+}
+
+.swc-stagger-fast>*:nth-child(4) {
+    animation-delay: 90ms;
+}
+
+.swc-stagger-fast>*:nth-child(5) {
+    animation-delay: 120ms;
+}
+
+.swc-stagger-fast>*:nth-child(6) {
+    animation-delay: 150ms;
+}
+
+.swc-stagger-fast>*:nth-child(7) {
+    animation-delay: 180ms;
+}
+
+.swc-stagger-fast>*:nth-child(8) {
+    animation-delay: 210ms;
+}
+
+/* ============================================
+   HOVER & INTERACTION EFFECTS
+   ============================================ */
+
+/* Lift on hover */
+.swc-hover-lift {
+    transition: var(--swc-transition-fast);
+}
+
+.swc-hover-lift:hover {
+    transform: translateY(-2px);
+}
+
+/* Scale on hover */
+.swc-hover-scale {
+    transition: var(--swc-transition-fast);
+}
+
+.swc-hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* Glow on hover */
+.swc-hover-glow {
+    transition: var(--swc-transition-fast);
+}
+
+.swc-hover-glow:hover {
+    box-shadow: var(--swc-glow-primary);
+}
+
+/* Brighten on hover */
+.swc-hover-brighten {
+    transition: var(--swc-transition-fast);
+}
+
+.swc-hover-brighten:hover {
+    filter: brightness(1.05);
+}
+
+/* Button press effect */
+.swc-press:active {
+    transform: scale(0.98);
+}
+
+/* ============================================
+   TRANSITION UTILITIES
+   ============================================ */
+
+.swc-transition-none {
+    transition: none;
+}
+
+.swc-transition-all {
+    transition: var(--swc-transition-normal);
+}
+
+.swc-transition-fast {
+    transition: var(--swc-transition-fast);
+}
+
+.swc-transition-slow {
+    transition: var(--swc-transition-slow);
+}
+
+.swc-transition-colors {
+    transition: var(--swc-transition-colors);
+}
+
+.swc-transition-transform {
+    transition: var(--swc-transition-transform);
+}
+
+.swc-transition-shadow {
+    transition: var(--swc-transition-shadow);
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+
+.swc-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--swc-gray-200);
+    border-top-color: var(--swc-primary);
+    border-radius: 50%;
+    animation: swc-spin 0.8s linear infinite;
+}
+
+.swc-spinner--sm {
+    width: 14px;
+    height: 14px;
+    border-width: 1.5px;
+}
+
+.swc-spinner--lg {
+    width: 32px;
+    height: 32px;
+    border-width: 3px;
+}
+
+.swc-spinner--white {
+    border-color: rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+
+.swc-progress {
+    width: 100%;
+    height: 8px;
+    background: var(--swc-gray-200);
+    border-radius: var(--swc-radius-full);
+    overflow: hidden;
+}
+
+.swc-progress__bar {
+    height: 100%;
+    background: var(--swc-gradient-primary);
+    border-radius: var(--swc-radius-full);
+    transition: width 300ms var(--swc-ease-out);
+}
+
+.swc-progress--animated .swc-progress__bar {
+    background: linear-gradient(90deg,
+            var(--swc-primary-500) 0%,
+            var(--swc-primary-400) 50%,
+            var(--swc-primary-500) 100%);
+    background-size: 200% 100%;
+    animation: swc-progress-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes swc-progress-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.swc-progress--indeterminate .swc-progress__bar {
+    width: 30% !important;
+    animation: swc-progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes swc-progress-indeterminate {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(400%);
+    }
+}
+
+/* ============================================
+   COUNT BADGE ANIMATION
+   ============================================ */
+
+.swc-count-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    font-size: var(--swc-text-xs);
+    font-weight: var(--swc-font-semibold);
+    color: white;
+    background: var(--swc-error-500);
+    border-radius: var(--swc-radius-full);
+    animation: swc-bounce-in 300ms var(--swc-ease-out);
+}
+
+.swc-count-badge--primary {
+    background: var(--swc-primary);
+}
+
+.swc-count-badge--pulse {
+    animation: swc-pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   PAGE TRANSITIONS (FOR SPA-LIKE FEEL)
+   ============================================ */
+
+.swc-page-enter {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.swc-page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms var(--swc-ease-out),
+        transform 200ms var(--swc-ease-out);
+}
+
+.swc-page-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.swc-page-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 150ms var(--swc-ease-in),
+        transform 150ms var(--swc-ease-in);
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .swc-stagger>*,
+    .swc-stagger-fast>* {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   TOAST NOTIFICATIONS
+   ============================================ */
+
+.swc-toast-container {
+    position: fixed;
+    top: 48px;
+    right: var(--swc-space-6);
+    z-index: var(--swc-z-toast);
+    display: flex;
+    flex-direction: column;
+    gap: var(--swc-space-3);
+    max-width: 400px;
+    pointer-events: none;
+}
+
+.swc-toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--swc-space-3);
+    padding: var(--swc-space-4);
+    background: var(--swc-glass-bg-heavy);
+    backdrop-filter: var(--swc-glass-blur);
+    -webkit-backdrop-filter: var(--swc-glass-blur);
+    border: 1px solid var(--swc-gray-200);
+    border-radius: var(--swc-radius-xl);
+    box-shadow: var(--swc-shadow-xl);
+    pointer-events: auto;
+    animation: swc-toast-in 300ms var(--swc-ease-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.swc-toast--exiting {
+    animation: swc-toast-out 300ms var(--swc-ease-in) forwards;
+}
+
+@keyframes swc-toast-in {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes swc-toast-out {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+.swc-toast__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--swc-radius-full);
+    font-size: var(--swc-text-sm);
+    font-weight: var(--swc-font-bold);
+    flex-shrink: 0;
+}
+
+.swc-toast--success .swc-toast__icon {
+    background: var(--swc-success-100);
+    color: var(--swc-success-700);
+}
+
+.swc-toast--error .swc-toast__icon {
+    background: var(--swc-error-100);
+    color: var(--swc-error-700);
+}
+
+.swc-toast--warning .swc-toast__icon {
+    background: var(--swc-warning-100);
+    color: var(--swc-warning-700);
+}
+
+.swc-toast--info .swc-toast__icon {
+    background: var(--swc-info-100);
+    color: var(--swc-info-700);
+}
+
+.swc-toast__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.swc-toast__title {
+    font-size: var(--swc-text-sm);
+    font-weight: var(--swc-font-semibold);
+    color: var(--swc-gray-900);
+    margin-bottom: var(--swc-space-0_5);
+}
+
+.swc-toast__message {
+    font-size: var(--swc-text-sm);
+    color: var(--swc-gray-600);
+    line-height: var(--swc-leading-relaxed);
+}
+
+.swc-toast__dismiss {
+    padding: var(--swc-space-1);
+    background: none;
+    border: none;
+    color: var(--swc-gray-400);
+    cursor: pointer;
+    border-radius: var(--swc-radius-sm);
+    transition: var(--swc-transition-fast);
+}
+
+.swc-toast__dismiss:hover {
+    color: var(--swc-gray-600);
+    background: var(--swc-gray-100);
+}
+
+.swc-toast__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--swc-primary);
+    animation: swc-toast-progress linear forwards;
+}
+
+.swc-toast--success .swc-toast__progress {
+    background: var(--swc-success-500);
+}
+
+.swc-toast--error .swc-toast__progress {
+    background: var(--swc-error-500);
+}
+
+.swc-toast--warning .swc-toast__progress {
+    background: var(--swc-warning-500);
+}
+
+@keyframes swc-toast-progress {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+/* ============================================
+   ENHANCED TOOLTIPS
+   ============================================ */
+
+.swc-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.swc-tooltip__content {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    padding: var(--swc-space-2) var(--swc-space-3);
+    background: var(--swc-gray-900);
+    color: white;
+    font-size: var(--swc-text-xs);
+    font-weight: var(--swc-font-medium);
+    border-radius: var(--swc-radius-md);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 150ms var(--swc-ease-out);
+    z-index: var(--swc-z-tooltip);
+    box-shadow: var(--swc-shadow-lg);
+}
+
+.swc-tooltip__content::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--swc-gray-900);
+}
+
+.swc-tooltip:hover .swc-tooltip__content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-4px);
+}
+
+/* Tooltip positions */
+.swc-tooltip--right .swc-tooltip__content {
+    bottom: auto;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+}
+
+.swc-tooltip--right .swc-tooltip__content::after {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) translateX(-10px);
+    border: 5px solid transparent;
+    border-right-color: var(--swc-gray-900);
+}
+
+.swc-tooltip--right:hover .swc-tooltip__content {
+    transform: translateY(-50%) translateX(4px);
+}

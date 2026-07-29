@@ -1,0 +1,139 @@
+.swc-initial-loader {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        min-height: 400px;
+                        gap: 20px;
+                        animation: swcInitFadein .4s ease;
+                    }
+
+                    .swc-initial-loader__spinner {
+                        position: relative;
+                        width: 72px;
+                        height: 72px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .swc-initial-loader__orbit {
+                        animation: swcInitSpin 1.2s cubic-bezier(.5, 0, .5, 1) infinite;
+                    }
+
+                    .swc-initial-loader__core {
+                        position: absolute;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        background: var(--wp-admin-theme-color, #3b82f6);
+                        opacity: .25;
+                        animation: swcInitPulse 1.6s ease-in-out infinite;
+                    }
+
+                    .swc-initial-loader__particle {
+                        position: absolute;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background: var(--wp-admin-theme-color, #3b82f6);
+                        opacity: 0;
+                        animation: swcInitFloat 2.4s ease-in-out infinite;
+                    }
+
+                    .swc-initial-loader__particle--1 {
+                        top: 0;
+                        left: 50%;
+                        animation-delay: 0s;
+                    }
+
+                    .swc-initial-loader__particle--2 {
+                        bottom: 15%;
+                        right: 5%;
+                        animation-delay: .8s;
+                    }
+
+                    .swc-initial-loader__particle--3 {
+                        bottom: 15%;
+                        left: 5%;
+                        animation-delay: 1.6s;
+                    }
+
+                    .swc-initial-loader__text {
+                        margin: 0;
+                        font-size: 14px;
+                        font-weight: 500;
+                        letter-spacing: .01em;
+                        background: linear-gradient(90deg, #64748b 0%, #94a3b8 40%, #64748b 80%);
+                        background-size: 200% 100%;
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        animation: swcInitShimmer 2.5s ease-in-out infinite;
+                    }
+
+                    @keyframes swcInitSpin {
+                        from {
+                            transform: rotate(0deg)
+                        }
+
+                        to {
+                            transform: rotate(360deg)
+                        }
+                    }
+
+                    @keyframes swcInitPulse {
+
+                        0%,
+                        100% {
+                            transform: scale(.6);
+                            opacity: .15
+                        }
+
+                        50% {
+                            transform: scale(1);
+                            opacity: .35
+                        }
+                    }
+
+                    @keyframes swcInitFloat {
+                        0% {
+                            opacity: 0;
+                            transform: translateY(0) scale(.5)
+                        }
+
+                        30% {
+                            opacity: .8
+                        }
+
+                        70% {
+                            opacity: .6
+                        }
+
+                        100% {
+                            opacity: 0;
+                            transform: translateY(-18px) scale(.2)
+                        }
+                    }
+
+                    @keyframes swcInitShimmer {
+                        0% {
+                            background-position: 200% center
+                        }
+
+                        100% {
+                            background-position: -200% center
+                        }
+                    }
+
+                    @keyframes swcInitFadein {
+                        from {
+                            opacity: 0;
+                            transform: translateY(8px)
+                        }
+
+                        to {
+                            opacity: 1;
+                            transform: translateY(0)
+                        }
+                    }

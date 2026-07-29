@@ -1,0 +1,22 @@
+{
+    "version": "1.0.0",
+    "last_synced": "2026-04-24T15:43:17+00:00",
+    "agents": [
+        "appointment_booking",
+        "content_creator",
+        "customer_support",
+        "free_general_assistant",
+        "free_support_bot",
+        "lead_generator",
+        "marketing_strategist",
+        "order_manager",
+        "refund_specialist",
+        "sales_manager",
+        "seo_expert",
+        "shopping_assistant",
+        "simple_agent",
+        "site_admin",
+        "store_analyst"
+    ],
+    "note": "This file is auto-generated. Do not edit manually."
+}

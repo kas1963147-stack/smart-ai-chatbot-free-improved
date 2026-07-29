@@ -1,0 +1,41 @@
+public static function getInstancesForDropdown(): array
+      {
+          $instances = self::ensureCredentialGroups();
+          $options = [
+              ['id' => '', 'label' => '-- Use Default Provider --'],
+          ];
+  
+          foreach ($instances as $instance) {
+              $label = $instance['display_name'] ?? $instance['provider'] ?? 'Unknown';
+              // Clean up legacy "(Global Settings)" suffix
+
+
+
+
+---
+public static function getInstancesForDropdown(): array
+      {
+          $instances = self::ensureCredentialGroups();
+          $options = [
+              ['id' => '', 'label' => '-- Use Default Provider --'],
+          ];
+  
+          foreach ($instances as $instance) {
+              $label = $instance['display_name'] ?? $instance['provider'] ?? 'Unknown';
+              // Clean up legacy "(Global Settings)" suffix
+              $label = str_replace(' (Global Settings)', '', $label);
+              if (!empty($instance['model'])) {
+                  $label .= ' (' . $instance['model'] . ')';
+              }
+              $credentialLabel = self::credentialLabel($instance);
+              if (!empty($credentialLabel)) {
+                  $label .= ' - ' . $credentialLabel;
+              }
+              if (!empty($instance['is_default'])) {
+                  $label .= ' [Default]';
+              }
+
+
+
+
+---

@@ -1,0 +1,605 @@
+/**
+ * Premium Polish CSS - Design System V2 Extensions
+ *
+ * Additional premium styling for form controls, filters, tree views,
+ * and global WordPress component overrides.
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   Global Form Controls - Premium Styling
+   ========================================================================== */
+
+/* Premium Native Inputs */
+.swc-input {
+    width: 100%;
+    border: 1px solid var(--swc-gray-300);
+    border-radius: var(--swc-radius-lg);
+    background: white;
+    padding: var(--swc-space-3) var(--swc-space-4);
+    font-size: var(--swc-text-base);
+    font-family: var(--swc-font-sans);
+    color: var(--swc-gray-900);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--swc-shadow-xs);
+}
+
+.swc-input:hover {
+    border-color: var(--swc-gray-400);
+    box-shadow: var(--swc-shadow-sm);
+}
+
+.swc-input:focus {
+    border-color: var(--swc-primary-500);
+    box-shadow: 0 0 0 3px var(--swc-primary-100), var(--swc-shadow-sm);
+    outline: none;
+}
+
+.swc-input::placeholder {
+    color: var(--swc-gray-400);
+}
+
+.swc-input--error {
+    border-color: var(--swc-error-500) !important;
+    box-shadow: 0 0 0 3px var(--swc-error-100) !important;
+}
+
+/* Premium Select */
+select.swc-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* Premium Textarea */
+textarea.swc-input,
+.swc-textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: var(--swc-leading-relaxed);
+}
+
+/* Form Labels */
+.swc-label {
+    display: block;
+    margin-bottom: var(--swc-space-2);
+    font-size: var(--swc-text-sm);
+    font-weight: var(--swc-font-semibold);
+    color: var(--swc-gray-700);
+}
+
+.swc-label--required::after {
+    content: ' *';
+    color: var(--swc-error-500);
+}
+
+/* Help Text */
+.swc-help {
+    display: block;
+    margin-top: var(--swc-space-1);
+    font-size: var(--swc-text-xs);
+    color: var(--swc-gray-500);
+}
+
+/* ==========================================================================
+   Skill Filters - Premium Styling
+   ========================================================================== */
+
+.swc-skill-filters {
+    background: var(--swc-glass-bg);
+    backdrop-filter: var(--swc-glass-blur);
+    border: 1px solid var(--swc-gray-200);
+    border-radius: var(--swc-radius-xl);
+    padding: var(--swc-space-4);
+    margin-bottom: var(--swc-space-6);
+}
+
+.swc-skill-filters__row {
+    display: flex;
+    gap: var(--swc-space-3);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.swc-skill-filters__search {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.swc-skill-filters__search .swc-input {
+    padding-left: var(--swc-space-10);
+}
+
+.swc-skill-filters__search::before {
+    content: '🔍';
+    position: absolute;
+    left: var(--swc-space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.swc-skill-filters__clear {
+    position: absolute;
+    right: var(--swc-space-2);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--swc-gray-200);
+    border: none;
+    border-radius: var(--swc-radius-full);
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swc-gray-600);
+    transition: var(--swc-transition-fast);
+}
+
+.swc-skill-filters__clear:hover {
+    background: var(--swc-gray-300);
+    color: var(--swc-gray-900);
+}
+
+.swc-skill-filters__select {
+    min-width: 160px;
+    flex-shrink: 0;
+}
+
+.swc-skill-filters__advanced {
+    display: flex;
+    gap: var(--swc-space-6);
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding-top: var(--swc-space-4);
+    margin-top: var(--swc-space-4);
+    border-top: 1px solid var(--swc-gray-200);
+}
+
+.swc-skill-filters__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--swc-space-2);
+}
+
+.swc-skill-filters__toggles {
+    display: flex;
+    gap: var(--swc-space-1);
+}
+
+.swc-skill-filters__active {
+    display: flex;
+    gap: var(--swc-space-2);
+    flex-wrap: wrap;
+    padding-top: var(--swc-space-3);
+    margin-top: var(--swc-space-3);
+    border-top: 1px solid var(--swc-gray-100);
+}
+
+.swc-skill-filters__active .swc-badge button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    margin-left: 4px;
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.swc-skill-filters__active .swc-badge button:hover {
+    opacity: 1;
+}
+
+/* Filter Toggle Buttons (Segmented) */
+.swc-filter-toggle {
+    padding: var(--swc-space-2) var(--swc-space-3);
+    font-size: var(--swc-text-xs);
+    font-weight: var(--swc-font-medium);
+    color: var(--swc-gray-600);
+    background: white;
+    border: 1px solid var(--swc-gray-200);
+    border-radius: var(--swc-radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.swc-filter-toggle:hover {
+    background: var(--swc-gray-50);
+    border-color: var(--swc-gray-300);
+}
+
+.swc-filter-toggle--active {
+    background: var(--swc-primary-500);
+    color: white;
+    border-color: var(--swc-primary-500);
+    box-shadow: var(--swc-shadow-primary);
+}
+
+.swc-filter-toggle--active:hover {
+    background: var(--swc-primary-600);
+}
+
+/* ==========================================================================
+   Skill Editor Tabs - Premium Styling
+   ========================================================================== */
+
+.swc-tabs {
+    display: flex;
+    gap: var(--swc-space-1);
+    padding: var(--swc-space-2);
+    background: var(--swc-gray-100);
+    border-radius: var(--swc-radius-xl);
+    margin-bottom: var(--swc-space-6);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.swc-tab {
+    flex: 1;
+    padding: var(--swc-space-2_5) var(--swc-space-4);
+    font-size: var(--swc-text-sm);
+    font-weight: var(--swc-font-medium);
+    color: var(--swc-gray-600);
+    background: transparent;
+    border: none;
+    border-radius: var(--swc-radius-lg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--swc-space-2);
+}
+
+.swc-tab:hover {
+    color: var(--swc-gray-900);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.swc-tab--active {
+    background: white;
+    color: var(--swc-primary-600);
+    font-weight: var(--swc-font-semibold);
+    box-shadow: var(--swc-shadow-sm);
+}
+
+.swc-tab:focus {
+    box-shadow: 0 0 0 2px var(--swc-primary-200), var(--swc-shadow-sm);
+    outline: none;
+}
+
+/* ==========================================================================
+   Skill Editor Form - Premium Styling
+   ========================================================================== */
+
+.swc-skill-editor {
+    background: var(--swc-glass-bg);
+    backdrop-filter: var(--swc-glass-blur);
+    border: 1px solid var(--swc-gray-200);
+    border-radius: var(--swc-radius-xl);
+    padding: var(--swc-space-6);
+}
+
+.swc-skill-form__section {
+    margin-bottom: var(--swc-space-6);
+}
+
+.swc-skill-form__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--swc-space-3);
+    padding-top: var(--swc-space-6);
+    border-top: 1px solid var(--swc-gray-200);
+    margin-top: var(--swc-space-6);
+}
+
+.swc-section-intro {
+    color: var(--swc-gray-600);
+    margin-bottom: var(--swc-space-4);
+    font-size: var(--swc-text-sm);
+    line-height: var(--swc-leading-relaxed);
+}
+
+/* Checkbox Labels */
+.swc-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--swc-space-3);
+    cursor: pointer;
+    padding: var(--swc-space-4);
+    background: var(--swc-gray-50);
+    border-radius: var(--swc-radius-lg);
+    border: 1px solid var(--swc-gray-200);
+    transition: var(--swc-transition-fast);
+}
+
+.swc-checkbox-label:hover {
+    border-color: var(--swc-primary-300);
+    background: var(--swc-primary-50);
+}
+
+.swc-checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--swc-primary-500);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Skill Tree - Premium Styling
+   ========================================================================== */
+
+.swc-skill-tree {
+    background: var(--swc-glass-bg);
+    backdrop-filter: var(--swc-glass-blur);
+    border: 1px solid var(--swc-gray-200);
+    border-radius: var(--swc-radius-xl);
+    padding: var(--swc-space-4);
+}
+
+.swc-tree-node {
+    position: relative;
+    padding: var(--swc-space-2) var(--swc-space-3);
+    margin: var(--swc-space-1) 0;
+    border-radius: var(--swc-radius-lg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--swc-space-2);
+}
+
+.swc-tree-node:hover {
+    background: var(--swc-primary-50);
+}
+
+.swc-tree-node--selected {
+    background: var(--swc-primary-100);
+    color: var(--swc-primary-700);
+    font-weight: var(--swc-font-medium);
+}
+
+.swc-tree-node__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    color: var(--swc-gray-500);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.swc-tree-node__toggle--expanded {
+    transform: rotate(90deg);
+}
+
+.swc-tree-node__icon {
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.swc-tree-node__label {
+    font-size: var(--swc-text-sm);
+    font-family: var(--swc-font-mono);
+    color: var(--swc-gray-700);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.swc-tree-group {
+    margin-bottom: var(--swc-space-2);
+}
+
+.swc-tree-group__header {
+    display: flex;
+    align-items: center;
+    gap: var(--swc-space-2);
+    padding: var(--swc-space-2) var(--swc-space-3);
+    margin-bottom: var(--swc-space-1);
+    font-size: var(--swc-text-sm);
+    font-weight: var(--swc-font-semibold);
+    color: var(--swc-gray-700);
+    background: var(--swc-gray-50);
+    border-radius: var(--swc-radius-lg);
+    cursor: pointer;
+    transition: var(--swc-transition-fast);
+}
+
+.swc-tree-group__header:hover {
+    background: var(--swc-gray-100);
+}
+
+.swc-tree-group__children {
+    padding-left: var(--swc-space-4);
+    border-left: 2px solid var(--swc-gray-200);
+    margin-left: var(--swc-space-3);
+}
+
+/* ==========================================================================
+   Settings Page - Extended WordPress Control Overrides
+   ========================================================================== */
+
+/* Apply premium styling to all WordPress controls globally */
+.swc-container .components-base-control__label,
+.swc-settings-content .components-base-control__label {
+    font-size: var(--swc-text-sm) !important;
+    font-weight: var(--swc-font-semibold) !important;
+    color: var(--swc-gray-700) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+.swc-container .components-text-control__input,
+.swc-container .components-textarea-control__input,
+.swc-settings-content .components-text-control__input,
+.swc-settings-content .components-textarea-control__input {
+    border: 1px solid var(--swc-gray-300) !important;
+    border-radius: var(--swc-radius-lg) !important;
+    background: white !important;
+    padding: var(--swc-space-3) var(--swc-space-4) !important;
+    font-size: var(--swc-text-base) !important;
+    font-family: var(--swc-font-sans) !important;
+    color: var(--swc-gray-900) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+}
+
+.swc-container .components-text-control__input:hover,
+.swc-container .components-textarea-control__input:hover,
+.swc-settings-content .components-text-control__input:hover,
+.swc-settings-content .components-textarea-control__input:hover {
+    border-color: var(--swc-gray-400) !important;
+    box-shadow: var(--swc-shadow-sm) !important;
+}
+
+.swc-container .components-text-control__input:focus,
+.swc-container .components-textarea-control__input:focus,
+.swc-settings-content .components-text-control__input:focus,
+.swc-settings-content .components-textarea-control__input:focus {
+    border-color: var(--swc-primary-500) !important;
+    box-shadow: 0 0 0 3px var(--swc-primary-100), var(--swc-shadow-sm) !important;
+    outline: none !important;
+}
+
+/* WordPress Toggle Control - Premium Override (Global) */
+.swc-container .components-form-toggle,
+.swc-settings-content .components-form-toggle {
+    position: relative;
+}
+
+.swc-container .components-form-toggle .components-form-toggle__track,
+.swc-settings-content .components-form-toggle .components-form-toggle__track {
+    width: 48px !important;
+    height: 26px !important;
+    border-radius: 13px !important;
+    background: var(--swc-gray-300) !important;
+    border: none !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.swc-container .components-form-toggle.is-checked .components-form-toggle__track,
+.swc-settings-content .components-form-toggle.is-checked .components-form-toggle__track {
+    background: var(--swc-gradient-primary) !important;
+    box-shadow: var(--swc-shadow-primary) !important;
+}
+
+.swc-container .components-form-toggle .components-form-toggle__thumb,
+.swc-settings-content .components-form-toggle .components-form-toggle__thumb {
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 50% !important;
+    background: white !important;
+    box-shadow: var(--swc-shadow-md) !important;
+    left: 2px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.swc-container .components-form-toggle.is-checked .components-form-toggle__thumb,
+.swc-settings-content .components-form-toggle.is-checked .components-form-toggle__thumb {
+    transform: translateX(22px) !important;
+}
+
+/* WordPress Select Control */
+.swc-container .components-select-control__input,
+.swc-settings-content .components-select-control__input {
+    border: 1px solid var(--swc-gray-300) !important;
+    border-radius: var(--swc-radius-lg) !important;
+    background: white !important;
+    padding: var(--swc-space-3) var(--swc-space-10) var(--swc-space-3) var(--swc-space-4) !important;
+    font-size: var(--swc-text-base) !important;
+    font-family: var(--swc-font-sans) !important;
+    color: var(--swc-gray-900) !important;
+    transition: all 0.2s ease !important;
+    box-shadow: var(--swc-shadow-xs) !important;
+    min-height: 44px !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+}
+
+.swc-container .components-select-control__input:hover,
+.swc-settings-content .components-select-control__input:hover {
+    border-color: var(--swc-gray-400) !important;
+}
+
+.swc-container .components-select-control__input:focus,
+.swc-settings-content .components-select-control__input:focus {
+    border-color: var(--swc-primary-500) !important;
+    box-shadow: 0 0 0 3px var(--swc-primary-100), var(--swc-shadow-sm) !important;
+    outline: none !important;
+}
+
+/* WordPress Range Control */
+.swc-container .components-range-control__slider,
+.swc-settings-content .components-range-control__slider {
+    accent-color: var(--swc-primary-500) !important;
+}
+
+/* Help text styling (Global) */
+.swc-container .components-base-control__help,
+.swc-settings-content .components-base-control__help {
+    font-size: var(--swc-text-xs) !important;
+    color: var(--swc-gray-500) !important;
+    margin-top: var(--swc-space-1) !important;
+}
+
+/* Form Group Spacing */
+.swc-form-group {
+    margin-bottom: var(--swc-space-5);
+}
+
+.swc-form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   View Toggle (Grid/Tree)
+   ========================================================================== */
+
+.swc-view-toggle {
+    display: inline-flex;
+    gap: 0;
+    background: var(--swc-gray-100);
+    padding: 3px;
+    border-radius: var(--swc-radius-lg);
+    border: 1px solid var(--swc-gray-200);
+}
+
+.swc-view-toggle .swc-btn {
+    padding: var(--swc-space-2) var(--swc-space-4);
+    font-size: var(--swc-text-sm);
+    border-radius: var(--swc-radius-md);
+    border: none;
+    background: transparent;
+    color: var(--swc-gray-600);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--swc-space-2);
+}
+
+.swc-view-toggle .swc-btn:hover {
+    color: var(--swc-gray-900);
+}
+
+.swc-view-toggle .swc-btn--active {
+    background: white;
+    color: var(--swc-primary-600);
+    box-shadow: var(--swc-shadow-sm);
+    font-weight: var(--swc-font-medium);
+}

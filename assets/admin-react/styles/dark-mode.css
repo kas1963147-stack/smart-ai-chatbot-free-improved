@@ -1,0 +1,190 @@
+/**
+ * Dark Mode Styles
+ * 
+ * Dark mode color scheme using CSS variables.
+ * Activated via .swc-dark class on body or container.
+ * 
+ * @version 1.0.0
+ * @package SWC
+ */
+
+/* ============================================
+   DARK MODE ROOT OVERRIDES
+   ============================================ */
+
+.swc-dark,
+[data-theme="dark"] {
+    /* Background Colors */
+    --swc-gray-50: #0f172a;
+    --swc-gray-100: #1e293b;
+    --swc-gray-200: #334155;
+    --swc-gray-300: #475569;
+    --swc-gray-400: #64748b;
+    --swc-gray-500: #94a3b8;
+    --swc-gray-600: #cbd5e1;
+    --swc-gray-700: #e2e8f0;
+    --swc-gray-800: #f1f5f9;
+    --swc-gray-900: #f8fafc;
+
+    /* Primary Colors - Keep vibrant in dark mode */
+    --swc-primary-50: rgba(99, 102, 241, 0.1);
+    --swc-primary-100: rgba(99, 102, 241, 0.2);
+    --swc-primary-200: rgba(99, 102, 241, 0.3);
+
+    /* Glassmorphism for Dark Mode */
+    --swc-glass-bg: rgba(15, 23, 42, 0.85);
+    --swc-glass-bg-light: rgba(15, 23, 42, 0.7);
+    --swc-glass-bg-heavy: rgba(15, 23, 42, 0.95);
+    --swc-glass-border: rgba(255, 255, 255, 0.1);
+
+    /* Gradients for Cards */
+    --swc-gradient-card: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    --swc-gradient-card-hover: linear-gradient(180deg, #1e293b 0%, #1e1b4b 100%);
+
+    /* Mesh Gradient - Dark */
+    --swc-gradient-mesh: radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, rgba(79, 70, 229, 0.1) 0px, transparent 50%);
+
+    /* Shadows - Lighter for dark mode */
+    --swc-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --swc-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+    --swc-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --swc-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -2px rgb(0 0 0 / 0.4);
+    --swc-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 10px 10px -5px rgb(0 0 0 / 0.4);
+
+    /* Glow Effects - Brighter for dark mode */
+    --swc-glow-primary: 0 0 30px rgb(99 102 241 / 0.5);
+    --swc-shadow-primary: 0 4px 14px 0 rgba(99, 102, 241, 0.4);
+}
+
+/* ============================================
+   DARK MODE SPECIFIC OVERRIDES
+   ============================================ */
+
+.swc-dark .swc-page {
+    background: var(--swc-gray-50);
+}
+
+.swc-dark .swc-card,
+.swc-dark .swc-agent-card {
+    background: var(--swc-gradient-card);
+    border-color: var(--swc-glass-border);
+}
+
+.swc-dark .swc-card:hover,
+.swc-dark .swc-agent-card:hover {
+    background: var(--swc-gradient-card-hover);
+    border-color: var(--swc-primary-400);
+}
+
+.swc-dark .swc-input {
+    background: var(--swc-gray-100);
+    border-color: var(--swc-gray-300);
+    color: var(--swc-gray-900);
+}
+
+.swc-dark .swc-input:focus {
+    border-color: var(--swc-primary);
+    background: var(--swc-gray-50);
+}
+
+.swc-dark .swc-btn--secondary {
+    background: var(--swc-gray-200);
+    color: var(--swc-gray-800);
+    border-color: var(--swc-gray-300);
+}
+
+.swc-dark .swc-btn--secondary:hover {
+    background: var(--swc-gray-300);
+}
+
+.swc-dark .swc-modal-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.swc-dark .swc-modal {
+    background: var(--swc-glass-bg-heavy);
+    border-color: var(--swc-glass-border);
+}
+
+.swc-dark .swc-modal__header {
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.8) 0%, transparent 100%);
+    border-color: var(--swc-gray-300);
+}
+
+.swc-dark .swc-modal__footer {
+    background: var(--swc-gray-100);
+    border-color: var(--swc-gray-300);
+}
+
+.swc-dark .swc-nav {
+    background: var(--swc-glass-bg);
+    border-color: var(--swc-gray-300);
+}
+
+.swc-dark .swc-nav__tabs {
+    background: var(--swc-gray-100);
+}
+
+.swc-dark .swc-nav__tab--active {
+    background: var(--swc-gray-200);
+    color: var(--swc-primary-400);
+}
+
+.swc-dark .swc-badge {
+    background: var(--swc-gray-200);
+    color: var(--swc-gray-700);
+}
+
+.swc-dark .swc-badge--primary {
+    background: var(--swc-primary-100);
+    color: var(--swc-primary-400);
+}
+
+.swc-dark .swc-chat-preview {
+    background: var(--swc-gray-100);
+}
+
+.swc-dark .swc-chat-preview__message--bot {
+    background: var(--swc-gray-200);
+    border-color: var(--swc-gray-300);
+    color: var(--swc-gray-800);
+}
+
+.swc-dark .swc-chat-preview__input {
+    background: var(--swc-gray-200);
+    border-color: var(--swc-gray-300);
+}
+
+.swc-dark .swc-chat-preview__input input {
+    background: var(--swc-gray-100);
+    border-color: var(--swc-gray-400);
+    color: var(--swc-gray-900);
+}
+
+/* ============================================
+   THEME TOGGLE PREFERENCES
+   ============================================ */
+
+/* Auto dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+    .swc-theme-auto {
+        /* Same as .swc-dark */
+        --swc-gray-50: #0f172a;
+        --swc-gray-100: #1e293b;
+        --swc-gray-200: #334155;
+        --swc-gray-300: #475569;
+        --swc-gray-400: #64748b;
+        --swc-gray-500: #94a3b8;
+        --swc-gray-600: #cbd5e1;
+        --swc-gray-700: #e2e8f0;
+        --swc-gray-800: #f1f5f9;
+        --swc-gray-900: #f8fafc;
+
+        --swc-glass-bg: rgba(15, 23, 42, 0.85);
+        --swc-glass-bg-heavy: rgba(15, 23, 42, 0.95);
+        --swc-glass-border: rgba(255, 255, 255, 0.1);
+        --swc-gradient-card: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    }
+}

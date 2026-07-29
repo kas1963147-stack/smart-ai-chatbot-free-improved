@@ -1,0 +1,21 @@
+/*
+ * Dark mode token overrides for the Mantine-based admin UI.
+ * Keep this file tokens-only (no component styling).
+ */
+
+:where(#smart-ai-chatbot-manager-root.swc-dark, .swc-frontend-root.swc-dark, .swc-admin-wrapper.swc-dark) {
+	color-scheme: dark;
+
+	--swc-gray-25: #0f0f10;
+	--swc-gray-50: #18181b;
+	--swc-gray-100: #27272a;
+	--swc-gray-200: #3f3f46;
+	--swc-gray-300: #52525b;
+	--swc-gray-400: #71717a;
+	--swc-gray-500: #a1a1aa;
+	--swc-gray-600: #d4d4d8;
+	--swc-gray-700: #e4e4e7;
+	--swc-gray-800: #f4f4f5;
+	--swc-gray-900: #fafafa;
+	--swc-gray-950: #ffffff;
+}

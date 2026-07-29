@@ -1,0 +1,1626 @@
+/**
+ * Smart WooCommerce Chatbot - Compact UI Optimizations
+ * 
+ * Space-efficient styling to reduce wasted space and create
+ * a tighter, more professional layout with high information density.
+ * 
+ * @version 2.1.0 - Ultra-compact pass
+ */
+
+/* ==========================================================================
+   HEADER & NAVIGATION - Ultra-Compact
+   ========================================================================== */
+
+/* Ultra-tight navigation bar */
+.swc-nav {
+    padding: var(--swc-space-1) var(--swc-space-3) !important;
+    margin-bottom: var(--swc-space-2) !important;
+    margin-top: var(--swc-space-2) !important;
+    gap: var(--swc-space-2) !important;
+}
+
+/* Smaller logo */
+.swc-nav__logo {
+    font-size: 18px !important;
+}
+
+/* Compact title */
+.swc-nav__title {
+    font-size: var(--swc-text-sm) !important;
+    font-weight: var(--swc-font-semibold);
+}
+
+/* Ultra-tight tabs - now larger and nicer without emojis */
+.swc-nav__tabs {
+    padding: 4px !important;
+    gap: 4px !important;
+}
+
+.swc-nav__tab {
+    padding: var(--swc-space-2) var(--swc-space-4) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    gap: 6px !important;
+    letter-spacing: 0.01em;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Premium active tab with gradient glow */
+.swc-nav__tab--active {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%) !important;
+    box-shadow:
+        0 1px 3px rgba(99, 102, 241, 0.15),
+        0 4px 12px rgba(99, 102, 241, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Refined hover state */
+.swc-nav__tab:hover:not(.swc-nav__tab--active) {
+    background: rgba(255, 255, 255, 0.8) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+.swc-nav__tab-label {
+    font-weight: 500;
+}
+
+.swc-nav__tab-icon {
+    font-size: 14px !important;
+}
+
+/* ==========================================================================
+   LAYOUT - Ultra-Compact Content Padding
+   ========================================================================== */
+
+.swc-admin-layout__content {
+    padding: var(--swc-space-3) 0;
+}
+
+.swc-container {
+    padding-left: var(--swc-space-2);
+    padding-right: var(--swc-space-2);
+}
+
+/* Compact page headers */
+.swc-page-header {
+    margin-bottom: var(--swc-space-3);
+}
+
+.swc-page-title {
+    font-size: var(--swc-text-lg);
+    margin-bottom: 0;
+}
+
+.swc-page-subtitle {
+    font-size: var(--swc-text-xs);
+    margin-top: var(--swc-space-0_5);
+}
+
+/* ==========================================================================
+   CARDS - Ultra-Compact Card Styles
+   ========================================================================== */
+
+/* Minimal card padding */
+.swc-card {
+    padding: var(--swc-space-3);
+    border-radius: var(--swc-radius-md);
+    gap: var(--swc-space-2);
+}
+
+.swc-card--compact {
+    padding: var(--swc-space-2);
+}
+
+/* Reduce hover lift for subtle effect */
+.swc-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Ultra-tight card sections */
+.swc-card__header {
+    margin-bottom: var(--swc-space-2);
+    padding-bottom: var(--swc-space-2);
+    gap: var(--swc-space-2);
+}
+
+.swc-card__title {
+    font-size: var(--swc-text-sm);
+    font-weight: var(--swc-font-semibold);
+}
+
+.swc-card__footer {
+    margin-top: var(--swc-space-2);
+    padding-top: var(--swc-space-2);
+}
+
+/* Compact internal spacing overrides */
+.swc-card .swc-mb-4 {
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+.swc-card .swc-mb-2 {
+    margin-bottom: var(--swc-space-1) !important;
+}
+
+.swc-card .swc-pt-4 {
+    padding-top: var(--swc-space-2) !important;
+}
+
+.swc-card .swc-gap-2 {
+    gap: var(--swc-space-1) !important;
+}
+
+/* ==========================================================================
+   STAT CARDS - Ultra-Compact Metrics
+   ========================================================================== */
+
+/* Ultra-compact stat cards */
+.analytics-summary {
+    gap: var(--swc-space-2);
+    margin-bottom: var(--swc-space-3);
+}
+
+.analytics-stat-card .components-card__body {
+    padding: var(--swc-space-2) var(--swc-space-3);
+    gap: var(--swc-space-2);
+}
+
+.stat-icon {
+    font-size: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--swc-radius-sm);
+}
+
+.stat-label {
+    font-size: 10px;
+    margin-bottom: 1px;
+    letter-spacing: 0.2px;
+}
+
+.stat-value {
+    font-size: var(--swc-text-base);
+    font-weight: var(--swc-font-bold);
+}
+
+/* Ultra-compact analytics grid */
+.analytics-grid {
+    gap: var(--swc-space-2);
+    margin-bottom: var(--swc-space-2);
+}
+
+.analytics-card {
+    padding: var(--swc-space-3);
+    border-radius: var(--swc-radius-md);
+    background: var(--swc-gradient-card);
+    border-color: var(--swc-gray-200);
+}
+
+.analytics-card h3 {
+    font-size: var(--swc-text-sm);
+    margin-bottom: var(--swc-space-2);
+    padding-bottom: var(--swc-space-1);
+}
+
+/* Compact analytics header */
+.analytics-header {
+    padding: var(--swc-space-3) var(--swc-space-4);
+    margin-bottom: var(--swc-space-4);
+    border-radius: var(--swc-radius-lg);
+    background: var(--swc-gradient-card);
+    border-color: var(--swc-gray-200);
+}
+
+.analytics-title h2 {
+    font-size: var(--swc-text-lg);
+    margin-bottom: var(--swc-space-1);
+}
+
+.analytics-actions {
+    gap: var(--swc-space-2);
+}
+
+/* ==========================================================================
+   FORM CONTROLS - Compact Forms
+   ========================================================================== */
+
+/* Reduce form group spacing */
+.swc-form-group {
+    margin-bottom: var(--swc-space-4);
+}
+
+.swc-form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Compact inputs */
+.swc-input {
+    height: 40px;
+    padding: var(--swc-space-2) var(--swc-space-3);
+    font-size: var(--swc-text-sm);
+}
+
+textarea.swc-input,
+.swc-textarea {
+    min-height: 80px;
+}
+
+/* Label spacing */
+.swc-label {
+    margin-bottom: var(--swc-space-1_5);
+    font-size: var(--swc-text-xs);
+}
+
+/* Compact WordPress controls */
+.swc-container .components-base-control {
+    margin-bottom: var(--swc-space-4) !important;
+}
+
+.swc-container .components-text-control__input,
+.swc-container .components-textarea-control__input {
+    padding: var(--swc-space-2) var(--swc-space-3) !important;
+    font-size: var(--swc-text-sm) !important;
+    min-height: 40px !important;
+}
+
+.swc-container .components-select-control__input {
+    padding: var(--swc-space-2) var(--swc-space-8) var(--swc-space-2) var(--swc-space-3) !important;
+    font-size: var(--swc-text-sm) !important;
+    min-height: 40px !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+}
+
+/* Compact toggle */
+.swc-toggle {
+    width: 36px;
+    height: 20px;
+}
+
+.swc-toggle::after {
+    width: 16px;
+    height: 16px;
+}
+
+.swc-toggle:checked::after {
+    transform: translateX(16px);
+}
+
+/* Compact checkbox/radio */
+.swc-checkbox,
+.swc-radio {
+    width: 16px;
+    height: 16px;
+}
+
+/* ==========================================================================
+   SETTINGS PAGE - Ultra-Compact Overrides
+   ========================================================================== */
+
+/* Settings Tabs Container (used in SettingsPage.jsx) */
+.smart-ai-chatbot-tabs {
+    display: flex;
+    gap: 4px !important;
+    padding: 2px !important;
+    background: var(--swc-gray-100);
+    border-radius: var(--swc-radius-lg);
+    margin-bottom: var(--swc-space-3) !important;
+}
+
+.smart-ai-chatbot-tabs .swc-btn {
+    padding: var(--swc-space-2) var(--swc-space-4) !important;
+    font-size: 13px !important;
+}
+
+.smart-ai-chatbot-tabs .swc-btn .swc-mr-2 {
+    margin-right: 4px !important;
+    font-size: 12px;
+}
+
+/* Settings Container - Reduce vertical padding */
+.swc-settings-content .swc-card {
+    border-radius: var(--swc-radius-lg) !important;
+}
+
+.swc-settings-content .swc-card.swc-p-0 .swc-p-6 {
+    padding: var(--swc-space-3) !important;
+}
+
+.swc-settings-content .swc-card .swc-border-b {
+    padding-bottom: var(--swc-space-2) !important;
+}
+
+/* Settings page title */
+.swc-settings-content h3.swc-text-xl,
+.swc-settings-content h3.swc-text-lg {
+    font-size: var(--swc-text-base) !important;
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+/* Form groups in Settings - tighter spacing */
+.swc-settings-content .swc-form-group {
+    margin-bottom: var(--swc-space-3) !important;
+}
+
+.swc-settings-content .swc-form-group:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* WordPress controls in Settings context */
+.swc-settings-content .components-base-control {
+    margin-bottom: var(--swc-space-2_5) !important;
+}
+
+.swc-settings-content .components-base-control__label {
+    font-size: var(--swc-text-xs) !important;
+    margin-bottom: 4px !important;
+}
+
+.swc-settings-content .components-base-control__help {
+    font-size: 10px !important;
+    margin-top: 2px !important;
+    color: var(--swc-gray-500);
+}
+
+/* Toggle controls - more compact */
+.swc-settings-content .components-form-toggle {
+    transform: scale(0.85);
+}
+
+.swc-settings-content .components-toggle-control .components-base-control__field {
+    gap: 8px !important;
+    margin-bottom: 0 !important;
+}
+
+/* Text/Textarea inputs in Settings */
+.swc-settings-content .components-text-control__input,
+.swc-settings-content .components-textarea-control__input {
+    padding: 6px 10px !important;
+    font-size: 13px !important;
+    min-height: 36px !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-settings-content .components-textarea-control__input {
+    min-height: 72px !important;
+}
+
+/* Select controls in Settings */
+.swc-settings-content .components-select-control__input {
+    padding: 8px 32px 8px 12px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+}
+
+/* Range control slider in Settings */
+.swc-settings-content .components-range-control {
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+.swc-settings-content .components-range-control__root {
+    gap: 8px !important;
+}
+
+/* Save Settings Button - reduce margin */
+.swc-settings-content+.swc-mt-6 {
+    margin-top: var(--swc-space-3) !important;
+}
+
+/* Limit text input widths for better aesthetics */
+.swc-settings-content .components-text-control__input[type="text"],
+.swc-settings-content .components-text-control__input[type="email"],
+.swc-settings-content .components-text-control__input[type="url"],
+.swc-settings-content .components-text-control__input[type="number"] {
+    max-width: 400px;
+}
+
+/* API key and long inputs can be wider */
+.swc-settings-content .components-textarea-control__input {
+    max-width: 520px;
+}
+
+/* Select controls narrower */
+.swc-settings-content .components-select-control__input {
+    max-width: 280px;
+}
+
+/* Compact settings navigation */
+.swc-settings-nav {
+    padding: 2px;
+    margin-bottom: var(--swc-space-3);
+    gap: 2px;
+}
+
+.swc-settings-nav__item {
+    padding: var(--swc-space-1_5) var(--swc-space-2_5);
+    font-size: var(--swc-text-xs);
+    gap: var(--swc-space-1);
+}
+
+.swc-settings-nav__icon {
+    font-size: 14px;
+}
+
+/* Compact settings sections */
+.swc-settings-section {
+    margin-bottom: var(--swc-space-3);
+    border-radius: var(--swc-radius-lg);
+}
+
+.swc-settings-section__header {
+    padding: var(--swc-space-2) var(--swc-space-3);
+    gap: var(--swc-space-2);
+}
+
+.swc-settings-section__icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    border-radius: var(--swc-radius-md);
+}
+
+.swc-settings-section__title {
+    font-size: var(--swc-text-sm);
+}
+
+.swc-settings-section__desc {
+    font-size: var(--swc-text-xs);
+    margin-top: 2px;
+}
+
+.swc-settings-section__content {
+    padding: var(--swc-space-3);
+}
+
+/* Compact settings form */
+.swc-settings-form {
+    gap: var(--swc-space-2);
+}
+
+.swc-settings-row {
+    grid-template-columns: 160px 1fr;
+    gap: var(--swc-space-2);
+    padding-bottom: var(--swc-space-2);
+}
+
+.swc-settings-row__label {
+    font-size: var(--swc-text-xs);
+    padding-top: 2px;
+}
+
+.swc-settings-row__help {
+    margin-top: 2px;
+}
+
+/* Compact toggle row */
+.swc-toggle-row {
+    padding: var(--swc-space-2);
+    border-radius: var(--swc-radius-md);
+}
+
+.swc-toggle-row__label {
+    font-size: var(--swc-text-xs);
+}
+
+/* Compact switch */
+.swc-switch {
+    width: 40px;
+    height: 22px;
+}
+
+.swc-switch::after {
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+}
+
+.swc-switch:checked::after {
+    transform: translateX(18px);
+}
+
+/* Compact form inputs */
+.swc-form-input {
+    padding: var(--swc-space-2) var(--swc-space-3);
+    font-size: var(--swc-text-xs);
+}
+
+.swc-form-textarea {
+    min-height: 80px;
+}
+
+/* Compact settings footer */
+.swc-settings-footer {
+    padding: var(--swc-space-3);
+    margin-top: calc(-1 * var(--swc-space-3));
+    gap: var(--swc-space-2);
+}
+
+/* Compact connection status */
+.swc-connection-status {
+    padding: var(--swc-space-2) var(--swc-space-3);
+    gap: var(--swc-space-2);
+}
+
+.swc-connection-status__icon {
+    font-size: 16px;
+}
+
+.swc-connection-status__text {
+    font-size: var(--swc-text-xs);
+}
+
+/* Compact danger zone */
+.swc-danger-item {
+    padding: var(--swc-space-3);
+}
+
+.swc-danger-item__title {
+    font-size: var(--swc-text-xs);
+}
+
+/* WordPress component base control compact */
+.swc-settings-section .components-base-control {
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+.swc-settings-section .components-base-control__label {
+    font-size: 11px !important;
+    margin-bottom: var(--swc-space-1) !important;
+}
+
+/* Settings card spacing */
+.swc-settings-card,
+.settings-section {
+    margin-bottom: var(--swc-space-3);
+}
+
+.swc-settings-card:last-child,
+.settings-section:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   EMPTY STATES - Compact Empty Messages
+   ========================================================================== */
+
+.swc-empty {
+    padding: var(--swc-space-8) var(--swc-space-4);
+}
+
+.swc-empty__icon {
+    font-size: 48px;
+    margin-bottom: var(--swc-space-3);
+}
+
+.swc-empty__title {
+    font-size: var(--swc-text-lg);
+    margin-bottom: var(--swc-space-1);
+}
+
+.swc-empty__desc {
+    margin-bottom: var(--swc-space-4);
+    max-width: 320px;
+}
+
+/* ==========================================================================
+   LISTS & TABLES - Tighter Row Spacing
+   ========================================================================== */
+
+.chart-bar-row {
+    margin-bottom: var(--swc-space-2);
+    gap: var(--swc-space-2);
+}
+
+.bar-wrapper {
+    height: 20px;
+}
+
+.bar-label {
+    font-size: 12px;
+    width: 100px;
+}
+
+.bar-value {
+    font-size: 12px;
+    width: 60px;
+}
+
+/* ==========================================================================
+   GRIDS - Ultra-Tight Grid Layouts
+   ========================================================================== */
+
+/* Global grid - smaller cards for higher density */
+.swc-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--swc-space-2);
+}
+
+/* Agent/Skill card grid */
+.swc-agent-grid,
+.swc-skill-grid,
+.swc-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--swc-space-2);
+}
+
+/* Agent cards - ultra-compact */
+.agent-card,
+.skill-card {
+    padding: var(--swc-space-2);
+}
+
+.agent-card__header,
+.skill-card__header {
+    margin-bottom: var(--swc-space-1);
+}
+
+.agent-card__title,
+.skill-card__title {
+    font-size: var(--swc-text-sm);
+}
+
+.agent-card__description,
+.skill-card__description {
+    margin-bottom: var(--swc-space-2);
+    font-size: var(--swc-text-xs);
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   KNOWLEDGE BASE - Compact Source List
+   ========================================================================== */
+
+.knowledge-stats {
+    gap: var(--swc-space-3);
+    margin-bottom: var(--swc-space-4);
+}
+
+.knowledge-stat-card {
+    padding: var(--swc-space-3);
+}
+
+.source-list-item {
+    padding: var(--swc-space-3);
+}
+
+/* ==========================================================================
+   WORKSPACE - Optimize Chat Area
+   ========================================================================== */
+
+.workspace-sidebar {
+    min-width: 220px;
+}
+
+.workspace-chat-header {
+    padding: var(--swc-space-3);
+}
+
+.workspace-message {
+    padding: var(--swc-space-2) var(--swc-space-3);
+    margin-bottom: var(--swc-space-2);
+}
+
+/* ==========================================================================
+   SKILLS PAGE - Compact Filters
+   ========================================================================== */
+
+.swc-skill-filters {
+    padding: var(--swc-space-3);
+    margin-bottom: var(--swc-space-4);
+}
+
+.swc-skill-filters__row {
+    gap: var(--swc-space-2);
+}
+
+.swc-skill-filters__advanced {
+    padding-top: var(--swc-space-3);
+    margin-top: var(--swc-space-3);
+    gap: var(--swc-space-4);
+}
+
+/* ==========================================================================
+   BREADCRUMB & SUB-NAV - Tighter
+   ========================================================================== */
+
+.swc-breadcrumb {
+    margin-bottom: var(--swc-space-3);
+    font-size: var(--swc-text-xs);
+}
+
+.swc-sub-nav {
+    margin-top: var(--swc-space-2);
+    gap: var(--swc-space-1);
+}
+
+.swc-sub-nav__item {
+    padding: var(--swc-space-1_5) var(--swc-space-3);
+    font-size: var(--swc-text-xs);
+}
+
+/* ==========================================================================
+   MODAL - Compact Dialogs
+   ========================================================================== */
+
+.swc-modal__content {
+    padding: var(--swc-space-4);
+}
+
+.swc-modal__header {
+    margin-bottom: var(--swc-space-3);
+    padding-bottom: var(--swc-space-3);
+}
+
+.swc-modal__title {
+    font-size: var(--swc-text-lg);
+}
+
+.swc-modal__footer {
+    margin-top: var(--swc-space-4);
+    padding-top: var(--swc-space-3);
+}
+
+/* ==========================================================================
+   BUTTONS - Slightly Smaller
+   ========================================================================== */
+
+.swc-btn {
+    padding: var(--swc-space-2) var(--swc-space-3);
+    gap: var(--swc-space-1_5);
+}
+
+.swc-btn--sm {
+    padding: var(--swc-space-1) var(--swc-space-2);
+}
+
+.swc-btn--lg {
+    padding: var(--swc-space-2_5) var(--swc-space-5);
+}
+
+/* ==========================================================================
+   RESPONSIVE - Even More Compact on Larger Screens
+   ========================================================================== */
+
+@media (min-width: 1280px) {
+
+    /* Allow more columns */
+    .analytics-summary {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .analytics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .analytics-grid.three-col {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1536px) {
+
+    /* Use extra space wisely */
+    .swc-container {
+        max-width: 1400px;
+    }
+
+    /* 5-column grids on XL screens */
+    .swc-grid,
+    .swc-agent-grid,
+    .swc-skill-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+/* ==========================================================================
+   SKILLS PAGE - Ultra-Compact Overrides
+   ========================================================================== */
+
+/* Ultra-compact skill filters */
+.swc-skill-filters {
+    padding: var(--swc-space-2) var(--swc-space-3) !important;
+    margin-bottom: var(--swc-space-3) !important;
+    gap: var(--swc-space-2) !important;
+    border-radius: var(--swc-radius-lg) !important;
+}
+
+.swc-skill-filters__search-input {
+    padding: var(--swc-space-1_5) var(--swc-space-3) var(--swc-space-1_5) var(--swc-space-8) !important;
+    font-size: var(--swc-text-xs) !important;
+}
+
+.swc-skill-filters__search-icon {
+    font-size: 13px !important;
+    left: var(--swc-space-2) !important;
+}
+
+.swc-skill-filters__select {
+    min-width: 120px !important;
+}
+
+/* Ultra-compact view toggle */
+.swc-view-toggle {
+    padding: 2px !important;
+}
+
+.swc-view-toggle__btn {
+    padding: var(--swc-space-1) var(--swc-space-2) !important;
+    font-size: 10px !important;
+}
+
+/* Ultra-compact skill cards */
+.swc-skill-card {
+    gap: var(--swc-space-1) !important;
+}
+
+.swc-skill-card__header {
+    gap: var(--swc-space-2) !important;
+}
+
+.swc-skill-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-skill-card__name {
+    font-size: var(--swc-text-sm) !important;
+    gap: var(--swc-space-1) !important;
+}
+
+.swc-skill-card__id {
+    font-size: 10px !important;
+}
+
+.swc-skill-card__desc {
+    font-size: 11px !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+}
+
+.swc-skill-meta {
+    gap: var(--swc-space-1) !important;
+    margin-top: var(--swc-space-2) !important;
+}
+
+.swc-skill-meta__item {
+    font-size: 10px !important;
+    padding: 2px var(--swc-space-1_5) !important;
+}
+
+.swc-skill-card__footer {
+    padding-top: var(--swc-space-2) !important;
+}
+
+/* Ultra-compact skill tree */
+.swc-skill-tree__group-header {
+    padding: var(--swc-space-2) var(--swc-space-3) !important;
+    gap: var(--swc-space-2) !important;
+}
+
+.swc-skill-tree__group-icon {
+    font-size: 14px !important;
+}
+
+.swc-skill-tree__group-name {
+    font-size: var(--swc-text-sm) !important;
+}
+
+.swc-skill-tree__items {
+    padding: var(--swc-space-1) var(--swc-space-3) var(--swc-space-3) !important;
+}
+
+.swc-skill-tree__item {
+    padding: var(--swc-space-2) !important;
+    gap: var(--swc-space-2) !important;
+    margin-left: var(--swc-space-4) !important;
+}
+
+/* Ultra-compact skill editor */
+.swc-skill-editor {
+    padding: var(--swc-space-4) !important;
+}
+
+.swc-skill-editor__section {
+    margin-bottom: var(--swc-space-4) !important;
+    padding-bottom: var(--swc-space-4) !important;
+}
+
+.swc-skill-editor__section-title {
+    font-size: var(--swc-text-sm) !important;
+    margin-bottom: var(--swc-space-3) !important;
+}
+
+/* Ultra-compact templates */
+.swc-template-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    gap: var(--swc-space-3) !important;
+}
+
+.swc-template-card {
+    padding: var(--swc-space-3) !important;
+    gap: var(--swc-space-2) !important;
+}
+
+.swc-template-card__icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 18px !important;
+}
+
+.swc-template-card__name {
+    font-size: var(--swc-text-sm) !important;
+}
+
+.swc-template-card__desc {
+    font-size: var(--swc-text-xs) !important;
+}
+
+/* ==========================================================================
+   KNOWLEDGE PAGE - Ultra-Compact Overrides
+   ========================================================================== */
+
+/* Ultra-compact knowledge stats */
+.knowledge-stats {
+    gap: var(--swc-space-2) !important;
+    margin-bottom: var(--swc-space-3) !important;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+}
+
+.knowledge-stat-card {
+    padding: var(--swc-space-2) !important;
+}
+
+.knowledge-stat-card__icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+}
+
+.knowledge-stat-card__value {
+    font-size: var(--swc-text-lg) !important;
+}
+
+.knowledge-stat-card__label {
+    font-size: 9px !important;
+    letter-spacing: 0.3px !important;
+}
+
+/* Ultra-compact source list */
+.source-list {
+    gap: var(--swc-space-2) !important;
+}
+
+.source-list-item {
+    padding: var(--swc-space-2) var(--swc-space-3) !important;
+    gap: var(--swc-space-2) !important;
+}
+
+.source-list-item__icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+}
+
+.source-list-item__name {
+    font-size: var(--swc-text-sm) !important;
+}
+
+.source-list-item__meta {
+    font-size: 10px !important;
+}
+
+/* ==========================================================================
+   ANALYTICS PAGE - Ultra-Compact Overrides
+   ========================================================================== */
+
+/* Ultra-compact analytics summary */
+.analytics-summary {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+    gap: var(--swc-space-2) !important;
+    margin-bottom: var(--swc-space-3) !important;
+}
+
+.analytics-stat-card {
+    padding: var(--swc-space-2) !important;
+}
+
+.analytics-stat-card__icon {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+}
+
+.analytics-stat-card__value {
+    font-size: var(--swc-text-base) !important;
+}
+
+.analytics-stat-card__label {
+    font-size: 9px !important;
+}
+
+/* Ultra-compact analytics header */
+.analytics-header {
+    padding: var(--swc-space-2) var(--swc-space-3) !important;
+    margin-bottom: var(--swc-space-3) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.analytics-title h2 {
+    font-size: var(--swc-text-base) !important;
+}
+
+/* Ultra-compact analytics cards */
+.analytics-card {
+    padding: var(--swc-space-3) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.analytics-card h3 {
+    font-size: var(--swc-text-sm) !important;
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+/* Ultra-compact chart bars */
+.chart-bar-row {
+    margin-bottom: var(--swc-space-1) !important;
+    gap: var(--swc-space-1) !important;
+}
+
+.bar-wrapper {
+    height: 16px !important;
+}
+
+.bar-label {
+    font-size: 10px !important;
+    width: 80px !important;
+}
+
+.bar-value {
+    font-size: 10px !important;
+    width: 50px !important;
+}
+
+/* ==========================================================================
+   WORKSPACE - Ultra-Compact Overrides
+   ========================================================================== */
+
+/* Ultra-compact workspace sidebar */
+.workspace-sidebar,
+.swc-workspace__sidebar {
+    width: 200px !important;
+    min-width: 200px !important;
+}
+
+.workspace-sidebar__header {
+    padding: var(--swc-space-2) var(--swc-space-3) !important;
+}
+
+.workspace-sidebar__title {
+    font-size: var(--swc-text-sm) !important;
+}
+
+/* Ultra-compact conversation list */
+.conversation-list {
+    padding: var(--swc-space-1) !important;
+}
+
+.conversation-item {
+    padding: var(--swc-space-1_5) var(--swc-space-2) !important;
+    margin-bottom: 2px !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+.conversation-item__title {
+    font-size: 11px !important;
+}
+
+.conversation-item__preview {
+    font-size: 10px !important;
+}
+
+.conversation-item__time {
+    font-size: 9px !important;
+}
+
+/* Ultra-compact workspace header */
+.workspace-chat-header {
+    padding: var(--swc-space-2) var(--swc-space-3) !important;
+}
+
+/* Ultra-compact message bubbles */
+.workspace-message {
+    padding: var(--swc-space-2) !important;
+    margin-bottom: var(--swc-space-1) !important;
+}
+
+.workspace-message__content {
+    font-size: var(--swc-text-sm) !important;
+}
+
+.workspace-message__time {
+    font-size: 9px !important;
+}
+
+/* Limit chat bubble width for better readability */
+.swc-workspace__message {
+    max-width: 85% !important;
+}
+
+.swc-workspace__message-content {
+    flex: 0 1 auto !important;
+    max-width: 100% !important;
+}
+
+.swc-workspace__message-text {
+    max-width: 720px !important;
+    word-wrap: break-word !important;
+}
+
+/* User messages align right with tighter bubbles */
+.swc-workspace__message--user {
+    margin-left: auto !important;
+    justify-content: flex-end !important;
+}
+
+.swc-workspace__message--user .swc-workspace__message-text {
+    max-width: 500px !important;
+}
+
+/* Assistant messages align left */
+.swc-workspace__message--assistant {
+    margin-right: auto !important;
+    justify-content: flex-start !important;
+}
+
+/* Ultra-compact chat input */
+.workspace-input {
+    padding: var(--swc-space-2) !important;
+}
+
+.workspace-input__field {
+    padding: var(--swc-space-2) var(--swc-space-3) !important;
+    font-size: var(--swc-text-sm) !important;
+}
+
+/* ==========================================================================
+   AGENT CARDS - Ultra-Compact Overrides
+   ========================================================================== */
+
+.swc-agent-card {
+    padding: var(--swc-space-3) !important;
+    gap: var(--swc-space-2) !important;
+}
+
+.swc-agent-avatar {
+    font-size: var(--swc-text-2xl) !important;
+    margin-bottom: var(--swc-space-1) !important;
+}
+
+.swc-agent-name {
+    font-size: var(--swc-text-sm) !important;
+    gap: var(--swc-space-1) !important;
+}
+
+.swc-agent-id {
+    font-size: 10px !important;
+    padding: 1px 4px !important;
+}
+
+.swc-agent-desc {
+    font-size: 11px !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.swc-agent-toolkits {
+    gap: var(--swc-space-1) !important;
+    margin-top: var(--swc-space-1) !important;
+}
+
+.swc-toolkit-badge {
+    padding: 1px 4px !important;
+    font-size: 9px !important;
+}
+
+.swc-agent-footer {
+    margin-top: var(--swc-space-2) !important;
+    padding-top: var(--swc-space-2) !important;
+}
+
+/* ==========================================================================
+   BADGES - Ultra-Compact
+   ========================================================================== */
+
+.swc-badge {
+    padding: 1px 5px !important;
+    font-size: 9px !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+.smart-ai-chatbot-status {
+    padding: 2px 6px !important;
+    font-size: 9px !important;
+    gap: 4px !important;
+}
+
+.smart-ai-chatbot-status::before {
+    width: 5px !important;
+    height: 5px !important;
+}
+
+/* ==========================================================================
+   ANALYTICS PAGE - Ultra-Compact
+   ========================================================================== */
+
+/* Compact analytics header */
+.swc-analytics-header {
+    gap: var(--swc-space-2) !important;
+    margin-bottom: var(--swc-space-2) !important;
+    padding-bottom: var(--swc-space-2) !important;
+}
+
+.swc-analytics-header__title {
+    font-size: var(--swc-text-base) !important;
+    margin-bottom: 2px !important;
+}
+
+.swc-analytics-header__desc {
+    font-size: 11px !important;
+}
+
+.swc-analytics-header__actions {
+    gap: var(--swc-space-1) !important;
+}
+
+/* Ultra-compact period selector */
+.swc-period-select {
+    padding: 2px !important;
+    gap: 1px !important;
+}
+
+.swc-period-select__option {
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+}
+
+/* Ultra-compact analytics summary grid */
+.swc-analytics-summary {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+    gap: var(--swc-space-2) !important;
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+/* Ultra-compact summary cards */
+.swc-summary-card {
+    padding: var(--swc-space-2) !important;
+    gap: 4px !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-summary-card__icon {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+    border-radius: var(--swc-radius-sm) !important;
+}
+
+.swc-summary-card__trend {
+    font-size: 9px !important;
+    padding: 1px 4px !important;
+}
+
+.swc-summary-card__value {
+    font-size: var(--swc-text-lg) !important;
+    line-height: 1.1 !important;
+}
+
+.swc-summary-card__label {
+    font-size: 9px !important;
+}
+
+/* Compact analytics grid */
+.swc-analytics-grid {
+    gap: var(--swc-space-2) !important;
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+.swc-analytics-card {
+    padding: var(--swc-space-2) !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+.swc-analytics-card__header {
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+.swc-analytics-card__title {
+    font-size: var(--swc-text-xs) !important;
+}
+
+.swc-analytics-card__content {
+    min-height: 120px !important;
+}
+
+/* Live activity compact */
+.analytics-stat-card .components-card__body {
+    padding: var(--swc-space-2) !important;
+    gap: var(--swc-space-1) !important;
+}
+
+.stat-icon {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10px !important;
+}
+
+.stat-value {
+    font-size: var(--swc-text-sm) !important;
+}
+
+.stat-label {
+    font-size: 9px !important;
+}
+
+/* Compact chart/list areas */
+.swc-chart-placeholder {
+    height: 100px !important;
+    gap: var(--swc-space-1) !important;
+}
+
+.swc-chart-placeholder__icon {
+    font-size: 20px !important;
+}
+
+.swc-top-list {
+    gap: 4px !important;
+}
+
+.swc-top-list__item {
+    padding: var(--swc-space-1) !important;
+    gap: var(--swc-space-1) !important;
+}
+
+.swc-top-list__rank {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 9px !important;
+}
+
+.swc-top-list__name {
+    font-size: 11px !important;
+}
+
+.swc-top-list__value {
+    font-size: 10px !important;
+}
+
+/* Compact tables */
+.swc-performance-table th,
+.swc-performance-table td {
+    padding: var(--swc-space-1) var(--swc-space-2) !important;
+    font-size: 10px !important;
+}
+
+.swc-mini-progress {
+    height: 3px !important;
+}
+
+/* ==========================================================================
+   AGENT CARDS - Ultra-Compact
+   ========================================================================== */
+
+/* Compact agent card */
+.swc-agent-card {
+    gap: var(--swc-space-1) !important;
+}
+
+.swc-agent-card .swc-card {
+    padding: var(--swc-space-2) !important;
+}
+
+/* Smaller agent avatar */
+.swc-agent-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important;
+    border-radius: var(--swc-radius-md) !important;
+}
+
+/* Compact agent name */
+.swc-agent-name {
+    gap: 4px !important;
+}
+
+.swc-agent-name__text {
+    font-size: var(--swc-text-xs) !important;
+}
+
+/* Compact agent ID */
+.swc-agent-id {
+    margin-top: 2px !important;
+    padding: 1px 4px !important;
+    font-size: 9px !important;
+}
+
+/* Compact agent description */
+.swc-agent-desc {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    -webkit-line-clamp: 2 !important;
+}
+
+/* Compact agent footer */
+.swc-agent-footer {
+    padding-top: var(--swc-space-2) !important;
+    margin-top: var(--swc-space-2) !important;
+}
+
+/* Compact toolkit badges */
+.swc-agent-toolkits {
+    gap: 3px !important;
+    margin-top: var(--swc-space-1) !important;
+}
+
+.swc-toolkit-badge {
+    padding: 1px 4px !important;
+    font-size: 9px !important;
+    gap: 2px !important;
+}
+
+/* Compact agent creation cards */
+.swc-create-select {
+    gap: var(--swc-space-3) !important;
+    padding: var(--swc-space-2) !important;
+}
+
+.swc-select-card {
+    padding: var(--swc-space-4) var(--swc-space-3) !important;
+}
+
+.swc-select-card__icon {
+    font-size: 28px !important;
+    margin-bottom: var(--swc-space-2) !important;
+}
+
+.swc-select-card__title {
+    font-size: var(--swc-text-sm) !important;
+    margin-bottom: 4px !important;
+}
+
+.swc-select-card__desc {
+    font-size: 11px !important;
+}
+
+/* Compact agent editor */
+.swc-agent-editor {
+    padding: var(--swc-space-3) !important;
+}
+
+.swc-editor-tabs {
+    padding: 2px !important;
+    gap: 1px !important;
+    margin-bottom: var(--swc-space-3) !important;
+}
+
+.swc-editor-tab {
+    padding: var(--swc-space-1) var(--swc-space-2) !important;
+    font-size: 11px !important;
+}
+
+.swc-editor-section {
+    margin-bottom: var(--swc-space-4) !important;
+}
+
+.swc-editor-section__title {
+    font-size: var(--swc-text-xs) !important;
+    margin-bottom: var(--swc-space-2) !important;
+    padding-bottom: var(--swc-space-1) !important;
+}
+
+.swc-avatar-picker {
+    gap: 4px !important;
+}
+
+.swc-avatar-option {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+}
+
+.swc-editor-actions {
+    gap: var(--swc-space-2) !important;
+    margin-top: var(--swc-space-4) !important;
+    padding-top: var(--swc-space-3) !important;
+}
+
+/* ==========================================================================
+   PAGE HEADERS - Ultra-Compact
+   ========================================================================== */
+
+.swc-page-header {
+    margin-bottom: var(--swc-space-2) !important;
+    padding-bottom: var(--swc-space-1) !important;
+}
+
+h1.swc-page-title,
+.swc-page-header h1,
+.page-header h1,
+h1[class*="title"] {
+    font-size: var(--swc-text-base) !important;
+    margin-bottom: 2px !important;
+}
+
+.swc-page-subtitle,
+.swc-page-header p,
+.page-header p {
+    font-size: 11px !important;
+    margin: 0 !important;
+}
+
+.swc-page-actions,
+.page-header__actions {
+    gap: var(--swc-space-1) !important;
+}
+
+/* Ultra-tight skills filters */
+.swc-skill-filters {
+    display: flex;
+    flex-direction: column;
+    gap: var(--swc-space-3);
+    margin-bottom: var(--swc-space-4);
+    background: white;
+    padding: var(--swc-space-4);
+    border-radius: var(--swc-radius-lg);
+    border: 1px solid var(--swc-border-color);
+}
+
+.swc-skill-filters__row {
+    display: flex;
+    align-items: center;
+    gap: var(--swc-space-3);
+    flex-wrap: wrap;
+}
+
+.swc-skill-filters__search {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+}
+
+.swc-skill-filters__select {
+    width: auto !important;
+    min-width: 140px;
+}
+
+/* Onboarding adjustments */
+.swc-onboarding__step-icon {
+    display: none !important;
+}
+
+.swc-onboarding__provider-icon {
+    display: none !important;
+}
+
+.swc-onboarding__hero-icon {
+    display: none !important;
+}
+
+.swc-select-card__icon {
+    display: none !important;
+}

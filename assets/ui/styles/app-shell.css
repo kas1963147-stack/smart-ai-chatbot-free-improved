@@ -1,0 +1,12 @@
+/*
+ * Minimal app shell styles for layout scaffolding.
+ */
+
+#smart-ai-chatbot-manager-root {
+	font-family: var(--swc-font-sans);
+	color: var(--swc-gray-900);
+}
+
+#smart-ai-chatbot-manager-root .swc-app-shell {
+	min-height: calc(100vh - 100px);
+}

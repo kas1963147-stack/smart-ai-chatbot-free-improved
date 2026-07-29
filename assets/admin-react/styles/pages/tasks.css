@@ -1,0 +1,314 @@
+/**
+ * Smart WooCommerce Chatbot - Tasks Page Styles
+ *
+ * Ultra-Compact & Professional Styling
+ *
+ * @version 2.1.0
+ * @package SWC
+ */
+
+/* ============================================
+   TASKS PAGE LAYOUT
+   ============================================ */
+
+.swc-tasks-page {
+    animation: swc-fade-in-up 300ms var(--swc-ease-out);
+    padding-bottom: var(--swc-space-8);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   STATS DASHBOARD (Compact Row)
+   ============================================ */
+
+.swc-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--swc-space-4);
+    margin-bottom: var(--swc-space-6);
+}
+
+.swc-stat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--swc-space-3) var(--swc-space-4);
+    background: #fff;
+    border: 1px solid var(--swc-gray-200);
+    border-radius: var(--swc-radius-lg);
+    box-shadow: var(--swc-shadow-sm);
+    transition: all 0.2s ease;
+    min-height: 80px;
+}
+
+.swc-stat-card:hover {
+    border-color: var(--swc-gray-300);
+    box-shadow: var(--swc-shadow-md);
+    transform: translateY(-1px);
+}
+
+.swc-stat-card__value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--swc-gray-900);
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.swc-stat-card__label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--swc-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Subtle contextual colors for values only */
+.swc-stat-card--success .swc-stat-card__value {
+    color: var(--swc-success-600);
+}
+
+.swc-stat-card--error .swc-stat-card__value {
+    color: var(--swc-error-600);
+}
+
+.swc-stat-card--primary .swc-stat-card__value {
+    color: var(--swc-primary);
+}
+
+
+/* ============================================
+   TASK LIST (Table-like Row Layout)
+   ============================================ */
+
+.swc-task-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--swc-space-3);
+}
+
+.swc-task-item {
+    display: grid;
+    grid-template-columns: 48px minmax(200px, 1.5fr) 1fr 1fr 1fr auto;
+    align-items: center;
+    gap: var(--swc-space-4);
+    padding: var(--swc-space-3) var(--swc-space-4);
+    background: #fff;
+    border: 1px solid var(--swc-gray-200);
+    border-radius: var(--swc-radius-lg);
+    box-shadow: var(--swc-shadow-sm);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.swc-task-item:hover {
+    border-color: var(--swc-primary-light);
+    box-shadow: var(--swc-shadow-md);
+}
+
+/* Icon Column */
+.swc-task-icon-area {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--swc-gray-50);
+    border-radius: var(--swc-radius-md);
+    color: var(--swc-gray-600);
+    font-size: 18px;
+}
+
+/* Main Info Column */
+.swc-task-main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.swc-task-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--swc-gray-900);
+    margin: 0;
+}
+
+.swc-task-desc {
+    font-size: 12px;
+    color: var(--swc-gray-500);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+/* Meta Columns (Schedule, Next Run) */
+.swc-task-meta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.swc-task-meta-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--swc-gray-400);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.swc-task-meta-value {
+    font-size: 13px;
+    color: var(--swc-gray-700);
+    font-weight: 500;
+}
+
+.swc-task-meta-value.highlight {
+    color: var(--swc-primary);
+    font-weight: 600;
+}
+
+/* Status Badge Column */
+.swc-task-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.swc-status-active {
+    background: var(--swc-success-50);
+    color: var(--swc-success-700);
+    border: 1px solid var(--swc-success-200);
+}
+
+.swc-status-paused {
+    background: var(--swc-warning-50);
+    color: var(--swc-warning-700);
+    border: 1px solid var(--swc-warning-200);
+}
+
+.swc-status-completed {
+    background: var(--swc-gray-100);
+    color: var(--swc-gray-600);
+    border: 1px solid var(--swc-gray-200);
+}
+
+.swc-status-disabled {
+    background: var(--swc-error-50);
+    color: var(--swc-error-700);
+    border: 1px solid var(--swc-error-200);
+}
+
+.swc-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+/* Actions Column */
+.swc-task-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--swc-space-2);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.swc-task-item:hover .swc-task-actions {
+    opacity: 1;
+}
+
+.swc-action-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: var(--swc-radius-md);
+    color: var(--swc-gray-500);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.swc-action-btn:hover {
+    background: var(--swc-gray-100);
+    color: var(--swc-gray-900);
+    border-color: var(--swc-gray-200);
+}
+
+.swc-action-btn.danger:hover {
+    background: var(--swc-error-50);
+    color: var(--swc-error-600);
+    border-color: var(--swc-error-200);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+
+.swc-empty-state {
+    padding: var(--swc-space-12);
+    background: white;
+    border: 1px dashed var(--swc-gray-200);
+    border-radius: var(--swc-radius-lg);
+    text-align: center;
+}
+
+.swc-empty-state__icon {
+    font-size: 32px;
+    margin-bottom: var(--swc-space-4);
+    color: var(--swc-gray-300);
+}
+
+/* ============================================
+   Mobile Responsiveness
+   ============================================ */
+@media (max-width: 768px) {
+    .swc-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .swc-task-item {
+        grid-template-columns: 48px 1fr auto;
+        grid-template-areas:
+            "icon main status"
+            "meta meta actions";
+        gap: 12px;
+    }
+
+    .swc-task-icon-area {
+        grid-area: icon;
+    }
+
+    .swc-task-main-info {
+        grid-area: main;
+    }
+
+    .swc-task-status-badge {
+        grid-area: status;
+        justify-self: end;
+    }
+
+    .swc-task-meta-col {
+        display: none;
+    }
+
+    /* Hide complex meta on mobile for compactness, or restyle */
+    .swc-task-actions {
+        grid-area: actions;
+        justify-self: end;
+        width: 100%;
+        justify-content: flex-end;
+        padding-top: 12px;
+        border-top: 1px solid var(--swc-gray-100);
+        opacity: 1;
+    }
+}
