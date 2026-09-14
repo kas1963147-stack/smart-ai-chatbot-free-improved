@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SkillAnalyticsDashboard Component
  *
  * Dashboard showing skill usage metrics and trends with premium dark mode support.
@@ -21,8 +21,8 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 		setError(null);
 		try {
 			const endpoint = skillId
-				? `/smart-ai-chatbot/v1/skills/${skillId}/analytics`
-				: '/smart-ai-chatbot/v1/skill-analytics';
+				? `/quark-agentflow-ai/v1/skills/${skillId}/analytics`
+				: '/quark-agentflow-ai/v1/skill-analytics';
 
 			const response = await apiFetch({
 				path: `${endpoint}?days=${timeRange}`,
@@ -49,7 +49,7 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 	if (loading) {
 		return (
 			<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8">
-				<Loading message={__('Loading analytics…', 'agentflow-ai')} fullPage />
+				<Loading message={__('Loading analyticsâ€¦', 'agentflow-ai')} fullPage />
 			</div>
 		);
 	}

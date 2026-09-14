@@ -1,5 +1,5 @@
-/**
- * SearchAnalytics — Search analytics dashboard
+﻿/**
+ * SearchAnalytics â€” Search analytics dashboard
  *
  * Shows cache stats, recent search activity, and performance metrics.
  */
@@ -21,14 +21,14 @@ export default function SearchAnalytics({ enabled }) {
         setLoading(true);
         try {
             const res = await apiFetch({
-                path: '/smart-ai-chatbot/v1/search/stats',
+                path: '/quark-agentflow-ai/v1/search/stats',
                 method: 'GET',
             });
             if (res.success) {
                 setStats(res.data);
             }
         } catch (err) {
-            // Stats endpoint might not exist yet — show defaults
+            // Stats endpoint might not exist yet â€” show defaults
             setStats({
                 total_cached: 0,
                 cache_size_bytes: 0,
@@ -43,7 +43,7 @@ export default function SearchAnalytics({ enabled }) {
         setClearing(true);
         try {
             await apiFetch({
-                path: '/smart-ai-chatbot/v1/search/clear-cache',
+                path: '/quark-agentflow-ai/v1/search/clear-cache',
                 method: 'POST',
                 data: {},
             });
@@ -56,7 +56,7 @@ export default function SearchAnalytics({ enabled }) {
     };
 
     if (loading) {
-        return <Loading message={__('Loading analytics…', 'agentflow-ai')} fullPage />;
+        return <Loading message={__('Loading analyticsâ€¦', 'agentflow-ai')} fullPage />;
     }
 
     if (!enabled) {
@@ -145,7 +145,7 @@ export default function SearchAnalytics({ enabled }) {
                             disabled={clearing}
                             className="inline-flex items-center gap-1.5 rounded-lg bg-red-100 px-3 py-2 text-xs font-medium text-red-700 transition hover:bg-red-200 disabled:opacity-50 dark:bg-red-900/30 dark:text-red-400"
                         >
-                             {clearing ? __('Clearing…', 'agentflow-ai') : __('Clear All Cache', 'agentflow-ai')}
+                             {clearing ? __('Clearingâ€¦', 'agentflow-ai') : __('Clear All Cache', 'agentflow-ai')}
                         </button>
                     </div>
                 </div>
@@ -180,7 +180,7 @@ export default function SearchAnalytics({ enabled }) {
                     <div className="text-sm text-violet-800 dark:text-violet-200">
                         <p className="mb-1 font-semibold">{__('Search Flow', 'agentflow-ai')}</p>
                         <p className="text-violet-700 dark:text-violet-300">
-                            {__('User searches → Check cache → If miss, call Search Agent → AI generates keywords → Keywords added to SQL query → Enhanced results returned → Cache keywords for next time', 'agentflow-ai')}
+                            {__('User searches â†’ Check cache â†’ If miss, call Search Agent â†’ AI generates keywords â†’ Keywords added to SQL query â†’ Enhanced results returned â†’ Cache keywords for next time', 'agentflow-ai')}
                         </p>
                     </div>
                 </div>

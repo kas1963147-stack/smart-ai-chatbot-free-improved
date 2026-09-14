@@ -1,4 +1,4 @@
-/**
+﻿/**
  * useSkillsApi Hook
  *
  * React hook for Skills REST API operations.
@@ -12,7 +12,7 @@ import { useState, useCallback, useRef, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { getCached, setCache, invalidateCache } from './useApiCache';
 
-const API_BASE = '/smart-ai-chatbot/v1';
+const API_BASE = '/quark-agentflow-ai/v1';
 
 export default function useSkillsApi() {
 	const [skills, setSkills] = useState([]);

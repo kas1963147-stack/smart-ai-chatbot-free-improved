@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AgentSkillAssigner Component
  *
  * Tailwind-only skill selection for agents.
@@ -63,7 +63,7 @@ export default function AgentSkillAssigner({
 		const fetchSkills = async () => {
 			try {
 				const response = await apiFetch({
-					path: '/smart-ai-chatbot/v1/skills',
+					path: '/quark-agentflow-ai/v1/skills',
 				});
 
 				if (response.success) {
@@ -155,7 +155,7 @@ export default function AgentSkillAssigner({
 	};
 
 	if (loading) {
-		return <Loading message={__('Loading skills…', 'agentflow-ai')} fullPage />;
+		return <Loading message={__('Loading skillsâ€¦', 'agentflow-ai')} fullPage />;
 	}
 
 	return (

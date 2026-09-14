@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AgentGroupEditor Component
  *
  * Premium Metronic v9 styled editor for creating/editing Agent Groups (Teams).
@@ -101,14 +101,14 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
             try {
                 // Load all agents for selection
                 const agentsResp = await apiFetch({
-                    path: '/smart-ai-chatbot/v1/agents',
+                    path: '/quark-agentflow-ai/v1/agents',
                 });
                 setAllAgents(agentsResp.agents || []);
 
                 if (group && !isNew) {
                     // Load group members
                     const membersResp = await apiFetch({
-                        path: `/smart-ai-chatbot/v1/agent-groups/${group.id}/members`,
+                        path: `/quark-agentflow-ai/v1/agent-groups/${group.id}/members`,
                     });
 
                     setFormData({
@@ -646,15 +646,15 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                             </div>
                             <ul className="space-y-2 text-sm text-indigo-800/80">
                                 <li className="flex items-start gap-2">
-                                    <span className="text-indigo-500 mt-1">•</span>
+                                    <span className="text-indigo-500 mt-1">â€¢</span>
                                     {__('Use Auto-Router for automatic agent selection', 'agentflow-ai')}
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-indigo-500 mt-1">•</span>
+                                    <span className="text-indigo-500 mt-1">â€¢</span>
                                     {__('Add routing keywords to help with agent matching', 'agentflow-ai')}
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-indigo-500 mt-1">•</span>
+                                    <span className="text-indigo-500 mt-1">â€¢</span>
                                     {__('Assign a Primary agent as the default handler', 'agentflow-ai')}
                                 </li>
                             </ul>

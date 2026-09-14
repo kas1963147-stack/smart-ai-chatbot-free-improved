@@ -1,4 +1,4 @@
-/**
+﻿/**
  * useAgentApi Hook
  *
  * React hook for interacting with the Agent REST API.
@@ -6,7 +6,7 @@
 import { useState, useCallback, useRef, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 
-const API_BASE = '/smart-ai-chatbot/v1';
+const API_BASE = '/quark-agentflow-ai/v1';
 
 export default function useAgentApi() {
 	const [agents, setAgents] = useState([]);

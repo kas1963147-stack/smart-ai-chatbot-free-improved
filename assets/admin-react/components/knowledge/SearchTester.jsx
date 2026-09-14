@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SearchTester Component - Metronic v9 Style
  *
  * Test knowledge base search functionality with modern UI.
@@ -21,7 +21,7 @@ export default function SearchTester() {
 
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/knowledge/search',
+				path: '/quark-agentflow-ai/v1/knowledge/search',
 				method: 'POST',
 				data: { query, limit: 5 },
 			});
@@ -78,7 +78,7 @@ export default function SearchTester() {
 						{searching ? (
 							<>
 								<span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-								{__('Searching…', 'agentflow-ai')}
+								{__('Searchingâ€¦', 'agentflow-ai')}
 							</>
 						) : (
 							<> {__('Search', 'agentflow-ai')}</>

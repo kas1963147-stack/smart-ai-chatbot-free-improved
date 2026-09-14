@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AgentDocumentAssigner Component - Metronic v9 Style
  *
  * Document section selection for agents with premium Tailwind styling.
@@ -24,7 +24,7 @@ export default function AgentDocumentAssigner({
 	const fetchSections = async () => {
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/documents/sections',
+				path: '/quark-agentflow-ai/v1/documents/sections',
 			});
 
 			if (response.success) {

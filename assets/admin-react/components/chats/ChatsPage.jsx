@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ChatsPage Component - Metronic v9 Premium Design
  *
  * Main page for chat widget management with modern UI.
@@ -11,7 +11,7 @@ import Loading from '../common/Loading';
 import useChatsApi from '../../hooks/useChatsApi';
 import { getCached, setCache, invalidateCache } from '../../hooks/useApiCache';
 
-const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/smart-ai-chatbot/v1';
+const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/quark-agentflow-ai/v1';
 
 // Icon component
 const Icon = ({ path, className = "w-5 h-5" }) => (
@@ -208,7 +208,7 @@ export default function ChatsPage() {
 			{/* Loading State */}
 			{loading && view === 'list' && widgets.length === 0 && (
 				<div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 py-8">
-					<Loading message={__('Loading widgets…', 'agentflow-ai')} fullPage />
+					<Loading message={__('Loading widgetsâ€¦', 'agentflow-ai')} fullPage />
 				</div>
 			)}
 

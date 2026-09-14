@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Real-time Stats Panel Component
  *
  * Live activity panel showing current chat sessions and real-time metrics.
@@ -31,7 +31,7 @@ export default function LiveStatsPanel() {
 	const fetchLiveStats = useCallback(async () => {
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/analytics/live',
+				path: '/quark-agentflow-ai/v1/analytics/live',
 			});
 
 			if (response.success) {

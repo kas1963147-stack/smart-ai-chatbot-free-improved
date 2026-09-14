@@ -1,8 +1,8 @@
-/**
- * SearchHubPage — Independent AI Search Enhancement Hub
+﻿/**
+ * SearchHubPage â€” Independent AI Search Enhancement Hub
  *
  * Full-page admin panel for managing AI-powered site search.
- * Pulled out of Settings → Advanced into its own top-level tab.
+ * Pulled out of Settings â†’ Advanced into its own top-level tab.
  */
 import { useState, useEffect, useCallback } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
@@ -35,7 +35,7 @@ export default function SearchHubPage() {
     const loadSettings = async () => {
         setLoading(true);
         try {
-            const res = await apiFetch({ path: '/smart-ai-chatbot/v1/settings', method: 'GET' });
+            const res = await apiFetch({ path: '/quark-agentflow-ai/v1/settings', method: 'GET' });
             const s = res.settings || res || {};
             setSettings(s);
         } catch (err) {
@@ -53,7 +53,7 @@ export default function SearchHubPage() {
         setSaving(true);
         try {
             await apiFetch({
-                path: '/smart-ai-chatbot/v1/settings',
+                path: '/quark-agentflow-ai/v1/settings',
                 method: 'POST',
                 data: { settings },
             });
@@ -73,7 +73,7 @@ export default function SearchHubPage() {
     };
 
     if (loading) {
-        return <Loading message={__('Loading search settings…', 'agentflow-ai')} fullPage />;
+        return <Loading message={__('Loading search settingsâ€¦', 'agentflow-ai')} fullPage />;
     }
 
     return (
@@ -110,7 +110,7 @@ export default function SearchHubPage() {
                             disabled={saving}
                             className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-primary/90 disabled:opacity-50"
                         >
-                            {saving ? __('Saving…', 'agentflow-ai') : __('Save Settings', 'agentflow-ai')}
+                            {saving ? __('Savingâ€¦', 'agentflow-ai') : __('Save Settings', 'agentflow-ai')}
                         </button>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ export default function SearchHubPage() {
                         }`}
                 >
                     <span>{notice.message}</span>
-                    <button onClick={() => setNotice(null)} className="ml-4 text-lg opacity-70 hover:opacity-100">×</button>
+                    <button onClick={() => setNotice(null)} className="ml-4 text-lg opacity-70 hover:opacity-100">Ã—</button>
                 </div>
             )}
 

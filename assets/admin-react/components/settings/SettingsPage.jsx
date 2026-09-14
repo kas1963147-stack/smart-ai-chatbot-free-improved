@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Settings Page Component - Metronic v9 Style
  *
  * Consolidated settings panel with modern UI.
@@ -50,7 +50,7 @@ export default function SettingsPage() {
 			setSettings(cached);
 			setLoading(false);
 
-			apiFetch({ path: '/smart-ai-chatbot/v1/settings', method: 'GET' })
+			apiFetch({ path: '/quark-agentflow-ai/v1/settings', method: 'GET' })
 				.then((response) => {
 					const loadedSettings = response.settings || response || {};
 					setSettings(loadedSettings);
@@ -62,7 +62,7 @@ export default function SettingsPage() {
 
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/settings',
+				path: '/quark-agentflow-ai/v1/settings',
 				method: 'GET',
 			});
 			const loadedSettings = response.settings || response || {};
@@ -86,7 +86,7 @@ export default function SettingsPage() {
 		setSaving(true);
 		try {
 			await apiFetch({
-				path: '/smart-ai-chatbot/v1/settings',
+				path: '/quark-agentflow-ai/v1/settings',
 				method: 'POST',
 				data: { settings },
 			});

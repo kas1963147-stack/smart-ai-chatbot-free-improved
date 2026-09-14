@@ -1,4 +1,4 @@
-/**
+﻿/**
  * McpManager Component - Metronic v9 Style
  *
  * Manage Model Context Protocol (MCP) connections for an agent.
@@ -22,7 +22,7 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 	// Fetch Global MCPs on mount
 	useEffect(() => {
 		setIsLoading(true);
-		apiFetch({ path: '/smart-ai-chatbot/v1/mcps' })
+		apiFetch({ path: '/quark-agentflow-ai/v1/mcps' })
 			.then((mcps) => {
 				setGlobalMcps(mcps);
 			})
@@ -40,7 +40,7 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 		}));
 	}, [globalMcps]);
 
-	// Get categories — add config-status-based filters
+	// Get categories â€” add config-status-based filters
 	const categories = useMemo(() => {
 		const cats = new Set(allMcps.map((m) => m.category));
 		return ['all', 'configured', 'not_configured', ...Array.from(cats)];

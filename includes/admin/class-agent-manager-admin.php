@@ -181,7 +181,7 @@ class SWC_Chatbot_Manager_Admin
 
         // Localize script with API info and settings
         wp_localize_script(self::SCRIPT_HANDLE, 'swcChatbot', [
-            'apiUrl' => rest_url('agentflow-ai/v1'),
+            'apiUrl' => rest_url('quark-agentflow-ai/v1'),
             'nonce' => wp_create_nonce('wp_rest'),
             'adminUrl' => admin_url(),
             'siteUrl' => site_url(),

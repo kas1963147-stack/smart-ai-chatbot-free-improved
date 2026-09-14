@@ -1,4 +1,4 @@
-/**
+﻿/**
  * useChatsApi Hook
  *
  * React hook for interacting with Chat Widgets REST API.
@@ -6,7 +6,7 @@
 import { useCallback, useEffect, useRef, useState } from '@wordpress/element';
 import { getCached, setCache, invalidateCache } from './useApiCache';
 
-const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/smart-ai-chatbot/v1';
+const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/quark-agentflow-ai/v1';
 
 const buildHeaders = (hasBody = false) => {
 	const headers = {

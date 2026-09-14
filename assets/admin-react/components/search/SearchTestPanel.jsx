@@ -1,5 +1,5 @@
-/**
- * SearchTestPanel — Live test interface for AI Search Enhancement
+﻿/**
+ * SearchTestPanel â€” Live test interface for AI Search Enhancement
  *
  * Allows admins to test search queries and see AI-generated keywords in real-time.
  * Uses the existing SearchEnhancer::test() backend method.
@@ -21,7 +21,7 @@ export default function SearchTestPanel({ enabled }) {
         setResult(null);
         try {
             const res = await apiFetch({
-                path: '/smart-ai-chatbot/v1/search/test',
+                path: '/quark-agentflow-ai/v1/search/test',
                 method: 'POST',
                 data: { search_term: query.trim() },
             });
@@ -45,7 +45,7 @@ export default function SearchTestPanel({ enabled }) {
         setClearing(true);
         try {
             await apiFetch({
-                path: '/smart-ai-chatbot/v1/search/clear-cache',
+                path: '/quark-agentflow-ai/v1/search/clear-cache',
                 method: 'POST',
                 data: term ? { search_term: term } : {},
             });
@@ -84,7 +84,7 @@ export default function SearchTestPanel({ enabled }) {
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             onKeyDown={(e) => e.key === 'Enter' && runTest()}
-                            placeholder={__('Type a search query to test… e.g. "laptop"', 'agentflow-ai')}
+                            placeholder={__('Type a search query to testâ€¦ e.g. "laptop"', 'agentflow-ai')}
                             className="h-12 w-full rounded-xl border border-slate-300 bg-white pl-4 pr-4 text-sm text-slate-900 transition-all focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
                         />
                     </div>
@@ -96,7 +96,7 @@ export default function SearchTestPanel({ enabled }) {
                         {testing ? (
                             <>
                                 <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                                {__('Testing…', 'agentflow-ai')}
+                                {__('Testingâ€¦', 'agentflow-ai')}
                             </>
                         ) : (
                             <>
@@ -185,7 +185,7 @@ export default function SearchTestPanel({ enabled }) {
                                         disabled={clearing}
                                         className="inline-flex items-center gap-1.5 rounded-lg bg-amber-100 px-3 py-1.5 text-xs font-medium text-amber-700 transition hover:bg-amber-200 disabled:opacity-50 dark:bg-amber-900/30 dark:text-amber-400"
                                     >
-                                         {clearing ? __('Clearing…', 'agentflow-ai') : __('Clear Cache for This Term', 'agentflow-ai')}
+                                         {clearing ? __('Clearingâ€¦', 'agentflow-ai') : __('Clear Cache for This Term', 'agentflow-ai')}
                                     </button>
                                 </div>
                             </div>
@@ -216,9 +216,9 @@ export default function SearchTestPanel({ enabled }) {
                             >
                                 <div className="flex items-center gap-3">
                                     <span className="text-sm font-medium text-slate-900 dark:text-white">"{item.query}"</span>
-                                    <span className="text-xs text-slate-400">→</span>
+                                    <span className="text-xs text-slate-400">â†’</span>
                                     <span className="text-xs text-slate-500">
-                                        {item.result.keyword_count} {__('keywords', 'agentflow-ai')} · {item.result.duration_ms}ms
+                                        {item.result.keyword_count} {__('keywords', 'agentflow-ai')} Â· {item.result.duration_ms}ms
                                     </span>
                                 </div>
                                 <button

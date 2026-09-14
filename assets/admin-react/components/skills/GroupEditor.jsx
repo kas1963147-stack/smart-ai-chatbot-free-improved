@@ -1,4 +1,4 @@
-/**
+﻿/**
  * GroupEditor Component
  *
  * Edit/create agent groups with orchestration settings and member management.
@@ -114,14 +114,14 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 			try {
 				// Load all agents for selection
 				const agentsResp = await apiFetch({
-					path: `/smart-ai-chatbot/v1/agents?include_inactive=true&_t=${Date.now()}`,
+					path: `/quark-agentflow-ai/v1/agents?include_inactive=true&_t=${Date.now()}`,
 				});
 				setAllAgents(agentsResp.agents || []);
 
 				if (group && !isNew) {
 					// Load group members
 					const membersResp = await apiFetch({
-						path: `/smart-ai-chatbot/v1/agent-groups/${group.id}/members`,
+						path: `/quark-agentflow-ai/v1/agent-groups/${group.id}/members`,
 					});
 
 					const routingConfig = group.routing_config || {};
@@ -874,19 +874,19 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 						</div>
 						<ul className="space-y-2 text-sm text-indigo-800/80 dark:text-indigo-300/80">
 							<li className="flex items-start gap-2">
-								<span className="text-indigo-500 dark:text-indigo-400 mt-1">•</span>
+								<span className="text-indigo-500 dark:text-indigo-400 mt-1">â€¢</span>
 								{formData.orchestration_mode === 'supervisor'
 									? __('Set one agent as "Primary" \u2014 it becomes the Manager', 'agentflow-ai')
 									: __('Use Auto-Router for automatic agent selection', 'agentflow-ai')}
 							</li>
 							<li className="flex items-start gap-2">
-								<span className="text-indigo-500 dark:text-indigo-400 mt-1">•</span>
+								<span className="text-indigo-500 dark:text-indigo-400 mt-1">â€¢</span>
 								{formData.orchestration_mode === 'supervisor'
 									? __('All other agents become Workers the Manager delegates to', 'agentflow-ai')
 									: __('Add routing keywords to help with matching', 'agentflow-ai')}
 							</li>
 							<li className="flex items-start gap-2">
-								<span className="text-indigo-500 dark:text-indigo-400 mt-1">•</span>
+								<span className="text-indigo-500 dark:text-indigo-400 mt-1">â€¢</span>
 								{formData.orchestration_mode === 'supervisor'
 									? __('Give each Worker a clear description so the Manager knows their specialty', 'agentflow-ai')
 									: __('Assign a Primary agent as default', 'agentflow-ai')}

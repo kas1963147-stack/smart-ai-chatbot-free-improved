@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Cost Breakdown Chart - Premium Metronic v9 Style
  * 
  * Visualizes cost distribution with animated progress bars.
@@ -41,7 +41,7 @@ export default function CostBreakdown({ period }) {
 			setLoading(!cached);
 			try {
 				const response = await apiFetch({
-					path: `/smart-ai-chatbot/v1/analytics/costs?period=${period}&group_by=${groupBy}`,
+					path: `/quark-agentflow-ai/v1/analytics/costs?period=${period}&group_by=${groupBy}`,
 				});
 				if (isMounted && response.success) {
 					setData(response.data);

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * API Cache Manager
  * 
  * Provides caching for API responses to reduce load times
@@ -143,7 +143,7 @@ export function clearAllCache() {
  * Call this on app initialization
  */
 export async function prefetchCommonData(apiFetch) {
-    const API_BASE = '/smart-ai-chatbot/v1';
+    const API_BASE = '/quark-agentflow-ai/v1';
 
     // Prefetch all major endpoints in background without blocking
     const prefetchEndpoints = [

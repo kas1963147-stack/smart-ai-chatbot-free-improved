@@ -1,5 +1,5 @@
-/**
- * Form Detail — View a single submission's field values
+﻿/**
+ * Form Detail â€” View a single submission's field values
  *
  * Shows all field labels and their submitted values in a clean card layout.
  */
@@ -21,7 +21,7 @@ export default function FormDetail({ submission, form, onBack }) {
 	const [notification, setNotification] = useState(null);
 	const [currentStatus, setCurrentStatus] = useState(submission.status);
 
-	const apiBase = '/smart-ai-chatbot/v1';
+	const apiBase = '/quark-agentflow-ai/v1';
 	const submissionData = submission.submission_data || {};
 	const fieldMap = submission.field_map || {};
 	const fields = form.fields || [];

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Inline Knowledge Search Component - Metronic v9 Style
  *
  * Quick search preview with modern debounced search.
@@ -27,7 +27,7 @@ export default function InlineSearchPreview() {
 				setLoading(true);
 				try {
 					const response = await apiFetch({
-						path: '/smart-ai-chatbot/v1/knowledge/search',
+						path: '/quark-agentflow-ai/v1/knowledge/search',
 						method: 'POST',
 						data: { query: searchQuery, limit: 5 },
 					});
@@ -89,7 +89,7 @@ export default function InlineSearchPreview() {
 			<div className="relative mb-4">
 				<input
 					type="text"
-					placeholder={__('Test your knowledge base…', 'agentflow-ai')}
+					placeholder={__('Test your knowledge baseâ€¦', 'agentflow-ai')}
 					value={query}
 					onChange={handleInputChange}
 					className="w-full h-10 px-4 pr-10 text-sm rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
@@ -109,7 +109,7 @@ export default function InlineSearchPreview() {
 				{loading && (
 					<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-slate-400 py-3">
 						<span className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
-						{__('Searching…', 'agentflow-ai')}
+						{__('Searchingâ€¦', 'agentflow-ai')}
 					</div>
 				)}
 

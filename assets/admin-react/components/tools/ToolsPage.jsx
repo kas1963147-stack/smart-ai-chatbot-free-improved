@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ToolsPage Component - Metronic v9 Style
  *
  * Management page for external tool API keys and configurations.
@@ -39,7 +39,7 @@ export default function ToolsPage() {
     // Fetch Google OAuth status
     const fetchGoogleStatus = async () => {
         try {
-            const status = await apiFetch({ path: '/smart-ai-chatbot/v1/tools/google/status' });
+            const status = await apiFetch({ path: '/quark-agentflow-ai/v1/tools/google/status' });
             setGoogleStatus(status);
         } catch (e) { /* ignore */ }
     };
@@ -47,7 +47,7 @@ export default function ToolsPage() {
     const handleGoogleConnect = async () => {
         setGoogleConnecting(true);
         try {
-            const res = await apiFetch({ path: '/smart-ai-chatbot/v1/tools/google/connect', method: 'POST' });
+            const res = await apiFetch({ path: '/quark-agentflow-ai/v1/tools/google/connect', method: 'POST' });
             if (res.auth_url) {
                 window.location.href = res.auth_url;
             } else if (res.error) {
@@ -62,7 +62,7 @@ export default function ToolsPage() {
 
     const handleGoogleDisconnect = async () => {
         try {
-            await apiFetch({ path: '/smart-ai-chatbot/v1/tools/google/disconnect', method: 'POST' });
+            await apiFetch({ path: '/quark-agentflow-ai/v1/tools/google/disconnect', method: 'POST' });
             setGoogleStatus({ configured: true, connected: false });
             setSuccess(__('Google account disconnected.', 'agentflow-ai'));
         } catch (err) {
@@ -98,8 +98,8 @@ export default function ToolsPage() {
 
             // Background refresh
             Promise.all([
-                apiFetch({ path: '/smart-ai-chatbot/v1/tools/registry' }),
-                apiFetch({ path: '/smart-ai-chatbot/v1/tools/config' }),
+                apiFetch({ path: '/quark-agentflow-ai/v1/tools/registry' }),
+                apiFetch({ path: '/quark-agentflow-ai/v1/tools/config' }),
             ]).then(([registryData, configData]) => {
                 setRegistry(registryData);
                 setConfig(configData);
@@ -112,8 +112,8 @@ export default function ToolsPage() {
         try {
             setLoading(true);
             const [registryData, configData] = await Promise.all([
-                apiFetch({ path: '/smart-ai-chatbot/v1/tools/registry' }),
-                apiFetch({ path: '/smart-ai-chatbot/v1/tools/config' }),
+                apiFetch({ path: '/quark-agentflow-ai/v1/tools/registry' }),
+                apiFetch({ path: '/quark-agentflow-ai/v1/tools/config' }),
             ]);
             setRegistry(registryData);
             setConfig(configData);
@@ -156,7 +156,7 @@ export default function ToolsPage() {
             });
 
             await apiFetch({
-                path: '/smart-ai-chatbot/v1/tools/config',
+                path: '/quark-agentflow-ai/v1/tools/config',
                 method: 'POST',
                 data: dataToSend,
             });
@@ -172,7 +172,7 @@ export default function ToolsPage() {
 
     // Loading state
     if (loading) {
-        return <Loading message={__('Loading tools…', 'agentflow-ai')} fullPage />;
+        return <Loading message={__('Loading toolsâ€¦', 'agentflow-ai')} fullPage />;
     }
 
     return (
@@ -193,13 +193,13 @@ export default function ToolsPage() {
             {error && (
                 <div className="mx-6 mt-4 px-4 py-3 rounded-lg bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800 flex items-center justify-between">
                     <span className="text-sm">{error}</span>
-                    <button onClick={() => setError(null)} className="text-lg opacity-70 hover:opacity-100">×</button>
+                    <button onClick={() => setError(null)} className="text-lg opacity-70 hover:opacity-100">Ã—</button>
                 </div>
             )}
             {success && (
                 <div className="mx-6 mt-4 px-4 py-3 rounded-lg bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 flex items-center justify-between">
                     <span className="text-sm">{success}</span>
-                    <button onClick={() => setSuccess(null)} className="text-lg opacity-70 hover:opacity-100">×</button>
+                    <button onClick={() => setSuccess(null)} className="text-lg opacity-70 hover:opacity-100">Ã—</button>
                 </div>
             )}
 
@@ -217,7 +217,7 @@ export default function ToolsPage() {
                                 >
                                     <span className="flex-1 text-base font-semibold text-gray-900 dark:text-white">{category.label}</span>
                                     <span className="text-sm text-gray-500 dark:text-gray-400">{Object.keys(category.tools).length} tools</span>
-                                    <span className="text-gray-400 dark:text-gray-500 text-lg">{expandedCategory === categoryId ? '−' : '+'}</span>
+                                    <span className="text-gray-400 dark:text-gray-500 text-lg">{expandedCategory === categoryId ? 'âˆ’' : '+'}</span>
                                 </button>
 
                                 {/* Tools List */}
@@ -300,7 +300,7 @@ export default function ToolsPage() {
                                                                     type={field.type === 'password' ? 'password' : 'text'}
                                                                     value={config[toolId]?.[fieldId] || ''}
                                                                     onChange={(e) => updateField(toolId, fieldId, e.target.value)}
-                                                                    placeholder={field.type === 'password' ? '••••••••' : ''}
+                                                                    placeholder={field.type === 'password' ? 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢' : ''}
                                                                     className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                                                                 />
                                                             </div>

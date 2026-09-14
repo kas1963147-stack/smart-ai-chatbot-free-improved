@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Top Tools Analytics - Premium Metronic v9 Style
  * 
  * Shows most used tools with success rates and performance metrics.
@@ -30,7 +30,7 @@ export default function TopTools({ period }) {
 			setLoading(!cached);
 			try {
 				const response = await apiFetch({
-					path: `/smart-ai-chatbot/v1/analytics/tools?period=${period}`,
+					path: `/quark-agentflow-ai/v1/analytics/tools?period=${period}`,
 				});
 				if (isMounted && response.success) {
 					setData(response.data);

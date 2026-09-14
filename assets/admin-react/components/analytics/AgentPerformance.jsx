@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Agent Performance Analytics - Premium Metronic v9 Style
  * 
  * Detailed agent comparison with performance metrics.
@@ -31,7 +31,7 @@ export default function AgentPerformance({ period }) {
 			setLoading(!cached);
 			try {
 				const response = await apiFetch({
-					path: `/smart-ai-chatbot/v1/analytics/agents?period=${period}`,
+					path: `/quark-agentflow-ai/v1/analytics/agents?period=${period}`,
 				});
 				if (isMounted && response.success) {
 					setData(response.data);

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AgentKnowledgeAssigner Component - Metronic v9 Style
  *
  * Knowledge source selection for agents with premium Tailwind styling.
@@ -32,7 +32,7 @@ export default function AgentKnowledgeAssigner({
 	const fetchSources = async () => {
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/knowledge/documents',
+				path: '/quark-agentflow-ai/v1/knowledge/documents',
 			});
 
 			if (response.success) {

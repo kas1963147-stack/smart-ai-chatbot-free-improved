@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Modules Manager Component
  *
  * Admin UI for viewing and toggling plugin modules.
@@ -119,7 +119,7 @@ export default function ModulesManager() {
 	const loadModules = async () => {
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/modules',
+				path: '/quark-agentflow-ai/v1/modules',
 				method: 'GET',
 			});
 			setModules(response.modules || []);
@@ -138,7 +138,7 @@ export default function ModulesManager() {
 		try {
 			const action = enabled ? 'enable' : 'disable';
 			await apiFetch({
-				path: `/smart-ai-chatbot/v1/modules/${slug}/${action}`,
+				path: `/quark-agentflow-ai/v1/modules/${slug}/${action}`,
 				method: 'POST',
 			});
 
@@ -163,7 +163,7 @@ export default function ModulesManager() {
 	};
 
 	if (loading) {
-		return <Loading message={__('Loading modules…', 'agentflow-ai')} fullPage />;
+		return <Loading message={__('Loading modulesâ€¦', 'agentflow-ai')} fullPage />;
 	}
 
 	// Group modules by status

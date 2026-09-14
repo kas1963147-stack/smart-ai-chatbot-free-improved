@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AgentGroupsPage Component
  *
  * Premium Metronic v9 styled page for managing Agent Groups (Teams).
@@ -51,7 +51,7 @@ export default function AgentGroupsPage() {
         try {
             setLoading(true);
             const response = await apiFetch({
-                path: '/smart-ai-chatbot/v1/agent-groups',
+                path: '/quark-agentflow-ai/v1/agent-groups',
             });
             setGroups(response.groups || response.data || []);
             setError(null);
@@ -92,7 +92,7 @@ export default function AgentGroupsPage() {
     const handleDelete = async (groupId) => {
         try {
             await apiFetch({
-                path: `/smart-ai-chatbot/v1/agent-groups/${groupId}`,
+                path: `/quark-agentflow-ai/v1/agent-groups/${groupId}`,
                 method: 'DELETE',
             });
             setGroups((prev) => prev.filter((g) => g.id !== groupId));
@@ -107,7 +107,7 @@ export default function AgentGroupsPage() {
             if (selectedGroup) {
                 // Update existing
                 const response = await apiFetch({
-                    path: `/smart-ai-chatbot/v1/agent-groups/${selectedGroup.id}`,
+                    path: `/quark-agentflow-ai/v1/agent-groups/${selectedGroup.id}`,
                     method: 'PUT',
                     data,
                 });
@@ -117,7 +117,7 @@ export default function AgentGroupsPage() {
             } else {
                 // Create new
                 const response = await apiFetch({
-                    path: '/smart-ai-chatbot/v1/agent-groups',
+                    path: '/quark-agentflow-ai/v1/agent-groups',
                     method: 'POST',
                     data,
                 });

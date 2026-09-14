@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Onboarding Wizard Component
  *
  * First-run experience for new users.
@@ -71,7 +71,7 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 			setTesting( true );
 			try {
 				const response = await apiFetch( {
-					path: '/smart-ai-chatbot/v1/settings/test-connection',
+					path: '/quark-agentflow-ai/v1/settings/test-connection',
 					method: 'POST',
 					data: {
 						provider: formData.provider,
@@ -96,7 +96,7 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 			try {
 				// Save settings
 				await apiFetch( {
-					path: '/smart-ai-chatbot/v1/settings',
+					path: '/quark-agentflow-ai/v1/settings',
 					method: 'POST',
 					data: {
 						settings: {
@@ -108,7 +108,7 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 
 				// Mark onboarding complete
 				await apiFetch( {
-					path: '/smart-ai-chatbot/v1/settings/onboarding',
+					path: '/quark-agentflow-ai/v1/settings/onboarding',
 					method: 'POST',
 					data: { completed: true },
 				} );

@@ -1,5 +1,5 @@
-/**
- * SynonymManager — Custom synonym pairs for search enhancement
+﻿/**
+ * SynonymManager â€” Custom synonym pairs for search enhancement
  *
  * Allows admins to define custom keyword synonyms that are always included
  * alongside AI-generated keywords.
@@ -27,14 +27,14 @@ export default function SynonymManager() {
         setLoading(true);
         try {
             const res = await apiFetch({
-                path: '/smart-ai-chatbot/v1/search/synonyms',
+                path: '/quark-agentflow-ai/v1/search/synonyms',
                 method: 'GET',
             });
             if (res.success) {
                 setSynonyms(res.data || []);
             }
         } catch {
-            // Synonyms endpoint might not exist yet — start with empty
+            // Synonyms endpoint might not exist yet â€” start with empty
             setSynonyms([]);
         } finally {
             setLoading(false);
@@ -45,7 +45,7 @@ export default function SynonymManager() {
         setSaving(true);
         try {
             await apiFetch({
-                path: '/smart-ai-chatbot/v1/search/synonyms',
+                path: '/quark-agentflow-ai/v1/search/synonyms',
                 method: 'POST',
                 data: { synonyms: data },
             });
@@ -85,7 +85,7 @@ export default function SynonymManager() {
     };
 
     if (loading) {
-        return <Loading message={__('Loading synonyms…', 'agentflow-ai')} fullPage />;
+        return <Loading message={__('Loading synonymsâ€¦', 'agentflow-ai')} fullPage />;
     }
 
     return (
@@ -99,7 +99,7 @@ export default function SynonymManager() {
                         }`}
                 >
                     <span>{notice.message}</span>
-                    <button onClick={() => setNotice(null)} className="ml-4 opacity-70 hover:opacity-100">×</button>
+                    <button onClick={() => setNotice(null)} className="ml-4 opacity-70 hover:opacity-100">Ã—</button>
                 </div>
             )}
 
@@ -127,7 +127,7 @@ export default function SynonymManager() {
                                 className="h-10 w-full rounded-lg border border-slate-300 bg-white px-4 text-sm text-slate-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
                             />
                         </div>
-                        <div className="flex items-center px-2 pb-2 text-slate-400">→</div>
+                        <div className="flex items-center px-2 pb-2 text-slate-400">â†’</div>
                         <div className="flex-[2]">
                             <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
                                 {__('Synonyms (comma-separated)', 'agentflow-ai')}
@@ -164,7 +164,7 @@ export default function SynonymManager() {
                         </p>
                     </div>
                     {saving && (
-                        <span className="text-xs text-amber-600 dark:text-amber-400">{__('Saving…', 'agentflow-ai')}</span>
+                        <span className="text-xs text-amber-600 dark:text-amber-400">{__('Savingâ€¦', 'agentflow-ai')}</span>
                     )}
                 </div>
 
@@ -186,7 +186,7 @@ export default function SynonymManager() {
                                     <span className="inline-flex min-w-[80px] items-center justify-center rounded-lg bg-violet-100 px-3 py-1.5 text-sm font-semibold text-violet-800 dark:bg-violet-900/30 dark:text-violet-300">
                                         {entry.term}
                                     </span>
-                                    <span className="text-slate-400">→</span>
+                                    <span className="text-slate-400">â†’</span>
                                     <div className="flex flex-wrap gap-1.5">
                                         {entry.synonyms.map((syn, sidx) => (
                                             <span

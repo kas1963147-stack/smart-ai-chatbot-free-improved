@@ -1,4 +1,4 @@
-/**
+﻿/**
  * History Page - Metronic v9 Premium Style
  *
  * Main page component for viewing conversation history with modern UI.
@@ -65,7 +65,7 @@ export default function HistoryPage() {
 	// Filters
 	const [searchQuery, setSearchQuery] = useState('');
 	const [period, setPeriod] = useState('30d');
-	const apiBase = '/smart-ai-chatbot/v1';
+	const apiBase = '/quark-agentflow-ai/v1';
 
 	// Fetch sessions
 	const fetchSessions = useCallback(async () => {

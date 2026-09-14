@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Appointment Settings Panel
  * 
  * Admin UI for configuring appointment settings:
@@ -42,7 +42,7 @@ export default function AppointmentSettingsPanel({ onClose }) {
 	const loadSettings = async () => {
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/appointments/settings',
+				path: '/quark-agentflow-ai/v1/appointments/settings',
 				method: 'GET',
 			});
 			if (response.success) {
@@ -59,7 +59,7 @@ export default function AppointmentSettingsPanel({ onClose }) {
 		setSaving(true);
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/appointments/settings',
+				path: '/quark-agentflow-ai/v1/appointments/settings',
 				method: 'POST',
 				data: settings,
 			});
@@ -175,7 +175,7 @@ export default function AppointmentSettingsPanel({ onClose }) {
 					: 'bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800'
 					}`}>
 					<span className="text-sm">{notification.message}</span>
-					<button onClick={() => setNotification(null)} className="text-lg opacity-70 hover:opacity-100">×</button>
+					<button onClick={() => setNotification(null)} className="text-lg opacity-70 hover:opacity-100">Ã—</button>
 				</div>
 			)}
 
@@ -204,7 +204,7 @@ export default function AppointmentSettingsPanel({ onClose }) {
 							</span>
 						</div>
 						<p className="mt-2 text-xs text-gray-400 dark:text-slate-500">
-							💡 Doctor/Therapist: <strong>1</strong> • Massage Center with 5 tables: <strong>5</strong> • Salon with 3 stylists: <strong>3</strong>
+							ðŸ’¡ Doctor/Therapist: <strong>1</strong> â€¢ Massage Center with 5 tables: <strong>5</strong> â€¢ Salon with 3 stylists: <strong>3</strong>
 						</p>
 					</div>
 				</div>

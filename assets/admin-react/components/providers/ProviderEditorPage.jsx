@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from '@wordpress/element';
+﻿import { useState, useEffect, useCallback, useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import AI_PROVIDERS from '../../constants/providers';
@@ -385,7 +385,7 @@ export default function ProviderEditorPage({
             return undefined;
         }
 
-        apiFetch({ path: '/smart-ai-chatbot/v1/pricing', method: 'GET' })
+        apiFetch({ path: '/quark-agentflow-ai/v1/pricing', method: 'GET' })
             .then((res) => {
                 if (!res.success) {
                     return;
@@ -413,7 +413,7 @@ export default function ProviderEditorPage({
         setModelsError('');
 
         try {
-            let path = `/smart-ai-chatbot/v1/provider-models?provider=${encodeURIComponent(provider)}`;
+            let path = `/quark-agentflow-ai/v1/provider-models?provider=${encodeURIComponent(provider)}`;
             if (apiKey) {
                 path += `&api_key=${encodeURIComponent(apiKey)}`;
             }
@@ -523,7 +523,7 @@ export default function ProviderEditorPage({
             };
 
             const res = await apiFetch({
-                path: '/smart-ai-chatbot/v1/provider-instances',
+                path: '/quark-agentflow-ai/v1/provider-instances',
                 method: 'POST',
                 data: saveData,
             });
@@ -535,7 +535,7 @@ export default function ProviderEditorPage({
             if (!isEditingApiGroup && (form.input_price !== '' || form.output_price !== '')) {
                 try {
                     await apiFetch({
-                        path: '/smart-ai-chatbot/v1/pricing',
+                        path: '/quark-agentflow-ai/v1/pricing',
                         method: 'POST',
                         data: {
                             provider: form.provider,
@@ -572,7 +572,7 @@ export default function ProviderEditorPage({
 
         try {
             const res = await apiFetch({
-                path: '/smart-ai-chatbot/v1/provider-instances/test',
+                path: '/quark-agentflow-ai/v1/provider-instances/test',
                 method: 'POST',
                 data: {
                     provider: form.provider,

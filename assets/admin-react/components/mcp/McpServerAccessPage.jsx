@@ -1,4 +1,4 @@
-import { useState, useEffect } from '@wordpress/element';
+﻿import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import { Server, Copy, RefreshCw, ExternalLink } from 'lucide-react';
@@ -19,7 +19,7 @@ export default function McpServerAccessPage() {
 		setMcpLoading(true);
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/mcp-server/status',
+				path: '/quark-agentflow-ai/v1/mcp-server/status',
 				method: 'GET',
 			});
 			if (response.success) {
@@ -35,7 +35,7 @@ export default function McpServerAccessPage() {
 	const toggleMcpServer = async (enabled) => {
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/mcp-server/settings',
+				path: '/quark-agentflow-ai/v1/mcp-server/settings',
 				method: 'POST',
 				data: { enabled },
 			});
@@ -55,7 +55,7 @@ export default function McpServerAccessPage() {
 		setGeneratingToken(true);
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/mcp-server/token',
+				path: '/quark-agentflow-ai/v1/mcp-server/token',
 				method: 'POST',
 			});
 			if (response.success) {
@@ -195,7 +195,7 @@ export default function McpServerAccessPage() {
 											<div className="flex gap-2">
 												<input
 													type="text"
-													value={mcpServer.token || '••••••••••••••••••••••••'}
+													value={mcpServer.token || 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢'}
 													readOnly
 													className="flex-1 h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-gray-900 dark:text-white font-mono"
 												/>

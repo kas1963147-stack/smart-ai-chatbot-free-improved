@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Analytics Dashboard - Premium Metronic v9 Style
  *
  * Comprehensive analytics dashboard for AI chatbot administrators.
@@ -78,7 +78,7 @@ export default function AnalyticsPage() {
 			setLoading(false);
 
 			// Background refresh
-			apiFetch({ path: `/smart-ai-chatbot/v1/analytics/dashboard?period=${period}` })
+			apiFetch({ path: `/quark-agentflow-ai/v1/analytics/dashboard?period=${period}` })
 				.then((response) => {
 					if (response.success) {
 						setData(response.data);
@@ -93,7 +93,7 @@ export default function AnalyticsPage() {
 		setError(null);
 		try {
 			const response = await apiFetch({
-				path: `/smart-ai-chatbot/v1/analytics/dashboard?period=${period}`,
+				path: `/quark-agentflow-ai/v1/analytics/dashboard?period=${period}`,
 			});
 
 			if (response.success) {
@@ -120,7 +120,7 @@ export default function AnalyticsPage() {
 	};
 
 	const handleExport = () => {
-		const url = `${window.swcChatbot?.apiUrl || '/wp-json'}/smart-ai-chatbot/v1/analytics/export?period=${period}&format=csv&_wpnonce=${window.swcChatbot?.nonce}`;
+		const url = `${window.swcChatbot?.apiUrl || '/wp-json'}/quark-agentflow-ai/v1/analytics/export?period=${period}&format=csv&_wpnonce=${window.swcChatbot?.nonce}`;
 		window.open(url, '_blank');
 	};
 
@@ -180,7 +180,7 @@ export default function AnalyticsPage() {
 
 	// Loading state
 	if (loading && !data) {
-		return <Loading message={__('Loading analytics data…', 'agentflow-ai')} fullPage />;
+		return <Loading message={__('Loading analytics dataâ€¦', 'agentflow-ai')} fullPage />;
 	}
 
 	// Calculate derived stats
@@ -243,7 +243,7 @@ export default function AnalyticsPage() {
 							)}
 						>
 							<RefreshCw className={cn('w-4 h-4', isRefreshing && 'animate-spin')} />
-							{isRefreshing ? __('Refreshing…', 'agentflow-ai') : __('Refresh', 'agentflow-ai')}
+							{isRefreshing ? __('Refreshingâ€¦', 'agentflow-ai') : __('Refresh', 'agentflow-ai')}
 						</button>
 					</div>
 				</div>
@@ -358,7 +358,7 @@ export default function AnalyticsPage() {
 									</div>
 									<div>
 										<p className="text-2xl font-bold text-gray-900 dark:text-white">
-											{stats.totalMessages > 0 ? (stats.totalCost / stats.totalMessages * 1000).toFixed(2) : '0.00'}¢
+											{stats.totalMessages > 0 ? (stats.totalCost / stats.totalMessages * 1000).toFixed(2) : '0.00'}Â¢
 										</p>
 										<p className="text-xs text-gray-500 dark:text-slate-400">{__('Cost per 1K Messages', 'agentflow-ai')}</p>
 									</div>
@@ -466,10 +466,10 @@ export default function AnalyticsPage() {
 								<div>
 									<h3 className="font-semibold text-blue-900 dark:text-blue-300">{__('Cost Optimization Tips', 'agentflow-ai')}</h3>
 									<ul className="mt-2 space-y-1 text-sm text-blue-700 dark:text-blue-400">
-										<li>• {__('Use caching for frequently asked questions', 'agentflow-ai')}</li>
-										<li>• {__('Consider using smaller models for simple tasks', 'agentflow-ai')}</li>
-										<li>• {__('Set token limits to prevent runaway costs', 'agentflow-ai')}</li>
-										<li>• {__('Monitor and optimize high-cost agents', 'agentflow-ai')}</li>
+										<li>â€¢ {__('Use caching for frequently asked questions', 'agentflow-ai')}</li>
+										<li>â€¢ {__('Consider using smaller models for simple tasks', 'agentflow-ai')}</li>
+										<li>â€¢ {__('Set token limits to prevent runaway costs', 'agentflow-ai')}</li>
+										<li>â€¢ {__('Monitor and optimize high-cost agents', 'agentflow-ai')}</li>
 									</ul>
 								</div>
 							</div>

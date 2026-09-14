@@ -1,5 +1,5 @@
-/**
- * Leads Page — Admin page for viewing and managing leads/requests
+﻿/**
+ * Leads Page â€” Admin page for viewing and managing leads/requests
  *
  * Features stat cards, filterable table, detail view, and manual add modal.
  */
@@ -79,7 +79,7 @@ const AddLeadModal = ({ isOpen, onClose, onSave, saving }) => {
 					<button type="button" onClick={onClose} className="h-10 px-5 text-sm font-medium rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700 transition">Cancel</button>
 					<button type="submit" form="add-lead-form" disabled={saving} className="h-10 px-5 text-sm font-semibold rounded-xl bg-primary text-white shadow-sm hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition inline-flex items-center gap-2">
 						{saving && <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
-						{saving ? 'Saving…' : 'Add Lead'}
+						{saving ? 'Savingâ€¦' : 'Add Lead'}
 					</button>
 				</div>
 			</div>
@@ -107,7 +107,7 @@ export default function LeadsPage() {
 	const [dateFrom, setDateFrom] = useState('');
 	const [dateTo, setDateTo] = useState('');
 
-	const apiBase = '/smart-ai-chatbot/v1';
+	const apiBase = '/quark-agentflow-ai/v1';
 
 	const fetchLeads = useCallback(async () => {
 		setLoading(true); setError(null);
@@ -215,7 +215,7 @@ export default function LeadsPage() {
 						<div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
 							<div className="flex flex-wrap items-center gap-3">
 								<div className="relative flex-1 min-w-[220px] max-w-[340px]">
-									<input type="text" placeholder="Search by name, email, request…" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }} className="w-full h-10 px-4 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 placeholder:text-slate-400 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white transition-all shadow-sm" />
+									<input type="text" placeholder="Search by name, email, requestâ€¦" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }} className="w-full h-10 px-4 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 placeholder:text-slate-400 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white transition-all shadow-sm" />
 									{searchQuery && <button onClick={() => { setSearchQuery(''); setPage(1); }} className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 transition"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></button>}
 								</div>
 								<div className="hidden sm:block w-px h-6 bg-slate-200 dark:bg-slate-600" />
@@ -258,8 +258,8 @@ export default function LeadsPage() {
 											{leads.map((lead) => (
 												<tr key={lead.id} className="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
 													<td className="px-6 py-4">
-														<div className="font-medium text-slate-800 dark:text-slate-100">{lead.customer_name || '—'}</div>
-														<div className="text-xs text-slate-500 dark:text-slate-400">{lead.customer_email || '—'}</div>
+														<div className="font-medium text-slate-800 dark:text-slate-100">{lead.customer_name || 'â€”'}</div>
+														<div className="text-xs text-slate-500 dark:text-slate-400">{lead.customer_email || 'â€”'}</div>
 													</td>
 													<td className="px-6 py-4"><div className="text-slate-700 dark:text-slate-200 max-w-[200px] truncate">{lead.request_summary}</div></td>
 													<td className="px-6 py-4"><span className="capitalize text-sm">{lead.lead_type?.replace(/_/g, ' ') || 'General'}</span></td>
@@ -281,7 +281,7 @@ export default function LeadsPage() {
 								</div>
 								{totalPages > 1 && (
 									<div className="flex items-center justify-between px-6 py-4 border-t border-slate-100 dark:border-slate-700">
-										<p className="text-sm text-slate-500">Showing {((page - 1) * 20) + 1}–{Math.min(page * 20, total)} of {total}</p>
+										<p className="text-sm text-slate-500">Showing {((page - 1) * 20) + 1}â€“{Math.min(page * 20, total)} of {total}</p>
 										<div className="flex items-center gap-1">
 											<button onClick={() => setPage(Math.max(1, page - 1))} disabled={page === 1} className="h-9 px-3 text-sm rounded-lg border border-slate-200 dark:border-slate-600 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed transition">Previous</button>
 											<span className="px-3 text-sm text-slate-600">{page} / {totalPages}</span>

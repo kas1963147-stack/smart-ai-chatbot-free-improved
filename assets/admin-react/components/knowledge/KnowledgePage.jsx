@@ -1,4 +1,4 @@
-/**
+﻿/**
  * KnowledgePage Component - Metronic v9 Style
  *
  * Main container for knowledge base document management with modern UI.
@@ -39,7 +39,7 @@ export default function KnowledgePage() {
 
         try {
             const response = await apiFetch({
-                path: '/smart-ai-chatbot/v1/knowledge/stats',
+                path: '/quark-agentflow-ai/v1/knowledge/stats',
             });
             if (response.success) {
                 setStats(response.data);
@@ -167,7 +167,7 @@ export default function KnowledgePage() {
                 <div className="mx-6 mt-6 px-4 py-3 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-400 border border-red-200 dark:border-red-800 flex items-center justify-between">
                     <span className="text-sm">{error}</span>
                     <button onClick={() => setError(null)} className="text-lg opacity-70 hover:opacity-100">
-                        ×
+                        Ã—
                     </button>
                 </div>
             )}

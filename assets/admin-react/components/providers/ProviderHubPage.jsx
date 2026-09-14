@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from '@wordpress/element';
+﻿import { useState, useEffect, useCallback, useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import AI_PROVIDERS from '../../constants/providers';
@@ -130,7 +130,7 @@ export default function ProviderHubPage({ onEditProvider, onAddNew }) {
     const loadInstances = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await apiFetch({ path: '/smart-ai-chatbot/v1/provider-instances' });
+            const res = await apiFetch({ path: '/quark-agentflow-ai/v1/provider-instances' });
             setInstances(res?.data || []);
         } catch (err) {
             setNotice({ type: 'error', message: err.message });
@@ -227,7 +227,7 @@ export default function ProviderHubPage({ onEditProvider, onAddNew }) {
 
         try {
             await apiFetch({
-                path: '/smart-ai-chatbot/v1/provider-instances/delete',
+                path: '/quark-agentflow-ai/v1/provider-instances/delete',
                 method: 'POST',
                 data: { id },
             });
@@ -249,7 +249,7 @@ export default function ProviderHubPage({ onEditProvider, onAddNew }) {
 
         try {
             const res = await apiFetch({
-                path: '/smart-ai-chatbot/v1/provider-instances/test',
+                path: '/quark-agentflow-ai/v1/provider-instances/test',
                 method: 'POST',
                 data: {
                     provider: instance?.provider,
@@ -348,7 +348,7 @@ export default function ProviderHubPage({ onEditProvider, onAddNew }) {
         }
 
         try {
-            const res = await apiFetch({ path: '/smart-ai-chatbot/v1/pricing', method: 'GET' });
+            const res = await apiFetch({ path: '/quark-agentflow-ai/v1/pricing', method: 'GET' });
 
             if (!res.success) {
                 throw new Error(__('Failed to load pricing', 'smartwoo-chatbot'));
@@ -394,7 +394,7 @@ export default function ProviderHubPage({ onEditProvider, onAddNew }) {
 
         try {
             const res = await apiFetch({
-                path: '/smart-ai-chatbot/v1/pricing',
+                path: '/quark-agentflow-ai/v1/pricing',
                 method: 'POST',
                 data: {
                     provider: instance.provider,
@@ -436,7 +436,7 @@ export default function ProviderHubPage({ onEditProvider, onAddNew }) {
 
         try {
             await apiFetch({
-                path: `/smart-ai-chatbot/v1/pricing/${instance.provider}/${instance.model}`,
+                path: `/quark-agentflow-ai/v1/pricing/${instance.provider}/${instance.model}`,
                 method: 'DELETE',
             });
 

@@ -1,7 +1,7 @@
-/**
- * SearchSettings — Core settings panel for AI Search Enhancement
+﻿/**
+ * SearchSettings â€” Core settings panel for AI Search Enhancement
  *
- * Migrated from Settings → Advanced tab with expanded controls.
+ * Migrated from Settings â†’ Advanced tab with expanded controls.
  */
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
@@ -17,7 +17,7 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
     // Fetch provider instances via API if none were localized
     useEffect(() => {
         if (providerInstances.length <= 1) {
-            apiFetch({ path: '/smart-ai-chatbot/v1/provider-instances' })
+            apiFetch({ path: '/quark-agentflow-ai/v1/provider-instances' })
                 .then((res) => {
                     const items = res?.data || [];
                     if (Array.isArray(items) && items.length > 0) {
@@ -292,7 +292,7 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                                 <li>{__('When a user searches your site, the AI generates related keywords', 'agentflow-ai')}</li>
                                 <li>{__('These keywords are added to the search query automatically', 'agentflow-ai')}</li>
                                 <li>{__('Results are cached to avoid repeated AI calls for the same query', 'agentflow-ai')}</li>
-                                <li>{__('Uses the internal Search Agent — no additional configuration needed', 'agentflow-ai')}</li>
+                                <li>{__('Uses the internal Search Agent â€” no additional configuration needed', 'agentflow-ai')}</li>
                                 <li>{__('Add custom synonyms to always include specific related terms', 'agentflow-ai')}</li>
                             </ul>
                         </div>

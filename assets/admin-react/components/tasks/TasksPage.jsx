@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Tasks Page - Metronic v9 Style
  *
  * Main component for scheduled task management with modern UI.
@@ -12,7 +12,7 @@ import TaskList from './TaskList';
 import TaskEditor from './TaskEditor';
 import ExecutionHistory from './ExecutionHistory';
 
-const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/smart-ai-chatbot/v1';
+const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/quark-agentflow-ai/v1';
 
 export default function TasksPage() {
 	const [view, setView] = useState('list');
@@ -277,7 +277,7 @@ export default function TasksPage() {
 
 	// Loading state
 	if (loading && tasks.length === 0) {
-		return <Loading message={__('Loading scheduled tasks…', 'agentflow-ai')} fullPage />;
+		return <Loading message={__('Loading scheduled tasksâ€¦', 'agentflow-ai')} fullPage />;
 	}
 
 	return (
@@ -299,7 +299,7 @@ export default function TasksPage() {
 							onClick={handleBack}
 							className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
 						>
-							<span>←</span>
+							<span>â†</span>
 							{__('Back to Tasks', 'agentflow-ai')}
 						</button>
 					)}
@@ -313,7 +313,7 @@ export default function TasksPage() {
 					: 'bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800'
 					}`}>
 					<span className="text-sm">{notification.message}</span>
-					<button onClick={() => setNotification(null)} className="text-lg opacity-70 hover:opacity-100">×</button>
+					<button onClick={() => setNotification(null)} className="text-lg opacity-70 hover:opacity-100">Ã—</button>
 				</div>
 			)}
 

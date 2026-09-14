@@ -1,4 +1,4 @@
-/**
+﻿/**
  * McpPage Component - Metronic v9 Style
  *
  * Global management page for external Model Context Protocol servers.
@@ -88,7 +88,7 @@ export default function McpPage() {
 			setLoading(false);
 
 			// Background refresh
-			apiFetch({ path: '/smart-ai-chatbot/v1/mcps' })
+			apiFetch({ path: '/quark-agentflow-ai/v1/mcps' })
 				.then(response => {
 					setMcps(response);
 					setCache('mcps', response);
@@ -99,7 +99,7 @@ export default function McpPage() {
 
 		try {
 			setLoading(true);
-			const response = await apiFetch({ path: '/smart-ai-chatbot/v1/mcps' });
+			const response = await apiFetch({ path: '/quark-agentflow-ai/v1/mcps' });
 			setMcps(response);
 			setCache('mcps', response);
 			setError(null);
@@ -141,7 +141,7 @@ export default function McpPage() {
 
 		try {
 			await apiFetch({
-				path: `/smart-ai-chatbot/v1/mcps/${id}`,
+				path: `/quark-agentflow-ai/v1/mcps/${id}`,
 				method: 'DELETE',
 			});
 			invalidateCache('mcps');
@@ -154,7 +154,7 @@ export default function McpPage() {
 	const handleSave = async () => {
 		try {
 			await apiFetch({
-				path: '/smart-ai-chatbot/v1/mcps',
+				path: '/quark-agentflow-ai/v1/mcps',
 				method: 'POST',
 				data: formData,
 			});
@@ -264,7 +264,7 @@ export default function McpPage() {
 				</div>
 			</main>
 
-			{/* Modal — Metronic v9 style via shared Modal component */}
+			{/* Modal â€” Metronic v9 style via shared Modal component */}
 			<Modal
 				isOpen={modalOpen}
 				onClose={() => setModalOpen(false)}

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Agent Manager App
  *
  * Main application component for multi-agent management.
@@ -61,7 +61,7 @@ const NavIcons = {
 			<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
 		</svg>
 	),
-	// workflows icon removed — workflows now managed inside Teams
+	// workflows icon removed â€” workflows now managed inside Teams
 	history: () => (
 		<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
 			<circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
@@ -169,7 +169,7 @@ export default function App() {
 		// This ensures data is ready when user navigates to those sections
 		const prefetchTimer = setTimeout(() => {
 			// Prefetch skills
-			apiFetch({ path: '/smart-ai-chatbot/v1/skills' })
+			apiFetch({ path: '/quark-agentflow-ai/v1/skills' })
 				.then(response => {
 					if (response.success) {
 						// Store in sessionStorage for cache
@@ -187,7 +187,7 @@ export default function App() {
 				.catch(() => { /* prefetch failed - not critical */ });
 
 			// Prefetch knowledge
-			apiFetch({ path: '/smart-ai-chatbot/v1/knowledge/sources' })
+			apiFetch({ path: '/quark-agentflow-ai/v1/knowledge/sources' })
 				.then(response => {
 					if (response.success) {
 						try {
@@ -220,7 +220,7 @@ export default function App() {
 		const checkIntro = async () => {
 			try {
 				const response = await apiFetch({
-					path: '/smart-ai-chatbot/v1/settings',
+					path: '/quark-agentflow-ai/v1/settings',
 				});
 
 				if (!isMounted) {
@@ -469,7 +469,7 @@ export default function App() {
 	if (loading && agents.length === 0 && activeNav === 'agents') {
 		return (
 			<Layout>
-				<Loading message={__('Loading Smart Chatbot…', 'agentflow-ai')} fullPage />
+				<Loading message={__('Loading Smart Chatbotâ€¦', 'agentflow-ai')} fullPage />
 			</Layout>
 		);
 	}
@@ -561,7 +561,7 @@ export default function App() {
 				{ /* Agents & Groups Section */}
 				{activeNav === 'agents' && (
 					<>
-						{ /* Action Bar — only for list view and agent editor views */}
+						{ /* Action Bar â€” only for list view and agent editor views */}
 						{(view === 'list' || view === 'edit-agent' || view === 'create-custom' || view === 'create-select' || view === 'create-template') && (
 						<div className="flex flex-wrap items-center justify-between gap-3">
 							<div className="min-w-0 flex-1">
@@ -590,7 +590,7 @@ export default function App() {
 										{/* New Agent button hidden */}
 									</>
 								)}
-								{/* New Team button hidden — backend preserved for future use */}
+								{/* New Team button hidden â€” backend preserved for future use */}
 								{view !== 'list' && (
 									<button
 										className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-800 dark:text-slate-200 dark:hover:bg-slate-800"
@@ -638,7 +638,7 @@ export default function App() {
 							/>
 						)}
 
-						{/* GroupList hidden — backend preserved for future use
+						{/* GroupList hidden â€” backend preserved for future use
 						{view === 'list' && agentSubNav === 'groups' && (
 							<GroupList
 								groups={groups}
@@ -728,7 +728,7 @@ export default function App() {
 							/>
 						)}
 
-						{/* GroupEditor hidden — backend preserved for future use
+						{/* GroupEditor hidden â€” backend preserved for future use
 						{(view === 'create-group' ||
 							view === 'edit-group') && (
 								<GroupEditor
@@ -820,7 +820,7 @@ export default function App() {
 						// Dismiss intro permanently
 						try {
 							await apiFetch({
-								path: '/smart-ai-chatbot/v1/settings/dismiss-intro',
+								path: '/quark-agentflow-ai/v1/settings/dismiss-intro',
 								method: 'POST',
 							});
 						} catch (err) {

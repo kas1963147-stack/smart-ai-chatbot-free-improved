@@ -1,4 +1,4 @@
-/**
+﻿/**
  * InternalMcpManager Component
  *
  * Per-agent control over which internal WordPress tools this agent can use.
@@ -107,7 +107,7 @@ export default function InternalMcpManager({
     const loadTools = async () => {
         try {
             const response = await apiFetch({
-                path: '/smart-ai-chatbot/v1/mcp-server/tools',
+                path: '/quark-agentflow-ai/v1/mcp-server/tools',
                 method: 'GET',
             });
             if (response.success && response.data.categories) {

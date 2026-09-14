@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Usage Trends Chart - Premium Metronic v9 Style
  * 
  * Interactive SVG line chart with gradient fills and tooltips.
@@ -33,7 +33,7 @@ export default function UsageTrends({ period }) {
 			setLoading(!cached);
 			try {
 				const response = await apiFetch({
-					path: `/smart-ai-chatbot/v1/analytics/trends?period=${period}&metric=${metric}`,
+					path: `/quark-agentflow-ai/v1/analytics/trends?period=${period}&metric=${metric}`,
 				});
 				if (isMounted && response.success) {
 					setData(response.data);

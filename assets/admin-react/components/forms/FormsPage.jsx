@@ -1,5 +1,5 @@
-/**
- * Forms Page — Admin page for managing custom forms and viewing submissions
+﻿/**
+ * Forms Page â€” Admin page for managing custom forms and viewing submissions
  *
  * Features form builder, form list, submission viewer, and detail view.
  * Follows the same pattern as LeadsPage.jsx and AppointmentsPage.jsx.
@@ -10,7 +10,7 @@ import apiFetch from '@wordpress/api-fetch';
 import FormSubmissions from './FormSubmissions';
 import FormDetail from './FormDetail';
 
-// ─── Icons ────────────────────────────────────────────────────
+// â”€â”€â”€ Icons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const FormIcon = () => (<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>);
 const PlusIcon = () => (<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>);
 const RefreshIcon = () => (<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>);
@@ -31,7 +31,7 @@ const StatusBadge = ({ status }) => {
 	return <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${styles[status] || styles.draft}`}>{labels[status] || status}</span>;
 };
 
-// ─── Field Types ──────────────────────────────────────────────
+// â”€â”€â”€ Field Types â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const FIELD_TYPES = [
 	{ value: 'text', label: 'Text' },
 	{ value: 'email', label: 'Email' },
@@ -44,7 +44,7 @@ const FIELD_TYPES = [
 	{ value: 'checkbox', label: 'Checkbox' },
 ];
 
-// ─── Form Builder Modal ──────────────────────────────────────
+// â”€â”€â”€ Form Builder Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const FormBuilderModal = ({ isOpen, onClose, onSave, saving, editForm = null }) => {
 	const [formName, setFormName] = useState('');
 	const [formDescription, setFormDescription] = useState('');
@@ -244,7 +244,7 @@ const FormBuilderModal = ({ isOpen, onClose, onSave, saving, editForm = null }) 
 					<button type="button" onClick={onClose} className="h-10 px-5 text-sm font-medium rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700 transition">Cancel</button>
 					<button type="submit" form="form-builder-form" disabled={saving || !formName.trim() || fields.length === 0} className="h-10 px-5 text-sm font-semibold rounded-xl bg-primary text-white shadow-sm hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition inline-flex items-center gap-2">
 						{saving && <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
-						{saving ? 'Saving…' : (editForm ? 'Update Form' : 'Create Form')}
+						{saving ? 'Savingâ€¦' : (editForm ? 'Update Form' : 'Create Form')}
 					</button>
 				</div>
 			</div>
@@ -252,7 +252,7 @@ const FormBuilderModal = ({ isOpen, onClose, onSave, saving, editForm = null }) 
 	);
 };
 
-// ─── Main FormsPage ──────────────────────────────────────────
+// â”€â”€â”€ Main FormsPage â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function FormsPage() {
 	const [view, setView] = useState('list'); // list | submissions | submission-detail
 	const [forms, setForms] = useState([]);
@@ -271,7 +271,7 @@ export default function FormsPage() {
 	const [searchQuery, setSearchQuery] = useState('');
 	const [statusFilter, setStatusFilter] = useState('');
 
-	const apiBase = '/smart-ai-chatbot/v1';
+	const apiBase = '/quark-agentflow-ai/v1';
 
 	const fetchForms = useCallback(async () => {
 		setLoading(true); setError(null);
@@ -364,7 +364,7 @@ export default function FormsPage() {
 					)}
 					{view === 'submissions' && selectedForm && (
 						<div>
-							<h2 className="text-lg font-bold text-slate-900 dark:text-white">{selectedForm.form_name} — Submissions</h2>
+							<h2 className="text-lg font-bold text-slate-900 dark:text-white">{selectedForm.form_name} â€” Submissions</h2>
 							<p className="text-xs text-slate-500">{selectedForm.submission_count || 0} submissions</p>
 						</div>
 					)}
@@ -380,7 +380,7 @@ export default function FormsPage() {
 			{error && <div className="mx-8 mt-2 px-5 py-4 rounded-2xl bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 shadow-sm"><p className="font-medium text-red-800 dark:text-red-300">{error}</p></div>}
 
 			<main className="p-8">
-				{/* ─── Stats Cards ─── */}
+				{/* â”€â”€â”€ Stats Cards â”€â”€â”€ */}
 				{view === 'list' && stats && (
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 						{[
@@ -404,14 +404,14 @@ export default function FormsPage() {
 					</div>
 				)}
 
-				{/* ─── Form List ─── */}
+				{/* â”€â”€â”€ Form List â”€â”€â”€ */}
 				{view === 'list' && (
 					<div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
 						{/* Filters */}
 						<div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
 							<div className="flex flex-wrap items-center gap-3">
 								<div className="relative flex-1 min-w-[220px] max-w-[340px]">
-									<input type="text" placeholder="Search forms…" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }} className="w-full h-10 px-4 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 placeholder:text-slate-400 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white transition-all shadow-sm" />
+									<input type="text" placeholder="Search formsâ€¦" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }} className="w-full h-10 px-4 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 placeholder:text-slate-400 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white transition-all shadow-sm" />
 									{searchQuery && <button onClick={() => { setSearchQuery(''); setPage(1); }} className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 transition"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg></button>}
 								</div>
 								<div className="hidden sm:block w-px h-6 bg-slate-200 dark:bg-slate-600" />
@@ -481,7 +481,7 @@ export default function FormsPage() {
 								</div>
 								{totalPages > 1 && (
 									<div className="flex items-center justify-between px-6 py-4 border-t border-slate-100 dark:border-slate-700">
-										<p className="text-sm text-slate-500">Showing {((page - 1) * 20) + 1}–{Math.min(page * 20, total)} of {total}</p>
+										<p className="text-sm text-slate-500">Showing {((page - 1) * 20) + 1}â€“{Math.min(page * 20, total)} of {total}</p>
 										<div className="flex items-center gap-1">
 											<button onClick={() => setPage(Math.max(1, page - 1))} disabled={page === 1} className="h-9 px-3 text-sm rounded-lg border border-slate-200 dark:border-slate-600 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed transition">Previous</button>
 											<span className="px-3 text-sm text-slate-600">{page} / {totalPages}</span>
@@ -494,7 +494,7 @@ export default function FormsPage() {
 					</div>
 				)}
 
-				{/* ─── Submissions View ─── */}
+				{/* â”€â”€â”€ Submissions View â”€â”€â”€ */}
 				{view === 'submissions' && selectedForm && (
 					<FormSubmissions
 						form={selectedForm}
@@ -503,7 +503,7 @@ export default function FormsPage() {
 					/>
 				)}
 
-				{/* ─── Submission Detail View ─── */}
+				{/* â”€â”€â”€ Submission Detail View â”€â”€â”€ */}
 				{view === 'submission-detail' && selectedSubmission && selectedForm && (
 					<FormDetail
 						submission={selectedSubmission}

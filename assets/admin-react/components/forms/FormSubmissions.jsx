@@ -1,7 +1,7 @@
-/**
- * Form Submissions — List and manage submissions for a specific form
+﻿/**
+ * Form Submissions â€” List and manage submissions for a specific form
  *
- * Follows the same pattern as LeadDetail.jsx — table with filters and actions.
+ * Follows the same pattern as LeadDetail.jsx â€” table with filters and actions.
  */
 import { useState, useEffect, useCallback } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
@@ -34,7 +34,7 @@ export default function FormSubmissions({ form, onViewDetail, onBack }) {
 	const [statusFilter, setStatusFilter] = useState('');
 	const [searchQuery, setSearchQuery] = useState('');
 
-	const apiBase = '/smart-ai-chatbot/v1';
+	const apiBase = '/quark-agentflow-ai/v1';
 
 	const fetchSubmissions = useCallback(async () => {
 		setLoading(true);
@@ -94,7 +94,7 @@ export default function FormSubmissions({ form, onViewDetail, onBack }) {
 				if (previews.length >= 2) break;
 			}
 		}
-		return previews.join(' · ') || 'No data';
+		return previews.join(' Â· ') || 'No data';
 	};
 
 	return (
@@ -106,7 +106,7 @@ export default function FormSubmissions({ form, onViewDetail, onBack }) {
 				<div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
 					<div className="flex flex-wrap items-center gap-3">
 						<div className="relative flex-1 min-w-[220px] max-w-[340px]">
-							<input type="text" placeholder="Search submissions…" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }} className="w-full h-10 px-4 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 placeholder:text-slate-400 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 focus:bg-white transition-all shadow-sm" />
+							<input type="text" placeholder="Search submissionsâ€¦" value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }} className="w-full h-10 px-4 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 placeholder:text-slate-400 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 focus:bg-white transition-all shadow-sm" />
 						</div>
 						<select value={statusFilter} onChange={(e) => { setStatusFilter(e.target.value); setPage(1); }} className="h-10 px-3 pr-8 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition cursor-pointer shadow-sm">
 							<option value="">All Status</option>
@@ -146,7 +146,7 @@ export default function FormSubmissions({ form, onViewDetail, onBack }) {
 										<tr key={sub.id} className="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
 											<td className="px-6 py-4">
 												<div className="font-medium text-slate-800 dark:text-slate-100">{sub.submitted_by_name || 'Anonymous'}</div>
-												<div className="text-xs text-slate-500 dark:text-slate-400">{sub.submitted_by_email || '—'}</div>
+												<div className="text-xs text-slate-500 dark:text-slate-400">{sub.submitted_by_email || 'â€”'}</div>
 											</td>
 											<td className="px-6 py-4">
 												<div className="text-slate-700 dark:text-slate-200 max-w-[250px] truncate text-xs">{getSubmissionPreview(sub)}</div>
@@ -172,7 +172,7 @@ export default function FormSubmissions({ form, onViewDetail, onBack }) {
 						</div>
 						{totalPages > 1 && (
 							<div className="flex items-center justify-between px-6 py-4 border-t border-slate-100 dark:border-slate-700">
-								<p className="text-sm text-slate-500">Showing {((page - 1) * 20) + 1}–{Math.min(page * 20, total)} of {total}</p>
+								<p className="text-sm text-slate-500">Showing {((page - 1) * 20) + 1}â€“{Math.min(page * 20, total)} of {total}</p>
 								<div className="flex items-center gap-1">
 									<button onClick={() => setPage(Math.max(1, page - 1))} disabled={page === 1} className="h-9 px-3 text-sm rounded-lg border border-slate-200 dark:border-slate-600 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed transition">Previous</button>
 									<span className="px-3 text-sm text-slate-600">{page} / {totalPages}</span>

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AgentEditor Component
  *
  * Edit/create agent with tabs for settings, toolkits, and locations.
@@ -94,7 +94,7 @@ export default function AgentEditor({
 	useEffect(() => {
 		const apiFetch = window.wp?.apiFetch;
 		if (apiFetch) {
-			apiFetch({ path: '/smart-ai-chatbot/v1/provider-instances' })
+			apiFetch({ path: '/quark-agentflow-ai/v1/provider-instances' })
 				.then((res) => {
 					const items = res?.data || [];
 					if (Array.isArray(items) && items.length > 0) {

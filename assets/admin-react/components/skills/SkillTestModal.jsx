@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SkillTestModal Component
  *
  * Test a skill with sample conversation to see AI response.
@@ -41,7 +41,7 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/skills/test',
+				path: '/quark-agentflow-ai/v1/skills/test',
 				method: 'POST',
 				data: {
 					skill_id: skill?.name,
@@ -257,7 +257,7 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 								e.target.style.height = (e.target.scrollHeight) + 'px';
 							}}
 							onKeyDown={handleKeyDown}
-							placeholder={__('Type a message to test…', 'agentflow-ai')}
+							placeholder={__('Type a message to testâ€¦', 'agentflow-ai')}
 							disabled={loading}
 							style={{ minHeight: '44px' }}
 						/>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from '@wordpress/element';
+﻿import { useState, useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Loading from '../common/Loading';
 import apiFetch from '@wordpress/api-fetch';
@@ -23,7 +23,7 @@ export default function LiveChatPage() {
 	const fetchSessions = async () => {
 		try {
 			// Removed API_BASE buggy variable and explicitly used the relative path
-			const res = await apiFetch({ path: `/smart-ai-chatbot/v1/inbox/sessions` });
+			const res = await apiFetch({ path: `/quark-agentflow-ai/v1/inbox/sessions` });
 			if (res.success) {
 				setSessions(res.sessions || []);
 			}
@@ -40,7 +40,7 @@ export default function LiveChatPage() {
 		setSending(true);
 		try {
 			const res = await apiFetch({
-				path: `/smart-ai-chatbot/v1/inbox/sessions/${selectedSessionId}/reply`,
+				path: `/quark-agentflow-ai/v1/inbox/sessions/${selectedSessionId}/reply`,
 				method: 'POST',
 				data: { message: replyText.trim() },
 			});
@@ -77,7 +77,7 @@ export default function LiveChatPage() {
 	};
 
 	if (loading && sessions.length === 0) {
-		return <Loading message={__('Loading Live Inbox…', 'agentflow-ai')} fullPage />;
+		return <Loading message={__('Loading Live Inboxâ€¦', 'agentflow-ai')} fullPage />;
 	}
 
 	return (

@@ -1,5 +1,5 @@
-/**
- * Appointments Page — Metronic v9 Premium Style
+﻿/**
+ * Appointments Page â€” Metronic v9 Premium Style
  *
  * Admin page for viewing and managing appointments booked through the AI chatbot.
  * Features stat cards, filterable table, detail view, and manual booking modal.
@@ -10,7 +10,7 @@ import apiFetch from '@wordpress/api-fetch';
 import AppointmentDetail from './AppointmentDetail';
 import AppointmentSettingsPanel from './AppointmentSettingsPanel';
 
-// ── Icon components ──────────────────────────────────────────
+// â”€â”€ Icon components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const CalendarIcon = () => (
 	<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -79,7 +79,7 @@ const TypeBadge = ({ type }) => {
 	);
 };
 
-// ── Add Appointment Modal ─────────────────────────────────────
+// â”€â”€ Add Appointment Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const AddAppointmentModal = ({ isOpen, onClose, onSave, saving }) => {
 	const [form, setForm] = useState({
 		customer_name: '', customer_email: '', customer_phone: '',
@@ -194,7 +194,7 @@ const AddAppointmentModal = ({ isOpen, onClose, onSave, saving }) => {
 					<button type="submit" form="add-appointment-form" disabled={saving}
 						className="h-10 px-5 text-sm font-semibold rounded-xl bg-primary text-white shadow-sm hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition inline-flex items-center gap-2">
 						{saving && <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
-						{saving ? __('Booking…', 'agentflow-ai') : __('Book Appointment', 'agentflow-ai')}
+						{saving ? __('Bookingâ€¦', 'agentflow-ai') : __('Book Appointment', 'agentflow-ai')}
 					</button>
 				</div>
 			</div>
@@ -227,9 +227,9 @@ export default function AppointmentsPage() {
 	const [dateFrom, setDateFrom] = useState('');
 	const [dateTo, setDateTo] = useState('');
 
-	const apiBase = '/smart-ai-chatbot/v1';
+	const apiBase = '/quark-agentflow-ai/v1';
 
-	// ── Fetch ──────────────────────────────
+	// â”€â”€ Fetch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	const fetchAppointments = useCallback(async () => {
 		setLoading(true);
 		setError(null);
@@ -267,7 +267,7 @@ export default function AppointmentsPage() {
 	useEffect(() => { fetchAppointments(); }, [fetchAppointments]);
 	useEffect(() => { fetchStats(); }, [fetchStats]);
 
-	// ── Actions ────────────────────────────
+	// â”€â”€ Actions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	const showNotif = (message, status = 'success') => {
 		setNotification({ message, status });
 		setTimeout(() => setNotification(null), 4000);
@@ -328,7 +328,7 @@ export default function AppointmentsPage() {
 	};
 	const hasActiveFilters = searchQuery || statusFilter || typeFilter || dateFrom || dateTo;
 
-	// ── Render ──────────────────────────────
+	// â”€â”€ Render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 	return (
 		<div className="min-h-screen bg-slate-50 dark:bg-slate-900">
 			{/* Notification Toast */}
@@ -385,7 +385,7 @@ export default function AppointmentsPage() {
 
 			{/* Content */}
 			<main className="p-8">
-				{/* ── Stat Cards ────────────────── */}
+				{/* â”€â”€ Stat Cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
 				{view === 'list' && stats && (
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 						{[
@@ -411,17 +411,17 @@ export default function AppointmentsPage() {
 					</div>
 				)}
 
-				{/* ── Appointment List ────────────── */}
+				{/* â”€â”€ Appointment List â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
 				{view === 'list' && (
 					<div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
-						{/* Filters Bar — Redesigned */}
+						{/* Filters Bar â€” Redesigned */}
 						<div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
 							<div className="flex flex-wrap items-center gap-3">
-								{/* Search — Premium design */}
+								{/* Search â€” Premium design */}
 								<div className="relative flex-1 min-w-[220px] max-w-[340px]">
 									<input
 										type="text"
-										placeholder={__('Search by name, email…', 'agentflow-ai')}
+										placeholder={__('Search by name, emailâ€¦', 'agentflow-ai')}
 										value={searchQuery}
 										onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }}
 										className="w-full h-10 px-4 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 placeholder:text-slate-400 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white dark:focus:bg-slate-700 transition-all shadow-sm"
@@ -469,7 +469,7 @@ export default function AppointmentsPage() {
 								<div className="flex items-center gap-2">
 									<input type="date" value={dateFrom} onChange={(e) => { setDateFrom(e.target.value); setPage(1); }}
 										className="h-10 px-3 text-sm rounded-xl border border-slate-200 bg-slate-50/80 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 transition shadow-sm" />
-									<span className="text-slate-300 dark:text-slate-500 text-lg">→</span>
+									<span className="text-slate-300 dark:text-slate-500 text-lg">â†’</span>
 									<input type="date" value={dateTo} onChange={(e) => { setDateTo(e.target.value); setPage(1); }}
 										className="h-10 px-3 text-sm rounded-xl border border-slate-200 bg-slate-50/80 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 transition shadow-sm" />
 								</div>
@@ -532,8 +532,8 @@ export default function AppointmentsPage() {
 																{dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}
 															</div>
 															<div className="text-xs text-slate-500 dark:text-slate-400">
-																{apt.time} – {apt.end_time}
-																{apt.google_calendar_synced && <span className="ml-1 text-blue-500" title="Synced to Google Calendar">📅</span>}
+																{apt.time} â€“ {apt.end_time}
+																{apt.google_calendar_synced && <span className="ml-1 text-blue-500" title="Synced to Google Calendar">ðŸ“…</span>}
 															</div>
 														</td>
 														<td className="px-6 py-4">
@@ -579,7 +579,7 @@ export default function AppointmentsPage() {
 								{totalPages > 1 && (
 									<div className="flex items-center justify-between px-6 py-4 border-t border-slate-100 dark:border-slate-700">
 										<p className="text-sm text-slate-500 dark:text-slate-400">
-											{__('Showing', 'agentflow-ai')} {((page - 1) * 20) + 1}–{Math.min(page * 20, total)} {__('of', 'agentflow-ai')} {total}
+											{__('Showing', 'agentflow-ai')} {((page - 1) * 20) + 1}â€“{Math.min(page * 20, total)} {__('of', 'agentflow-ai')} {total}
 										</p>
 										<div className="flex items-center gap-1">
 											<button onClick={() => setPage(Math.max(1, page - 1))} disabled={page === 1}
@@ -599,12 +599,12 @@ export default function AppointmentsPage() {
 					</div>
 				)}
 
-				{/* ── Detail View ────────── */}
+				{/* â”€â”€ Detail View â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
 				{view === 'detail' && selectedAppointment && (
 					<AppointmentDetail appointment={selectedAppointment} onUpdateStatus={handleUpdateStatus} onDelete={handleDelete} onBack={handleBack} />
 				)}
 
-				{/* ── Settings View ────────── */}
+				{/* â”€â”€ Settings View â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
 				{view === 'settings' && (
 					<AppointmentSettingsPanel onClose={() => setView('list')} />
 				)}

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Workspace Page - Pure Tailwind CSS
  *
  * Admin AI workspace with:
@@ -63,7 +63,7 @@ function WorkspaceContent() {
 	const refreshConversations = useCallback(async () => {
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/workspace/conversations',
+				path: '/quark-agentflow-ai/v1/workspace/conversations',
 			});
 			if (response.success) {
 				setConversations(response.data || []);
@@ -81,7 +81,7 @@ function WorkspaceContent() {
 			setIsLoading(true);
 			try {
 				const response = await apiFetch({
-					path: '/smart-ai-chatbot/v1/workspace/conversations',
+					path: '/quark-agentflow-ai/v1/workspace/conversations',
 				});
 				if (mounted && response.success) {
 					setConversations(response.data || []);
@@ -109,7 +109,7 @@ function WorkspaceContent() {
 			try {
 				// Load agents
 				const agentResponse = await apiFetch({
-					path: '/smart-ai-chatbot/v1/workspace/available-agents',
+					path: '/quark-agentflow-ai/v1/workspace/available-agents',
 				});
 				if (mounted && agentResponse.success) {
 					const agents = agentResponse.data || [];
@@ -144,9 +144,9 @@ function WorkspaceContent() {
 					}
 				}
 
-				/* Workflows hidden — backend preserved for future use
+				/* Workflows hidden â€” backend preserved for future use
 				const workflowResponse = await apiFetch({
-					path: '/smart-ai-chatbot/v1/workflows',
+					path: '/quark-agentflow-ai/v1/workflows',
 				});
 				if (mounted && workflowResponse.success !== false) {
 					const workflows = workflowResponse.workflows || [];
@@ -156,7 +156,7 @@ function WorkspaceContent() {
 
 				// Load teams
 				const teamResponse = await apiFetch({
-					path: '/smart-ai-chatbot/v1/agent-groups',
+					path: '/quark-agentflow-ai/v1/agent-groups',
 				});
 				if (mounted && teamResponse.groups) {
 					const teams = teamResponse.groups || [];
@@ -201,7 +201,7 @@ function WorkspaceContent() {
 				return;
 			}
 
-			// Don't reload messages while we're streaming — the session event
+			// Don't reload messages while we're streaming â€” the session event
 			// during streaming triggers this effect, and the backend hasn't
 			// saved the assistant response yet. This would wipe streamed content.
 			if (isSendingRef.current) {
@@ -210,7 +210,7 @@ function WorkspaceContent() {
 
 			try {
 				const response = await apiFetch({
-					path: `/smart-ai-chatbot/v1/workspace/conversations/${activeConversation}`,
+					path: `/quark-agentflow-ai/v1/workspace/conversations/${activeConversation}`,
 				});
 				if (mounted && response.success && response.data) {
 					setMessages(response.data.messages || []);
@@ -261,7 +261,7 @@ function WorkspaceContent() {
 					formData.append('file', file);
 
 					const result = await apiFetch({
-						path: '/smart-ai-chatbot/v1/workspace/upload',
+						path: '/quark-agentflow-ai/v1/workspace/upload',
 						method: 'POST',
 						body: formData,
 					});
@@ -362,11 +362,11 @@ function WorkspaceContent() {
 			]);
 
 			try {
-				const restUrl = window.swcChatbot?.apiUrl || window.wpApiSettings?.root || '/wp-json/smart-ai-chatbot/v1';
+				const restUrl = window.swcChatbot?.apiUrl || window.wpApiSettings?.root || '/wp-json/quark-agentflow-ai/v1';
 				const nonce = window.swcChatbot?.nonce || window.wpApiSettings?.nonce || '';
 				abortControllerRef.current = new AbortController();
 
-				// Build the stream URL — swcChatbot.apiUrl already includes the namespace
+				// Build the stream URL â€” swcChatbot.apiUrl already includes the namespace
 				const streamUrl = restUrl.replace(/\/$/, '') + '/workspace/stream';
 
 				const response = await fetch(streamUrl, {
@@ -403,7 +403,7 @@ function WorkspaceContent() {
 					const { done, value } = await reader.read();
 
 					if (done) {
-						// Stream completed — finalize the message
+						// Stream completed â€” finalize the message
 						setMessages((prev) => {
 							const updated = [...prev];
 							const lastIdx = updated.length - 1;
@@ -415,7 +415,7 @@ function WorkspaceContent() {
 										isStreaming: false,
 									};
 								} else {
-									// No content received — remove empty assistant bubble
+									// No content received â€” remove empty assistant bubble
 									updated.splice(lastIdx, 1);
 								}
 							}
@@ -463,7 +463,7 @@ function WorkspaceContent() {
 									// Reload conversation list
 									try {
 										const convResponse = await apiFetch({
-											path: '/smart-ai-chatbot/v1/workspace/conversations',
+											path: '/quark-agentflow-ai/v1/workspace/conversations',
 										});
 										if (convResponse.success) {
 											setConversations(convResponse.data || []);
@@ -491,7 +491,7 @@ function WorkspaceContent() {
 							} else if (eventType === 'tool_start') {
 								setActiveTool(data.name || 'tool');
 								setHasUsedTool(true);
-								// Tool execution started — add to message tool_calls
+								// Tool execution started â€” add to message tool_calls
 								const toolName = data.name || 'tool';
 								setMessages((prev) => {
 									const updated = [...prev];
@@ -511,7 +511,7 @@ function WorkspaceContent() {
 								});
 							} else if (eventType === 'tool_result') {
 								setActiveTool(null);
-								// Tool completed — update status
+								// Tool completed â€” update status
 								const toolName = data.name || 'tool';
 								setMessages((prev) => {
 									const updated = [...prev];
@@ -619,7 +619,7 @@ function WorkspaceContent() {
 		[activeConversation, processNextPendingMessage, selectedAgent, refreshConversations]
 	);
 
-	// Handle quick action selection — accepts string ID or object with .id
+	// Handle quick action selection â€” accepts string ID or object with .id
 	const handleQuickAction = useCallback((persona) => {
 		const prompts = {
 			create: 'Help me create a new page or post',
@@ -688,7 +688,7 @@ function WorkspaceContent() {
 		async (convId) => {
 			try {
 				await apiFetch({
-					path: `/smart-ai-chatbot/v1/workspace/conversations/${convId}`,
+					path: `/quark-agentflow-ai/v1/workspace/conversations/${convId}`,
 					method: 'DELETE',
 				});
 				setConversations((prev) => prev.filter((c) => c.id !== convId));
@@ -722,7 +722,7 @@ function WorkspaceContent() {
 	const handleRenameConversation = useCallback(async (convId, newTitle) => {
 		try {
 			await apiFetch({
-				path: `/smart-ai-chatbot/v1/workspace/conversations/${convId}`,
+				path: `/quark-agentflow-ai/v1/workspace/conversations/${convId}`,
 				method: 'PATCH',
 				data: { title: newTitle },
 			});
@@ -740,7 +740,7 @@ function WorkspaceContent() {
 	const handleExportConversation = useCallback(async (convId, format) => {
 		try {
 			const response = await apiFetch({
-				path: `/smart-ai-chatbot/v1/workspace/conversations/${convId}`,
+				path: `/quark-agentflow-ai/v1/workspace/conversations/${convId}`,
 			});
 			if (!response.success || !response.data) return;
 
@@ -944,7 +944,7 @@ function WorkspaceContent() {
 									</>
 								)}
 
-								{/* Workflows Section hidden — backend preserved for future use
+								{/* Workflows Section hidden â€” backend preserved for future use
 								{availableWorkflows.length > 0 && (
 									<>
 										<div className="border-t border-gray-200 dark:border-slate-700 mt-2 pt-2">
@@ -978,7 +978,7 @@ function WorkspaceContent() {
 								)}
 								*/}
 
-								{/* Teams Section hidden — backend preserved for future use
+								{/* Teams Section hidden â€” backend preserved for future use
 								{availableTeams.length > 0 && (
 									<>
 										<div className="border-t border-gray-200 dark:border-slate-700 mt-2 pt-2">
@@ -999,7 +999,7 @@ function WorkspaceContent() {
 													(selectedAgent === team.id || selectedAgent === team.group_id) && selectedType === 'team' && "bg-blue-50 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400"
 												)}
 											>
-												<span className="w-4 h-4 flex-shrink-0 flex items-center justify-center text-lg">{team.avatar || '👥'}</span>
+												<span className="w-4 h-4 flex-shrink-0 flex items-center justify-center text-lg">{team.avatar || 'ðŸ‘¥'}</span>
 												<div className="flex-1 text-left">
 													<div className="font-medium text-gray-900 dark:text-white truncate">{team.name}</div>
 													{team.description && (
@@ -1036,7 +1036,7 @@ function WorkspaceContent() {
 				{error && (
 					<div className="flex items-center justify-between px-5 py-3 bg-red-50 dark:bg-red-900/20 border-b border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm">
 						{error}
-						<button onClick={() => setError(null)} className="text-lg hover:text-red-800 dark:hover:text-red-300">×</button>
+						<button onClick={() => setError(null)} className="text-lg hover:text-red-800 dark:hover:text-red-300">Ã—</button>
 					</div>
 				)}
 
@@ -1050,7 +1050,7 @@ function WorkspaceContent() {
 							disabled={false}
 							isStreaming={isSending}
 							onStopGeneration={handleStopGeneration}
-							placeholder={__('Ask me to create pages, edit content, manage products…', 'agentflow-ai')}
+							placeholder={__('Ask me to create pages, edit content, manage productsâ€¦', 'agentflow-ai')}
 							selectedAgent={availableAgents.find(a => a.id === selectedAgent || a.agent_id === selectedAgent)}
 							darkMode={darkMode}
 						/>
@@ -1091,7 +1091,7 @@ function WorkspaceContent() {
 										disabled={false}
 										isStreaming={isSending}
 										onStopGeneration={handleStopGeneration}
-										placeholder={__('Continue the conversation…', 'agentflow-ai')}
+										placeholder={__('Continue the conversationâ€¦', 'agentflow-ai')}
 										compact={true}
 										darkMode={darkMode}
 									/>

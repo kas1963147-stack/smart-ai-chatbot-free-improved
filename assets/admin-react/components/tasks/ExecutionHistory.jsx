@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Execution History Component
  *
  * Displays task execution history with status and details.
@@ -8,7 +8,7 @@ import { __ } from '@wordpress/i18n';
 import PropTypes from 'prop-types';
 import { Button, Modal } from '../ui';
 
-const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/smart-ai-chatbot/v1';
+const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/quark-agentflow-ai/v1';
 
 const STATUS_CONFIG = {
 	pending: { icon: '', color: 'var(--swc-color-muted)', label: 'Pending' },
@@ -64,13 +64,13 @@ export default function ExecutionHistory({ task }) {
 
 	const formatDate = (dateStr) => {
 		if (!dateStr) {
-			return '—';
+			return 'â€”';
 		}
 		return new Date(dateStr).toLocaleString();
 	};
 
 	const formatDuration = (durationHuman) => {
-		return durationHuman || '—';
+		return durationHuman || 'â€”';
 	};
 
 	if (loading) {
@@ -78,7 +78,7 @@ export default function ExecutionHistory({ task }) {
 			<div className="flex flex-col items-center justify-center py-12">
 				<div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
 				<p className="text-sm text-gray-500">
-					{__('Loading execution history…', 'agentflow-ai')}
+					{__('Loading execution historyâ€¦', 'agentflow-ai')}
 				</p>
 			</div>
 		);

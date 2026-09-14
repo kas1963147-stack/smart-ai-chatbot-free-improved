@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ToolkitManager Component - Metronic v9 Style
  *
  * Toggle toolkits and individual tools for an agent.
@@ -51,7 +51,7 @@ export default function ToolkitManager({
 	const fetchConnections = async () => {
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/connections',
+				path: '/quark-agentflow-ai/v1/connections',
 			});
 			if (response.success && response.data) {
 				setConnections(response.data);

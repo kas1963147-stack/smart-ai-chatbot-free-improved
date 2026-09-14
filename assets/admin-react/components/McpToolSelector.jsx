@@ -1,4 +1,4 @@
-/**
+﻿/**
  * McpToolSelector Component
  *
  * Select/deselect MCP tools for the server.
@@ -109,7 +109,7 @@ export default function McpToolSelector({ onStatsChange }) {
     const loadTools = async () => {
         try {
             const response = await apiFetch({
-                path: '/smart-ai-chatbot/v1/mcp-server/tools',
+                path: '/quark-agentflow-ai/v1/mcp-server/tools',
                 method: 'GET',
             });
             if (response.success && response.data.categories) {
@@ -137,7 +137,7 @@ export default function McpToolSelector({ onStatsChange }) {
         setSaving(true);
         try {
             const response = await apiFetch({
-                path: '/smart-ai-chatbot/v1/mcp-server/tools',
+                path: '/quark-agentflow-ai/v1/mcp-server/tools',
                 method: 'POST',
                 data: { tools: newState },
             });

@@ -1,5 +1,5 @@
-/**
- * Agent Test Preview Component — Metronic v9 Styled
+﻿/**
+ * Agent Test Preview Component â€” Metronic v9 Styled
  *
  * Allows testing an agent with a polished live chat preview.
  * Uses Tailwind CSS classes for Metronic-aligned styling.
@@ -77,7 +77,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 
 		try {
 			const response = await apiFetch({
-				path: '/smart-ai-chatbot/v1/chat/message',
+				path: '/quark-agentflow-ai/v1/chat/message',
 				method: 'POST',
 				data: {
 					message: userMessage,
@@ -181,7 +181,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 			{ /* Chat Container */}
 			<div className="flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700" style={{ height: '420px' }}>
 
-				{ /* ── Chat Header ── */}
+				{ /* â”€â”€ Chat Header â”€â”€ */}
 				<div className="flex items-center gap-3 border-b border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900">
 					<div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-lg">
 						{agentAvatar}
@@ -197,7 +197,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 					</div>
 				</div>
 
-				{ /* ── Messages Area ── */}
+				{ /* â”€â”€ Messages Area â”€â”€ */}
 				<div className="flex flex-1 flex-col gap-3 overflow-y-auto bg-slate-50 p-4 dark:bg-slate-950">
 					{messages.map((msg, idx) => (
 						<div
@@ -249,7 +249,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 					<div ref={messagesEndRef} />
 				</div>
 
-				{ /* ── Input Area ── */}
+				{ /* â”€â”€ Input Area â”€â”€ */}
 				<div className="flex items-center gap-2.5 border-t border-slate-200 bg-white px-4 py-3 dark:border-slate-700 dark:bg-slate-900">
 					<input
 						ref={inputRef}
@@ -257,7 +257,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 						value={input}
 						onChange={(e) => setInput(e.target.value)}
 						onKeyDown={handleKeyDown}
-						placeholder={__('Type a message…', 'agentflow-ai')}
+						placeholder={__('Type a messageâ€¦', 'agentflow-ai')}
 						disabled={loading}
 						className="flex-1 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:bg-slate-900"
 					/>
@@ -280,7 +280,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 				</div>
 			</div>
 
-			{ /* ── Agent Info Panel ── */}
+			{ /* â”€â”€ Agent Info Panel â”€â”€ */}
 			{agent && (
 				<div className="mt-4 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
 					<div className="flex items-center gap-3">

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SourceEditor Component
  *
  * Modal for adding/editing knowledge sources.
@@ -42,7 +42,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 			const postType = formData.source_type === 'wordpress_pages' ? 'page' : 'post';
 			setWpContentLoading(true);
 			apiFetch({
-				path: `/smart-ai-chatbot/v1/knowledge/wp-content?type=${postType}`,
+				path: `/quark-agentflow-ai/v1/knowledge/wp-content?type=${postType}`,
 			})
 				.then((res) => {
 					if (res.success) {
@@ -119,7 +119,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 							placeholder={__('Enter or paste the specific knowledge here...', 'agentflow-ai')}
 						/>
 						<p className="mt-1 text-[11px] text-[#99A1B7]">
-							{__('Paste any text — FAQ answers, policies, product info, etc.', 'agentflow-ai')}
+							{__('Paste any text â€” FAQ answers, policies, product info, etc.', 'agentflow-ai')}
 						</p>
 					</div>
 				);
@@ -249,7 +249,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 						<svg className="animate-spin w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
 							<circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeDasharray="31.4" strokeDashoffset="10" strokeLinecap="round" />
 						</svg>
-						{__('Saving…', 'agentflow-ai')}
+						{__('Savingâ€¦', 'agentflow-ai')}
 					</>
 				) : (
 					<>

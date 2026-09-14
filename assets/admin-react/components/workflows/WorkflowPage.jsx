@@ -1,4 +1,4 @@
-/**
+﻿/**
  * WorkflowPage Component
  *
  * Main page for workflow builder management.
@@ -10,7 +10,7 @@ import WorkflowEditor from './WorkflowEditor';
 import ExecutionHistory from './ExecutionHistory';
 import { getCached, setCache, invalidateCache } from '../../hooks/useApiCache';
 
-const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/smart-ai-chatbot/v1';
+const API_BASE = window.swcChatbot?.apiUrl || '/wp-json/quark-agentflow-ai/v1';
 
 export default function WorkflowPage() {
 	const [view, setView] = useState('list');
@@ -317,7 +317,7 @@ export default function WorkflowPage() {
 			)}
 
 			{loading && view === 'list' && workflows.length === 0 && (
-				<div className="text-center text-sm text-gray-500 dark:text-gray-400">{__('Loading workflows…', 'agentflow-ai')}</div>
+				<div className="text-center text-sm text-gray-500 dark:text-gray-400">{__('Loading workflowsâ€¦', 'agentflow-ai')}</div>
 			)}
 		</div>
 	);
