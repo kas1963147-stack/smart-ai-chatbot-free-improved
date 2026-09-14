@@ -16,10 +16,12 @@ class FactorialTool extends Tool
     {
         parent::__construct(
             'calculate_factorial',
-            "                Calculates the factorial of a non-negative integer. Factorial (n!) is the product of all positive
+            <<<DESC
+                Calculates the factorial of a non-negative integer. Factorial (n!) is the product of all positive
                 integers from 1 to n. For example, 5! = 5 × 4 × 3 × 2 × 1 = 120. Use this tool for combinatorics problems,
                 probability calculations, permutations and combinations, mathematical series, and statistical computations.
-                The input must be a non-negative integer (0, 1, 2, 3, etc.). Note that 0! = 1 by mathematical convention."
+                The input must be a non-negative integer (0, 1, 2, 3, etc.). Note that 0! = 1 by mathematical convention.
+                DESC
         );
     }
 
@@ -49,7 +51,7 @@ class FactorialTool extends Tool
 
         // For larger numbers, use BCMath to handle arbitrary precision
         if ($number > 20) {
-            return self::calculateWithBCMath($number);
+            return $this->calculateWithBCMath($number);
         }
 
         // For smaller numbers, use regular integer calculation

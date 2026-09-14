@@ -82,7 +82,7 @@ abstract class MakeCommand
         foreach ($args as $arg) {
             if ($arg === '--help' || $arg === '-h') {
                 $options['help'] = true;
-            } elseif (!str_starts_with($arg, '-') && empty($options['name'])) {
+            } elseif (empty($options['name']) && !str_starts_with($arg, '-')) {
                 $options['name'] = $arg;
             }
         }
@@ -227,9 +227,10 @@ abstract class MakeCommand
 
     protected function printUsage(): void
     {
-        $usage = "Create a new {$this->resourceType}
+        $usage = <<<USAGE
+            Create a new {$this->resourceType}
 
-            Usage: neuron make:{$this->resourceType} [namespace\\\\]ClassName
+            Usage: neuron make:{$this->resourceType} [namespace\\]ClassName
 
             Arguments:
               name    The name of the {$this->resourceType} class (with optional namespace)
@@ -239,9 +240,11 @@ abstract class MakeCommand
 
             Examples:
               neuron make:{$this->resourceType} MyClass
-              neuron make:{$this->resourceType} MyApp\\\\Services\\\\MyClass
+              neuron make:{$this->resourceType} MyApp\\Services\\MyClass
 
-            If no namespace is provided, the default PSR-4 namespace from composer.json will be used."
+            If no namespace is provided, the default PSR-4 namespace from composer.json will be used.
+
+            USAGE;
 
         echo $usage . PHP_EOL;
     }

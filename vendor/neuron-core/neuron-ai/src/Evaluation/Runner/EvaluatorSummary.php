@@ -68,7 +68,11 @@ class EvaluatorSummary
             return 0.0;
         }
 
-        return $this->totalExecutionTime / $this->getTotalCount();
+        // Average of individual item timings: under parallel execution the
+        // wall-clock total no longer equals the sum of per-item times
+        $itemTimes = array_sum(array_map(fn (EvaluatorResult $result): float => $result->getExecutionTime(), $this->results));
+
+        return $itemTimes / $this->getTotalCount();
     }
 
     /**
@@ -131,9 +135,7 @@ class EvaluatorSummary
         $groupedFailures = [];
         foreach ($this->getAllAssertionFailures() as $failure) {
             $class = $failure->getEvaluatorClass();
-            if (!isset($groupedFailures[$class])) {
-                $groupedFailures[$class] = [];
-            }
+            $groupedFailures[$class] ??= [];
             $groupedFailures[$class][] = $failure;
         }
         return $groupedFailures;
@@ -149,9 +151,7 @@ class EvaluatorSummary
         $groupedFailures = [];
         foreach ($this->getAllAssertionFailures() as $failure) {
             $key = $failure->getShortEvaluatorClass() . ':' . $failure->getLineNumber();
-            if (!isset($groupedFailures[$key])) {
-                $groupedFailures[$key] = [];
-            }
+            $groupedFailures[$key] ??= [];
             $groupedFailures[$key][] = $failure;
         }
         return $groupedFailures;

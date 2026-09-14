@@ -30,7 +30,8 @@ class WriteTodosTool extends Tool
     {
         parent::__construct(
             name: 'write_todos',
-            description: "                Use this tool to create and manage a structured task list for your current work session. This helps you track progress, organize complex tasks, and demonstrate thoroughness to the user.
+            description: <<<TODO
+                Use this tool to create and manage a structured task list for your current work session. This helps you track progress, organize complex tasks, and demonstrate thoroughness to the user.
 
                 Only use this tool if you think it will be helpful in staying organized. If the user's request is trivial and takes less than 3 steps, it is better to NOT use this tool and just do the task directly.
 
@@ -88,7 +89,8 @@ class WriteTodosTool extends Tool
                    - Use clear, descriptive task names
 
                 Being proactive with task management demonstrates attentiveness and ensures you complete all requirements successfully
-                Remember: If you only need to make a few tool calls to complete a task, and it is clear what you need to do, it is better to just do the task directly and NOT call this tool at all."
+                Remember: If you only need to make a few tool calls to complete a task, and it is clear what you need to do, it is better to just do the task directly and NOT call this tool at all.
+                TODO
         );
     }
 

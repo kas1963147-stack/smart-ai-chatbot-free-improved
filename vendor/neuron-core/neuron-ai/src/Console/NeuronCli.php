@@ -78,7 +78,37 @@ class NeuronCli
 
     private function printUsage(): void
     {
-        $usage = "            Neuron AI CLI Tool\n\n            Usage: neuron <command> [options]\n\n            Available Commands:\n              evaluation      Run AI evaluation tests on a directory of evaluators\n              make:agent      Create a new Agent class\n              make:middleware Create a new Workflow Middleware class\n              make:node       Create a new Node class\n              make:tool       Create a new Tool class\n              make:rag        Create a new RAG class\n              make:workflow   Create a new Workflow class\n              make:event      Create a new Event class\n\n            Options:\n              --help, -h   Show this help message\n\n            Examples:\n              neuron evaluation --path=\/path\/to\/evaluators\n              neuron evaluation \/path\/to\/evaluators --verbose\n              neuron make:agent MyAgent\n              neuron make:tool MyApp\\Tools\\MyTool\n              neuron --help\n\n            For command-specific help, use:\n              neuron <command> --help";
+        $usage = <<<'USAGE'
+            Neuron AI CLI Tool
+
+            Usage: neuron <command> [options]
+
+            Available Commands:
+              evaluation      Run AI evaluation tests on a directory of evaluators
+              make:agent      Create a new Agent class
+              make:middleware Create a new Workflow Middleware class
+              make:node       Create a new Node class
+              make:tool       Create a new Tool class
+              make:rag        Create a new RAG class
+              make:workflow   Create a new Workflow class
+              make:event      Create a new Event class
+
+            Options:
+              --autoload-file=<path>  Load a custom bootstrap file before the default autoloader
+              --help, -h              Show this help message
+
+            Examples:
+              neuron evaluation --path=/path/to/evaluators
+              neuron evaluation /path/to/evaluators --verbose
+              neuron evaluation /path/to/evaluators --autoload-file=bootstrap.php
+              neuron make:agent MyAgent
+              neuron make:tool MyApp\Tools\MyTool
+              neuron --help
+
+            For command-specific help, use:
+              neuron <command> --help
+
+            USAGE;
 
         echo $usage . PHP_EOL;
     }

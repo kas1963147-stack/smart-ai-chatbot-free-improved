@@ -22,9 +22,7 @@ use function json_encode;
  */
 class AGUIAdapter extends SSEAdapter
 {
-    protected ?string $runId = null;
-
-    protected ?string $threadId = null;
+    protected ?string $threadId;
 
     protected ?string $currentMessageId = null;
 
@@ -42,8 +40,9 @@ class AGUIAdapter extends SSEAdapter
 
     /**
      * @param string|null $threadId Optional thread ID for conversation context
+     * @param string|null $runId Optional run ID, echoed back to the client as required by the protocol
      */
-    public function __construct(?string $threadId = null)
+    public function __construct(?string $threadId = null, protected ?string $runId = null)
     {
         $this->threadId = $threadId ?? $this->generateId('thread');
     }
@@ -61,6 +60,11 @@ class AGUIAdapter extends SSEAdapter
 
     protected function handleText(TextChunk $chunk): iterable
     {
+        // Skip empty deltas, they carry no content
+        if ($chunk->content === '') {
+            return;
+        }
+
         // Close reasoning if it was started (transition from reasoning to text)
         foreach ($this->endReasoning() as $event) {
             yield $event;
@@ -72,24 +76,27 @@ class AGUIAdapter extends SSEAdapter
             $this->messageStarted = true;
 
             yield $this->sse([
-                'type' => 'TextMessageStart',
+                'type' => 'TEXT_MESSAGE_START',
                 'messageId' => $this->currentMessageId,
                 'role' => 'assistant',
-                'timestamp' => $this->timestamp(),
             ]);
         }
 
         // Stream content delta
         yield $this->sse([
-            'type' => 'TextMessageContent',
+            'type' => 'TEXT_MESSAGE_CONTENT',
             'messageId' => $this->currentMessageId,
             'delta' => $chunk->content,
-            'timestamp' => $this->timestamp(),
         ]);
     }
 
     protected function handleReasoning(ReasoningChunk $chunk): iterable
     {
+        // Skip empty deltas, they carry no content
+        if ($chunk->content === '') {
+            return;
+        }
+
         // Close text message if it was started (transition from text to reasoning)
         foreach ($this->endText() as $event) {
             yield $event;
@@ -100,29 +107,29 @@ class AGUIAdapter extends SSEAdapter
             $this->reasoningMessageId = $chunk->messageId;
 
             yield $this->sse([
-                'type' => 'ReasoningStart',
+                'type' => 'REASONING_START',
                 'messageId' => $chunk->messageId,
-                'timestamp' => $this->timestamp(),
             ]);
 
             yield $this->sse([
-                'type' => 'ReasoningMessageStart',
+                'type' => 'REASONING_MESSAGE_START',
                 'messageId' => $chunk->messageId,
-                'role' => 'assistant',
-                'timestamp' => $this->timestamp(),
+                'role' => 'reasoning',
             ]);
         }
 
         yield $this->sse([
-            'type' => 'ReasoningMessageContent',
+            'type' => 'REASONING_MESSAGE_CONTENT',
             'messageId' => $chunk->messageId,
             'delta' => $chunk->content,
-            'timestamp' => $this->timestamp(),
         ]);
     }
 
     protected function handleToolCall(ToolCallChunk $chunk): iterable
     {
+        // Capture the parent message id before closing the text stream resets it
+        $parentMessageId = $this->currentMessageId;
+
         // Close any open streams before starting tool calls
         foreach ($this->endReasoning() as $event) {
             yield $event;
@@ -132,65 +139,75 @@ class AGUIAdapter extends SSEAdapter
         }
 
         $toolName = $chunk->tool->getName();
-        $toolCallId = $this->toolCallIds[$toolName] ?? $this->generateId('call');
-        $this->toolCallIds[$toolName] = $toolCallId;
+        $toolCallId = $this->resolveToolCallId($chunk);
 
-        // Emit ToolCallStart only once per tool
+        // Emit ToolCallStart only once per tool call
         if (! isset($this->toolCallStarted[$toolCallId])) {
             $this->toolCallStarted[$toolCallId] = true;
 
-            yield $this->sse([
-                'type' => 'ToolCallStart',
+            $event = [
+                'type' => 'TOOL_CALL_START',
                 'toolCallId' => $toolCallId,
                 'toolCallName' => $toolName,
-                'parentMessageId' => $this->currentMessageId,
-                'timestamp' => $this->timestamp(),
-            ]);
+            ];
+
+            if ($parentMessageId !== null) {
+                $event['parentMessageId'] = $parentMessageId;
+            }
+
+            yield $this->sse($event);
         }
 
         // Stream tool arguments as JSON
         $args = $chunk->tool->getInputs();
         if ($args !== []) {
             yield $this->sse([
-                'type' => 'ToolCallArgs',
+                'type' => 'TOOL_CALL_ARGS',
                 'toolCallId' => $toolCallId,
                 'delta' => json_encode($args),
-                'timestamp' => $this->timestamp(),
             ]);
         }
 
         // Mark tool call arguments as complete
         yield $this->sse([
-            'type' => 'ToolCallEnd',
+            'type' => 'TOOL_CALL_END',
             'toolCallId' => $toolCallId,
-            'timestamp' => $this->timestamp(),
         ]);
     }
 
     protected function handleToolResult(ToolResultChunk $chunk): iterable
     {
-        $toolName = $chunk->tool->getName();
-        $toolCallId = $this->toolCallIds[$toolName] ?? $this->generateId('call');
+        $toolCallId = $this->resolveToolCallId($chunk);
 
         // Emit tool result
         yield $this->sse([
-            'type' => 'ToolCallResult',
+            'type' => 'TOOL_CALL_RESULT',
             'toolCallId' => $toolCallId,
             'content' => $chunk->tool->getResult(),
             'role' => 'tool',
-            'timestamp' => $this->timestamp(),
+            'messageId' => $this->generateId('msg'),
         ]);
+    }
+
+    protected function resolveToolCallId(ToolCallChunk|ToolResultChunk $chunk): string
+    {
+        $toolName = $chunk->tool->getName();
+        $toolCallId = $chunk->tool->getCallId()
+            ?? $this->toolCallIds[$toolName]
+            ?? $this->generateId('call');
+        $this->toolCallIds[$toolName] = $toolCallId;
+
+        return $toolCallId;
     }
 
     public function start(): iterable
     {
-        $this->runId = $this->generateId('run');
+        $this->runId ??= $this->generateId('run');
 
         yield $this->sse([
-            'type' => 'RunStarted',
+            'type' => 'RUN_STARTED',
             'runId' => $this->runId,
             'threadId' => $this->threadId,
-            'timestamp' => $this->timestamp(),
         ]);
     }
 
@@ -206,15 +223,13 @@ class AGUIAdapter extends SSEAdapter
         }
 
         yield $this->sse([
-            'type' => 'ReasoningMessageEnd',
+            'type' => 'REASONING_MESSAGE_END',
             'messageId' => $this->reasoningMessageId,
-            'timestamp' => $this->timestamp(),
         ]);
 
         yield $this->sse([
-            'type' => 'ReasoningEnd',
+            'type' => 'REASONING_END',
             'messageId' => $this->reasoningMessageId,
-            'timestamp' => $this->timestamp(),
         ]);
 
         $this->reasoningStarted = false;
@@ -233,9 +248,8 @@ class AGUIAdapter extends SSEAdapter
         }
 
         yield $this->sse([
-            'type' => 'TextMessageEnd',
+            'type' => 'TEXT_MESSAGE_END',
             'messageId' => $this->currentMessageId,
-            'timestamp' => $this->timestamp(),
         ]);
 
         $this->messageStarted = false;
@@ -254,9 +268,9 @@ class AGUIAdapter extends SSEAdapter
         // Emit RunFinished event
         if ($this->runId !== null) {
             yield $this->sse([
-                'type' => 'RunFinished',
+                'type' => 'RUN_FINISHED',
+                'threadId' => $this->threadId,
                 'runId' => $this->runId,
-                'timestamp' => $this->timestamp(),
             ]);
         }
     }

@@ -32,23 +32,10 @@ trait HandleStream
      */
     public function stream(Message ...$messages): Generator
     {
-        $json = [
-            'stream' => true,
-            'model' => $this->model,
-            'max_tokens' => $this->max_tokens,
-            'system' => $this->system ?? null,
-            'messages' => $this->messageMapper()->map($messages),
-            ...$this->parameters,
-        ];
-
-        if (!empty($this->tools)) {
-            $json['tools'] = $this->toolPayloadMapper()->map($this->tools);
-        }
-
         $stream = $this->httpClient->stream(
             HttpRequest::post(
-                uri: 'messages',
-                body: $json
+                uri: $this->requestUri(true),
+                body: $this->requestBody($messages, true)
             )
         );
 
@@ -87,13 +74,15 @@ trait HandleStream
             return $this->createToolCallMessage(
                 $this->streamState->getToolCalls(),
                 $this->streamState->getContentBlocks()
-            )->setUsage($this->streamState->getUsage())
+            )->setMetadata($this->streamState->getMetadata())
+             ->setUsage($this->streamState->getUsage())
              ->addMetadata('cacheWriteTokens', (string) $this->streamState->getCacheWriteTokens())
              ->addMetadata('cacheReadTokens', (string) $this->streamState->getCacheReadTokens());
         }
 
         $message = new AssistantMessage($this->streamState->getContentBlocks());
-        $message->setUsage($this->streamState->getUsage())
+        $message->setMetadata($this->streamState->getMetadata())
+            ->setUsage($this->streamState->getUsage())
             ->addMetadata('cacheWriteTokens', (string) $this->streamState->getCacheWriteTokens())
             ->addMetadata('cacheReadTokens', (string) $this->streamState->getCacheReadTokens());
 
@@ -117,9 +106,11 @@ trait HandleStream
             + ($cacheCreation['ephemeral_1h_input_tokens'] ?? 0)
             + ($message['usage']['cache_creation_input_tokens'] ?? 0)
         );
-        $this->streamState->addCacheReadTokens(
-            $message['usage']['cache_read_input_tokens'] ?? 0
-        );
+        $cacheRead = $message['usage']['cache_read_input_tokens'] ?? 0;
+        $this->streamState->addCacheReadTokens($cacheRead);
+        // Anthropic reports cache reads separately from `input_tokens`;
+        // surface the cache-read count as the standard cached metric too.
+        $this->streamState->addCachedInputTokens($cacheRead);
     }
 
     protected function handleMessageDelta(array $event): void
@@ -137,7 +128,14 @@ trait HandleStream
             $this->streamState->addContentBlock($index, new TextContent(''));
         } elseif ($type === 'thinking') {
             $this->streamState->addContentBlock($index, new ReasoningContent(''));
+        } elseif ($type === 'redacted_thinking') {
+            $redactedThinking = $this->streamState->getMetadata('anthropic_redacted_thinking') ?? [];
+            $redactedThinking[$index] = $event['content_block']['data'];
+            $this->streamState->addMetadata('anthropic_redacted_thinking', $redactedThinking);
         } elseif ($type === 'tool_use') {
+            $toolPositions = $this->streamState->getMetadata('anthropic_tool_positions') ?? [];
+            $toolPositions[] = $index;
+            $this->streamState->addMetadata('anthropic_tool_positions', $toolPositions);
             $this->streamState->composeToolCalls($event);
         }
     }

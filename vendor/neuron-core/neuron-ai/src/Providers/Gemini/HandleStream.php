@@ -16,8 +16,8 @@ use NeuronAI\Exceptions\HttpException;
 use NeuronAI\Exceptions\ProviderException;
 use NeuronAI\HttpClient\HttpRequest;
 use NeuronAI\HttpClient\StreamInterface;
-
 use NeuronAI\Tools\ToolInterface;
+
 use function array_key_exists;
 use function json_decode;
 use function json_encode;
@@ -98,6 +98,8 @@ trait HandleStream
             ) {
                 $this->streamState->getUsage()->inputTokens = $line['usageMetadata']['promptTokenCount'] ?? 0;
                 $this->streamState->getUsage()->outputTokens = $line['usageMetadata']['candidatesTokenCount'] ?? 0;
+                $this->streamState->getUsage()->cachedInputTokens = $line['usageMetadata']['cachedContentTokenCount'] ?? 0;
+                $this->streamState->getUsage()->reasoningTokens = $line['usageMetadata']['thoughtsTokenCount'] ?? 0;
             }
 
             // Track finishReason — the last value seen is authoritative
@@ -127,6 +129,10 @@ trait HandleStream
                     $this->streamState->getContentBlocks(),
                     $this->streamState->getToolCalls()
                 )->setUsage($this->streamState->getUsage());
+            }
+
+            if (array_key_exists('groundingMetadata', $line['candidates'][0])) {
+                $citations = $this->extractCitations($line['candidates'][0]['groundingMetadata']);
             }
 
             // Process content
@@ -162,6 +168,10 @@ trait HandleStream
 
         if ($lastFinishReason !== null) {
             $message->setStopReason($lastFinishReason);
+        }
+
+        if (isset($citations)) {
+            $message->addMetadata('citations', $citations);
         }
 
         return $message;
@@ -206,11 +216,9 @@ trait HandleStream
         while (! $stream->eof()) {
             $buffer .= $stream->read(1);
 
-            if (mb_strlen($buffer) === 1 && $buffer !== '{') {
+            if ($buffer !== '{' && mb_strlen($buffer) === 1) {
                 $buffer = '';
-            }
-
-            if (json_decode($buffer) !== null) {
+            } elseif (json_decode($buffer) !== null) {
                 return $buffer;
             }
         }

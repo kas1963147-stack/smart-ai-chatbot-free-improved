@@ -22,11 +22,13 @@ class VarianceTool extends Tool
     {
         parent::__construct(
             'calculate_variance',
-            "                Calculates the variance, which measures the average squared deviation from the mean.
+            <<<DESC
+                Calculates the variance, which measures the average squared deviation from the mean.
                 Variance quantifies how much the data points differ from the average value.
                 Use this tool for statistical analysis, understanding data spread, portfolio risk analysis,
                 or quality control measurements. The square root of variance gives the standard deviation.
-                Choose sample (n-1) for sample data or population (n) for complete populations."
+                Choose sample (n-1) for sample data or population (n) for complete populations.
+                DESC
         );
     }
 
@@ -61,7 +63,7 @@ class VarianceTool extends Tool
             return ['error' => 'Data array must contain at least one numeric value'];
         }
 
-        if (count($numericData) === 1 && $this->sample) {
+        if ($this->sample && count($numericData) === 1) {
             return ['error' => 'Cannot calculate sample variance with only one data point'];
         }
 

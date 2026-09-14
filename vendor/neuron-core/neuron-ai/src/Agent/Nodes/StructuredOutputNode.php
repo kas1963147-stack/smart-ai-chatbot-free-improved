@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace NeuronAI\Agent\Nodes;
 
-use Inspector\Exceptions\InspectorException;
 use NeuronAI\Agent\AgentState;
 use NeuronAI\Agent\ChatHistoryHelper;
 use NeuronAI\Agent\Events\AIInferenceEvent;
@@ -13,6 +12,7 @@ use NeuronAI\Chat\Messages\Message;
 use NeuronAI\Chat\Messages\ToolCallMessage;
 use NeuronAI\Chat\Messages\UserMessage;
 use NeuronAI\Exceptions\AgentException;
+use NeuronAI\Exceptions\ChatHistoryException;
 use NeuronAI\Observability\Events\Deserialized;
 use NeuronAI\Observability\Events\Deserializing;
 use NeuronAI\Observability\Events\Extracted;
@@ -30,10 +30,10 @@ use NeuronAI\StructuredOutput\JsonExtractor;
 use NeuronAI\StructuredOutput\JsonSchema;
 use NeuronAI\StructuredOutput\Validation\Validator;
 use NeuronAI\Workflow\Events\StopEvent;
-use NeuronAI\Workflow\Node;
 use ReflectionException;
 
 use function count;
+use function end;
 use function implode;
 use function trim;
 
@@ -42,7 +42,7 @@ use const PHP_EOL;
 /**
  * Node responsible for handling structured output requests with retry logic.
  */
-class StructuredOutputNode extends Node
+class StructuredOutputNode extends InferenceNode
 {
     use ChatHistoryHelper;
 
@@ -50,19 +50,18 @@ class StructuredOutputNode extends Node
         protected AIProviderInterface $provider,
         protected readonly string $outputClass,
         protected int $maxTries = 1,
+        protected ?JsonExtractor $extractor = new JsonExtractor(),
     ) {
     }
 
     /**
      * @throws AgentException
      * @throws DeserializerException
-     * @throws InspectorException
      * @throws ReflectionException
+     * @throws ChatHistoryException
      */
     public function __invoke(AIInferenceEvent $event, AgentState $state): ToolCallEvent|StopEvent
     {
-        $this->addToChatHistory($state, $event->getMessages());
-
         // Generate JSON schema if not already generated
         if (!$state->has('structured_schema')) {
             $this->emit('schema-generation', new SchemaGeneration($this->outputClass));
@@ -74,21 +73,22 @@ class StructuredOutputNode extends Node
         $schema = $state->get('structured_schema');
         $error = '';
 
+        // Inbound and correction messages stay pending until a provider call succeeds.
+        $pending = $event->getMessages();
+
         do {
             try {
                 // If something goes wrong, retry informing the model about the error
                 if (trim($error) !== '') {
-                    $correctionMessage = new UserMessage(
+                    $pending[] = new UserMessage(
                         "There was a problem in your previous response that generated the following error:\n\n{$error}\n\n".
                         "Try to generate the correct JSON structure based on the provided schema."
                     );
-                    $this->addToChatHistory($state, $correctionMessage);
                 }
 
-                $chatHistory = $state->getChatHistory();
-                $messages = $chatHistory->getMessages();
+                $messages = $this->pendingConversation($state, $pending);
 
-                $last = clone $chatHistory->getLastMessage();
+                $last = clone end($messages);
 
                 $this->emit('inference-start', new InferenceStart($last));
 
@@ -96,6 +96,9 @@ class StructuredOutputNode extends Node
                     ->systemPrompt($event->instructions)
                     ->setTools($event->tools)
                     ->structured($messages, $this->outputClass, $schema);
+
+                $this->addToChatHistory($state, $pending);
+                $pending = [];
 
                 $this->emit('inference-stop', new InferenceStop($last, $response));
 
@@ -133,7 +136,6 @@ class StructuredOutputNode extends Node
      * @throws AgentException
      * @throws DeserializerException
      * @throws ReflectionException
-     * @throws InspectorException
      */
     protected function processResponse(
         Message $response,
@@ -142,7 +144,9 @@ class StructuredOutputNode extends Node
     ): object {
         // Extract a valid JSON object from the LLM response
         $this->emit('structured-extracting', new Extracting($response));
-        $json = (new JsonExtractor())->getJson($response->getContent());
+        // A completion without text blocks yields a null content: treat it as an
+        // extraction failure so it goes through the retry loop instead of a TypeError.
+        $json = $this->extractor->getJson($response->getContent() ?? '');
         $this->emit('structured-extracted', new Extracted($response, $schema, $json));
         if ($json === null || $json === '') {
             throw new AgentException("The response does not contains a valid JSON Object.");

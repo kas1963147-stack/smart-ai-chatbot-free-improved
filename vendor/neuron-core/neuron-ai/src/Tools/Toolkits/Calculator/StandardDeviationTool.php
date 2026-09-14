@@ -23,10 +23,12 @@ class StandardDeviationTool extends Tool
     {
         parent::__construct(
             'calculate_standard_deviation',
-            "                Calculates the standard deviation, which measures how spread out the data points are from the mean.
+            <<<DESC
+                Calculates the standard deviation, which measures how spread out the data points are from the mean.
                 A low standard deviation indicates data points are close to the mean, while a high standard deviation
                 indicates greater variability. Use this tool for risk assessment, quality control, measuring consistency,
-                or understanding data distribution. Choose sample (n-1) for sample data or population (n) for complete populations."
+                or understanding data distribution. Choose sample (n-1) for sample data or population (n) for complete populations.
+                DESC
         );
     }
 
@@ -61,7 +63,7 @@ class StandardDeviationTool extends Tool
             return ['error' => 'Data array must contain at least one numeric value'];
         }
 
-        if (count($numericData) === 1 && $this->sample) {
+        if ($this->sample && count($numericData) === 1) {
             return ['error' => 'Cannot calculate sample standard deviation with only one data point'];
         }
 

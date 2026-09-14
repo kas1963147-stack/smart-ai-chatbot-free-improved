@@ -28,9 +28,30 @@ use function is_array;
 use function is_subclass_of;
 use function serialize;
 use function unserialize;
+use function array_values;
 
 class ParallelToolNode extends ToolNode
 {
+    protected ?Closure $beforeChild;
+
+    protected ?Closure $afterChild;
+
+    public function __construct(
+        int $maxRuns = 10,
+        ?callable $errorHandler = null,
+        ?callable $beforeChild = null,
+        ?callable $afterChild = null,
+    ) {
+        parent::__construct($maxRuns, $errorHandler);
+
+        $this->beforeChild = $beforeChild !== null
+            ? Closure::fromCallable($beforeChild)
+            : null;
+        $this->afterChild = $afterChild !== null
+            ? Closure::fromCallable($afterChild)
+            : null;
+    }
+
     /**
      * @throws ToolException
      * @throws ToolRunsExceededException
@@ -74,12 +95,24 @@ class ParallelToolNode extends ToolNode
         }
 
         // Execute tools concurrently and collect serialized tool states
+        $beforeChild = $this->beforeChild;
+        $afterChild = $this->afterChild;
         $serializedTools = Fork::new()->run(
             ...array_map(
-                fn (ToolInterface $tool): Closure => function () use ($tool): string {
+                fn (ToolInterface $tool): Closure => function () use ($tool, $beforeChild, $afterChild): string {
                     try {
-                        // Execute the tool - this mutates the tool's internal state
-                        $tool->execute();
+                        if ($beforeChild !== null) {
+                            $beforeChild();
+                        }
+
+                        try {
+                            // Execute the tool - this mutates the tool's internal state
+                            $tool->execute();
+                        } finally {
+                            if ($afterChild !== null) {
+                                $afterChild();
+                            }
+                        }
 
                         // Serialize the entire tool object with its new state
                         return serialize($tool);
@@ -131,6 +164,6 @@ class ParallelToolNode extends ToolNode
         }
 
         // Return a new ToolCallResultMessage with the executed tools
-        return new ToolResultMessage($executedTools);
+        return new ToolResultMessage(array_values($executedTools));
     }
 }

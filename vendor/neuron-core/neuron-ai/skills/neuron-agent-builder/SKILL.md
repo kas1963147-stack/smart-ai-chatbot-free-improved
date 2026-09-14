@@ -141,7 +141,7 @@ $person = $agent->structured(
 ```php
 new Anthropic(
     key: $_ENV['ANTHROPIC_API_KEY'],
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'ANTHROPIC_MODEL',
 )
 ```
 
@@ -149,7 +149,7 @@ new Anthropic(
 ```php
 new OpenAI(
     key: $_ENV['OPENAI_API_KEY'],
-    model: 'gpt-4',
+    model: 'OPENAI_MODEL',
 )
 ```
 
@@ -157,7 +157,7 @@ new OpenAI(
 ```php
 new Ollama(
     baseUrl: 'http://localhost:11434',
-    model: 'llama3',
+    model: 'OLLAMA_MODEL',
 )
 ```
 
@@ -287,6 +287,7 @@ Agents support multiple content types:
 ```php
 use NeuronAI\Chat\Messages\ContentBlocks\TextContent;
 use NeuronAI\Chat\Messages\ContentBlocks\ImageContent;
+use NeuronAI\Chat\Enums\MediaType;
 use NeuronAI\Chat\Enums\SourceType;
 
 $message = new UserMessage([
@@ -294,10 +295,12 @@ $message = new UserMessage([
     new ImageContent(
         content: 'https://example.com/image.jpg',
         sourceType: SourceType::URL,
-        mediaType: 'image/jpeg'
+        mediaType: MediaType::JPEG
     ),
 ]);
 ```
+
+Use the `MediaType` enum for common MIME types (images, audio, video, documents). A raw MIME string is still accepted for custom types.
 
 ## CLI Generation
 

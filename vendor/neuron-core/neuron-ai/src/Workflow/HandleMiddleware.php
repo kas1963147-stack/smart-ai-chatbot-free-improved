@@ -80,9 +80,7 @@ trait HandleMiddleware
         $middlewareList = is_array($middleware) ? $middleware : [$middleware];
 
         foreach ($nodeClasses as $class) {
-            if (!isset($this->nodeMiddleware[$class])) {
-                $this->nodeMiddleware[$class] = [];
-            }
+            $this->nodeMiddleware[$class] ??= [];
 
             foreach ($middlewareList as $m) {
                 if (! $m instanceof WorkflowMiddleware) {
@@ -99,12 +97,25 @@ trait HandleMiddleware
     /**
      * Get all registered middleware for the given node.
      *
+     * Matching is subclass-aware: a node receives middleware registered against
+     * its own class, any parent class (e.g. InferenceNode, ToolNode), or any
+     * implemented interface. This keeps middleware attached when the execution
+     * mode switches between sibling subclasses (ChatNode/StreamingNode/
+     * StructuredOutputNode) or between ToolNode and ParallelToolNode.
+     *
      * @return WorkflowMiddleware[]
      */
     public function getMiddlewareForNode(NodeInterface $node): array
     {
-        $nodeClass = $node::class;
-        $middlewares = $this->nodeMiddleware[$nodeClass] ?? [];
+        $middlewares = [];
+
+        foreach ($this->nodeMiddleware as $class => $registered) {
+            if ($node instanceof $class) {
+                foreach ($registered as $m) {
+                    $middlewares[] = $m;
+                }
+            }
+        }
 
         // Combine global and node-specific middleware
         return array_merge($this->globalMiddleware, $middlewares);

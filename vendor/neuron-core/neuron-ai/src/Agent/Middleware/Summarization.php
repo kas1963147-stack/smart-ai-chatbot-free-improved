@@ -6,6 +6,7 @@ namespace NeuronAI\Agent\Middleware;
 
 use NeuronAI\Agent\AgentState;
 use NeuronAI\Agent\Events\AIInferenceEvent;
+use NeuronAI\Chat\Enums\MessageRole;
 use NeuronAI\Chat\Messages\Message;
 use NeuronAI\Chat\Messages\ToolCallMessage;
 use NeuronAI\Chat\Messages\ToolResultMessage;
@@ -117,10 +118,12 @@ class Summarization implements WorkflowMiddleware
     }
 
     /**
-     * Find a safe cutoff index that doesn't break tool call sequences.
+     * Find a safe cutoff index that doesn't break tool call sequences
+     * or the user/assistant alternation.
      *
      * A safe cutoff point is one where we don't separate a tool call message
-     * from its corresponding tool result message.
+     * from its corresponding tool result message, and where the first retained
+     * message can follow the summary, which is prepended as a UserMessage.
      *
      * @param Message[] $messages
      * @return int|null Index to cut at (exclusive), or null if no safe cutoff found
@@ -152,6 +155,8 @@ class Summarization implements WorkflowMiddleware
      * A cutoff is safe if:
      * 1. The message at "index" is not a ToolCallMessage (would leave tool call without result)
      * 2. The previous message is not a ToolCallMessage (would separate tool call from result)
+     * 3. The message at "index" has the assistant role, because the summary is prepended
+     *    as a UserMessage and two consecutive user messages break the role alternation
      *
      * @param Message[] $messages
      */
@@ -162,7 +167,11 @@ class Summarization implements WorkflowMiddleware
             return false;
         }
         // Check if a previous message is a ToolCallMessage (would be separated from its result)
-        return !($index > 0 && isset($messages[$index - 1]) && $messages[$index - 1] instanceof ToolCallMessage);
+        if ($index > 0 && isset($messages[$index - 1]) && $messages[$index - 1] instanceof ToolCallMessage) {
+            return false;
+        }
+        // The first retained message follows the UserMessage summary, so it must be an assistant message
+        return isset($messages[$index]) && $messages[$index]->getRole() === MessageRole::ASSISTANT->value;
     }
 
     /**
@@ -198,7 +207,18 @@ class Summarization implements WorkflowMiddleware
      */
     protected function getDefaultSummaryPrompt(): string
     {
-        return "            Please provide a comprehensive summary of the following conversation.\n            Extract the highest quality and most relevant pieces of information, including:\n            - Key topics discussed\n            - Important decisions made\n            - Critical information exchanged\n            - Action items or next steps\n            - Any unresolved questions or issues\n\n            Your summary should be concise yet informative, capturing the essential context\n            that would be needed to continue the conversation meaningfully.";
+        return <<<'PROMPT'
+            Please provide a comprehensive summary of the following conversation.
+            Extract the highest quality and most relevant pieces of information, including:
+            - Key topics discussed
+            - Important decisions made
+            - Critical information exchanged
+            - Action items or next steps
+            - Any unresolved questions or issues
+
+            Your summary should be concise yet informative, capturing the essential context
+            that would be needed to continue the conversation meaningfully.
+            PROMPT;
     }
 
     /**

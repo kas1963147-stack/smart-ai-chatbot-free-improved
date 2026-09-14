@@ -6,12 +6,15 @@ namespace NeuronAI\HttpClient;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ResponseException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\RequestOptions;
 use NeuronAI\Exceptions\HttpException;
 use Psr\Http\Message\ResponseInterface;
 
 use function is_array;
+use function method_exists;
 use function is_resource;
 use function trim;
 
@@ -53,7 +56,7 @@ class GuzzleHttpClient implements HttpClientInterface
                 headers: $response->getHeaders(),
             );
         } catch (GuzzleException $e) {
-            throw HttpException::networkError($request, $e);
+            $this->handleException($request, $e);
         }
     }
 
@@ -73,7 +76,7 @@ class GuzzleHttpClient implements HttpClientInterface
 
             return new GuzzleStream($response->getBody());
         } catch (GuzzleException $e) {
-            throw HttpException::networkError($request, $e);
+            $this->handleException($request, $e);
         }
     }
 
@@ -107,7 +110,9 @@ class GuzzleHttpClient implements HttpClientInterface
             $config['handler'] = $this->handler;
         }
 
-        return new Client($config);
+        $this->client = new Client($config);
+
+        return $this->client;
     }
 
     /**
@@ -194,5 +199,34 @@ class GuzzleHttpClient implements HttpClientInterface
             : $request->uri;
 
         return $client->request($request->method->value, $uri, $options);
+    }
+
+    /**
+     * @throws HttpException
+     */
+    protected function handleException(HttpRequest $request, GuzzleException $e): never
+    {
+        if ($e instanceof ResponseException || ($e instanceof RequestException && method_exists($e, 'hasResponse') && $e->hasResponse())) {
+            $psrResponse = $e->getResponse();
+            $response = new HttpResponse(
+                statusCode: $psrResponse->getStatusCode(),
+                body: (string) $psrResponse->getBody(),
+                headers: $psrResponse->getHeaders(),
+            );
+
+            throw new HttpException(
+                "HTTP {$response->statusCode} error during {$request->method->value} {$request->uri}: {$response->body}",
+                $request,
+                $response,
+                $e
+            );
+        }
+
+        throw new HttpException(
+            "Network error during {$request->method->value} {$request->uri}: {$e->getMessage()}",
+            $request,
+            null,
+            $e
+        );
     }
 }

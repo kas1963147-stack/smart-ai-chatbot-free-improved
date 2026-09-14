@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace NeuronAI\MCP;
 
 use Exception;
+use JsonException;
 use stdClass;
 
 use function array_filter;
@@ -43,8 +44,13 @@ class McpClient
         $this->initialize();
     }
 
+    public function __destruct()
+    {
+        $this->transport->disconnect();
+    }
+
     /**
-     * @throws McpException
+     * @throws McpException|JsonException
      */
     protected function initialize(): void
     {
@@ -137,7 +143,12 @@ class McpClient
         ];
 
         $this->transport->send($request);
+        $response = $this->transport->receive();
 
-        return $this->transport->receive();
+        if ($response['id'] !== $this->requestId) {
+            throw new McpException('Invalid response ID');
+        }
+
+        return $response;
     }
 }

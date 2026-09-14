@@ -31,7 +31,8 @@ class MariaDBVectorStore implements VectorStoreInterface
     public function setupTable(int $dimensions = 1536): void
     {
         $this->pdo->exec(sprintf(
-            "                CREATE TABLE IF NOT EXISTS %s (
+            <<<'SQL'
+                CREATE TABLE IF NOT EXISTS %s (
                     id UUID NOT NULL PRIMARY KEY,
                     content TEXT,
                     sourceType VARCHAR(255),
@@ -39,7 +40,8 @@ class MariaDBVectorStore implements VectorStoreInterface
                     metadata JSON,
                     embedding VECTOR(%d) NOT NULL,
                     VECTOR INDEX (embedding)
-                )",
+                )
+                SQL,
             $this->tableName,
             $dimensions,
         ));
@@ -62,14 +64,16 @@ class MariaDBVectorStore implements VectorStoreInterface
         }
 
         $stmt = $this->pdo->prepare(sprintf(
-            "                INSERT INTO %s (id, content, sourceType, sourceName, metadata, embedding)
+            <<<'SQL'
+                INSERT INTO %s (id, content, sourceType, sourceName, metadata, embedding)
                 VALUES (:id, :content, :sourceType, :sourceName, :metadata, VEC_FromText(:embedding))
                 ON DUPLICATE KEY UPDATE
                     content = VALUES(content),
                     sourceType = VALUES(sourceType),
                     sourceName = VALUES(sourceName),
                     metadata = VALUES(metadata),
-                    embedding = VEC_FromText(VALUES(embedding))",
+                    embedding = VEC_FromText(VALUES(embedding))
+                SQL,
             $this->tableName,
         ));
 
@@ -125,11 +129,13 @@ class MariaDBVectorStore implements VectorStoreInterface
     public function similaritySearch(array $embedding): iterable
     {
         $stmt = $this->pdo->prepare(sprintf(
-            "                SELECT id, content, sourceType, sourceName, metadata,
+            <<<'SQL'
+                SELECT id, content, sourceType, sourceName, metadata,
                        VEC_DISTANCE_EUCLIDEAN(embedding, VEC_FromText(:embedding)) AS distance
                 FROM %s
                 ORDER BY distance ASC
-                LIMIT %d",
+                LIMIT %d
+                SQL,
             $this->tableName,
             $this->topK,
         ));

@@ -23,32 +23,17 @@ trait HandleChat
      */
     public function chat(Message ...$messages): Message
     {
-        $json = [
-            'model' => $this->model,
-            'max_tokens' => $this->max_tokens,
-            'messages' => $this->messageMapper()->map($messages),
-            ...$this->parameters,
-        ];
+        $json = $this->requestBody($messages);
 
-        if (isset($this->system)) {
-            $json['system'] = $this->system;
-        } elseif (isset($this->systemBlocks)) {
-            $json['system'] = $this->systemBlocks;
-        }
-
-        if (!empty($this->tools)) {
-            $json['tools'] = $this->toolPayloadMapper()->map($this->tools);
-
-            // Add cache_control to last tool if caching is enabled
-            if ($this->promptCachingEnabled) {
-                $last = count($json['tools']) - 1;
-                $json['tools'][$last]['cache_control'] = ['type' => 'ephemeral'];
-            }
+        // Add cache_control to last tool if caching is enabled
+        if (!empty($this->tools) && $this->promptCachingEnabled) {
+            $last = count($json['tools']) - 1;
+            $json['tools'][$last]['cache_control'] = ['type' => 'ephemeral'];
         }
 
         $response = $this->httpClient->request(
             HttpRequest::post(
-                uri: 'messages',
+                uri: $this->requestUri(false),
                 body: $json
             )
         );
@@ -63,12 +48,14 @@ trait HandleChat
     {
         $blocks = [];
         $toolCalls = [];
+        $toolPositions = [];
+        $redactedThinking = [];
 
         if (!isset($result['content'])) {
             goto message;
         }
 
-        foreach ($result['content'] as $content) {
+        foreach ($result['content'] as $index => $content) {
             if ($content['type'] === 'thinking') {
                 $blocks[] = new ReasoningContent($content['thinking'], $content['signature']);
                 continue;
@@ -79,8 +66,14 @@ trait HandleChat
                 continue;
             }
 
+            if ($content['type'] === 'redacted_thinking') {
+                $redactedThinking[$index] = $content['data'];
+                continue;
+            }
+
             if ($content['type'] === 'tool_use') {
                 $toolCalls[] = $content;
+                $toolPositions[] = $index;
             }
         }
 
@@ -95,11 +88,16 @@ trait HandleChat
             }
         }
 
+        if ($redactedThinking !== []) {
+            $message->addMetadata('anthropic_redacted_thinking', $redactedThinking);
+        }
+        if ($toolPositions !== []) {
+            $message->addMetadata('anthropic_tool_positions', $toolPositions);
+        }
+
         // Save the usage for the current interaction
         if (isset($result['usage'])) {
             $usage = $result['usage'];
-
-            $message->setUsage(new Usage($usage['input_tokens'], $usage['output_tokens']));
 
             // Attach Anthropic-specific cache metrics as metadata (supports both API formats)
             $cacheCreation = $usage['cache_creation'] ?? [];
@@ -107,6 +105,10 @@ trait HandleChat
                         + ($cacheCreation['ephemeral_1h_input_tokens'] ?? 0)
                         + ($usage['cache_creation_input_tokens'] ?? 0);
             $cacheRead = $usage['cache_read_input_tokens'] ?? 0;
+
+            // Anthropic reports cache reads separately from `input_tokens`;
+            // surface the cache-read count as the standard cached metric.
+            $message->setUsage(new Usage($usage['input_tokens'], $usage['output_tokens'], $cacheRead));
 
             if ($cacheWrite > 0 || $cacheRead > 0) {
                 $message->addMetadata('cacheWriteTokens', (string) $cacheWrite)

@@ -10,9 +10,9 @@ use Inspector\Exceptions\InspectorException;
 use function array_key_exists;
 use function curl_errno;
 use function curl_error;
-use function curl_exec_banned_by_wp;
+use function curl_exec;
 use function curl_getinfo;
-use function curl_init_banned_by_wp;
+use function curl_init;
 use function curl_setopt;
 use function date;
 use function error_log;
@@ -39,7 +39,7 @@ class CurlTransport extends AbstractApiTransport
     public function __construct(Configuration $configuration)
     {
         // System need to have CURL available
-        if (!function_exists('curl_init_banned_by_wp')) {
+        if (!function_exists('curl_init')) {
             throw new InspectorException('cURL PHP extension is not available');
         }
 
@@ -57,7 +57,7 @@ class CurlTransport extends AbstractApiTransport
             $headers[] = "$name: $value";
         }
 
-        $handle = curl_init_banned_by_wp($this->config->getUrl());
+        $handle = curl_init($this->config->getUrl());
 
         curl_setopt($handle, CURLOPT_POST, true);
 
@@ -76,7 +76,7 @@ class CurlTransport extends AbstractApiTransport
             curl_setopt($handle, CURLOPT_PROXY, $this->config->getOptions()['proxy']);
         }
 
-        curl_exec_banned_by_wp($handle);
+        curl_exec($handle);
         $errorNo = curl_errno($handle);
         $code = curl_getinfo($handle, CURLINFO_HTTP_CODE);
         $error = curl_error($handle);

@@ -11,14 +11,33 @@
 
 ## What is Neuron?
 
-Neuron is a PHP framework for creating and orchestrating AI Agents. It allows you to integrate AI entities in your
+Neuron is a PHP framework for creating and orchestrating AI Agents. It allows you to integrate AI entities into your
 PHP applications with a powerful and flexible architecture. We provide tools for the entire agentic application development lifecycle,
 from LLM interfaces, data loading, multi-agent orchestration, to monitoring and debugging.
 In addition, we provide tutorials and other educational content to help you get started using AI Agents in your projects.
 
-[**Video Tutorial**](https://www.youtube.com/watch?v=oSA1bP_j41w)
+[**Video Tutorial**](https://docs.neuron-ai.dev/overview/fast-learning-by-video)
 
-[![Neuron & Inspector](./docs/images/youtube.png)](https://www.youtube.com/watch?v=oSA1bP_j41w)
+[![Neuron & Inspector](./docs/images/youtube.png)](https://docs.neuron-ai.dev/overview/fast-learning-by-video)
+
+## Why Neuron
+
+Your next application will be agentic. A growing share of new software is no longer a web application with AI features added along the way, but an application born agentic, where the agent is the architecture itself, driving how the system reasons, acts, and talks to its interface. Building this kind of application requires a specific set of foundations: event-driven workflows with checkpointing, human-in-the-loop interruption, multi-agent orchestration, streaming through agentic UI protocols like AG-UI and the Vercel AI SDK protocol, MCP, and asynchronous execution.
+
+In the PHP ecosystem, this set of foundations exists in one place. Each one is a chapter of the documentation:
+[Workflow](#workflow),
+[Human in the loop](https://docs.neuron-ai.dev/workflow/human-in-the-loop),
+[Streaming & UI protocols](https://docs.neuron-ai.dev/agent/streaming#stream-adapters),
+[MCP](#mcp-connector),
+[Async](https://docs.neuron-ai.dev/agent/async).
+
+There is also no second framework waiting for you when the project grows. The same Workflow that runs your first agent in the getting started guide runs a multi-agent system with state, loops, and human approvals in production. What you learn on day one is what you ship in future projects.
+
+## A Vertical & Independent Ecosystem
+
+Neuron is also the only vertical ecosystem for agentic applications development in PHP. Around the framework there is a registry of extensions, tools, and technologies designed specifically for agentic applications, and a growing number of companies building on the same architecture instead of assembling their own from scattered parts.
+
+For a software house, this is a place to be recognized as a specialist rather than one more team claiming AI experience. For a company that needs an agentic foundation it can commit to for years, it means standardizing on an architecture whose whole direction is this space, not a general-purpose library where agents are a side feature.
 
 ## Requirements
 
@@ -28,31 +47,9 @@ In addition, we provide tutorials and other educational content to help you get 
 
 **[Go to the official documentation](https://docs.neuron-ai.dev/)**
 
-## Guides & Tutorials
-
-Check out the technical guides and tutorials archive to learn how to start creating your AI Agents with Neuron
-https://docs.neuron-ai.dev/overview/fast-learning-by-video.
-
-Neuron is the perfect AI architecture for your project.
-
-## Laravel Demo
-Neuron offers a well-defined encapsulation pattern, allowing you to work on your agentic system in dedicated namespaces.
-You can enjoy the exact same experience of the other ecosystem packages you already love, like Filament, or Nova.
-
-[Example project (GitHub)](https://github.com/neuron-core/laravel-travel-agent)
-
-## Symfony Demo
-
-All Neuron components belong to its own interface, so you can define dependencies and automate objects creation
-using the Symfony service container. Watch how it works in a real project.
-
-[Symfony & Neuron (YouTube)](https://www.youtube.com/watch?v=JWRlcaGnsXw)
-
 ## How To
 
-- [Install](#install)
-- [Create an Agent](#create)
-- [Talk to the Agent](#talk)
+- [Getting Started](#start)
 - [Monitoring](#monitoring)
 - [AI Providers](#providers)
 - [Tools & Toolkits](#tools)
@@ -64,23 +61,21 @@ using the Symfony service container. Watch how it works in a real project.
 - [Security Vulnerabilities](#security)
 - [Official Documentation](#documentation)
 
-<a name="install">
+<a name="start">
 
-## Install
+## Getting Started in 3 Steps
 
-Install the latest version via composer:
+### 1) Install
 
 ```
 composer require neuron-core/neuron-ai
 ```
 
-<a name="create">
-
-## Create an Agent
+### 2) Create an Agent
 
 Neuron provides you with the Agent class you can extend to inherit the main features of the framework
 and create fully functional agents. This class automatically manages some advanced mechanisms for you, such as memory,
-tools, and function calls, up to RAG (Retrieval Augmented Generation). You can go deeper into these aspects in the [documentation](https://docs.neuron-ai.dev).
+tools, up to RAG (Retrieval Augmented Generation). You can go deeper into these aspects below.
 
 Let's create an Agent with the command below:
 
@@ -110,21 +105,12 @@ class DataAnalystAgent extends Agent
 
     protected function instructions(): string
     {
-        return (string) new SystemPrompt(
-            background: [
-                "You are a data analyst expert in creating reports from SQL databases."
-            ]
-        );
+        return "You are a data analyst expert in creating reports from SQL databases.";
     }
 }
 ```
 
-The `SystemPrompt` class is designed to take your base instructions and build a consistent prompt for the underlying model
-reducing the effort for prompt engineering.
-
-<a name="talk">
-
-## Talk to the Agent
+### 3) Talk to the Agent
 
 Send a message to the agent to get a response from the underlying LLM:
 
@@ -153,17 +139,9 @@ As you can see in the example above, the Agent has memory of the ongoing convers
 
 ## Monitoring & Debugging
 
-Integrating AI Agents into your application, you’re not working only with functions and deterministic code,
-you program your agent influencing probability distributions. Same input ≠ output.
-That means reproducibility, versioning, and debugging become real problems.
-
 Many of the Agents you build with Neuron will contain multiple steps with multiple invocations of LLM calls,
 tool usage, access to external memories, etc. As these applications get more and more complex, it becomes crucial
 to be able to inspect what exactly your agent is doing and why.
-
-Why is the model taking certain decisions? What data is the model reacting to? Prompting is not programming
-in the common sense. No static types, small changes break output, long prompts cost latency,
-and no two models behave exactly the same with the same prompt.
 
 The best way to take your AI application under control is with [Inspector](https://inspector.dev). After you sign up,
 make sure to set the `INSPECTOR_INGESTION_KEY` variable in the application environment file to start monitoring:
@@ -201,6 +179,7 @@ Supported providers:
 - [Cohere](https://docs.neuron-ai.dev/providers/ai-provider#cohere)
 - [ZAI](https://docs.neuron-ai.dev/providers/ai-provider#zai)
 - [Alibaba DashScope](https://docs.neuron-ai.dev/providers/ai-provider#alibaba-dashscope)
+- [Neuron Router](https://github.com/neuron-core/router)
 
 <a name="tools">
 
@@ -452,4 +431,26 @@ All security vulnerabilities will be promptly addressed.
 
 **[Go to the official documentation](https://neuron.inspector.dev/)**
 
+## Development
+
+To run the full test suite locally, use Docker Compose to spin up all the services required by the CI environment:
+
+```bash
+# Start all services
+docker compose up -d
+```
+
+Run the test suite:
+
+```bash
+# Install dependencies and run tests
+docker compose run --rm php composer update --prefer-stable
+docker compose run --rm php vendor/bin/phpunit
+```
+
+To stop all services:
+
+```bash
+docker compose down
+```
 

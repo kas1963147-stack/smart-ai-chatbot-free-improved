@@ -30,9 +30,11 @@ class SESTool extends Tool
     ) {
         parent::__construct(
             'send_email',
-            "                Send an email message to one or more recipients. Use this tool when you need to communicate with users via email,
+            <<<DESC
+                Send an email message to one or more recipients. Use this tool when you need to communicate with users via email,
                 send notifications, confirmations, reports, or any other email-based communication. The tool handles proper email
-                formatting, delivery, and basic error handling automatically."
+                formatting, delivery, and basic error handling automatically.
+                DESC
         );
     }
 

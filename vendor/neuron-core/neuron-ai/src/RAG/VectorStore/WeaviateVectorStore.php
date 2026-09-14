@@ -167,7 +167,8 @@ class WeaviateVectorStore implements VectorStoreInterface
         $vectorString = implode(', ', $embedding);
 
         $query = sprintf(
-            "                {
+            <<<'GQL'
+                {
                   Get {
                     %s (
                       nearVector: { vector: [%s] }
@@ -180,7 +181,8 @@ class WeaviateVectorStore implements VectorStoreInterface
                       metadata
                     }
                   }
-                }",
+                }
+                GQL,
             ucfirst($this->collection),
             $vectorString,
             $this->topK,

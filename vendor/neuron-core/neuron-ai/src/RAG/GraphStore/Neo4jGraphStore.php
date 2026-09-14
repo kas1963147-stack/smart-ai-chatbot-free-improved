@@ -31,9 +31,11 @@ class Neo4jGraphStore implements GraphStoreInterface
         // Normalize relationship type: spaces to underscores, uppercase
         $relationshipType = strtoupper(str_replace(' ', '_', $relation));
 
-        $query = "MERGE (n1:`{$this->nodeLabel}` {id: \\$subject})
-            MERGE (n2:`{$this->nodeLabel}` {id: \\$object})
-            MERGE (n1)-[r:`{$relationshipType}`]->(n2)"
+        $query = <<<CYPHER
+            MERGE (n1:`{$this->nodeLabel}` {id: \$subject})
+            MERGE (n2:`{$this->nodeLabel}` {id: \$object})
+            MERGE (n1)-[r:`{$relationshipType}`]->(n2)
+            CYPHER;
 
         $this->client()->run($query, [
             'subject' => $subject,
@@ -49,9 +51,11 @@ class Neo4jGraphStore implements GraphStoreInterface
         $relationshipType = strtoupper(str_replace(' ', '_', $relation));
 
         // Delete the specific relationship
-        $query = "MATCH (n1:`{$this->nodeLabel}`)-[r:`{$relationshipType}`]->(n2:`{$this->nodeLabel}`)
-            WHERE n1.id = \\$subject AND n2.id = \\$object
-            DELETE r"
+        $query = <<<CYPHER
+            MATCH (n1:`{$this->nodeLabel}`)-[r:`{$relationshipType}`]->(n2:`{$this->nodeLabel}`)
+            WHERE n1.id = \$subject AND n2.id = \$object
+            DELETE r
+            CYPHER;
 
         $this->client()->run($query, [
             'subject' => $subject,
@@ -59,10 +63,12 @@ class Neo4jGraphStore implements GraphStoreInterface
         ]);
 
         // Clean up isolated nodes (nodes with no relationships)
-        $cleanupQuery = "MATCH (n:`{$this->nodeLabel}`)
-            WHERE n.id IN [\\$subject, \\$object]
+        $cleanupQuery = <<<CYPHER
+            MATCH (n:`{$this->nodeLabel}`)
+            WHERE n.id IN [\$subject, \$object]
             AND NOT (n)-[]-()
-            DELETE n"
+            DELETE n
+            CYPHER;
 
         $this->client()->run($cleanupQuery, [
             'subject' => $subject,
@@ -75,9 +81,11 @@ class Neo4jGraphStore implements GraphStoreInterface
 
     public function get(string $subject): array
     {
-        $query = "MATCH (n1:`{$this->nodeLabel}`)-[r]->(n2:`{$this->nodeLabel}`)
-            WHERE n1.id = \\$subject
-            RETURN type(r) AS relation, n2.id AS object"
+        $query = <<<CYPHER
+            MATCH (n1:`{$this->nodeLabel}`)-[r]->(n2:`{$this->nodeLabel}`)
+            WHERE n1.id = \$subject
+            RETURN type(r) AS relation, n2.id AS object
+            CYPHER;
 
         $result = $this->client()->run($query, ['subject' => $subject]);
 
@@ -99,12 +107,14 @@ class Neo4jGraphStore implements GraphStoreInterface
             return [];
         }
 
-        $query = "MATCH path = (n1:`{$this->nodeLabel}`)-[*1..{$depth}]->(n2:`{$this->nodeLabel}`)
-            WHERE n1.id IN \\$subjects
+        $query = <<<CYPHER
+            MATCH path = (n1:`{$this->nodeLabel}`)-[*1..{$depth}]->(n2:`{$this->nodeLabel}`)
+            WHERE n1.id IN \$subjects
             UNWIND relationships(path) AS rel
             WITH n1.id AS subject, collect([type(rel), endNode(rel).id]) AS rels
             RETURN subject, rels
-            LIMIT {$limit}"
+            LIMIT {$limit}
+            CYPHER;
 
         $result = $this->client->run($query, ['subjects' => $subjects]);
 
@@ -136,9 +146,11 @@ class Neo4jGraphStore implements GraphStoreInterface
         }
 
         // Get all relationship types and node labels
-        $query = "CALL db.schema.visualization()
+        $query = <<<CYPHER
+            CALL db.schema.visualization()
             YIELD nodes, relationships
-            RETURN nodes, relationships"
+            RETURN nodes, relationships
+            CYPHER;
 
         try {
             $result = $this->client()->run($query);

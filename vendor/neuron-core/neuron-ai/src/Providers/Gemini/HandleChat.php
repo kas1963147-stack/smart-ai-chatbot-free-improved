@@ -133,9 +133,7 @@ trait HandleChat
         }
 
         // If no tool calls
-        if (!isset($message)) {
-            $message = new AssistantMessage($blocks);
-        }
+        $message ??= new AssistantMessage($blocks);
 
         if (array_key_exists('groundingMetadata', $result['candidates'][0])) {
             // Extract citations from groundingMetadata
@@ -150,7 +148,9 @@ trait HandleChat
             $message->setUsage(
                 new Usage(
                     $result['usageMetadata']['promptTokenCount'],
-                    $result['usageMetadata']['candidatesTokenCount'] ?? 0
+                    $result['usageMetadata']['candidatesTokenCount'] ?? 0,
+                    $result['usageMetadata']['cachedContentTokenCount'] ?? 0,
+                    $result['usageMetadata']['thoughtsTokenCount'] ?? 0,
                 )
             );
         }
