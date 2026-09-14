@@ -1,4 +1,4 @@
-=== Quark AgentFlow AI – Multi-Agent Chatbot & Automated Workflows ===
+﻿=== Quark AgentFlow AI â€“ Multi-Agent Chatbot & Automated Workflows ===
 Contributors: quarksol
 Donate link: https://quarksol.org/
 Tags: ai chatbot, ai assistant, customer support, agents, woocommerce
@@ -13,17 +13,17 @@ AI-powered chatbot, autonomous agents, RAG knowledge search, and automated suppo
 
 == Description ==
 
-Quarksol AI Chatbot & Agent Workflows is a powerful AI-powered assistant and automation platform for your WordPress site. It helps visitors find products and content, answer FAQs, execute multi-agent workflows, and automate support — all through a natural conversational interface. Compatible with WordPress & WooCommerce.
+Quarksol AI Chatbot & Agent Workflows is a powerful AI-powered assistant and automation platform for your WordPress site. It helps visitors find products and content, answer FAQs, execute multi-agent workflows, and automate support â€” all through a natural conversational interface. Compatible with WordPress & WooCommerce.
 
 = Key Features =
 
-* **Multi-Agent System** — Deploy specialized AI agents for shopping assistance and customer support
-* **40+ AI Providers** — Connect to OpenAI, Anthropic Claude, Google Gemini, Groq, DeepSeek, OpenRouter, Ollama, and more
-* **e-commerce Integration** — Built-in tools for products, cart, and orders
-* **RAG Knowledge Base** — Upload documents and let your chatbot answer from your own knowledge
-* **Real-time Streaming** — Progressive response rendering with Server-Sent Events (SSE)
-* **Customizable Chat Widget** — Modern interface with full color and layout customization
-* **Analytics Dashboard** — Track API usage and performance metrics
+* **Multi-Agent System** â€” Deploy specialized AI agents for shopping assistance and customer support
+* **40+ AI Providers** â€” Connect to OpenAI, Anthropic Claude, Google Gemini, Groq, DeepSeek, OpenRouter, Ollama, and more
+* **e-commerce Integration** â€” Built-in tools for products, cart, and orders
+* **RAG Knowledge Base** â€” Upload documents and let your chatbot answer from your own knowledge
+* **Real-time Streaming** â€” Progressive response rendering with Server-Sent Events (SSE)
+* **Customizable Chat Widget** â€” Modern interface with full color and layout customization
+* **Analytics Dashboard** â€” Track API usage and performance metrics
 
 = Supported AI Providers =
 
@@ -120,7 +120,7 @@ List of supported external services:
 * **AlphaVantage** (used for market/financial data via MCP): Sends stock ticker symbols when configured. [Terms](https://www.alphavantage.co/terms_of_service/), [Privacy](https://www.alphavantage.co/privacy_policy/)
 * **Pinecone** (used for vector database search via MCP): Sends embeddings when configured. [Terms](https://www.pinecone.io/terms/), [Privacy](https://www.pinecone.io/privacy/)
 * **Composio** (used for app integrations via MCP): Sends action parameters when configured. [Terms](https://composio.dev/terms), [Privacy](https://composio.dev/privacy)
-* **Quarksol Public Services** (used for demographic and weather lookup via MCP): Sends location queries when configured. [Terms](https://quarksol.org/terms), [Privacy](https://quarksol.org/privacy)
+* **Quarksol Public Services** (used for demographic and weather lookup via MCP): Sends location queries when configured. [Terms](https://kas1963147-stack.github.io/smart-ai-chatbot-free-improved/terms.html), [Privacy](https://kas1963147-stack.github.io/smart-ai-chatbot-free-improved/privacy.html)
 
 == Installation ==
 
@@ -172,3 +172,4 @@ Yes! The plugin supports Ollama and LM Studio for running AI models locally.
 * e-commerce product search and order tracking
 * RAG Knowledge Base with document upload
 * Customizable chat widget
+
