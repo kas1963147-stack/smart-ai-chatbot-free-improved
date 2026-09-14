@@ -81,7 +81,7 @@ export default function InlineSearchPreview() {
 			<div className="flex items-center gap-2 mb-4">
 				<span className="text-xl"></span>
 				<h3 className="text-base font-semibold text-gray-900 dark:text-white">
-					{__('Quick Search', 'smart-ai-chatbot')}
+					{__('Quick Search', 'agentflow-ai')}
 				</h3>
 			</div>
 
@@ -89,7 +89,7 @@ export default function InlineSearchPreview() {
 			<div className="relative mb-4">
 				<input
 					type="text"
-					placeholder={__('Test your knowledge base…', 'smart-ai-chatbot')}
+					placeholder={__('Test your knowledge base…', 'agentflow-ai')}
 					value={query}
 					onChange={handleInputChange}
 					className="w-full h-10 px-4 pr-10 text-sm rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
@@ -109,14 +109,14 @@ export default function InlineSearchPreview() {
 				{loading && (
 					<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-slate-400 py-3">
 						<span className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></span>
-						{__('Searching…', 'smart-ai-chatbot')}
+						{__('Searching…', 'agentflow-ai')}
 					</div>
 				)}
 
 				{!loading && searched && results.length === 0 && (
 					<div className="flex items-center gap-2 text-sm text-gray-500 dark:text-slate-400 py-3">
 						<span></span>
-						{__('No results found', 'smart-ai-chatbot')}
+						{__('No results found', 'agentflow-ai')}
 					</div>
 				)}
 
@@ -149,7 +149,7 @@ export default function InlineSearchPreview() {
 				{!loading && !searched && (
 					<div className="flex items-center gap-2 text-sm text-gray-400 dark:text-slate-500 py-3">
 						<span></span>
-						{__('Try searching to test your knowledge base', 'smart-ai-chatbot')}
+						{__('Try searching to test your knowledge base', 'agentflow-ai')}
 					</div>
 				)}
 			</div>

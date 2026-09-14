@@ -11,11 +11,11 @@ import apiFetch from '@wordpress/api-fetch';
 import { Modal } from '../ui';
 
 const SOURCE_TYPES = [
-	{ value: 'raw_text', label: __('Raw Text', 'smart-woo-chatbot') },
-	{ value: 'wordpress_pages', label: __('WordPress Pages', 'smart-woo-chatbot') },
-	{ value: 'wordpress_posts', label: __('WordPress Posts', 'smart-woo-chatbot') },
-	{ value: 'woocommerce_products', label: __('WooCommerce Products', 'smart-woo-chatbot') },
-	{ value: 'folder', label: __('Folder', 'smart-woo-chatbot') },
+	{ value: 'raw_text', label: __('Raw Text', 'agentflow-ai') },
+	{ value: 'wordpress_pages', label: __('WordPress Pages', 'agentflow-ai') },
+	{ value: 'wordpress_posts', label: __('WordPress Posts', 'agentflow-ai') },
+	{ value: 'woocommerce_products', label: __('WooCommerce Products', 'agentflow-ai') },
+	{ value: 'folder', label: __('Folder', 'agentflow-ai') },
 ];
 
 export default function SourceEditor({ source, onSave, onCancel }) {
@@ -86,7 +86,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 
 	const handleSubmit = async () => {
 		if (!formData.name.trim()) {
-			setError(__('Name is required', 'smart-woo-chatbot'));
+			setError(__('Name is required', 'agentflow-ai'));
 			return;
 		}
 		setSaving(true);
@@ -109,17 +109,17 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 				return (
 					<div>
 						<label className="block text-[13px] font-medium text-[#3F4254] mb-1.5">
-							{__('Knowledge Text', 'smart-woo-chatbot')}
+							{__('Knowledge Text', 'agentflow-ai')}
 						</label>
 						<textarea
 							value={formData.config.text || ''}
 							onChange={(e) => handleConfigChange('text', e.target.value)}
 							rows={6}
 							className={`${inputBase} ${inputNormal} resize-none`}
-							placeholder={__('Enter or paste the specific knowledge here...', 'smart-woo-chatbot')}
+							placeholder={__('Enter or paste the specific knowledge here...', 'agentflow-ai')}
 						/>
 						<p className="mt-1 text-[11px] text-[#99A1B7]">
-							{__('Paste any text — FAQ answers, policies, product info, etc.', 'smart-woo-chatbot')}
+							{__('Paste any text — FAQ answers, policies, product info, etc.', 'agentflow-ai')}
 						</p>
 					</div>
 				);
@@ -127,7 +127,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 				return (
 					<div>
 						<label className="block text-[13px] font-medium text-[#3F4254] mb-1.5">
-							{__('Folder Path', 'smart-woo-chatbot')}
+							{__('Folder Path', 'agentflow-ai')}
 						</label>
 						<input
 							type="text"
@@ -137,7 +137,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 							placeholder="swc-knowledge/policies"
 						/>
 						<p className="mt-1 text-[11px] text-[#99A1B7]">
-							{__('Relative to wp-content', 'smart-woo-chatbot')}
+							{__('Relative to wp-content', 'agentflow-ai')}
 						</p>
 					</div>
 				);
@@ -145,14 +145,14 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 			case 'wordpress_posts': {
 				const selectedIds = formData.config.post_ids || [];
 				const label = formData.source_type === 'wordpress_pages'
-					? __('Select Pages', 'smart-woo-chatbot')
-					: __('Select Posts', 'smart-woo-chatbot');
+					? __('Select Pages', 'agentflow-ai')
+					: __('Select Posts', 'agentflow-ai');
 
 				if (wpContentLoading) {
 					return (
 						<div className="flex items-center justify-center py-8">
 							<div className="w-5 h-5 border-2 border-[#1B84FF]/30 border-t-[#1B84FF] rounded-full animate-spin" />
-							<span className="ml-2 text-[13px] text-[#99A1B7]">{__('Loading...', 'smart-woo-chatbot')}</span>
+							<span className="ml-2 text-[13px] text-[#99A1B7]">{__('Loading...', 'agentflow-ai')}</span>
 						</div>
 					);
 				}
@@ -169,22 +169,22 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 									onClick={selectAllPosts}
 									className="text-[11px] text-[#1B84FF] hover:underline"
 								>
-									{__('Select All', 'smart-woo-chatbot')}
+									{__('Select All', 'agentflow-ai')}
 								</button>
 								<button
 									type="button"
 									onClick={deselectAllPosts}
 									className="text-[11px] text-[#99A1B7] hover:underline"
 								>
-									{__('Clear', 'smart-woo-chatbot')}
+									{__('Clear', 'agentflow-ai')}
 								</button>
 							</div>
 						</div>
 						{wpContent.length === 0 ? (
 							<div className="text-center py-6 rounded-lg bg-[#F5F8FA] text-[13px] text-[#99A1B7]">
 								{formData.source_type === 'wordpress_pages'
-									? __('No published pages found', 'smart-woo-chatbot')
-									: __('No published posts found', 'smart-woo-chatbot')}
+									? __('No published pages found', 'agentflow-ai')
+									: __('No published posts found', 'agentflow-ai')}
 							</div>
 						) : (
 							<div className="max-h-[220px] overflow-y-auto rounded-[10px] border border-[#E1E3EA] bg-[#F5F8FA]">
@@ -211,8 +211,8 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 						)}
 						<p className="mt-1.5 text-[11px] text-[#99A1B7]">
 							{selectedIds.length > 0
-								? `${selectedIds.length} ${__('selected', 'smart-woo-chatbot')}`
-								: __('Leave empty to include all', 'smart-woo-chatbot')}
+								? `${selectedIds.length} ${__('selected', 'agentflow-ai')}`
+								: __('Leave empty to include all', 'agentflow-ai')}
 						</p>
 					</div>
 				);
@@ -220,7 +220,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 			case 'woocommerce_products':
 				return (
 					<div className="rounded-[10px] bg-[#F5F8FA] px-4 py-3 text-[13px] text-[#4B5675] border border-[#E1E3EA]">
-						{__('All published WooCommerce products will be indexed automatically.', 'smart-woo-chatbot')}
+						{__('All published WooCommerce products will be indexed automatically.', 'agentflow-ai')}
 					</div>
 				);
 			default:
@@ -236,7 +236,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 				disabled={saving}
 				className="inline-flex items-center px-4 py-2 text-[13px] font-medium rounded-lg border border-[#E1E3EA] text-[#4B5675] bg-white hover:bg-[#F5F8FA] hover:border-[#C4CBD3] disabled:opacity-50 transition-all duration-150"
 			>
-				{__('Cancel', 'smart-woo-chatbot')}
+				{__('Cancel', 'agentflow-ai')}
 			</button>
 			<button
 				type="button"
@@ -249,7 +249,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 						<svg className="animate-spin w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
 							<circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeDasharray="31.4" strokeDashoffset="10" strokeLinecap="round" />
 						</svg>
-						{__('Saving…', 'smart-woo-chatbot')}
+						{__('Saving…', 'agentflow-ai')}
 					</>
 				) : (
 					<>
@@ -258,7 +258,7 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 							<polyline points="17 21 17 13 7 13 7 21" />
 							<polyline points="7 3 7 8 15 8" />
 						</svg>
-						{__('Save', 'smart-woo-chatbot')}
+						{__('Save', 'agentflow-ai')}
 					</>
 				)}
 			</button>
@@ -267,8 +267,8 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 
 	return (
 		<Modal
-			title={isNew ? __('Add Knowledge Source', 'smart-woo-chatbot') : __('Edit Knowledge Source', 'smart-woo-chatbot')}
-			subtitle={__('Connect a data source for your AI agents', 'smart-woo-chatbot')}
+			title={isNew ? __('Add Knowledge Source', 'agentflow-ai') : __('Edit Knowledge Source', 'agentflow-ai')}
+			subtitle={__('Connect a data source for your AI agents', 'agentflow-ai')}
 			isOpen
 			onClose={onCancel}
 			footer={footerContent}
@@ -288,21 +288,21 @@ export default function SourceEditor({ source, onSave, onCancel }) {
 				{/* Name */}
 				<div>
 					<label className="block text-[13px] font-medium text-[#3F4254] mb-1.5">
-						{__('Name', 'smart-woo-chatbot')} <span className="text-[#F8285A]">*</span>
+						{__('Name', 'agentflow-ai')} <span className="text-[#F8285A]">*</span>
 					</label>
 					<input
 						type="text"
 						value={formData.name}
 						onChange={(e) => handleChange('name', e.target.value)}
 						className={`${inputBase} ${inputNormal}`}
-						placeholder={__('e.g. Store Policies', 'smart-woo-chatbot')}
+						placeholder={__('e.g. Store Policies', 'agentflow-ai')}
 					/>
 				</div>
 
 				{/* Source Type */}
 				<div>
 					<label className="block text-[13px] font-medium text-[#3F4254] mb-1.5">
-						{__('Source Type', 'smart-woo-chatbot')}
+						{__('Source Type', 'agentflow-ai')}
 					</label>
 					<div className="relative">
 						<select

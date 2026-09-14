@@ -165,18 +165,18 @@ function Message({ msg, isGrouped, darkMode }) {
 	const handleCopy = useCallback(async () => {
 		try {
 			await navigator.clipboard.writeText(msg.content || '');
-			toast.success(__('Copied to clipboard', 'smart-woo-chatbot'));
+			toast.success(__('Copied to clipboard', 'agentflow-ai'));
 		} catch (err) {
-			toast.error(__('Failed to copy', 'smart-woo-chatbot'));
+			toast.error(__('Failed to copy', 'agentflow-ai'));
 		}
 	}, [msg.content, toast]);
 
 	const handleThumbsUp = useCallback(() => {
-		toast.success(__('Feedback submitted', 'smart-woo-chatbot'));
+		toast.success(__('Feedback submitted', 'agentflow-ai'));
 	}, [toast]);
 
 	const handleThumbsDown = useCallback(() => {
-		toast.success(__('Feedback submitted', 'smart-woo-chatbot'));
+		toast.success(__('Feedback submitted', 'agentflow-ai'));
 	}, [toast]);
 
 	const handleShare = useCallback(async () => {
@@ -188,7 +188,7 @@ function Message({ msg, isGrouped, darkMode }) {
 				});
 			} else {
 				await navigator.clipboard.writeText(msg.content);
-				toast.success(__('Message copied to clipboard', 'smart-woo-chatbot'));
+				toast.success(__('Message copied to clipboard', 'agentflow-ai'));
 			}
 		} catch (err) {
 			// User cancelled
@@ -196,7 +196,7 @@ function Message({ msg, isGrouped, darkMode }) {
 	}, [msg.content, toast]);
 
 	const handleRegenerate = useCallback(() => {
-		toast.info(__('Regenerating response...', 'smart-woo-chatbot'));
+		toast.info(__('Regenerating response...', 'agentflow-ai'));
 	}, [toast]);
 
 	const isUser = msg.role === 'user';
@@ -259,8 +259,8 @@ function Message({ msg, isGrouped, darkMode }) {
 							onClick={() => setIsCollapsed(!isCollapsed)}
 						>
 							{isCollapsed
-								? __('Show more', 'smart-woo-chatbot')
-								: __('Show less', 'smart-woo-chatbot')}
+								? __('Show more', 'agentflow-ai')
+								: __('Show less', 'agentflow-ai')}
 						</button>
 					)}
 
@@ -270,35 +270,35 @@ function Message({ msg, isGrouped, darkMode }) {
 							<button
 								className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-500 dark:text-slate-400 transition-colors"
 								onClick={handleCopy}
-								title={__('Copy', 'smart-woo-chatbot')}
+								title={__('Copy', 'agentflow-ai')}
 							>
 								<Copy className="w-3.5 h-3.5" />
 							</button>
 							<button
 								className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-500 dark:text-slate-400 transition-colors"
 								onClick={handleThumbsUp}
-								title={__('Thumbs up', 'smart-woo-chatbot')}
+								title={__('Thumbs up', 'agentflow-ai')}
 							>
 								<ThumbsUp className="w-3.5 h-3.5" />
 							</button>
 							<button
 								className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-500 dark:text-slate-400 transition-colors"
 								onClick={handleThumbsDown}
-								title={__('Thumbs down', 'smart-woo-chatbot')}
+								title={__('Thumbs down', 'agentflow-ai')}
 							>
 								<ThumbsDown className="w-3.5 h-3.5" />
 							</button>
 							<button
 								className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-500 dark:text-slate-400 transition-colors"
 								onClick={handleShare}
-								title={__('Share', 'smart-woo-chatbot')}
+								title={__('Share', 'agentflow-ai')}
 							>
 								<Share2 className="w-3.5 h-3.5" />
 							</button>
 							<button
 								className="p-1.5 rounded hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-500 dark:text-slate-400 transition-colors"
 								onClick={handleRegenerate}
-								title={__('Regenerate', 'smart-woo-chatbot')}
+								title={__('Regenerate', 'agentflow-ai')}
 							>
 								<RotateCcw className="w-3.5 h-3.5" />
 							</button>
@@ -368,10 +368,10 @@ export default function ChatPanel({ messages, isLoading, onQuickAction, darkMode
 						<Mic className="w-8 h-8 text-indigo-500" />
 					</div>
 					<h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-						{__('How can I help you today?', 'smart-woo-chatbot')}
+						{__('How can I help you today?', 'agentflow-ai')}
 					</h3>
 					<p className="text-gray-500 dark:text-slate-400 mb-6">
-						{__("I'm here to assist with your WordPress site.", 'smart-woo-chatbot')}
+						{__("I'm here to assist with your WordPress site.", 'agentflow-ai')}
 					</p>
 
 					<div className="grid grid-cols-2 gap-3">
@@ -434,7 +434,7 @@ export default function ChatPanel({ messages, isLoading, onQuickAction, darkMode
 				<button
 					className="fixed bottom-24 right-8 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-lg flex items-center justify-center text-gray-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
 					onClick={scrollToBottom}
-					title={__('Scroll to bottom', 'smart-woo-chatbot')}
+					title={__('Scroll to bottom', 'agentflow-ai')}
 				>
 					<ChevronDown className="w-5 h-5" />
 				</button>

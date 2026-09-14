@@ -269,7 +269,7 @@ export default function App() {
 		// Check tool count and show warning/error
 		if (agentToolCount >= 128) {
 			showNotification(
-				__(`Cannot save: Too many tools enabled (${agentToolCount}/128). Please disable some toolkits.`, 'smart-woo-chatbot'),
+				__(`Cannot save: Too many tools enabled (${agentToolCount}/128). Please disable some toolkits.`, 'agentflow-ai'),
 				'error'
 			);
 			return;
@@ -277,7 +277,7 @@ export default function App() {
 
 		if (agentToolCount >= 100) {
 			const confirmed = confirm(
-				__(`Warning: You have ${agentToolCount} tools enabled (limit: 128).\n\nAre you sure you want to save?`, 'smart-woo-chatbot')
+				__(`Warning: You have ${agentToolCount} tools enabled (limit: 128).\n\nAre you sure you want to save?`, 'agentflow-ai')
 			);
 			if (!confirmed) return;
 		}
@@ -286,7 +286,7 @@ export default function App() {
 			if (view === 'create-custom' || view === 'create-template') {
 				await createAgent(agentData);
 				showNotification(
-					__('Agent created successfully!', 'smart-woo-chatbot'),
+					__('Agent created successfully!', 'agentflow-ai'),
 					'success'
 				);
 				setView('list');
@@ -295,7 +295,7 @@ export default function App() {
 				// Update existing agent - stay on same page
 				const updatedAgent = await updateAgent(selectedItem.id, agentData);
 				showNotification(
-					__('Agent updated successfully!', 'smart-woo-chatbot'),
+					__('Agent updated successfully!', 'agentflow-ai'),
 					'success'
 				);
 				// Update the selectedItem with fresh data to keep form in sync
@@ -307,7 +307,7 @@ export default function App() {
 		} catch (err) {
 			showNotification(
 				err.message ||
-				__('Failed to save agent', 'smart-woo-chatbot'),
+				__('Failed to save agent', 'agentflow-ai'),
 				'error'
 			);
 			throw err; // Re-throw for child components to handle
@@ -319,13 +319,13 @@ export default function App() {
 			if (view === 'create-group') {
 				await createGroup(groupData);
 				showNotification(
-					__('Team created successfully!', 'smart-woo-chatbot'),
+					__('Team created successfully!', 'agentflow-ai'),
 					'success'
 				);
 			} else {
 				await updateGroup(selectedItem.id, groupData);
 				showNotification(
-					__('Team updated successfully!', 'smart-woo-chatbot'),
+					__('Team updated successfully!', 'agentflow-ai'),
 					'success'
 				);
 			}
@@ -335,7 +335,7 @@ export default function App() {
 		} catch (err) {
 			showNotification(
 				err.message ||
-				__('Failed to save team', 'smart-woo-chatbot'),
+				__('Failed to save team', 'agentflow-ai'),
 				'error'
 			);
 			throw err;
@@ -348,7 +348,7 @@ export default function App() {
 			!confirm(
 				__(
 					'Are you sure you want to delete this agent?',
-					'smart-woo-chatbot'
+					'agentflow-ai'
 				)
 			)
 		) {
@@ -357,14 +357,14 @@ export default function App() {
 		try {
 			await deleteAgent(agentId);
 			showNotification(
-				__('Agent deleted successfully!', 'smart-woo-chatbot'),
+				__('Agent deleted successfully!', 'agentflow-ai'),
 				'success'
 			);
 			fetchAgents(true);
 		} catch (err) {
 			showNotification(
 				err.message ||
-				__('Failed to delete agent', 'smart-woo-chatbot'),
+				__('Failed to delete agent', 'agentflow-ai'),
 				'error'
 			);
 		}
@@ -375,7 +375,7 @@ export default function App() {
 			!confirm(
 				__(
 					'Are you sure you want to delete this team?',
-					'smart-woo-chatbot'
+					'agentflow-ai'
 				)
 			)
 		) {
@@ -384,14 +384,14 @@ export default function App() {
 		try {
 			await deleteGroup(groupId);
 			showNotification(
-				__('Team deleted successfully!', 'smart-woo-chatbot'),
+				__('Team deleted successfully!', 'agentflow-ai'),
 				'success'
 			);
 			fetchGroups();
 		} catch (err) {
 			showNotification(
 				err.message ||
-				__('Failed to delete team', 'smart-woo-chatbot'),
+				__('Failed to delete team', 'agentflow-ai'),
 				'error'
 			);
 		}
@@ -405,14 +405,14 @@ export default function App() {
 				name: agent.name + ' (Copy)',
 			});
 			showNotification(
-				__('Agent duplicated successfully!', 'smart-woo-chatbot'),
+				__('Agent duplicated successfully!', 'agentflow-ai'),
 				'success'
 			);
 			fetchAgents(true);
 		} catch (err) {
 			showNotification(
 				err.message ||
-				__('Failed to duplicate agent', 'smart-woo-chatbot'),
+				__('Failed to duplicate agent', 'agentflow-ai'),
 				'error'
 			);
 		}
@@ -469,7 +469,7 @@ export default function App() {
 	if (loading && agents.length === 0 && activeNav === 'agents') {
 		return (
 			<Layout>
-				<Loading message={__('Loading Smart Chatbot…', 'smart-woo-chatbot')} fullPage />
+				<Loading message={__('Loading Smart Chatbot…', 'agentflow-ai')} fullPage />
 			</Layout>
 		);
 	}
@@ -576,7 +576,7 @@ export default function App() {
 									<>
 										<input
 											type="text"
-											placeholder={__('Search agents...', 'smart-woo-chatbot')}
+											placeholder={__('Search agents...', 'agentflow-ai')}
 											value={agentSearchQuery}
 											onChange={(e) => setAgentSearchQuery(e.target.value)}
 											className="w-56 h-9 px-4 text-sm rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all shadow-sm"
@@ -584,8 +584,8 @@ export default function App() {
 										<span className="text-sm text-primary font-medium">
 											{agents.length}{' '}
 											{agents.length === 1
-												? __('agent', 'smart-woo-chatbot')
-												: __('agents', 'smart-woo-chatbot')}
+												? __('agent', 'agentflow-ai')
+												: __('agents', 'agentflow-ai')}
 										</span>
 										{/* New Agent button hidden */}
 									</>
@@ -597,7 +597,7 @@ export default function App() {
 										onClick={handleBack}
 									>
 										<span className="text-base">{'<-'}</span>
-										{__('Back', 'smart-woo-chatbot')}
+										{__('Back', 'agentflow-ai')}
 									</button>
 								)}
 								{(view === 'edit-agent' || view === 'create-custom') && (
@@ -607,8 +607,8 @@ export default function App() {
 										className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90"
 									>
 										{view === 'create-custom'
-											? __('Create Agent', 'smart-woo-chatbot')
-											: __('Save Changes', 'smart-woo-chatbot')}
+											? __('Create Agent', 'agentflow-ai')
+											: __('Save Changes', 'agentflow-ai')}
 									</button>
 								)}
 							</div>
@@ -660,13 +660,13 @@ export default function App() {
 									<h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
 										{__(
 											'Copy Existing Agent',
-											'smart-woo-chatbot'
+											'agentflow-ai'
 										)}
 									</h3>
 									<p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
 										{__(
 											'Browse pre-built agent templates, copy one, and customize it to fit your needs.',
-											'smart-woo-chatbot'
+											'agentflow-ai'
 										)}
 									</p>
 								</div>
@@ -677,13 +677,13 @@ export default function App() {
 									<h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
 										{__(
 											'Custom Agent',
-											'smart-woo-chatbot'
+											'agentflow-ai'
 										)}
 									</h3>
 									<p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
 										{__(
 											'Create an agent from scratch with full control.',
-											'smart-woo-chatbot'
+											'agentflow-ai'
 										)}
 									</p>
 								</div>

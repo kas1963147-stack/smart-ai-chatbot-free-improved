@@ -585,10 +585,10 @@ export default function KnowledgeTemplateGallery({ onSelectTemplate, onClose }) 
                     </div>
                     <div>
                         <h2 className="text-xl font-semibold text-gray-900 dark:text-white m-0">
-                            {__('Knowledge Templates', 'smart-woo-chatbot')}
+                            {__('Knowledge Templates', 'agentflow-ai')}
                         </h2>
                         <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-                            {__('Start with pre-built knowledge and customize it for your business.', 'smart-woo-chatbot')}
+                            {__('Start with pre-built knowledge and customize it for your business.', 'agentflow-ai')}
                         </p>
                     </div>
                 </div>
@@ -685,10 +685,10 @@ export default function KnowledgeTemplateGallery({ onSelectTemplate, onClose }) 
                             {/* Preview header */}
                             <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between bg-gray-50/50 dark:bg-gray-800/50">
                                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white m-0">
-                                    {__('Preview:', 'smart-woo-chatbot')} {selectedTemplate.name}
+                                    {__('Preview:', 'agentflow-ai')} {selectedTemplate.name}
                                 </h3>
                                 <span className="text-xs text-gray-400">
-                                    {selectedTemplate.content.length} {__('characters', 'smart-woo-chatbot')}
+                                    {selectedTemplate.content.length} {__('characters', 'agentflow-ai')}
                                 </span>
                             </div>
 
@@ -707,7 +707,7 @@ export default function KnowledgeTemplateGallery({ onSelectTemplate, onClose }) 
                                     className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
                                     onClick={onClose}
                                 >
-                                    {__('Cancel', 'smart-woo-chatbot')}
+                                    {__('Cancel', 'agentflow-ai')}
                                 </button>
                                 <button
                                     type="button"
@@ -715,7 +715,7 @@ export default function KnowledgeTemplateGallery({ onSelectTemplate, onClose }) 
                                     onClick={handleUseTemplate}
                                 >
                                     <BookOpen size={14} />
-                                    {__('Use This Template', 'smart-woo-chatbot')}
+                                    {__('Use This Template', 'agentflow-ai')}
                                 </button>
                             </div>
                         </div>
@@ -723,7 +723,7 @@ export default function KnowledgeTemplateGallery({ onSelectTemplate, onClose }) 
                         <div className="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">
                             <div className="text-center">
                                 <BookOpen className="mx-auto h-12 w-12 text-gray-300 dark:text-gray-600 mb-3" />
-                                <p className="text-sm">{__('Select a template to preview its contents', 'smart-woo-chatbot')}</p>
+                                <p className="text-sm">{__('Select a template to preview its contents', 'agentflow-ai')}</p>
                             </div>
                         </div>
                     )}

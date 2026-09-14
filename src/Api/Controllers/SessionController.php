@@ -24,7 +24,7 @@ use Quarksol\SmartChatbot\Services\SecurityMiddleware;
  */
 class SessionController {
 
-    const NAMESPACES = ['smart-ai-chatbot/v1', 'smart-ai-chatbot/v1'];
+    const NAMESPACES = ['quark-agentflow-ai/v1', 'quark-agentflow-ai/v1'];
 
     /**
      * Register REST routes

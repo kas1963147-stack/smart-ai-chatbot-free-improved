@@ -29,7 +29,7 @@ class SettingsController {
      * Register REST routes
      */
     public function register(): void {
-        register_rest_route('smart-ai-chatbot/v1', '/settings', [
+        register_rest_route('quark-agentflow-ai/v1', '/settings', [
             [
                 'methods' => 'GET',
                 'callback' => [$this, 'getSettings'],
@@ -42,44 +42,44 @@ class SettingsController {
             ],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/settings/test-connection', [
+        register_rest_route('quark-agentflow-ai/v1', '/settings/test-connection', [
             'methods' => 'POST',
             'callback' => [$this, 'testConnection'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/settings/dismiss-intro', [
+        register_rest_route('quark-agentflow-ai/v1', '/settings/dismiss-intro', [
             'methods' => 'POST',
             'callback' => [$this, 'dismissIntro'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/settings/providers', [
+        register_rest_route('quark-agentflow-ai/v1', '/settings/providers', [
             'methods' => 'GET',
             'callback' => [$this, 'getProviders'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // === AI Search Hub Endpoints ===
-        register_rest_route('smart-ai-chatbot/v1', '/search/test', [
+        register_rest_route('quark-agentflow-ai/v1', '/search/test', [
             'methods' => 'POST',
             'callback' => [$this, 'testSearch'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/search/stats', [
+        register_rest_route('quark-agentflow-ai/v1', '/search/stats', [
             'methods' => 'GET',
             'callback' => [$this, 'getSearchStats'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/search/clear-cache', [
+        register_rest_route('quark-agentflow-ai/v1', '/search/clear-cache', [
             'methods' => 'POST',
             'callback' => [$this, 'clearSearchCache'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/search/synonyms', [
+        register_rest_route('quark-agentflow-ai/v1', '/search/synonyms', [
             [
                 'methods' => 'GET',
                 'callback' => [$this, 'getSynonyms'],
@@ -93,7 +93,7 @@ class SettingsController {
         ]);
 
         // === Provider Instance Management Endpoints ===
-        register_rest_route('smart-ai-chatbot/v1', '/provider-instances', [
+        register_rest_route('quark-agentflow-ai/v1', '/provider-instances', [
             [
                 'methods' => 'GET',
                 'callback' => [$this, 'getProviderInstances'],
@@ -110,40 +110,40 @@ class SettingsController {
         // WordPress REST API matches routes in registration order using regex.
         // The pattern (?P<id>[a-zA-Z0-9-]+) would match "test" and "dropdown"
         // as IDs, causing method-not-allowed errors if registered first.
-        register_rest_route('smart-ai-chatbot/v1', '/provider-instances/test', [
+        register_rest_route('quark-agentflow-ai/v1', '/provider-instances/test', [
             'methods' => 'POST',
             'callback' => [$this, 'testProviderInstance'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/provider-instances/dropdown', [
+        register_rest_route('quark-agentflow-ai/v1', '/provider-instances/dropdown', [
             'methods' => 'GET',
             'callback' => [$this, 'getProviderInstancesDropdown'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/provider-instances/credentials', [
+        register_rest_route('quark-agentflow-ai/v1', '/provider-instances/credentials', [
             'methods' => 'POST',
             'callback' => [$this, 'updateProviderInstanceCredentials'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // POST-based delete route (avoids WordPress regex conflicts with parameterized routes)
-        register_rest_route('smart-ai-chatbot/v1', '/provider-instances/delete', [
+        register_rest_route('quark-agentflow-ai/v1', '/provider-instances/delete', [
             'methods' => 'POST',
             'callback' => [$this, 'deleteProviderInstance'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // Diagnostic endpoint to check which provider an agent actually resolves to
-        register_rest_route('smart-ai-chatbot/v1', '/provider-instances/diagnose', [
+        register_rest_route('quark-agentflow-ai/v1', '/provider-instances/diagnose', [
             'methods' => 'GET',
             'callback' => [$this, 'diagnoseProviderForAgent'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // Keep parameterized DELETE route as fallback for external callers
-        register_rest_route('smart-ai-chatbot/v1', '/provider-instances/(?P<id>[a-zA-Z0-9-]+)', [
+        register_rest_route('quark-agentflow-ai/v1', '/provider-instances/(?P<id>[a-zA-Z0-9-]+)', [
             [
                 'methods' => 'DELETE',
                 'callback' => [$this, 'deleteProviderInstance'],
@@ -152,14 +152,14 @@ class SettingsController {
         ]);
 
         // === Universal Provider Models Endpoint ===
-        register_rest_route('smart-ai-chatbot/v1', '/provider-models', [
+        register_rest_route('quark-agentflow-ai/v1', '/provider-models', [
             'methods' => 'GET',
             'callback' => [$this, 'getProviderModels'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // === OpenRouter Dynamic Models Endpoint (backward compat alias) ===
-        register_rest_route('smart-ai-chatbot/v1', '/openrouter-models', [
+        register_rest_route('quark-agentflow-ai/v1', '/openrouter-models', [
             'methods' => 'GET',
             'callback' => [$this, 'getOpenRouterModels'],
             'permission_callback' => [$this, 'checkPermission'],

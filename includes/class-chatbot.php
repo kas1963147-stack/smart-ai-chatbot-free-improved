@@ -157,7 +157,7 @@ class SWC_Chatbot_Main {
             return;
         }
 
-        echo '<div id="smart-ai-chatbot">';
+        echo '<div id="agentflow-ai">';
         echo '<div class="swc-messages"></div>';
         echo '<textarea class="swc-input"></textarea>';
         echo '</div>';

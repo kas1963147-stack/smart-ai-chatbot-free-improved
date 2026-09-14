@@ -104,7 +104,7 @@ export default function InstructionEditor({ sections, onChange }) {
 								className="w-full font-medium"
 								value={section.heading}
 								onChange={(value) => updateSection(section.id, { heading: value })}
-								placeholder={__('Section heading (e.g., "When to use this skill")', 'smart-woo-chatbot')}
+								placeholder={__('Section heading (e.g., "When to use this skill")', 'agentflow-ai')}
 							/>
 						</div>
 
@@ -126,8 +126,8 @@ export default function InstructionEditor({ sections, onChange }) {
 									variant="ghost"
 									onClick={() => moveSection(section.id, 'up')}
 									disabled={index === 0}
-									title={__('Move up', 'smart-woo-chatbot')}
-									aria-label={__('Move section up', 'smart-woo-chatbot')}
+									title={__('Move up', 'agentflow-ai')}
+									aria-label={__('Move section up', 'agentflow-ai')}
 								>
 									↑
 								</IconButton>
@@ -136,8 +136,8 @@ export default function InstructionEditor({ sections, onChange }) {
 									variant="ghost"
 									onClick={() => moveSection(section.id, 'down')}
 									disabled={index === sections.length - 1}
-									title={__('Move down', 'smart-woo-chatbot')}
-									aria-label={__('Move section down', 'smart-woo-chatbot')}
+									title={__('Move down', 'agentflow-ai')}
+									aria-label={__('Move section down', 'agentflow-ai')}
 								>
 									↓
 								</IconButton>
@@ -149,8 +149,8 @@ export default function InstructionEditor({ sections, onChange }) {
 								isDestructive
 								onClick={() => removeSection(section.id)}
 								disabled={sections.length <= 1}
-								title={__('Delete section', 'smart-woo-chatbot')}
-								aria-label={__('Delete section', 'smart-woo-chatbot')}
+								title={__('Delete section', 'agentflow-ai')}
+								aria-label={__('Delete section', 'agentflow-ai')}
 							>
 								<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
 							</IconButton>
@@ -163,7 +163,7 @@ export default function InstructionEditor({ sections, onChange }) {
 							<TextField
 								value={section.content}
 								onChange={(value) => updateSection(section.id, { content: value })}
-								placeholder={__('Enter paragraph content…', 'smart-woo-chatbot')}
+								placeholder={__('Enter paragraph content…', 'agentflow-ai')}
 								rows={4}
 								multiline
 							/>
@@ -178,7 +178,7 @@ export default function InstructionEditor({ sections, onChange }) {
 											<TextField
 												value={item}
 												onChange={(value) => updateItem(section.id, itemIndex, value)}
-												placeholder={__('Enter item…', 'smart-woo-chatbot')}
+												placeholder={__('Enter item…', 'agentflow-ai')}
 											/>
 										</div>
 										<IconButton
@@ -186,8 +186,8 @@ export default function InstructionEditor({ sections, onChange }) {
 											isDestructive
 											onClick={() => removeItem(section.id, itemIndex)}
 											disabled={section.items.length <= 1}
-											title={__('Remove item', 'smart-woo-chatbot')}
-											aria-label={__('Remove item', 'smart-woo-chatbot')}
+											title={__('Remove item', 'agentflow-ai')}
+											aria-label={__('Remove item', 'agentflow-ai')}
 										>
 											×
 										</IconButton>
@@ -196,7 +196,7 @@ export default function InstructionEditor({ sections, onChange }) {
 
 								<div className="pt-2 pl-9">
 									<Button variant="ghost" size="sm" onClick={() => addItem(section.id)}>
-										+ {__('Add Item', 'smart-woo-chatbot')}
+										+ {__('Add Item', 'agentflow-ai')}
 									</Button>
 								</div>
 							</div>
@@ -208,7 +208,7 @@ export default function InstructionEditor({ sections, onChange }) {
 			{ /* Add section button */}
 			<div className="pt-2">
 				<Button variant="secondary" onClick={addSection}>
-					+ {__('Add Section', 'smart-woo-chatbot')}
+					+ {__('Add Section', 'agentflow-ai')}
 				</Button>
 			</div>
 		</div>

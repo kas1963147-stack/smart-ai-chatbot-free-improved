@@ -122,19 +122,19 @@ export default function SkillEditor({
 		if (!formData.name.trim()) {
 			newErrors.name = __(
 				'Skill name is required',
-				'smart-woo-chatbot'
+				'agentflow-ai'
 			);
 		} else if (! /^[a-z0-9][a-z0-9-]*[a-z0-9]?$/.test(formData.name)) {
 			newErrors.name = __(
 				'Name must be lowercase with hyphens only',
-				'smart-woo-chatbot'
+				'agentflow-ai'
 			);
 		}
 
 		if (!formData.description.trim()) {
 			newErrors.description = __(
 				'Description is required',
-				'smart-woo-chatbot'
+				'agentflow-ai'
 			);
 		}
 
@@ -149,7 +149,7 @@ export default function SkillEditor({
 		if (!hasInstructionContent) {
 			newErrors.instructions = __(
 				'At least one instruction section with content is required',
-				'smart-woo-chatbot'
+				'agentflow-ai'
 			);
 		}
 
@@ -186,16 +186,16 @@ export default function SkillEditor({
 	const tabs = [
 		{
 			id: 'basic',
-			label: __('Basic Info', 'smart-woo-chatbot'),
+			label: __('Basic Info', 'agentflow-ai'),
 		},
 		{
 			id: 'instructions',
-			label: __('Instructions', 'smart-woo-chatbot'),
+			label: __('Instructions', 'agentflow-ai'),
 		},
-		{ id: 'tools', label: __('Tools', 'smart-woo-chatbot') },
+		{ id: 'tools', label: __('Tools', 'agentflow-ai') },
 		{
 			id: 'references',
-			label: __('References', 'smart-woo-chatbot'),
+			label: __('References', 'agentflow-ai'),
 		},
 	];
 
@@ -233,7 +233,7 @@ export default function SkillEditor({
 					<div className="space-y-6">
 						<div>
 							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-								{__('Display Name', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+								{__('Display Name', 'agentflow-ai')} <span className="text-red-500">*</span>
 							</label>
 							<input
 								type="text"
@@ -241,16 +241,16 @@ export default function SkillEditor({
 									}`}
 								value={formData.display_name}
 								onChange={(e) => updateField('display_name', e.target.value)}
-								placeholder={__('e.g., Refund Handling', 'smart-woo-chatbot')}
+								placeholder={__('e.g., Refund Handling', 'agentflow-ai')}
 							/>
 							<p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-								{__('A friendly name shown in the admin panel', 'smart-woo-chatbot')}
+								{__('A friendly name shown in the admin panel', 'agentflow-ai')}
 							</p>
 						</div>
 
 						<div>
 							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-								{__('Skill ID', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+								{__('Skill ID', 'agentflow-ai')} <span className="text-red-500">*</span>
 							</label>
 							<input
 								type="text"
@@ -258,7 +258,7 @@ export default function SkillEditor({
 									}`}
 								value={formData.name}
 								onChange={(e) => updateField('name', e.target.value)}
-								placeholder={__('refund-handling', 'smart-woo-chatbot')}
+								placeholder={__('refund-handling', 'agentflow-ai')}
 								disabled={!isNew}
 							/>
 							{errors.name && (
@@ -266,15 +266,15 @@ export default function SkillEditor({
 							)}
 							<p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
 								{isNew
-									? __('Auto-generated from display name. Cannot be changed later.', 'smart-woo-chatbot')
-									: __('Skill ID cannot be changed after creation.', 'smart-woo-chatbot')}
+									? __('Auto-generated from display name. Cannot be changed later.', 'agentflow-ai')
+									: __('Skill ID cannot be changed after creation.', 'agentflow-ai')}
 							</p>
 						</div>
 
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 							<div>
 								<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-									{__('Category', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+									{__('Category', 'agentflow-ai')} <span className="text-red-500">*</span>
 								</label>
 								<select
 									className="block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
@@ -289,34 +289,34 @@ export default function SkillEditor({
 
 							<div>
 								<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-									{__('Group', 'smart-woo-chatbot')}
+									{__('Group', 'agentflow-ai')}
 								</label>
 								<select
 									className="block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
 									value={formData.group || 'ungrouped'}
 									onChange={(e) => updateField('group', e.target.value)}
 								>
-									<option value="ungrouped">{__('Ungrouped', 'smart-woo-chatbot')}</option>
+									<option value="ungrouped">{__('Ungrouped', 'agentflow-ai')}</option>
 									{groups.map((grp) => (
 										<option key={grp.id} value={grp.id}>{grp.name}</option>
 									))}
 								</select>
 								<p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-									{__('Organize related skills together in the tree view.', 'smart-woo-chatbot')}
+									{__('Organize related skills together in the tree view.', 'agentflow-ai')}
 								</p>
 							</div>
 						</div>
 
 						<div>
 							<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-								{__('Description', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+								{__('Description', 'agentflow-ai')} <span className="text-red-500">*</span>
 							</label>
 							<textarea
 								className={`block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm ${errors.description ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500' : ''
 									}`}
 								value={formData.description}
 								onChange={(e) => updateField('description', e.target.value)}
-								placeholder={__('When should the AI agent use this skill? Be concise.', 'smart-woo-chatbot')}
+								placeholder={__('When should the AI agent use this skill? Be concise.', 'agentflow-ai')}
 								rows={3}
 								maxLength={1024}
 							/>
@@ -324,7 +324,7 @@ export default function SkillEditor({
 								<p className="mt-2 text-sm text-red-600">{errors.description}</p>
 							)}
 							<p className="mt-2 text-sm text-gray-500 dark:text-gray-400 flex justify-between">
-								<span>{__('This helps the AI know when to load this skill.', 'smart-woo-chatbot')}</span>
+								<span>{__('This helps the AI know when to load this skill.', 'agentflow-ai')}</span>
 								<span>{formData.description.length}/1024</span>
 							</p>
 						</div>
@@ -341,10 +341,10 @@ export default function SkillEditor({
 							</div>
 							<div className="ml-3 text-sm">
 								<label htmlFor="always_on" className="font-medium text-gray-700 dark:text-gray-300">
-									{__('Always On', 'smart-woo-chatbot')}
+									{__('Always On', 'agentflow-ai')}
 								</label>
 								<p className="text-gray-500 dark:text-gray-400">
-									{__('Include this skill in every conversation (uses more tokens)', 'smart-woo-chatbot')}
+									{__('Include this skill in every conversation (uses more tokens)', 'agentflow-ai')}
 								</p>
 							</div>
 						</div>
@@ -356,7 +356,7 @@ export default function SkillEditor({
 					<div className="space-y-6">
 						<div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
 							<p className="text-sm text-blue-800 dark:text-blue-300">
-								{__('Add step-by-step instructions for the AI to follow when this skill is loaded.', 'smart-woo-chatbot')}
+								{__('Add step-by-step instructions for the AI to follow when this skill is loaded.', 'agentflow-ai')}
 							</p>
 						</div>
 
@@ -378,7 +378,7 @@ export default function SkillEditor({
 					<div className="space-y-6">
 						<div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
 							<p className="text-sm text-blue-800 dark:text-blue-300">
-								{__('Select which tools this skill requires. This helps with documentation and validation.', 'smart-woo-chatbot')}
+								{__('Select which tools this skill requires. This helps with documentation and validation.', 'agentflow-ai')}
 							</p>
 						</div>
 
@@ -394,7 +394,7 @@ export default function SkillEditor({
 					<div className="space-y-6">
 						<div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
 							<p className="text-sm text-blue-800 dark:text-blue-300">
-								{__('Add reference documents with detailed policies or procedures that the AI can load when needed.', 'smart-woo-chatbot')}
+								{__('Add reference documents with detailed policies or procedures that the AI can load when needed.', 'agentflow-ai')}
 							</p>
 						</div>
 
@@ -414,7 +414,7 @@ export default function SkillEditor({
 						onClick={onCancel}
 						disabled={saving}
 					>
-						{__('Cancel', 'smart-woo-chatbot')}
+						{__('Cancel', 'agentflow-ai')}
 					</button>
 					<button
 						type="submit"
@@ -427,12 +427,12 @@ export default function SkillEditor({
 									<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
 									<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
 								</svg>
-								{__('Saving…', 'smart-woo-chatbot')}
+								{__('Saving…', 'agentflow-ai')}
 							</>
 						) : isNew ? (
-							__('Create Skill', 'smart-woo-chatbot')
+							__('Create Skill', 'agentflow-ai')
 						) : (
-							__('Save Changes', 'smart-woo-chatbot')
+							__('Save Changes', 'agentflow-ai')
 						)}
 					</button>
 				</div>

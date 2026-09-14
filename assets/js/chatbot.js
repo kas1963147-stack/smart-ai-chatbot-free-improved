@@ -1,5 +1,5 @@
 /**
- * Smart Woo Chatbot Frontend JavaScript
+ * Quarksol AI Chatbot Frontend JavaScript
  * Enhanced with: Multi-Agent Support, Chat History, Proactive Engagement, 
  * Quick Reply Buttons, Voice Input, Product Comparison, and Streaming
  */

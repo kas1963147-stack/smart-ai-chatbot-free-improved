@@ -66,7 +66,7 @@ export default function ToolExecutionCard( {
 				<div className="swc-tool-card__body">
 					{ params && Object.keys( params ).length > 0 && (
 						<div className="swc-tool-card__section">
-							<h5>{ __( 'Parameters', 'smart-woo-chatbot' ) }</h5>
+							<h5>{ __( 'Parameters', 'agentflow-ai' ) }</h5>
 							<pre className="swc-tool-card__code">
 								{ typeof params === 'string'
 									? params
@@ -77,7 +77,7 @@ export default function ToolExecutionCard( {
 
 					{ result && (
 						<div className="swc-tool-card__section">
-							<h5>{ __( 'Result', 'smart-woo-chatbot' ) }</h5>
+							<h5>{ __( 'Result', 'agentflow-ai' ) }</h5>
 							<pre className="swc-tool-card__code swc-tool-card__code--result">
 								{ typeof result === 'string'
 									? result

@@ -138,10 +138,10 @@ function ConversationItem({
 				>
 					<span className="text-sm font-medium text-gray-900 dark:text-white truncate max-w-[180px] flex items-center gap-1">
 						{conv.isPinned && <Pin className="w-3 h-3 inline-block text-indigo-500 dark:text-indigo-400" />}
-						{conv.title || __('Untitled', 'smart-woo-chatbot')}
+						{conv.title || __('Untitled', 'agentflow-ai')}
 					</span>
 					<span className="text-xs text-gray-500 dark:text-slate-400 mt-0.5">
-						{conv.message_count || 0} {__('messages', 'smart-woo-chatbot')}
+						{conv.message_count || 0} {__('messages', 'agentflow-ai')}
 					</span>
 				</button>
 			)}
@@ -168,21 +168,21 @@ function ConversationItem({
 						onClick={() => { onPin(conv.id); setShowMenu(false); }}
 					>
 						<Pin className="w-3.5 h-3.5" />
-						{conv.isPinned ? __('Unpin', 'smart-woo-chatbot') : __('Pin', 'smart-woo-chatbot')}
+						{conv.isPinned ? __('Unpin', 'agentflow-ai') : __('Pin', 'agentflow-ai')}
 					</button>
 					<button
 						className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white rounded transition-colors"
 						onClick={handleStartEdit}
 					>
 						<Pencil className="w-3.5 h-3.5" />
-						{__('Rename', 'smart-woo-chatbot')}
+						{__('Rename', 'agentflow-ai')}
 					</button>
 					<button
 						className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white rounded transition-colors"
 						onClick={() => setShowTagPicker(!showTagPicker)}
 					>
 						<Tag className="w-3.5 h-3.5" />
-						{__('Tag', 'smart-woo-chatbot')} →
+						{__('Tag', 'agentflow-ai')} →
 					</button>
 					<div className="my-1 border-t border-gray-200 dark:border-slate-700" />
 					<button
@@ -190,28 +190,28 @@ function ConversationItem({
 						onClick={() => handleExport('markdown')}
 					>
 						<FileText className="w-3.5 h-3.5" />
-						{__('Export Markdown', 'smart-woo-chatbot')}
+						{__('Export Markdown', 'agentflow-ai')}
 					</button>
 					<button
 						className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-white rounded transition-colors"
 						onClick={() => handleExport('json')}
 					>
 						<Copy className="w-3.5 h-3.5" />
-						{__('Export JSON', 'smart-woo-chatbot')}
+						{__('Export JSON', 'agentflow-ai')}
 					</button>
 					<div className="my-1 border-t border-gray-200 dark:border-slate-700" />
 					<button
 						className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/20 hover:text-red-700 dark:hover:text-red-300 rounded transition-colors"
 						onClick={(e) => {
 							e.stopPropagation();
-							if (confirm(__('Delete this conversation?', 'smart-woo-chatbot'))) {
+							if (confirm(__('Delete this conversation?', 'agentflow-ai'))) {
 								onDelete(conv.id);
 							}
 							setShowMenu(false);
 						}}
 					>
 						<Trash2 className="w-3.5 h-3.5" />
-						{__('Delete', 'smart-woo-chatbot')}
+						{__('Delete', 'agentflow-ai')}
 					</button>
 
 					{/* Tag Picker Submenu */}
@@ -243,7 +243,7 @@ function ConversationItem({
 									onClick={() => handleTagSelect(null)}
 								>
 									<X className="w-3 h-3" />
-									{__('Remove tag', 'smart-woo-chatbot')}
+									{__('Remove tag', 'agentflow-ai')}
 								</button>
 							)}
 						</div>
@@ -300,7 +300,7 @@ export default function ConversationList({
 		return (
 			<div className="flex flex-col items-center justify-center py-8 px-4 text-gray-400 dark:text-slate-400">
 				<MessageSquare className="w-8 h-8 mb-2 animate-pulse" />
-				<span className="text-sm">{__('Loading...', 'smart-woo-chatbot')}</span>
+				<span className="text-sm">{__('Loading...', 'agentflow-ai')}</span>
 			</div>
 		);
 	}
@@ -313,7 +313,7 @@ export default function ConversationList({
 					type="text"
 					value={searchQuery}
 					onChange={(e) => setSearchQuery(e.target.value)}
-					placeholder={__('Search conversations...', 'smart-woo-chatbot')}
+					placeholder={__('Search conversations...', 'agentflow-ai')}
 					className="w-full h-9 px-3 text-sm bg-white dark:bg-black/30 border border-gray-300 dark:border-slate-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500"
 				/>
 			</div>
@@ -325,7 +325,7 @@ export default function ConversationList({
 					<div className="mb-3">
 						<div className="flex items-center gap-1 px-2 py-1 text-[11px] font-semibold text-gray-500 dark:text-slate-500 uppercase tracking-wider">
 							<Pin className="w-3 h-3" />
-							{__('Pinned', 'smart-woo-chatbot')}
+							{__('Pinned', 'agentflow-ai')}
 						</div>
 						<ul className="space-y-0.5">
 							{pinned.map((conv) => (
@@ -351,7 +351,7 @@ export default function ConversationList({
 					<div>
 						<div className="flex items-center gap-1 px-2 py-1 text-[11px] font-semibold text-gray-500 dark:text-slate-500 uppercase tracking-wider">
 							<MessageSquare className="w-3 h-3" />
-							{__('Conversations', 'smart-woo-chatbot')}
+							{__('Conversations', 'agentflow-ai')}
 						</div>
 						<ul className="space-y-0.5">
 							{regular.map((conv) => (
@@ -378,8 +378,8 @@ export default function ConversationList({
 						<MessageSquare className="w-10 h-10 mb-3 text-gray-300 dark:text-slate-600" />
 						<p className="text-sm text-gray-500 dark:text-slate-400">
 							{searchQuery
-								? __('No conversations match your search.', 'smart-woo-chatbot')
-								: __('No conversations yet. Start a new chat!', 'smart-woo-chatbot')}
+								? __('No conversations match your search.', 'agentflow-ai')
+								: __('No conversations yet. Start a new chat!', 'agentflow-ai')}
 						</p>
 					</div>
 				)}

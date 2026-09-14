@@ -40,10 +40,10 @@ export default function PresetSelector({ onSelect, onSkip }) {
                     {ICONS.rocket}
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900">
-                    {__('Quick Start Templates', 'smart-woo-chatbot')}
+                    {__('Quick Start Templates', 'agentflow-ai')}
                 </h2>
                 <p className="mt-2 text-slate-600 max-w-lg mx-auto">
-                    {__('Choose a pre-configured template to get started quickly, or start from scratch.', 'smart-woo-chatbot')}
+                    {__('Choose a pre-configured template to get started quickly, or start from scratch.', 'agentflow-ai')}
                 </p>
             </div>
 
@@ -119,7 +119,7 @@ export default function PresetSelector({ onSelect, onSkip }) {
             {/* Actions */}
             <div className="flex items-center justify-center gap-4 pt-4 border-t border-slate-100">
                 <Button variant="ghost" onClick={onSkip}>
-                    {__('Start from Scratch', 'smart-woo-chatbot')}
+                    {__('Start from Scratch', 'agentflow-ai')}
                 </Button>
                 <Button
                     variant="primary"
@@ -127,8 +127,8 @@ export default function PresetSelector({ onSelect, onSkip }) {
                     disabled={!selectedPreset}
                 >
                     {selectedPreset
-                        ? __('Use This Template', 'smart-woo-chatbot')
-                        : __('Select a Template', 'smart-woo-chatbot')
+                        ? __('Use This Template', 'agentflow-ai')
+                        : __('Select a Template', 'agentflow-ai')
                     }
                 </Button>
             </div>

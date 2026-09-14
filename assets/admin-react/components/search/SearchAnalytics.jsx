@@ -56,7 +56,7 @@ export default function SearchAnalytics({ enabled }) {
     };
 
     if (loading) {
-        return <Loading message={__('Loading analytics…', 'smart-woo-chatbot')} fullPage />;
+        return <Loading message={__('Loading analytics…', 'agentflow-ai')} fullPage />;
     }
 
     if (!enabled) {
@@ -64,10 +64,10 @@ export default function SearchAnalytics({ enabled }) {
             <div className="flex flex-col items-center justify-center rounded-2xl border border-amber-200 bg-amber-50 py-16 dark:border-amber-800 dark:bg-amber-900/20">
                 <span className="text-4xl"></span>
                 <h3 className="mt-4 text-lg font-semibold text-amber-800 dark:text-amber-200">
-                    {__('Analytics Unavailable', 'smart-woo-chatbot')}
+                    {__('Analytics Unavailable', 'agentflow-ai')}
                 </h3>
                 <p className="mt-2 text-sm text-amber-700 dark:text-amber-300">
-                    {__('Enable AI Search to start collecting analytics data.', 'smart-woo-chatbot')}
+                    {__('Enable AI Search to start collecting analytics data.', 'agentflow-ai')}
                 </p>
             </div>
         );
@@ -79,28 +79,28 @@ export default function SearchAnalytics({ enabled }) {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                     {
-                        label: __('Cached Terms', 'smart-woo-chatbot'),
+                        label: __('Cached Terms', 'agentflow-ai'),
                         value: stats?.total_cached || 0,
                         icon: '',
                         color: 'from-violet-500 to-purple-600',
                         bgLight: 'bg-violet-50 dark:bg-violet-900/20',
                     },
                     {
-                        label: __('Status', 'smart-woo-chatbot'),
-                        value: enabled ? __('Active', 'smart-woo-chatbot') : __('Inactive', 'smart-woo-chatbot'),
+                        label: __('Status', 'agentflow-ai'),
+                        value: enabled ? __('Active', 'agentflow-ai') : __('Inactive', 'agentflow-ai'),
                         icon: enabled ? '' : '',
                         color: enabled ? 'from-emerald-500 to-teal-600' : 'from-red-500 to-rose-600',
                         bgLight: enabled ? 'bg-emerald-50 dark:bg-emerald-900/20' : 'bg-red-50 dark:bg-red-900/20',
                     },
                     {
-                        label: __('Search Agent', 'smart-woo-chatbot'),
-                        value: stats?.agent_status || __('Ready', 'smart-woo-chatbot'),
+                        label: __('Search Agent', 'agentflow-ai'),
+                        value: stats?.agent_status || __('Ready', 'agentflow-ai'),
                         icon: '',
                         color: 'from-blue-500 to-indigo-600',
                         bgLight: 'bg-blue-50 dark:bg-blue-900/20',
                     },
                     {
-                        label: __('Cache Size', 'smart-woo-chatbot'),
+                        label: __('Cache Size', 'agentflow-ai'),
                         value: stats?.cache_size_bytes ? `${Math.round(stats.cache_size_bytes / 1024)} KB` : '0 KB',
                         icon: '',
                         color: 'from-amber-500 to-orange-600',
@@ -127,10 +127,10 @@ export default function SearchAnalytics({ enabled }) {
                 <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 dark:border-slate-800">
                     <div>
                         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                            {__('Cache Management', 'smart-woo-chatbot')}
+                            {__('Cache Management', 'agentflow-ai')}
                         </h3>
                         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                            {__('Manage the keyword cache to keep search results fresh', 'smart-woo-chatbot')}
+                            {__('Manage the keyword cache to keep search results fresh', 'agentflow-ai')}
                         </p>
                     </div>
                     <div className="flex gap-3">
@@ -138,14 +138,14 @@ export default function SearchAnalytics({ enabled }) {
                             onClick={loadStats}
                             className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-3 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                         >
-                             {__('Refresh', 'smart-woo-chatbot')}
+                             {__('Refresh', 'agentflow-ai')}
                         </button>
                         <button
                             onClick={clearAllCache}
                             disabled={clearing}
                             className="inline-flex items-center gap-1.5 rounded-lg bg-red-100 px-3 py-2 text-xs font-medium text-red-700 transition hover:bg-red-200 disabled:opacity-50 dark:bg-red-900/30 dark:text-red-400"
                         >
-                             {clearing ? __('Clearing…', 'smart-woo-chatbot') : __('Clear All Cache', 'smart-woo-chatbot')}
+                             {clearing ? __('Clearing…', 'agentflow-ai') : __('Clear All Cache', 'agentflow-ai')}
                         </button>
                     </div>
                 </div>
@@ -153,19 +153,19 @@ export default function SearchAnalytics({ enabled }) {
                     <div className="rounded-xl bg-slate-50 p-4 dark:bg-slate-800/50">
                         <div className="grid gap-4 sm:grid-cols-3">
                             <div>
-                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{__('Total Cached Terms', 'smart-woo-chatbot')}</p>
+                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{__('Total Cached Terms', 'agentflow-ai')}</p>
                                 <p className="mt-1 text-xl font-bold text-slate-900 dark:text-white">{stats?.total_cached || 0}</p>
                             </div>
                             <div>
-                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{__('Cache Duration', 'smart-woo-chatbot')}</p>
+                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{__('Cache Duration', 'agentflow-ai')}</p>
                                 <p className="mt-1 text-xl font-bold text-slate-900 dark:text-white">
                                     {stats?.cache_duration ? `${Math.round(stats.cache_duration / 60)} min` : '60 min'}
                                 </p>
                             </div>
                             <div>
-                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{__('Min Query Length', 'smart-woo-chatbot')}</p>
+                                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{__('Min Query Length', 'agentflow-ai')}</p>
                                 <p className="mt-1 text-xl font-bold text-slate-900 dark:text-white">
-                                    {stats?.min_query_length || 2} {__('chars', 'smart-woo-chatbot')}
+                                    {stats?.min_query_length || 2} {__('chars', 'agentflow-ai')}
                                 </p>
                             </div>
                         </div>
@@ -178,9 +178,9 @@ export default function SearchAnalytics({ enabled }) {
                 <div className="flex gap-3">
                     <span className="text-xl"></span>
                     <div className="text-sm text-violet-800 dark:text-violet-200">
-                        <p className="mb-1 font-semibold">{__('Search Flow', 'smart-woo-chatbot')}</p>
+                        <p className="mb-1 font-semibold">{__('Search Flow', 'agentflow-ai')}</p>
                         <p className="text-violet-700 dark:text-violet-300">
-                            {__('User searches → Check cache → If miss, call Search Agent → AI generates keywords → Keywords added to SQL query → Enhanced results returned → Cache keywords for next time', 'smart-woo-chatbot')}
+                            {__('User searches → Check cache → If miss, call Search Agent → AI generates keywords → Keywords added to SQL query → Enhanced results returned → Cache keywords for next time', 'agentflow-ai')}
                         </p>
                     </div>
                 </div>

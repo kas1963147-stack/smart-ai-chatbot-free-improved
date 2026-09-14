@@ -25,12 +25,12 @@ export default function SkillList({
 					</svg>
 				</div>
 				<h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 mt-0">
-					{__('No skills yet', 'smart-woo-chatbot')}
+					{__('No skills yet', 'agentflow-ai')}
 				</h3>
 				<p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm mx-auto mb-8">
 					{__(
 						'Skills teach your AI agent how to handle specific tasks like refunds, appointments, or lead generation.',
-						'smart-woo-chatbot'
+						'agentflow-ai'
 					)}
 				</p>
 				<button
@@ -39,7 +39,7 @@ export default function SkillList({
 					className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
 				>
 					<svg className="w-5 h-5 mr-2 -ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
-					{__('Create Your First Skill', 'smart-woo-chatbot')}
+					{__('Create Your First Skill', 'agentflow-ai')}
 				</button>
 			</div>
 		);

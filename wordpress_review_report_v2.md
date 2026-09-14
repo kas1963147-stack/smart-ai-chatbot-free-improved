@@ -3,9 +3,9 @@
 Based on the latest review email and the current state of the codebase, here are the outstanding issues that the WordPress Plugin Review Team rejected. **Even though you defended some of these in your previous email, the reviewer has rejected the submission with `CHANGESNOTMADE`**, meaning we MUST fix them in the code to get approved.
 
 ## 1. Tested Up To Value is Out of Date, Invalid, or Missing
-**Issue**: Your `readme.txt` contains `Tested up to: 6.9`, but your main plugin file `smart-ai-chatbot.php` is missing this header entirely.
-**Location**: `smart-ai-chatbot.php`
-**Action Required**: Add `* Tested up to: 6.9` to the header comment block of `smart-ai-chatbot.php`.
+**Issue**: Your `readme.txt` contains `Tested up to: 6.9`, but your main plugin file `agentflow-ai.php` is missing this header entirely.
+**Location**: `agentflow-ai.php`
+**Action Required**: Add `* Tested up to: 6.9` to the header comment block of `agentflow-ai.php`.
 
 ## 2. Out of Date Libraries (PHPUnit)
 **Issue**: The review flagged `phpunit/phpunit` as outdated (10.5.63 ~ 13.1.10). Even if it's not in your production `composer.json`, if the `vendor/phpunit` or `tests/` folder is included in the ZIP file you uploaded, the scanner will flag it.
@@ -49,7 +49,7 @@ Based on the latest review email and the current state of the codebase, here are
 
 ## 8. Internationalization: Text domain mismatch
 **Issue**: The text domain must exactly match your plugin slug (`smart-ai-chatbot`). You currently have 18 elements using `swc-chatbot`.
-**Action Required**: Search the entire project for `'swc-chatbot'` and replace it with `'smart-ai-chatbot'`.
+**Action Required**: Search the entire project for `'swc-chatbot'` and replace it with `'agentflow-ai'`.
 
 ## 9. Nonces and User Permissions
 **Issue**: Missing nonce check in OAuth callback.

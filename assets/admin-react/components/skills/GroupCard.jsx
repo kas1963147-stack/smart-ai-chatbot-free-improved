@@ -22,28 +22,28 @@ import {
 // Orchestration mode configurations
 const ORCHESTRATION_MODES = {
 	router: {
-		label: __('Auto-Router', 'smart-woo-chatbot'),
+		label: __('Auto-Router', 'agentflow-ai'),
 		icon: Zap,
 		bgColor: 'bg-blue-100 dark:bg-blue-900/30',
 		textColor: 'text-blue-600 dark:text-blue-400',
 		iconGradient: 'from-blue-500 to-indigo-600',
 	},
 	sequential: {
-		label: __('Sequential', 'smart-woo-chatbot'),
+		label: __('Sequential', 'agentflow-ai'),
 		icon: ArrowRight,
 		bgColor: 'bg-green-100 dark:bg-green-900/30',
 		textColor: 'text-green-600 dark:text-green-400',
 		iconGradient: 'from-green-500 to-emerald-600',
 	},
 	parallel: {
-		label: __('Parallel', 'smart-woo-chatbot'),
+		label: __('Parallel', 'agentflow-ai'),
 		icon: Layers,
 		bgColor: 'bg-purple-100 dark:bg-purple-900/30',
 		textColor: 'text-purple-600 dark:text-purple-400',
 		iconGradient: 'from-purple-500 to-pink-600',
 	},
 	handoff: {
-		label: __('Handoff', 'smart-woo-chatbot'),
+		label: __('Handoff', 'agentflow-ai'),
 		icon: RefreshCw,
 		bgColor: 'bg-orange-100 dark:bg-orange-900/30',
 		textColor: 'text-orange-600 dark:text-orange-400',
@@ -104,7 +104,7 @@ export default function GroupCard({ group, onEdit, onDelete }) {
 										className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
 									>
 										<Edit3 className="w-4 h-4" />
-										{__('Edit', 'smart-woo-chatbot')}
+										{__('Edit', 'agentflow-ai')}
 									</button>
 									<button
 										onClick={() => {
@@ -114,7 +114,7 @@ export default function GroupCard({ group, onEdit, onDelete }) {
 										className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
 									>
 										<Trash2 className="w-4 h-4" />
-										{__('Delete', 'smart-woo-chatbot')}
+										{__('Delete', 'agentflow-ai')}
 									</button>
 								</div>
 							</>
@@ -139,12 +139,12 @@ export default function GroupCard({ group, onEdit, onDelete }) {
 						<div className="flex items-center gap-3 text-xs text-gray-500 dark:text-slate-400">
 							<span className="inline-flex items-center gap-1">
 								<Users className="w-3.5 h-3.5" />
-								{memberCount} {memberCount === 1 ? __('agent', 'smart-woo-chatbot') : __('agents', 'smart-woo-chatbot')}
+								{memberCount} {memberCount === 1 ? __('agent', 'agentflow-ai') : __('agents', 'agentflow-ai')}
 							</span>
 							{workflowStepCount > 0 && (
 								<span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400">
 									<ClipboardList className="w-3.5 h-3.5" />
-									{workflowStepCount} {workflowStepCount === 1 ? __('step', 'smart-woo-chatbot') : __('steps', 'smart-woo-chatbot')}
+									{workflowStepCount} {workflowStepCount === 1 ? __('step', 'agentflow-ai') : __('steps', 'agentflow-ai')}
 								</span>
 							)}
 						</div>

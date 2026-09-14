@@ -47,10 +47,10 @@ export default function SearchTester() {
 			{/* Header */}
 			<div>
 				<h3 className="text-lg font-semibold text-gray-900 mb-1">
-					{__('Test Knowledge Search', 'smart-woo-chatbot')}
+					{__('Test Knowledge Search', 'agentflow-ai')}
 				</h3>
 				<p className="text-sm text-gray-500">
-					{__('Test how the AI will search your knowledge base.', 'smart-woo-chatbot')}
+					{__('Test how the AI will search your knowledge base.', 'agentflow-ai')}
 				</p>
 			</div>
 
@@ -58,11 +58,11 @@ export default function SearchTester() {
 			<div className="flex gap-3">
 				<div className="flex-1">
 					<label className="block text-sm font-medium text-gray-700 mb-1.5">
-						{__('Search Query', 'smart-woo-chatbot')}
+						{__('Search Query', 'agentflow-ai')}
 					</label>
 					<input
 						type="text"
-						placeholder={__('e.g., What is your return policy?', 'smart-woo-chatbot')}
+						placeholder={__('e.g., What is your return policy?', 'agentflow-ai')}
 						value={query}
 						onChange={(e) => setQuery(e.target.value)}
 						onKeyDown={handleKeyDown}
@@ -78,10 +78,10 @@ export default function SearchTester() {
 						{searching ? (
 							<>
 								<span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-								{__('Searching…', 'smart-woo-chatbot')}
+								{__('Searching…', 'agentflow-ai')}
 							</>
 						) : (
-							<> {__('Search', 'smart-woo-chatbot')}</>
+							<> {__('Search', 'agentflow-ai')}</>
 						)}
 					</button>
 				</div>
@@ -99,14 +99,14 @@ export default function SearchTester() {
 				<div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
 					<div className="px-5 py-3 bg-gray-50 border-b border-gray-200">
 						<h4 className="text-sm font-semibold text-gray-700">
-							{__('Results', 'smart-woo-chatbot')} ({results.length})
+							{__('Results', 'agentflow-ai')} ({results.length})
 						</h4>
 					</div>
 
 					{results.length === 0 ? (
 						<div className="px-5 py-8 text-center text-gray-500">
 							<div className="text-3xl mb-2"></div>
-							<p>{__('No matching documents found.', 'smart-woo-chatbot')}</p>
+							<p>{__('No matching documents found.', 'agentflow-ai')}</p>
 						</div>
 					) : (
 						<ul className="divide-y divide-gray-100">

@@ -49,7 +49,7 @@ export default function AnalyticsSummary({ data, loading }) {
 
 	const stats = [
 		{
-			label: __('Total Cost', 'smart-woo-chatbot'),
+			label: __('Total Cost', 'agentflow-ai'),
 			value: `$${parseFloat(data.total_cost || 0).toFixed(2)}`,
 			icon: DollarSign,
 			gradient: 'from-emerald-500 to-teal-600',
@@ -58,7 +58,7 @@ export default function AnalyticsSummary({ data, loading }) {
 			change: data.cost_change_percent,
 		},
 		{
-			label: __('Total Sessions', 'smart-woo-chatbot'),
+			label: __('Total Sessions', 'agentflow-ai'),
 			value: formatNumber(safeNumber(data.total_sessions)),
 			icon: MessageSquare,
 			gradient: 'from-blue-500 to-indigo-600',
@@ -67,7 +67,7 @@ export default function AnalyticsSummary({ data, loading }) {
 			change: data.session_change_percent,
 		},
 		{
-			label: __('Total Messages', 'smart-woo-chatbot'),
+			label: __('Total Messages', 'agentflow-ai'),
 			value: formatNumber(safeNumber(data.total_messages)),
 			icon: Mail,
 			gradient: 'from-violet-500 to-purple-600',
@@ -75,7 +75,7 @@ export default function AnalyticsSummary({ data, loading }) {
 			textColor: 'text-violet-600',
 		},
 		{
-			label: __('Avg Response', 'smart-woo-chatbot'),
+			label: __('Avg Response', 'agentflow-ai'),
 			value: `${safeNumber(data.avg_response_time_ms)}ms`,
 			icon: Zap,
 			gradient: 'from-amber-500 to-orange-600',
@@ -84,7 +84,7 @@ export default function AnalyticsSummary({ data, loading }) {
 			indicator: safeNumber(data.avg_response_time_ms) < 2000 ? 'good' : 'warning',
 		},
 		{
-			label: __('Success Rate', 'smart-woo-chatbot'),
+			label: __('Success Rate', 'agentflow-ai'),
 			value: `${safeNumber(data.success_rate)}%`,
 			icon: CheckCircle,
 			gradient: 'from-rose-500 to-pink-600',

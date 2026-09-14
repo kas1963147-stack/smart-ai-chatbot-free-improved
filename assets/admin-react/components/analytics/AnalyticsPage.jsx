@@ -55,18 +55,18 @@ export default function AnalyticsPage() {
 	const [isRefreshing, setIsRefreshing] = useState(false);
 
 	const periods = [
-		{ label: __('Today', 'smart-woo-chatbot'), value: 'today', icon: Clock },
-		{ label: __('7 Days', 'smart-woo-chatbot'), value: '7d', icon: Calendar },
-		{ label: __('30 Days', 'smart-woo-chatbot'), value: '30d', icon: Calendar },
-		{ label: __('90 Days', 'smart-woo-chatbot'), value: '90d', icon: Calendar },
-		{ label: __('All Time', 'smart-woo-chatbot'), value: 'all', icon: BarChart3 },
+		{ label: __('Today', 'agentflow-ai'), value: 'today', icon: Clock },
+		{ label: __('7 Days', 'agentflow-ai'), value: '7d', icon: Calendar },
+		{ label: __('30 Days', 'agentflow-ai'), value: '30d', icon: Calendar },
+		{ label: __('90 Days', 'agentflow-ai'), value: '90d', icon: Calendar },
+		{ label: __('All Time', 'agentflow-ai'), value: 'all', icon: BarChart3 },
 	];
 
 	const tabs = [
-		{ id: 'overview', label: __('Overview', 'smart-woo-chatbot'), icon: BarChart3 },
-		{ id: 'costs', label: __('Costs & Usage', 'smart-woo-chatbot'), icon: DollarSign },
-		{ id: 'agents', label: __('Agent Performance', 'smart-woo-chatbot'), icon: Bot },
-		{ id: 'tools', label: __('Tool Analytics', 'smart-woo-chatbot'), icon: Wrench },
+		{ id: 'overview', label: __('Overview', 'agentflow-ai'), icon: BarChart3 },
+		{ id: 'costs', label: __('Costs & Usage', 'agentflow-ai'), icon: DollarSign },
+		{ id: 'agents', label: __('Agent Performance', 'agentflow-ai'), icon: Bot },
+		{ id: 'tools', label: __('Tool Analytics', 'agentflow-ai'), icon: Wrench },
 	];
 
 	const fetchData = useCallback(async () => {
@@ -162,7 +162,7 @@ export default function AnalyticsPage() {
 							<XCircle className="w-8 h-8 text-red-500" />
 						</div>
 						<h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-							{__('Failed to Load Analytics', 'smart-woo-chatbot')}
+							{__('Failed to Load Analytics', 'agentflow-ai')}
 						</h3>
 						<p className="text-sm text-gray-500 dark:text-slate-400 mb-6">{error}</p>
 						<button
@@ -170,7 +170,7 @@ export default function AnalyticsPage() {
 							className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-xl bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all"
 						>
 							<RefreshCw className="w-4 h-4" />
-							{__('Try Again', 'smart-woo-chatbot')}
+							{__('Try Again', 'agentflow-ai')}
 						</button>
 					</div>
 				</div>
@@ -180,7 +180,7 @@ export default function AnalyticsPage() {
 
 	// Loading state
 	if (loading && !data) {
-		return <Loading message={__('Loading analytics data…', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading analytics data…', 'agentflow-ai')} fullPage />;
 	}
 
 	// Calculate derived stats
@@ -230,7 +230,7 @@ export default function AnalyticsPage() {
 							className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-700 border border-gray-200 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-600 hover:border-gray-300 dark:hover:border-slate-500 transition-all shadow-sm"
 						>
 							<Download className="w-4 h-4" />
-							{__('Export', 'smart-woo-chatbot')}
+							{__('Export', 'agentflow-ai')}
 						</button>
 
 						{/* Refresh */}
@@ -243,7 +243,7 @@ export default function AnalyticsPage() {
 							)}
 						>
 							<RefreshCw className={cn('w-4 h-4', isRefreshing && 'animate-spin')} />
-							{isRefreshing ? __('Refreshing…', 'smart-woo-chatbot') : __('Refresh', 'smart-woo-chatbot')}
+							{isRefreshing ? __('Refreshing…', 'agentflow-ai') : __('Refresh', 'agentflow-ai')}
 						</button>
 					</div>
 				</div>
@@ -288,40 +288,40 @@ export default function AnalyticsPage() {
 							<MetricCard
 								icon={DollarSign}
 								iconBg="from-emerald-500 to-emerald-600"
-								title={__('Total Cost', 'smart-woo-chatbot')}
+								title={__('Total Cost', 'agentflow-ai')}
 								value={formatCurrency(stats.totalCost)}
 								change={stats.costChange}
-								subtitle={__('vs previous period', 'smart-woo-chatbot')}
+								subtitle={__('vs previous period', 'agentflow-ai')}
 							/>
 
 							{/* Total Sessions Card */}
 							<MetricCard
 								icon={MessageSquare}
 								iconBg="from-blue-500 to-blue-600"
-								title={__('Total Sessions', 'smart-woo-chatbot')}
+								title={__('Total Sessions', 'agentflow-ai')}
 								value={formatNumber(stats.totalSessions)}
 								change={stats.sessionChange}
-								subtitle={__('active conversations', 'smart-woo-chatbot')}
+								subtitle={__('active conversations', 'agentflow-ai')}
 							/>
 
 							{/* Response Time Card */}
 							<MetricCard
 								icon={Zap}
 								iconBg="from-amber-500 to-orange-500"
-								title={__('Avg Response', 'smart-woo-chatbot')}
+								title={__('Avg Response', 'agentflow-ai')}
 								value={`${stats.avgResponse}ms`}
 								indicator={stats.avgResponse < 2000 ? 'good' : stats.avgResponse < 5000 ? 'warning' : 'bad'}
-								subtitle={stats.avgResponse < 2000 ? __('Excellent performance', 'smart-woo-chatbot') : __('Needs optimization', 'smart-woo-chatbot')}
+								subtitle={stats.avgResponse < 2000 ? __('Excellent performance', 'agentflow-ai') : __('Needs optimization', 'agentflow-ai')}
 							/>
 
 							{/* Success Rate Card */}
 							<MetricCard
 								icon={Target}
 								iconBg="from-violet-500 to-purple-600"
-								title={__('Success Rate', 'smart-woo-chatbot')}
+								title={__('Success Rate', 'agentflow-ai')}
 								value={`${stats.successRate.toFixed(1)}%`}
 								indicator={stats.successRate >= 95 ? 'good' : stats.successRate >= 80 ? 'warning' : 'bad'}
-								subtitle={stats.successRate >= 95 ? __('Great reliability', 'smart-woo-chatbot') : __('Room for improvement', 'smart-woo-chatbot')}
+								subtitle={stats.successRate >= 95 ? __('Great reliability', 'agentflow-ai') : __('Room for improvement', 'agentflow-ai')}
 							/>
 						</div>
 
@@ -334,7 +334,7 @@ export default function AnalyticsPage() {
 									</div>
 									<div>
 										<p className="text-2xl font-bold text-gray-900 dark:text-white">{formatNumber(stats.totalTokens)}</p>
-										<p className="text-xs text-gray-500 dark:text-slate-400">{__('Total Tokens Used', 'smart-woo-chatbot')}</p>
+										<p className="text-xs text-gray-500 dark:text-slate-400">{__('Total Tokens Used', 'agentflow-ai')}</p>
 									</div>
 								</div>
 							</div>
@@ -346,7 +346,7 @@ export default function AnalyticsPage() {
 									</div>
 									<div>
 										<p className="text-2xl font-bold text-gray-900 dark:text-white">{formatNumber(stats.totalMessages)}</p>
-										<p className="text-xs text-gray-500 dark:text-slate-400">{__('Total Messages', 'smart-woo-chatbot')}</p>
+										<p className="text-xs text-gray-500 dark:text-slate-400">{__('Total Messages', 'agentflow-ai')}</p>
 									</div>
 								</div>
 							</div>
@@ -360,7 +360,7 @@ export default function AnalyticsPage() {
 										<p className="text-2xl font-bold text-gray-900 dark:text-white">
 											{stats.totalMessages > 0 ? (stats.totalCost / stats.totalMessages * 1000).toFixed(2) : '0.00'}¢
 										</p>
-										<p className="text-xs text-gray-500 dark:text-slate-400">{__('Cost per 1K Messages', 'smart-woo-chatbot')}</p>
+										<p className="text-xs text-gray-500 dark:text-slate-400">{__('Cost per 1K Messages', 'agentflow-ai')}</p>
 									</div>
 								</div>
 							</div>
@@ -370,8 +370,8 @@ export default function AnalyticsPage() {
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 							{/* Cost Breakdown */}
 							<ChartCard
-								title={__('Cost Breakdown', 'smart-woo-chatbot')}
-								subtitle={__('Token usage and costs by provider', 'smart-woo-chatbot')}
+								title={__('Cost Breakdown', 'agentflow-ai')}
+								subtitle={__('Token usage and costs by provider', 'agentflow-ai')}
 								icon={PieChart}
 							>
 								<CostBreakdown period={period} />
@@ -379,8 +379,8 @@ export default function AnalyticsPage() {
 
 							{/* Usage Trends */}
 							<ChartCard
-								title={__('Usage Trends', 'smart-woo-chatbot')}
-								subtitle={__('Performance metrics over time', 'smart-woo-chatbot')}
+								title={__('Usage Trends', 'agentflow-ai')}
+								subtitle={__('Performance metrics over time', 'agentflow-ai')}
 								icon={TrendingUp}
 							>
 								<UsageTrends period={period} />
@@ -391,8 +391,8 @@ export default function AnalyticsPage() {
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 							{/* Top Tools */}
 							<ChartCard
-								title={__('Top Tools', 'smart-woo-chatbot')}
-								subtitle={__('Most frequently used AI tools', 'smart-woo-chatbot')}
+								title={__('Top Tools', 'agentflow-ai')}
+								subtitle={__('Most frequently used AI tools', 'agentflow-ai')}
 								icon={Wrench}
 							>
 								<TopTools period={period} />
@@ -400,8 +400,8 @@ export default function AnalyticsPage() {
 
 							{/* Agent Performance */}
 							<ChartCard
-								title={__('Agent Performance', 'smart-woo-chatbot')}
-								subtitle={__('Compare agent efficiency', 'smart-woo-chatbot')}
+								title={__('Agent Performance', 'agentflow-ai')}
+								subtitle={__('Compare agent efficiency', 'agentflow-ai')}
 								icon={Bot}
 							>
 								<AgentPerformance period={period} />
@@ -417,7 +417,7 @@ export default function AnalyticsPage() {
 						<div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-6 text-white shadow-xl">
 							<div className="flex items-center justify-between">
 								<div>
-									<p className="text-emerald-100 text-sm font-medium">{__('Total Spend This Period', 'smart-woo-chatbot')}</p>
+									<p className="text-emerald-100 text-sm font-medium">{__('Total Spend This Period', 'agentflow-ai')}</p>
 									<p className="text-4xl font-bold mt-1">{formatCurrency(stats.totalCost)}</p>
 									<div className="flex items-center gap-2 mt-2">
 										{stats.costChange !== 0 && (
@@ -429,7 +429,7 @@ export default function AnalyticsPage() {
 												{Math.abs(stats.costChange).toFixed(1)}%
 											</span>
 										)}
-										<span className="text-emerald-200 text-sm">{__('vs previous period', 'smart-woo-chatbot')}</span>
+										<span className="text-emerald-200 text-sm">{__('vs previous period', 'agentflow-ai')}</span>
 									</div>
 								</div>
 								<div className="w-20 h-20 rounded-2xl bg-white/10 flex items-center justify-center">
@@ -441,16 +441,16 @@ export default function AnalyticsPage() {
 						{/* Cost Charts */}
 						<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 							<ChartCard
-								title={__('Cost by Provider', 'smart-woo-chatbot')}
-								subtitle={__('See which providers cost the most', 'smart-woo-chatbot')}
+								title={__('Cost by Provider', 'agentflow-ai')}
+								subtitle={__('See which providers cost the most', 'agentflow-ai')}
 								icon={PieChart}
 							>
 								<CostBreakdown period={period} />
 							</ChartCard>
 
 							<ChartCard
-								title={__('Cost Trend', 'smart-woo-chatbot')}
-								subtitle={__('Track spending over time', 'smart-woo-chatbot')}
+								title={__('Cost Trend', 'agentflow-ai')}
+								subtitle={__('Track spending over time', 'agentflow-ai')}
 								icon={TrendingUp}
 							>
 								<UsageTrends period={period} />
@@ -464,12 +464,12 @@ export default function AnalyticsPage() {
 									<Sparkles className="w-5 h-5 text-blue-600" />
 								</div>
 								<div>
-									<h3 className="font-semibold text-blue-900 dark:text-blue-300">{__('Cost Optimization Tips', 'smart-woo-chatbot')}</h3>
+									<h3 className="font-semibold text-blue-900 dark:text-blue-300">{__('Cost Optimization Tips', 'agentflow-ai')}</h3>
 									<ul className="mt-2 space-y-1 text-sm text-blue-700 dark:text-blue-400">
-										<li>• {__('Use caching for frequently asked questions', 'smart-woo-chatbot')}</li>
-										<li>• {__('Consider using smaller models for simple tasks', 'smart-woo-chatbot')}</li>
-										<li>• {__('Set token limits to prevent runaway costs', 'smart-woo-chatbot')}</li>
-										<li>• {__('Monitor and optimize high-cost agents', 'smart-woo-chatbot')}</li>
+										<li>• {__('Use caching for frequently asked questions', 'agentflow-ai')}</li>
+										<li>• {__('Consider using smaller models for simple tasks', 'agentflow-ai')}</li>
+										<li>• {__('Set token limits to prevent runaway costs', 'agentflow-ai')}</li>
+										<li>• {__('Monitor and optimize high-cost agents', 'agentflow-ai')}</li>
 									</ul>
 								</div>
 							</div>
@@ -481,8 +481,8 @@ export default function AnalyticsPage() {
 				{activeTab === 'agents' && (
 					<div className="space-y-6">
 						<ChartCard
-							title={__('Agent Performance Comparison', 'smart-woo-chatbot')}
-							subtitle={__('Detailed metrics for each agent', 'smart-woo-chatbot')}
+							title={__('Agent Performance Comparison', 'agentflow-ai')}
+							subtitle={__('Detailed metrics for each agent', 'agentflow-ai')}
 							icon={Bot}
 							fullWidth
 						>
@@ -495,8 +495,8 @@ export default function AnalyticsPage() {
 				{activeTab === 'tools' && (
 					<div className="space-y-6">
 						<ChartCard
-							title={__('Tool Usage Analytics', 'smart-woo-chatbot')}
-							subtitle={__('Track which tools are most effective', 'smart-woo-chatbot')}
+							title={__('Tool Usage Analytics', 'agentflow-ai')}
+							subtitle={__('Track which tools are most effective', 'agentflow-ai')}
 							icon={Wrench}
 							fullWidth
 						>

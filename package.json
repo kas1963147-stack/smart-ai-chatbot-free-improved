@@ -1,7 +1,7 @@
 {
-    "name": "smart-ai-chatbot-admin",
+    "name": "agentflow-ai-admin",
     "version": "1.0.0",
-    "description": "Admin UI for Smart AI Chatbot Multi-Agent System",
+    "description": "Admin UI for AgentFlow AI Multi-Agent System",
     "license": "GPL-2.0-or-later",
     "scripts": {
         "build": "wp-scripts build assets/admin-react/index.js --output-path=assets/admin-build",

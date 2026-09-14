@@ -65,10 +65,10 @@ export default function WorkflowEditor({ workflow, agents, onSave, onCancel }) {
 	const validate = () => {
 		const nextErrors = {};
 		if (!formData.name.trim()) {
-			nextErrors.name = __('Workflow name is required', 'smart-woo-chatbot');
+			nextErrors.name = __('Workflow name is required', 'agentflow-ai');
 		}
 		if (formData.trigger_type === 'scheduled' && !formData.schedule_expression.trim()) {
-			nextErrors.schedule_expression = __('Cron expression is required', 'smart-woo-chatbot');
+			nextErrors.schedule_expression = __('Cron expression is required', 'agentflow-ai');
 		}
 		setErrors(nextErrors);
 		return Object.keys(nextErrors).length === 0;
@@ -86,7 +86,7 @@ export default function WorkflowEditor({ workflow, agents, onSave, onCancel }) {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
 						<label className="block text-sm font-medium text-gray-900 mb-1.5">
-							{__('Workflow Name', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+							{__('Workflow Name', 'agentflow-ai')} <span className="text-red-500">*</span>
 						</label>
 						<input
 							type="text"
@@ -99,21 +99,21 @@ export default function WorkflowEditor({ workflow, agents, onSave, onCancel }) {
 
 					<div>
 						<label className="block text-sm font-medium text-gray-900 mb-1.5">
-							{__('Slug', 'smart-woo-chatbot')}
+							{__('Slug', 'agentflow-ai')}
 						</label>
 						<input
 							type="text"
 							value={formData.slug}
 							onChange={(e) => handleChange('slug', e.target.value)}
 							className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
-							placeholder={__('Auto-generated if empty', 'smart-woo-chatbot')}
+							placeholder={__('Auto-generated if empty', 'agentflow-ai')}
 						/>
 					</div>
 				</div>
 
 				<div>
 					<label className="block text-sm font-medium text-gray-900 mb-1.5">
-						{__('Description', 'smart-woo-chatbot')}
+						{__('Description', 'agentflow-ai')}
 					</label>
 					<textarea
 						value={formData.description}
@@ -126,30 +126,30 @@ export default function WorkflowEditor({ workflow, agents, onSave, onCancel }) {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
 						<label className="block text-sm font-medium text-gray-900 mb-1.5">
-							{__('Trigger Type', 'smart-woo-chatbot')}
+							{__('Trigger Type', 'agentflow-ai')}
 						</label>
 						<select
 							value={formData.trigger_type}
 							onChange={(e) => handleChange('trigger_type', e.target.value)}
 							className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 bg-white text-gray-900"
 						>
-							<option value="manual">{__('Manual', 'smart-woo-chatbot')}</option>
-							<option value="scheduled">{__('Scheduled', 'smart-woo-chatbot')}</option>
-							<option value="event">{__('Event', 'smart-woo-chatbot')}</option>
+							<option value="manual">{__('Manual', 'agentflow-ai')}</option>
+							<option value="scheduled">{__('Scheduled', 'agentflow-ai')}</option>
+							<option value="event">{__('Event', 'agentflow-ai')}</option>
 						</select>
 					</div>
 
 					{formData.trigger_type === 'scheduled' && (
 						<div>
 							<label className="block text-sm font-medium text-gray-900 mb-1.5">
-								{__('Cron Expression', 'smart-woo-chatbot')}
+								{__('Cron Expression', 'agentflow-ai')}
 							</label>
 							<input
 								type="text"
 								value={formData.schedule_expression}
 								onChange={(e) => handleChange('schedule_expression', e.target.value)}
 								className={`w-full h-10 px-4 text-sm rounded-lg border bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all ${errors.schedule_expression ? 'border-red-300' : 'border-gray-300'}`}
-								placeholder={__('0 9 * * 1', 'smart-woo-chatbot')}
+								placeholder={__('0 9 * * 1', 'agentflow-ai')}
 							/>
 							{errors.schedule_expression && <p className="text-sm text-red-600 mt-1">{errors.schedule_expression}</p>}
 						</div>
@@ -165,27 +165,27 @@ export default function WorkflowEditor({ workflow, agents, onSave, onCancel }) {
 						className="h-4 w-4 text-primary border-gray-300 rounded"
 					/>
 					<label htmlFor="workflow-active" className="text-sm font-medium text-gray-700">
-						{__('Workflow is active', 'smart-woo-chatbot')}
+						{__('Workflow is active', 'agentflow-ai')}
 					</label>
 				</div>
 
 				<div className="space-y-4">
 					<div className="flex items-center justify-between">
 						<h3 className="text-base font-semibold text-gray-900">
-							{__('Workflow Steps', 'smart-woo-chatbot')}
+							{__('Workflow Steps', 'agentflow-ai')}
 						</h3>
 						<button
 							type="button"
 							onClick={addStep}
 							className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg bg-primary text-white hover:bg-primary/90"
 						>
-							+ {__('Add Step', 'smart-woo-chatbot')}
+							+ {__('Add Step', 'agentflow-ai')}
 						</button>
 					</div>
 
 					{formData.steps.length === 0 ? (
 						<div className="text-sm text-gray-500">
-							{__('Add steps to define the workflow sequence.', 'smart-woo-chatbot')}
+							{__('Add steps to define the workflow sequence.', 'agentflow-ai')}
 						</div>
 					) : (
 						<div className="space-y-4">
@@ -210,13 +210,13 @@ export default function WorkflowEditor({ workflow, agents, onSave, onCancel }) {
 					onClick={onCancel}
 					className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 transition-colors"
 				>
-					{__('Cancel', 'smart-woo-chatbot')}
+					{__('Cancel', 'agentflow-ai')}
 				</button>
 				<button
 					type="submit"
 					className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary/90 shadow-sm transition-colors"
 				>
-					{workflow ? __('Update Workflow', 'smart-woo-chatbot') : __('Create Workflow', 'smart-woo-chatbot')}
+					{workflow ? __('Update Workflow', 'agentflow-ai') : __('Create Workflow', 'agentflow-ai')}
 				</button>
 			</div>
 		</form>

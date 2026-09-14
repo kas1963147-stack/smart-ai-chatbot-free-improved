@@ -23,7 +23,7 @@ export default function TemplateWizard({ agents = [], onSelectTemplate, onCancel
 	if (loading) {
 		return (
 			<div className="min-h-[400px] flex flex-col items-center justify-center">
-				<Loading message={__('Loading agents...', 'smart-woo-chatbot')} fullPage />
+				<Loading message={__('Loading agents...', 'agentflow-ai')} fullPage />
 			</div>
 		);
 	}
@@ -36,10 +36,10 @@ export default function TemplateWizard({ agents = [], onSelectTemplate, onCancel
 					<Bot className="w-8 h-8 text-white" />
 				</div>
 				<h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-					{__('Existing Agents', 'smart-woo-chatbot')}
+					{__('Existing Agents', 'agentflow-ai')}
 				</h1>
 				<p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
-					{__('Choose an existing pre-configured agent to customize and use as your own.', 'smart-woo-chatbot')}
+					{__('Choose an existing pre-configured agent to customize and use as your own.', 'agentflow-ai')}
 				</p>
 			</div>
 
@@ -48,7 +48,7 @@ export default function TemplateWizard({ agents = [], onSelectTemplate, onCancel
 				<div className="mb-6 p-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 flex items-start gap-3">
 					<AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
 					<div>
-						<p className="text-sm font-medium text-red-800 dark:text-red-200">{__('Error', 'smart-woo-chatbot')}</p>
+						<p className="text-sm font-medium text-red-800 dark:text-red-200">{__('Error', 'agentflow-ai')}</p>
 						<p className="text-sm text-red-600 dark:text-red-300">{error}</p>
 					</div>
 				</div>
@@ -91,7 +91,7 @@ export default function TemplateWizard({ agents = [], onSelectTemplate, onCancel
 
 							{/* Description */}
 							<p className="text-sm text-gray-500 dark:text-slate-400 line-clamp-3 mb-5 flex-1">
-								{template.description || __('No description provided.', 'smart-woo-chatbot')}
+								{template.description || __('No description provided.', 'agentflow-ai')}
 							</p>
 
 							{/* Edit Button */}
@@ -101,7 +101,7 @@ export default function TemplateWizard({ agents = [], onSelectTemplate, onCancel
 									className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm shadow-primary/20 transition-all"
 								>
 									<Edit className="w-4 h-4" />
-									{__('Edit Agent', 'smart-woo-chatbot')}
+									{__('Edit Agent', 'agentflow-ai')}
 								</button>
 							</div>
 						</div>
@@ -123,7 +123,7 @@ export default function TemplateWizard({ agents = [], onSelectTemplate, onCancel
 					"
 				>
 					<ChevronLeft className="w-4 h-4" />
-					{__('Cancel', 'smart-woo-chatbot')}
+					{__('Cancel', 'agentflow-ai')}
 				</button>
 			</div>
 		</div>

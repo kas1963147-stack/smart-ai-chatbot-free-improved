@@ -55,19 +55,19 @@ function ModuleCard({ module, onToggle, isLoading }) {
 			<div className="swc-module-card__footer">
 				{module.isCore ? (
 					<span className="swc-module-card__badge swc-module-card__badge--core">
-						{__('Core Module', 'smart-woo-chatbot')}
+						{__('Core Module', 'agentflow-ai')}
 					</span>
 				) : !module.available ? (
 					<span className="swc-module-card__badge swc-module-card__badge--unavailable">
-						{__('Plugin Required:', 'smart-woo-chatbot')}{' '}
+						{__('Plugin Required:', 'agentflow-ai')}{' '}
 						{module.missing}
 					</span>
 				) : (
 					<Toggle
 						label={
 							module.enabled
-								? __('Enabled', 'smart-woo-chatbot')
-								: __('Disabled', 'smart-woo-chatbot')
+								? __('Enabled', 'agentflow-ai')
+								: __('Disabled', 'agentflow-ai')
 						}
 						checked={module.enabled}
 						onChange={() =>
@@ -163,7 +163,7 @@ export default function ModulesManager() {
 	};
 
 	if (loading) {
-		return <Loading message={__('Loading modules…', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading modules…', 'agentflow-ai')} fullPage />;
 	}
 
 	// Group modules by status
@@ -191,7 +191,7 @@ export default function ModulesManager() {
 				<p>
 					{__(
 						'Modules extend the AI Agent with specialized capabilities. Enable the modules you need.',
-						'smart-woo-chatbot'
+						'agentflow-ai'
 					)}
 				</p>
 			</div>
@@ -199,7 +199,7 @@ export default function ModulesManager() {
 			<Panel>
 				{ /* Core Modules */}
 				<PanelBody
-					title={`${__('Core Modules', 'smart-woo-chatbot')}`}
+					title={`${__('Core Modules', 'agentflow-ai')}`}
 					initialOpen
 				>
 					<div className="swc-modules-grid">
@@ -219,7 +219,7 @@ export default function ModulesManager() {
 					<PanelBody
 						title={`${__(
 							'Optional Modules',
-							'smart-woo-chatbot'
+							'agentflow-ai'
 						)}`}
 						initialOpen
 					>
@@ -241,14 +241,14 @@ export default function ModulesManager() {
 					<PanelBody
 						title={`${__(
 							'Unavailable Modules',
-							'smart-woo-chatbot'
+							'agentflow-ai'
 						)}`}
 						initialOpen={false}
 					>
 						<p className="swc-text-muted">
 							{__(
 								'These modules require additional plugins to be installed.',
-								'smart-woo-chatbot'
+								'agentflow-ai'
 							)}
 						</p>
 						<div className="swc-modules-grid">

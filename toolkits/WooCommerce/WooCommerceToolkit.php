@@ -8,7 +8,7 @@
  * @package Toolkits\WooCommerce
  */
 
-namespace Toolkits\WooCommerce;
+namespace Quarksol\AgentFlowAI\Toolkits\WooCommerce;
 
 if (!defined('ABSPATH')) {
     exit;

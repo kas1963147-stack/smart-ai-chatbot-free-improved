@@ -110,9 +110,9 @@ export default function TemplateGallery({ onSelectTemplate, onClose }) {
 	return (
 		<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
 			<div className="px-6 py-5 border-b border-gray-200 dark:border-gray-700">
-				<h2 className="text-xl font-semibold text-gray-900 dark:text-white m-0">{__('Skill Templates', 'smart-woo-chatbot')}</h2>
+				<h2 className="text-xl font-semibold text-gray-900 dark:text-white m-0">{__('Skill Templates', 'agentflow-ai')}</h2>
 				<p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-					{__('Start with a pre-built template and customize it for your needs.', 'smart-woo-chatbot')}
+					{__('Start with a pre-built template and customize it for your needs.', 'agentflow-ai')}
 				</p>
 			</div>
 
@@ -180,7 +180,7 @@ export default function TemplateGallery({ onSelectTemplate, onClose }) {
 						<div className="h-full flex flex-col bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
 							<div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between bg-gray-50/50 dark:bg-gray-800/50">
 								<h3 className="text-sm font-semibold text-gray-900 dark:text-white m-0">
-									{__('Preview:', 'smart-woo-chatbot')} {selectedTemplate.name}
+									{__('Preview:', 'agentflow-ai')} {selectedTemplate.name}
 								</h3>
 							</div>
 
@@ -191,7 +191,7 @@ export default function TemplateGallery({ onSelectTemplate, onClose }) {
 											<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
 											<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
 										</svg>
-										{__('Loading preview…', 'smart-woo-chatbot')}
+										{__('Loading preview…', 'agentflow-ai')}
 									</div>
 								) : previewContent ? (
 									<pre className="text-xs text-gray-600 dark:text-gray-300 font-mono whitespace-pre-wrap bg-gray-50 dark:bg-gray-900 p-4 rounded border border-gray-200 dark:border-gray-700">
@@ -200,7 +200,7 @@ export default function TemplateGallery({ onSelectTemplate, onClose }) {
 									</pre>
 								) : (
 									<div className="flex items-center justify-center h-40 text-gray-500 italic">
-										{__('Preview content not available.', 'smart-woo-chatbot')}
+										{__('Preview content not available.', 'agentflow-ai')}
 									</div>
 								)}
 							</div>
@@ -211,7 +211,7 @@ export default function TemplateGallery({ onSelectTemplate, onClose }) {
 									className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
 									onClick={onClose}
 								>
-									{__('Cancel', 'smart-woo-chatbot')}
+									{__('Cancel', 'agentflow-ai')}
 								</button>
 								<button
 									type="button"
@@ -219,7 +219,7 @@ export default function TemplateGallery({ onSelectTemplate, onClose }) {
 									onClick={handleUseTemplate}
 									disabled={!previewContent}
 								>
-									{__('Use This Template', 'smart-woo-chatbot')}
+									{__('Use This Template', 'agentflow-ai')}
 								</button>
 							</div>
 						</div>
@@ -229,7 +229,7 @@ export default function TemplateGallery({ onSelectTemplate, onClose }) {
 								<svg className="mx-auto h-12 w-12 text-gray-400 dark:text-gray-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
 								</svg>
-								<p>{__('Select a template to preview its contents', 'smart-woo-chatbot')}</p>
+								<p>{__('Select a template to preview its contents', 'agentflow-ai')}</p>
 							</div>
 						</div>
 					)}

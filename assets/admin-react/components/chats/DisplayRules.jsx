@@ -81,7 +81,7 @@ export default function DisplayRules({ display, onChange }) {
                     .map(url => ({ value: url, label: `Custom: ${url}` }));
 
                 setPages([
-                    { value: '', label: __('Leave empty to target all URLs', 'smart-woo-chatbot'), disabled: true },
+                    { value: '', label: __('Leave empty to target all URLs', 'agentflow-ai'), disabled: true },
                     ...extraOptions,
                     ...pageOptions.map(o => ({ ...o, label: `Page: ${o.label}` })),
                     ...postOptions.map(o => ({ ...o, label: `Post: ${o.label}` }))
@@ -128,35 +128,35 @@ export default function DisplayRules({ display, onChange }) {
         <div className="space-y-6">
             <div>
                 <h3 className="text-lg font-semibold text-slate-900">
-                    {__('Display Rules', 'smart-woo-chatbot')}
+                    {__('Display Rules', 'agentflow-ai')}
                 </h3>
                 <p className="mt-1 text-sm text-slate-500">
-                    {__('Control where and when this widget appears on your site.', 'smart-woo-chatbot')}
+                    {__('Control where and when this widget appears on your site.', 'agentflow-ai')}
                 </p>
             </div>
 
             <Panel>
                 {/* URL Targeting */}
-                <PanelBody title={__('URL Targeting', 'smart-woo-chatbot')} initialOpen>
+                <PanelBody title={__('URL Targeting', 'agentflow-ai')} initialOpen>
                     <div className="space-y-4">
                         {loadingPages ? (
-                            <div className="text-sm text-gray-500">{__('Loading pages...', 'smart-woo-chatbot')}</div>
+                            <div className="text-sm text-gray-500">{__('Loading pages...', 'agentflow-ai')}</div>
                         ) : (
                             <>
                                 <MultiSelect
-                                    label={__('Show Only On (Include Pages)', 'smart-woo-chatbot')}
+                                    label={__('Show Only On (Include Pages)', 'agentflow-ai')}
                                     options={pages}
                                     value={display.include_urls || []}
                                     onChange={(val) => handleUrlChangeSelect('include_urls', val)}
-                                    placeholder={__('Select pages to show widget...', 'smart-woo-chatbot')}
-                                    help={__('Leave empty to show everywhere.', 'smart-woo-chatbot')}
+                                    placeholder={__('Select pages to show widget...', 'agentflow-ai')}
+                                    help={__('Leave empty to show everywhere.', 'agentflow-ai')}
                                 />
                                 <MultiSelect
-                                    label={__('Hide On (Exclude Pages)', 'smart-woo-chatbot')}
+                                    label={__('Hide On (Exclude Pages)', 'agentflow-ai')}
                                     options={pages}
                                     value={display.exclude_urls || []}
                                     onChange={(val) => handleUrlChangeSelect('exclude_urls', val)}
-                                    placeholder={__('Select pages to hide widget...', 'smart-woo-chatbot')}
+                                    placeholder={__('Select pages to hide widget...', 'agentflow-ai')}
                                 />
                             </>
                         )}
@@ -164,17 +164,17 @@ export default function DisplayRules({ display, onChange }) {
                 </PanelBody>
 
                 {/* Visitor Targeting */}
-                <PanelBody title={__('Visitor Targeting', 'smart-woo-chatbot')}>
+                <PanelBody title={__('Visitor Targeting', 'agentflow-ai')}>
                     <div className="space-y-4">
                         <Toggle
-                            label={__('Logged-In Users Only', 'smart-woo-chatbot')}
-                            help={__('Only show to authenticated WordPress users.', 'smart-woo-chatbot')}
+                            label={__('Logged-In Users Only', 'agentflow-ai')}
+                            help={__('Only show to authenticated WordPress users.', 'agentflow-ai')}
                             checked={display.logged_in_only || false}
                             onChange={(val) => handleChange('logged_in_only', val)}
                         />
                         <Toggle
-                            label={__('Guests Only', 'smart-woo-chatbot')}
-                            help={__('Only show to visitors who are not logged in.', 'smart-woo-chatbot')}
+                            label={__('Guests Only', 'agentflow-ai')}
+                            help={__('Only show to visitors who are not logged in.', 'agentflow-ai')}
                             checked={display.guest_only || false}
                             onChange={(val) => handleChange('guest_only', val)}
                             disabled={display.logged_in_only}
@@ -183,10 +183,10 @@ export default function DisplayRules({ display, onChange }) {
                 </PanelBody>
 
                 {/* Device Targeting */}
-                <PanelBody title={__('Device Targeting', 'smart-woo-chatbot')}>
+                <PanelBody title={__('Device Targeting', 'agentflow-ai')}>
                     <div className="space-y-3">
                         <p className="text-sm text-gray-600">
-                            {__('Show widget on these devices:', 'smart-woo-chatbot')}
+                            {__('Show widget on these devices:', 'agentflow-ai')}
                         </p>
                         <div className="flex gap-3">
                             {DEVICES.map((device) => {
@@ -213,11 +213,11 @@ export default function DisplayRules({ display, onChange }) {
                 </PanelBody>
 
                 {/* Schedule */}
-                <PanelBody title={__('Display Schedule', 'smart-woo-chatbot')}>
+                <PanelBody title={__('Display Schedule', 'agentflow-ai')}>
                     <div className="space-y-4">
                         <Toggle
-                            label={__('Enable Schedule', 'smart-woo-chatbot')}
-                            help={__('Only show widget during specific hours.', 'smart-woo-chatbot')}
+                            label={__('Enable Schedule', 'agentflow-ai')}
+                            help={__('Only show widget during specific hours.', 'agentflow-ai')}
                             checked={display.schedule_enabled || false}
                             onChange={(val) => handleChange('schedule_enabled', val)}
                         />
@@ -227,7 +227,7 @@ export default function DisplayRules({ display, onChange }) {
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                                            {__('Start Time', 'smart-woo-chatbot')}
+                                            {__('Start Time', 'agentflow-ai')}
                                         </label>
                                         <input
                                             type="time"
@@ -238,7 +238,7 @@ export default function DisplayRules({ display, onChange }) {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                                            {__('End Time', 'smart-woo-chatbot')}
+                                            {__('End Time', 'agentflow-ai')}
                                         </label>
                                         <input
                                             type="time"
@@ -251,7 +251,7 @@ export default function DisplayRules({ display, onChange }) {
 
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        {__('Days of Week', 'smart-woo-chatbot')}
+                                        {__('Days of Week', 'agentflow-ai')}
                                     </label>
                                     <div className="flex gap-1">
                                         {DAYS_OF_WEEK.map((day) => {

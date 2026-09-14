@@ -37,10 +37,10 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
             <div className="rounded-2xl border border-border bg-card shadow-sm">
                 <div className="border-b border-border px-6 py-4">
                     <h3 className="text-lg font-semibold text-foreground">
-                        {__('Core Settings', 'smart-woo-chatbot')}
+                        {__('Core Settings', 'agentflow-ai')}
                     </h3>
                     <p className="mt-1 text-sm text-muted-foreground">
-                        {__('Enable and configure the AI search enhancement engine', 'smart-woo-chatbot')}
+                        {__('Enable and configure the AI search enhancement engine', 'agentflow-ai')}
                     </p>
                 </div>
                 <div className="space-y-5 p-6">
@@ -48,10 +48,10 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                     <div className="flex items-center justify-between rounded-xl bg-gradient-to-r from-primary/5 to-primary/10 p-4">
                         <div>
                             <div className="text-sm font-semibold text-foreground">
-                                {__('Enable AI-Powered Search', 'smart-woo-chatbot')}
+                                {__('Enable AI-Powered Search', 'agentflow-ai')}
                             </div>
                             <div className="text-xs text-muted-foreground">
-                                {__('Use AI to expand search queries with related keywords', 'smart-woo-chatbot')}
+                                {__('Use AI to expand search queries with related keywords', 'agentflow-ai')}
                             </div>
                         </div>
                         <label className="relative inline-flex cursor-pointer items-center">
@@ -70,7 +70,7 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                         <label className="mb-1.5 block text-sm font-medium text-foreground">
                             <span className="flex items-center gap-2">
                                 <span className="text-base"></span>
-                                {__('AI Provider', 'smart-woo-chatbot')}
+                                {__('AI Provider', 'agentflow-ai')}
                             </span>
                         </label>
                         <select
@@ -79,7 +79,7 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                             onChange={(e) => onChange('search_provider_instance_id', e.target.value)}
                             className="h-10 w-full rounded-lg border border-border bg-card px-4 text-sm text-foreground transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                         >
-                            <option value="">{__('-- Use Global Settings --', 'smart-woo-chatbot')}</option>
+                            <option value="">{__('-- Use Global Settings --', 'agentflow-ai')}</option>
                             {providerInstances
                                 .filter((inst) => inst.id !== '' && inst.id)
                                 .map((inst) => (
@@ -87,14 +87,14 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                                 ))}
                         </select>
                         <p className="mt-1 text-xs text-muted-foreground">
-                            {__('Select which AI provider to use for search keyword generation', 'smart-woo-chatbot')}
+                            {__('Select which AI provider to use for search keyword generation', 'agentflow-ai')}
                         </p>
                     </div>
 
                     {/* Max Keywords */}
                     <div>
                         <label className="mb-1.5 block text-sm font-medium text-foreground">
-                            {__('Max Keywords per Query', 'smart-woo-chatbot')}
+                            {__('Max Keywords per Query', 'agentflow-ai')}
                             <span className="ml-2 inline-flex items-center rounded-md bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
                                 {settings.search_max_keywords || 5}
                             </span>
@@ -108,37 +108,37 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                             className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-muted accent-primary"
                         />
                         <div className="mt-1 flex justify-between text-xs text-muted-foreground">
-                            <span>3 ({__('Faster', 'smart-woo-chatbot')})</span>
-                            <span>15 ({__('More results', 'smart-woo-chatbot')})</span>
+                            <span>3 ({__('Faster', 'agentflow-ai')})</span>
+                            <span>15 ({__('More results', 'agentflow-ai')})</span>
                         </div>
                     </div>
 
                     {/* Cache Duration */}
                     <div>
                         <label className="mb-1.5 block text-sm font-medium text-foreground">
-                            {__('Cache Duration', 'smart-woo-chatbot')}
+                            {__('Cache Duration', 'agentflow-ai')}
                         </label>
                         <select
                             value={settings.search_cache_duration || 3600}
                             onChange={(e) => onChange('search_cache_duration', parseInt(e.target.value))}
                             className="h-10 w-full rounded-lg border border-border bg-card px-4 text-sm text-foreground transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                         >
-                            <option value="900">{__('15 minutes', 'smart-woo-chatbot')}</option>
-                            <option value="1800">{__('30 minutes', 'smart-woo-chatbot')}</option>
-                            <option value="3600">{__('1 hour', 'smart-woo-chatbot')}</option>
-                            <option value="7200">{__('2 hours', 'smart-woo-chatbot')}</option>
-                            <option value="21600">{__('6 hours', 'smart-woo-chatbot')}</option>
-                            <option value="86400">{__('24 hours', 'smart-woo-chatbot')}</option>
+                            <option value="900">{__('15 minutes', 'agentflow-ai')}</option>
+                            <option value="1800">{__('30 minutes', 'agentflow-ai')}</option>
+                            <option value="3600">{__('1 hour', 'agentflow-ai')}</option>
+                            <option value="7200">{__('2 hours', 'agentflow-ai')}</option>
+                            <option value="21600">{__('6 hours', 'agentflow-ai')}</option>
+                            <option value="86400">{__('24 hours', 'agentflow-ai')}</option>
                         </select>
                         <p className="mt-1 text-xs text-muted-foreground">
-                            {__('How long to cache AI-generated keywords before refreshing', 'smart-woo-chatbot')}
+                            {__('How long to cache AI-generated keywords before refreshing', 'agentflow-ai')}
                         </p>
                     </div>
 
                     {/* Min Query Length */}
                     <div>
                         <label className="mb-1.5 block text-sm font-medium text-foreground">
-                            {__('Minimum Query Length', 'smart-woo-chatbot')}
+                            {__('Minimum Query Length', 'agentflow-ai')}
                         </label>
                         <div className="flex items-center gap-3">
                             <input
@@ -149,10 +149,10 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                                 onChange={(e) => onChange('search_min_query_length', parseInt(e.target.value) || 2)}
                                 className="h-10 w-24 rounded-lg border border-border bg-card px-3 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                             />
-                            <span className="text-sm text-muted-foreground">{__('characters', 'smart-woo-chatbot')}</span>
+                            <span className="text-sm text-muted-foreground">{__('characters', 'agentflow-ai')}</span>
                         </div>
                         <p className="mt-1 text-xs text-muted-foreground">
-                            {__('Searches shorter than this will not be enhanced by AI', 'smart-woo-chatbot')}
+                            {__('Searches shorter than this will not be enhanced by AI', 'agentflow-ai')}
                         </p>
                     </div>
                 </div>
@@ -164,17 +164,17 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                 <div className="rounded-2xl border border-border bg-card shadow-sm">
                     <div className="border-b border-border px-6 py-4">
                         <h3 className="text-lg font-semibold text-foreground">
-                            {__('Content Types', 'smart-woo-chatbot')}
+                            {__('Content Types', 'agentflow-ai')}
                         </h3>
                         <p className="mt-1 text-sm text-muted-foreground">
-                            {__('Select which content types should be enhanced by AI search', 'smart-woo-chatbot')}
+                            {__('Select which content types should be enhanced by AI search', 'agentflow-ai')}
                         </p>
                     </div>
                     <div className="space-y-3 p-6">
                         {[
-                            { id: 'posts', label: __('Posts', 'smart-woo-chatbot'), description: __('Blog posts and articles', 'smart-woo-chatbot'), defaultOn: true },
-                            { id: 'pages', label: __('Pages', 'smart-woo-chatbot'), description: __('Static pages', 'smart-woo-chatbot'), defaultOn: true },
-                            { id: 'products', label: __('Products', 'smart-woo-chatbot'), description: __('WooCommerce products', 'smart-woo-chatbot'), defaultOn: true, woo: true },
+                            { id: 'posts', label: __('Posts', 'agentflow-ai'), description: __('Blog posts and articles', 'agentflow-ai'), defaultOn: true },
+                            { id: 'pages', label: __('Pages', 'agentflow-ai'), description: __('Static pages', 'agentflow-ai'), defaultOn: true },
+                            { id: 'products', label: __('Products', 'agentflow-ai'), description: __('WooCommerce products', 'agentflow-ai'), defaultOn: true, woo: true },
                         ].map((type) => {
                             const key = `search_content_${type.id}`;
                             const checked = settings[key] !== undefined ? !!settings[key] : type.defaultOn;
@@ -216,23 +216,23 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                 <div className="rounded-2xl border border-border bg-card shadow-sm">
                     <div className="border-b border-border px-6 py-4">
                         <h3 className="text-lg font-semibold text-foreground">
-                            {__('Search Behavior', 'smart-woo-chatbot')}
+                            {__('Search Behavior', 'agentflow-ai')}
                         </h3>
                     </div>
                     <div className="space-y-4 p-6">
                         {/* Fallback Strategy */}
                         <div>
                             <label className="mb-1.5 block text-sm font-medium text-foreground">
-                                {__('Fallback Strategy', 'smart-woo-chatbot')}
+                                {__('Fallback Strategy', 'agentflow-ai')}
                             </label>
                             <select
                                 value={settings.search_fallback_strategy || 'original'}
                                 onChange={(e) => onChange('search_fallback_strategy', e.target.value)}
                                 className="h-10 w-full rounded-lg border border-border bg-card px-4 text-sm text-foreground transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                             >
-                                <option value="original">{__('Show original results if AI fails', 'smart-woo-chatbot')}</option>
-                                <option value="empty">{__('Show no results on failure', 'smart-woo-chatbot')}</option>
-                                <option value="cached">{__('Use last cached keywords', 'smart-woo-chatbot')}</option>
+                                <option value="original">{__('Show original results if AI fails', 'agentflow-ai')}</option>
+                                <option value="empty">{__('Show no results on failure', 'agentflow-ai')}</option>
+                                <option value="cached">{__('Use last cached keywords', 'agentflow-ai')}</option>
                             </select>
                         </div>
 
@@ -240,10 +240,10 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                         <div className="flex items-center justify-between">
                             <div>
                                 <div className="text-sm font-medium text-foreground">
-                                    {__('Enhance WooCommerce Search', 'smart-woo-chatbot')}
+                                    {__('Enhance WooCommerce Search', 'agentflow-ai')}
                                 </div>
                                 <div className="text-xs text-muted-foreground">
-                                    {__('Apply AI expansion to product search queries', 'smart-woo-chatbot')}
+                                    {__('Apply AI expansion to product search queries', 'agentflow-ai')}
                                 </div>
                             </div>
                             <label className="relative inline-flex cursor-pointer items-center">
@@ -261,10 +261,10 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                         <div className="flex items-center justify-between">
                             <div>
                                 <div className="text-sm font-medium text-foreground">
-                                    {__('Search Product Attributes', 'smart-woo-chatbot')}
+                                    {__('Search Product Attributes', 'agentflow-ai')}
                                 </div>
                                 <div className="text-xs text-muted-foreground">
-                                    {__('Include SKU, tags, and attributes in search', 'smart-woo-chatbot')}
+                                    {__('Include SKU, tags, and attributes in search', 'agentflow-ai')}
                                 </div>
                             </div>
                             <label className="relative inline-flex cursor-pointer items-center">
@@ -287,13 +287,13 @@ export default function SearchSettings({ settings, onChange, onSave, saving }) {
                     <div className="flex gap-3">
                         <span className="text-xl"></span>
                         <div className="text-sm text-foreground">
-                            <p className="mb-2 font-semibold">{__('How AI Search Enhancement Works', 'smart-woo-chatbot')}</p>
+                            <p className="mb-2 font-semibold">{__('How AI Search Enhancement Works', 'agentflow-ai')}</p>
                             <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-                                <li>{__('When a user searches your site, the AI generates related keywords', 'smart-woo-chatbot')}</li>
-                                <li>{__('These keywords are added to the search query automatically', 'smart-woo-chatbot')}</li>
-                                <li>{__('Results are cached to avoid repeated AI calls for the same query', 'smart-woo-chatbot')}</li>
-                                <li>{__('Uses the internal Search Agent — no additional configuration needed', 'smart-woo-chatbot')}</li>
-                                <li>{__('Add custom synonyms to always include specific related terms', 'smart-woo-chatbot')}</li>
+                                <li>{__('When a user searches your site, the AI generates related keywords', 'agentflow-ai')}</li>
+                                <li>{__('These keywords are added to the search query automatically', 'agentflow-ai')}</li>
+                                <li>{__('Results are cached to avoid repeated AI calls for the same query', 'agentflow-ai')}</li>
+                                <li>{__('Uses the internal Search Agent — no additional configuration needed', 'agentflow-ai')}</li>
+                                <li>{__('Add custom synonyms to always include specific related terms', 'agentflow-ai')}</li>
                             </ul>
                         </div>
                     </div>

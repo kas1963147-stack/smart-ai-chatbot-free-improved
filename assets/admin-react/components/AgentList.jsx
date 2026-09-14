@@ -43,12 +43,12 @@ export default function AgentList({
 					<Icon icon={settings} size={32} className="text-gray-400 dark:text-slate-500" />
 				</div>
 				<h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-					{__('No Agents Yet', 'smart-woo-chatbot')}
+					{__('No Agents Yet', 'agentflow-ai')}
 				</h3>
 				<p className="text-gray-500 dark:text-slate-400 text-center max-w-md">
 					{__(
 						'Create your first AI agent to get started. Choose from templates or build a custom agent.',
-						'smart-woo-chatbot'
+						'agentflow-ai'
 					)}
 				</p>
 			</div>
@@ -78,7 +78,7 @@ export default function AgentList({
 						<Icon icon={searchIcon} size={24} className="text-gray-400 dark:text-slate-500" />
 					</div>
 					<p className="text-gray-500 dark:text-slate-400">
-						{__('No agents found matching', 'smart-woo-chatbot')}{' '}
+						{__('No agents found matching', 'agentflow-ai')}{' '}
 						<span className="font-medium text-gray-700 dark:text-slate-300">"{searchQuery}"</span>
 					</p>
 				</div>

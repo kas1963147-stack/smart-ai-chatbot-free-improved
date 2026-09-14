@@ -34,40 +34,45 @@ class McpServer
      */
     public static function registerRoutes(): void
     {
-        // SSE endpoint
-        register_rest_route(self::NAMESPACE , '/sse', [
-            'methods' => 'GET',
-            'callback' => [self::class, 'handleSseConnection'],
-            'permission_callback' => [self::class, 'checkBearerToken'],
-        ]);
+        $namespaces = ['quark-agentflow-ai/v1', 'agentflow-ai/v1', 'smart-ai-chatbot/v1', self::NAMESPACE];
+        foreach ($namespaces as $ns) {
+            $prefix = ($ns === 'quark-agentflow-ai/v1' || $ns === 'agentflow-ai/v1' || $ns === 'smart-ai-chatbot/v1') ? '/mcp' : '';
 
-        // Messages endpoint (alternative to POST to /sse)
-        register_rest_route(self::NAMESPACE , '/messages', [
-            'methods' => 'POST',
-            'callback' => [self::class, 'handleMessage'],
-            'permission_callback' => [self::class, 'checkBearerToken'],
-        ]);
+            // SSE endpoint
+            register_rest_route($ns, $prefix . '/sse', [
+                'methods' => 'GET',
+                'callback' => [self::class, 'handleSseConnection'],
+                'permission_callback' => [self::class, 'checkBearerToken'],
+            ]);
 
-        // POST to SSE (some clients send JSON-RPC here)
-        register_rest_route(self::NAMESPACE , '/sse', [
-            'methods' => 'POST',
-            'callback' => [self::class, 'handleMessage'],
-            'permission_callback' => [self::class, 'checkBearerToken'],
-        ]);
+            // Messages endpoint (alternative to POST to /sse)
+            register_rest_route($ns, $prefix . '/messages', [
+                'methods' => 'POST',
+                'callback' => [self::class, 'handleMessage'],
+                'permission_callback' => [self::class, 'checkBearerToken'],
+            ]);
 
-        // No-auth SSE endpoint (token in URL)
-        register_rest_route(self::NAMESPACE , '/(?P<token>[a-zA-Z0-9_]+)/sse', [
-            'methods' => 'GET',
-            'callback' => [self::class, 'handleSseConnection'],
-            'permission_callback' => [self::class, 'checkUrlToken'],
-        ]);
+            // POST to SSE (some clients send JSON-RPC here)
+            register_rest_route($ns, $prefix . '/sse', [
+                'methods' => 'POST',
+                'callback' => [self::class, 'handleMessage'],
+                'permission_callback' => [self::class, 'checkBearerToken'],
+            ]);
 
-        // No-auth messages endpoint
-        register_rest_route(self::NAMESPACE , '/(?P<token>[a-zA-Z0-9_]+)/messages', [
-            'methods' => 'POST',
-            'callback' => [self::class, 'handleMessage'],
-            'permission_callback' => [self::class, 'checkUrlToken'],
-        ]);
+            // No-auth SSE endpoint (token in URL)
+            register_rest_route($ns, $prefix . '/(?P<token>[a-zA-Z0-9_]+)/sse', [
+                'methods' => 'GET',
+                'callback' => [self::class, 'handleSseConnection'],
+                'permission_callback' => [self::class, 'checkUrlToken'],
+            ]);
+
+            // No-auth messages endpoint
+            register_rest_route($ns, $prefix . '/(?P<token>[a-zA-Z0-9_]+)/messages', [
+                'methods' => 'POST',
+                'callback' => [self::class, 'handleMessage'],
+                'permission_callback' => [self::class, 'checkUrlToken'],
+            ]);
+        }
     }
 
     /**
@@ -157,7 +162,7 @@ class McpServer
             if ($session && !empty($session['messages'])) {
                 foreach ($session['messages'] as $message) {
                     echo "event: message\n";
-                    echo "data: " . json_encode($message) . "\n\n";
+                    echo "data: " . wp_json_encode($message) . "\n\n";
                 }
 
                 // Clear processed messages

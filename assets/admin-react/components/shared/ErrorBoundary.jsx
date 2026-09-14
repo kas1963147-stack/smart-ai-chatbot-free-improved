@@ -83,13 +83,13 @@ export default class ErrorBoundary extends Component {
 						<h2 className="swc-error-boundary__title">
 							{ __(
 								'Something went wrong',
-								'smart-woo-chatbot'
+								'agentflow-ai'
 							) }
 						</h2>
 						<p className="swc-error-boundary__message">
 							{ __(
 								'An error occurred in the admin panel. You can try reloading the page or reset this section.',
-								'smart-woo-chatbot'
+								'agentflow-ai'
 							) }
 						</p>
 
@@ -98,7 +98,7 @@ export default class ErrorBoundary extends Component {
 									<summary>
 										{ __(
 											'Error Details',
-											'smart-woo-chatbot'
+											'agentflow-ai'
 										) }
 									</summary>
 									<pre className="swc-code-block swc-code-block--error">
@@ -113,13 +113,13 @@ export default class ErrorBoundary extends Component {
 								variant="primary"
 								onClick={ this.handleReload }
 							>
-								{ __( 'Reload Page', 'smart-woo-chatbot' ) }
+								{ __( 'Reload Page', 'agentflow-ai' ) }
 							</Button>
 							<Button
 								variant="secondary"
 								onClick={ this.handleReset }
 							>
-								{ __( 'Try Again', 'smart-woo-chatbot' ) }
+								{ __( 'Try Again', 'agentflow-ai' ) }
 							</Button>
 						</div>
 					</div>

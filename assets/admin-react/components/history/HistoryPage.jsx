@@ -156,7 +156,7 @@ export default function HistoryPage() {
 
 	// Delete session
 	const handleDeleteSession = async (sessionId) => {
-		if (!confirm(__('Are you sure you want to delete this session?', 'smart-woo-chatbot'))) {
+		if (!confirm(__('Are you sure you want to delete this session?', 'agentflow-ai'))) {
 			return;
 		}
 
@@ -205,10 +205,10 @@ export default function HistoryPage() {
 							onChange={(e) => setPeriod(e.target.value)}
 							className="h-10 px-4 text-sm rounded-xl border border-gray-200 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer"
 						>
-							<option value="today">{__('Today', 'smart-woo-chatbot')}</option>
-							<option value="7d">{__('Last 7 days', 'smart-woo-chatbot')}</option>
-							<option value="30d">{__('Last 30 days', 'smart-woo-chatbot')}</option>
-							<option value="90d">{__('Last 90 days', 'smart-woo-chatbot')}</option>
+							<option value="today">{__('Today', 'agentflow-ai')}</option>
+							<option value="7d">{__('Last 7 days', 'agentflow-ai')}</option>
+							<option value="30d">{__('Last 30 days', 'agentflow-ai')}</option>
+							<option value="90d">{__('Last 90 days', 'agentflow-ai')}</option>
 						</select>
 					</div>
 				)}
@@ -224,7 +224,7 @@ export default function HistoryPage() {
 							</svg>
 						</div>
 						<div>
-							<p className="font-medium text-red-800 dark:text-red-300">{__('Error', 'smart-woo-chatbot')}</p>
+							<p className="font-medium text-red-800 dark:text-red-300">{__('Error', 'agentflow-ai')}</p>
 							<p className="text-sm text-red-600 dark:text-red-400">{error}</p>
 						</div>
 					</div>
@@ -241,7 +241,7 @@ export default function HistoryPage() {
 							<div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full"></div>
 							<div className="relative flex items-start justify-between">
 								<div>
-									<p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{__('Tool Calls', 'smart-woo-chatbot')}</p>
+									<p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{__('Tool Calls', 'agentflow-ai')}</p>
 									<p className="text-3xl font-bold text-slate-900 dark:text-white">
 										{stats.summary?.total_tool_calls?.toLocaleString() || 0}
 									</p>
@@ -251,7 +251,7 @@ export default function HistoryPage() {
 								</div>
 							</div>
 							<div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700">
-								<span className="text-xs text-slate-400 dark:text-slate-500">{__('Total executions in period', 'smart-woo-chatbot')}</span>
+								<span className="text-xs text-slate-400 dark:text-slate-500">{__('Total executions in period', 'agentflow-ai')}</span>
 							</div>
 						</div>
 
@@ -260,7 +260,7 @@ export default function HistoryPage() {
 							<div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full"></div>
 							<div className="relative flex items-start justify-between">
 								<div>
-									<p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{__('Success Rate', 'smart-woo-chatbot')}</p>
+									<p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{__('Success Rate', 'agentflow-ai')}</p>
 									<p className="text-3xl font-bold text-primary">
 										{stats.summary?.success_rate || 0}%
 									</p>
@@ -284,7 +284,7 @@ export default function HistoryPage() {
 							<div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full"></div>
 							<div className="relative flex items-start justify-between">
 								<div>
-									<p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{__('Total Sessions', 'smart-woo-chatbot')}</p>
+									<p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{__('Total Sessions', 'agentflow-ai')}</p>
 									<p className="text-3xl font-bold text-slate-900 dark:text-white">{total.toLocaleString()}</p>
 								</div>
 								<div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-primary text-white">
@@ -292,7 +292,7 @@ export default function HistoryPage() {
 								</div>
 							</div>
 							<div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700">
-								<span className="text-xs text-slate-400 dark:text-slate-500">{__('Active conversations', 'smart-woo-chatbot')}</span>
+								<span className="text-xs text-slate-400 dark:text-slate-500">{__('Active conversations', 'agentflow-ai')}</span>
 							</div>
 						</div>
 
@@ -300,16 +300,16 @@ export default function HistoryPage() {
 						<div className="group relative overflow-hidden bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm hover:shadow-lg hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-300">
 							<div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-bl-full"></div>
 							<div className="relative">
-								<p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-3">{__('Quick Stats', 'smart-woo-chatbot')}</p>
+								<p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-3">{__('Quick Stats', 'agentflow-ai')}</p>
 								<div className="space-y-3">
 									<div className="flex items-center justify-between">
-										<span className="text-sm text-slate-600 dark:text-slate-300">{__('Successful', 'smart-woo-chatbot')}</span>
+										<span className="text-sm text-slate-600 dark:text-slate-300">{__('Successful', 'agentflow-ai')}</span>
 										<span className="text-sm font-semibold text-green-600 dark:text-green-400">
 											{stats.summary?.successful_calls?.toLocaleString() || 0}
 										</span>
 									</div>
 									<div className="flex items-center justify-between">
-										<span className="text-sm text-slate-600 dark:text-slate-300">{__('Failed', 'smart-woo-chatbot')}</span>
+										<span className="text-sm text-slate-600 dark:text-slate-300">{__('Failed', 'agentflow-ai')}</span>
 										<span className="text-sm font-semibold text-red-600 dark:text-red-400">
 											{stats.summary?.failed_calls?.toLocaleString() || 0}
 										</span>

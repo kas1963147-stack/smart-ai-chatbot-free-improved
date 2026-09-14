@@ -108,7 +108,7 @@ export default function SettingsPage() {
 
 
 	if (loading) {
-		return <Loading message={__('Loading settings...', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading settings...', 'agentflow-ai')} fullPage />;
 	}
 
 	return (
@@ -134,7 +134,7 @@ export default function SettingsPage() {
 					disabled={saving}
 					className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors disabled:opacity-50"
 				>
-					{saving ? __('Saving...', 'smart-woo-chatbot') : __('Save Settings', 'smart-woo-chatbot')}
+					{saving ? __('Saving...', 'agentflow-ai') : __('Save Settings', 'agentflow-ai')}
 				</button>
 			</div>
 
@@ -161,8 +161,8 @@ export default function SettingsPage() {
 								<h4 className="text-base font-medium text-gray-900 dark:text-white mb-4">AI Settings</h4>
 								<div className="flex items-center justify-between mb-4">
 									<div>
-										<div className="text-sm font-medium text-gray-900 dark:text-white">{__('Enable AI Responses', 'smart-woo-chatbot')}</div>
-										<div className="text-sm text-gray-500 dark:text-slate-400">{__('Use AI to generate chatbot responses', 'smart-woo-chatbot')}</div>
+										<div className="text-sm font-medium text-gray-900 dark:text-white">{__('Enable AI Responses', 'agentflow-ai')}</div>
+										<div className="text-sm text-gray-500 dark:text-slate-400">{__('Use AI to generate chatbot responses', 'agentflow-ai')}</div>
 									</div>
 									<label className="relative inline-flex items-center cursor-pointer">
 										<input
@@ -180,7 +180,7 @@ export default function SettingsPage() {
 								<h4 className="text-base font-medium text-gray-900 dark:text-white mb-4">Admin Theme</h4>
 								<div className="flex items-center justify-between">
 									<div>
-										<div className="text-sm font-medium text-gray-900 dark:text-white">{__('Dark Mode', 'smart-woo-chatbot')}</div>
+										<div className="text-sm font-medium text-gray-900 dark:text-white">{__('Dark Mode', 'agentflow-ai')}</div>
 									</div>
 									<label className="relative inline-flex items-center cursor-pointer">
 										<input
@@ -202,7 +202,7 @@ export default function SettingsPage() {
 							</div>
 
 							<div className="flex items-center justify-between">
-								<div className="text-sm font-medium text-gray-900 dark:text-white">{__('Enable Logging', 'smart-woo-chatbot')}</div>
+								<div className="text-sm font-medium text-gray-900 dark:text-white">{__('Enable Logging', 'agentflow-ai')}</div>
 								<label className="relative inline-flex items-center cursor-pointer">
 									<input
 										type="checkbox"
@@ -215,7 +215,7 @@ export default function SettingsPage() {
 							</div>
 
 							<div className="flex items-center justify-between">
-								<div className="text-sm font-medium text-gray-900 dark:text-white">{__('Enable Streaming', 'smart-woo-chatbot')}</div>
+								<div className="text-sm font-medium text-gray-900 dark:text-white">{__('Enable Streaming', 'agentflow-ai')}</div>
 								<label className="relative inline-flex items-center cursor-pointer">
 									<input
 										type="checkbox"

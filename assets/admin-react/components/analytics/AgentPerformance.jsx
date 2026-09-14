@@ -61,7 +61,7 @@ export default function AgentPerformance({ period }) {
 	if (loading) {
 		return (
 			<div className="flex flex-col items-center justify-center py-12 gap-4">
-				<Loading message={__('Loading agent performance...', 'smart-woo-chatbot')} />
+				<Loading message={__('Loading agent performance...', 'agentflow-ai')} />
 			</div>
 		);
 	}
@@ -72,8 +72,8 @@ export default function AgentPerformance({ period }) {
 				<div className="w-16 h-16 bg-gray-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
 					<Bot className="w-8 h-8 text-gray-400 dark:text-slate-500" />
 				</div>
-				<p className="text-sm text-gray-500 dark:text-slate-400">{__('No agent data available', 'smart-woo-chatbot')}</p>
-				<p className="text-xs text-gray-400 dark:text-slate-500 mt-1">{__('Agent metrics will appear as they are used', 'smart-woo-chatbot')}</p>
+				<p className="text-sm text-gray-500 dark:text-slate-400">{__('No agent data available', 'agentflow-ai')}</p>
+				<p className="text-xs text-gray-400 dark:text-slate-500 mt-1">{__('Agent metrics will appear as they are used', 'agentflow-ai')}</p>
 			</div>
 		);
 	}
@@ -104,7 +104,7 @@ export default function AgentPerformance({ period }) {
 							viewMode === 'cards' ? 'bg-white dark:bg-slate-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-slate-400'
 						)}
 					>
-						{__('Cards', 'smart-woo-chatbot')}
+						{__('Cards', 'agentflow-ai')}
 					</button>
 					<button
 						onClick={() => setViewMode('table')}
@@ -113,11 +113,11 @@ export default function AgentPerformance({ period }) {
 							viewMode === 'table' ? 'bg-white dark:bg-slate-600 text-gray-900 dark:text-white shadow-sm' : 'text-gray-500 dark:text-slate-400'
 						)}
 					>
-						{__('Table', 'smart-woo-chatbot')}
+						{__('Table', 'agentflow-ai')}
 					</button>
 				</div>
 				<p className="text-sm text-gray-500 dark:text-slate-400">
-					{data.length} {__('agents', 'smart-woo-chatbot')}
+					{data.length} {__('agents', 'agentflow-ai')}
 				</p>
 			</div>
 
@@ -157,10 +157,10 @@ export default function AgentPerformance({ period }) {
 									</div>
 									<div className="flex-1 min-w-0">
 										<h4 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
-											{agent.agent_name || __('Unknown Agent', 'smart-woo-chatbot')}
+											{agent.agent_name || __('Unknown Agent', 'agentflow-ai')}
 										</h4>
 										<p className="text-xs text-gray-500 dark:text-slate-400">
-											{sessionShare.toFixed(1)}% {__('of total sessions', 'smart-woo-chatbot')}
+											{sessionShare.toFixed(1)}% {__('of total sessions', 'agentflow-ai')}
 										</p>
 									</div>
 								</div>
@@ -170,28 +170,28 @@ export default function AgentPerformance({ period }) {
 									<div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-3">
 										<div className="flex items-center gap-2 text-gray-500 dark:text-slate-400 mb-1">
 											<MessageSquare className="w-3.5 h-3.5" />
-											<span className="text-xs">{__('Sessions', 'smart-woo-chatbot')}</span>
+											<span className="text-xs">{__('Sessions', 'agentflow-ai')}</span>
 										</div>
 										<p className="text-lg font-bold text-gray-900 dark:text-white">{formatNumber(sessions)}</p>
 									</div>
 									<div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-3">
 										<div className="flex items-center gap-2 text-gray-500 dark:text-slate-400 mb-1">
 											<Activity className="w-3.5 h-3.5" />
-											<span className="text-xs">{__('Requests', 'smart-woo-chatbot')}</span>
+											<span className="text-xs">{__('Requests', 'agentflow-ai')}</span>
 										</div>
 										<p className="text-lg font-bold text-gray-900 dark:text-white">{formatNumber(requests)}</p>
 									</div>
 									<div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-3">
 										<div className="flex items-center gap-2 text-gray-500 dark:text-slate-400 mb-1">
 											<DollarSign className="w-3.5 h-3.5" />
-											<span className="text-xs">{__('Cost', 'smart-woo-chatbot')}</span>
+											<span className="text-xs">{__('Cost', 'agentflow-ai')}</span>
 										</div>
 										<p className="text-lg font-bold text-emerald-600">${cost.toFixed(4)}</p>
 									</div>
 									<div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-3">
 										<div className="flex items-center gap-2 text-gray-500 dark:text-slate-400 mb-1">
 											<Zap className="w-3.5 h-3.5" />
-											<span className="text-xs">{__('Latency', 'smart-woo-chatbot')}</span>
+											<span className="text-xs">{__('Latency', 'agentflow-ai')}</span>
 										</div>
 										<p className={cn(
 											'text-lg font-bold',
@@ -214,19 +214,19 @@ export default function AgentPerformance({ period }) {
 						<thead>
 							<tr className="bg-gray-50 dark:bg-slate-700 border-b border-gray-200 dark:border-slate-600">
 								<th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 dark:text-slate-300 uppercase tracking-wider">
-									{__('Agent', 'smart-woo-chatbot')}
+									{__('Agent', 'agentflow-ai')}
 								</th>
 								<th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 dark:text-slate-300 uppercase tracking-wider">
-									{__('Sessions', 'smart-woo-chatbot')}
+									{__('Sessions', 'agentflow-ai')}
 								</th>
 								<th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 dark:text-slate-300 uppercase tracking-wider">
-									{__('Requests', 'smart-woo-chatbot')}
+									{__('Requests', 'agentflow-ai')}
 								</th>
 								<th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 dark:text-slate-300 uppercase tracking-wider">
-									{__('Cost', 'smart-woo-chatbot')}
+									{__('Cost', 'agentflow-ai')}
 								</th>
 								<th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 dark:text-slate-300 uppercase tracking-wider">
-									{__('Avg Latency', 'smart-woo-chatbot')}
+									{__('Avg Latency', 'agentflow-ai')}
 								</th>
 							</tr>
 						</thead>
@@ -244,7 +244,7 @@ export default function AgentPerformance({ period }) {
 												<Bot className="w-4 h-4 text-white" />
 											</div>
 											<span className="text-sm font-medium text-gray-900 dark:text-white">
-												{agent.agent_name || __('Unknown', 'smart-woo-chatbot')}
+												{agent.agent_name || __('Unknown', 'agentflow-ai')}
 											</span>
 										</div>
 									</td>

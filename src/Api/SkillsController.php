@@ -27,7 +27,7 @@ use Quarksol\SmartChatbot\Config\ChatbotConfig;
  */
 class SkillsController
 {
-    const NAMESPACE = 'smart-ai-chatbot/v1';
+    const NAMESPACE = 'quark-agentflow-ai/v1';
     
     /**
      * Register routes

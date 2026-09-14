@@ -27,7 +27,7 @@ use Quarksol\SmartChatbot\Documents\DocumentValidationException;
  */
 class DocumentsController
 {
-    const NAMESPACE = 'smart-ai-chatbot/v1';
+    const NAMESPACE = 'quark-agentflow-ai/v1';
     
     /**
      * Register routes

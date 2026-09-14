@@ -17,16 +17,16 @@ const TASK_TYPE_ICONS = {
 
 // Status Config
 const STATUS_CONFIG = {
-	active: { label: __('Active', 'smart-woo-chatbot'), class: 'bg-green-100 text-green-700' },
-	paused: { label: __('Paused', 'smart-woo-chatbot'), class: 'bg-yellow-100 text-yellow-700' },
-	completed: { label: __('Completed', 'smart-woo-chatbot'), class: 'bg-blue-100 text-blue-700' },
-	disabled: { label: __('Disabled', 'smart-woo-chatbot'), class: 'bg-gray-100 text-gray-500' },
+	active: { label: __('Active', 'agentflow-ai'), class: 'bg-green-100 text-green-700' },
+	paused: { label: __('Paused', 'agentflow-ai'), class: 'bg-yellow-100 text-yellow-700' },
+	completed: { label: __('Completed', 'agentflow-ai'), class: 'bg-blue-100 text-blue-700' },
+	disabled: { label: __('Disabled', 'agentflow-ai'), class: 'bg-gray-100 text-gray-500' },
 };
 
 const SCHEDULE_TYPE_LABELS = {
-	once: __('One-time', 'smart-woo-chatbot'),
-	recurring: __('Recurring', 'smart-woo-chatbot'),
-	cron: __('Cron', 'smart-woo-chatbot'),
+	once: __('One-time', 'agentflow-ai'),
+	recurring: __('Recurring', 'agentflow-ai'),
+	cron: __('Cron', 'agentflow-ai'),
 };
 
 export default function TaskList({
@@ -53,10 +53,10 @@ export default function TaskList({
 					</svg>
 				</div>
 				<h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-					{__('No Scheduled Tasks', 'smart-woo-chatbot')}
+					{__('No Scheduled Tasks', 'agentflow-ai')}
 				</h3>
 				<p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-					{__('Create your first scheduled task to automate agent workflows.', 'smart-woo-chatbot')}
+					{__('Create your first scheduled task to automate agent workflows.', 'agentflow-ai')}
 				</p>
 			</div>
 		);
@@ -64,13 +64,13 @@ export default function TaskList({
 
 	const formatNextRun = (dateStr, status) => {
 		if (status !== 'active') return '—';
-		if (!dateStr) return __('Not scheduled', 'smart-woo-chatbot');
+		if (!dateStr) return __('Not scheduled', 'agentflow-ai');
 
 		const date = new Date(dateStr);
 		const now = new Date();
 		const diffMs = date - now;
 
-		if (diffMs < 0) return __('Due now', 'smart-woo-chatbot');
+		if (diffMs < 0) return __('Due now', 'agentflow-ai');
 
 		const diffMins = Math.floor(diffMs / 60000);
 		if (diffMins < 60) return `${diffMins}m`;
@@ -137,11 +137,11 @@ export default function TaskList({
 							{/* Schedule Info */}
 							<div className="mt-4 grid grid-cols-2 gap-4">
 								<div>
-									<div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{__('Schedule', 'smart-woo-chatbot')}</div>
+									<div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{__('Schedule', 'agentflow-ai')}</div>
 									<div className="text-sm font-medium text-gray-700 dark:text-gray-300">{formatSchedule(task)}</div>
 								</div>
 								<div>
-									<div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{__('Next Run', 'smart-woo-chatbot')}</div>
+									<div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{__('Next Run', 'agentflow-ai')}</div>
 									<div className={`text-sm font-medium ${task.status === 'active' ? 'text-primary' : 'text-gray-400'}`}>
 										{formatNextRun(task.next_run_at, task.status)}
 									</div>
@@ -158,14 +158,14 @@ export default function TaskList({
 										<button
 											onClick={() => onRunNow(task.id)}
 											className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 dark:text-gray-400 hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
-											title={__('Run Now', 'smart-woo-chatbot')}
+											title={__('Run Now', 'agentflow-ai')}
 										>
 											
 										</button>
 										<button
 											onClick={() => onPause(task.id)}
 											className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 dark:text-gray-400 hover:text-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-500/10 transition-colors"
-											title={__('Pause', 'smart-woo-chatbot')}
+											title={__('Pause', 'agentflow-ai')}
 										>
 											
 										</button>
@@ -175,7 +175,7 @@ export default function TaskList({
 									<button
 										onClick={() => onResume(task.id)}
 										className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 dark:text-gray-400 hover:text-green-600 hover:bg-green-50 dark:hover:bg-green-500/10 transition-colors"
-										title={__('Resume', 'smart-woo-chatbot')}
+										title={__('Resume', 'agentflow-ai')}
 									>
 										
 									</button>
@@ -183,7 +183,7 @@ export default function TaskList({
 								<button
 									onClick={() => onViewHistory(task)}
 									className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 dark:text-gray-400 hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-colors"
-									title={__('History', 'smart-woo-chatbot')}
+									title={__('History', 'agentflow-ai')}
 								>
 
 								</button>
@@ -195,13 +195,13 @@ export default function TaskList({
 									onClick={() => onEdit(task)}
 									className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600 shadow-sm transition-colors"
 								>
-									{__('Edit', 'smart-woo-chatbot')}
+									{__('Edit', 'agentflow-ai')}
 								</button>
 								<button
 									onClick={() => onDelete(task.id)}
 									className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
 								>
-									{__('Delete', 'smart-woo-chatbot')}
+									{__('Delete', 'agentflow-ai')}
 								</button>
 							</div>
 						</div>

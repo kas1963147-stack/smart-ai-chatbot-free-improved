@@ -28,7 +28,7 @@ if (!defined('ABSPATH')) {
 class StreamController {
     
     /** API namespace */
-    const NAMESPACE = 'smart-ai-chatbot/v1';
+    const NAMESPACE = 'quark-agentflow-ai/v1';
     
     /**
      * Register REST routes

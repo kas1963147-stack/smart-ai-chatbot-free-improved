@@ -346,7 +346,7 @@ export default function InternalMcpManager({
             <div className="flex flex-col items-center justify-center py-12">
                 <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
                 <p className="text-gray-500">
-                    {__('Loading internal MCP tools...', 'smart-woo-chatbot')}
+                    {__('Loading internal MCP tools...', 'agentflow-ai')}
                 </p>
             </div>
         );
@@ -360,10 +360,10 @@ export default function InternalMcpManager({
                     <div className="flex items-center justify-between">
                         <div>
                             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                {__('Manage Tools', 'smart-woo-chatbot')}
+                                {__('Manage Tools', 'agentflow-ai')}
                             </h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400">
-                                {__('Select which tools to expose via the MCP server', 'smart-woo-chatbot')}
+                                {__('Select which tools to expose via the MCP server', 'agentflow-ai')}
                             </p>
                         </div>
                         <label className="relative inline-flex items-center cursor-pointer">
@@ -386,7 +386,7 @@ export default function InternalMcpManager({
                                 <TextField
                                     value={searchQuery}
                                     onChange={setSearchQuery}
-                                    placeholder={__('Search tools...', 'smart-woo-chatbot')}
+                                    placeholder={__('Search tools...', 'agentflow-ai')}
                                     className="w-full"
                                 />
                             </div>
@@ -396,14 +396,14 @@ export default function InternalMcpManager({
                                     size="sm"
                                     onClick={enableAllInView}
                                 >
-                                    {__('Enable All', 'smart-woo-chatbot')}
+                                    {__('Enable All', 'agentflow-ai')}
                                 </Button>
                                 <Button
                                     variant="secondary"
                                     size="sm"
                                     onClick={disableAllInView}
                                 >
-                                    {__('Disable All', 'smart-woo-chatbot')}
+                                    {__('Disable All', 'agentflow-ai')}
                                 </Button>
                             </div>
                         </div>
@@ -480,7 +480,7 @@ export default function InternalMcpManager({
                                                         )}
                                                     >
                                                         {enabledCount}/{tools.length}{' '}
-                                                        {__('tools', 'smart-woo-chatbot')}
+                                                        {__('tools', 'agentflow-ai')}
                                                     </span>
                                                 </div>
                                             </div>
@@ -556,7 +556,7 @@ export default function InternalMcpManager({
                                     {stats.enabled}
                                 </strong>{' '}
                                 / {stats.total}{' '}
-                                {__('tools enabled for this agent', 'smart-woo-chatbot')}
+                                {__('tools enabled for this agent', 'agentflow-ai')}
                             </span>
                         </div>
                     </div>
@@ -567,7 +567,7 @@ export default function InternalMcpManager({
                         <p>
                             {__(
                                 'Internal MCP tools are disabled for this agent. Enable to give the agent access to WordPress tools.',
-                                'smart-woo-chatbot'
+                                'agentflow-ai'
                             )}
                         </p>
                     </div>

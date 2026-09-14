@@ -2020,7 +2020,7 @@ const ChatWidget = forwardRef(function ChatWidget({ config, onOpenChange }, ref)
 
     return (
         <div
-            id="smart-ai-chatbot"
+            id="agentflow-ai"
             className="fixed z-[2147483647]"
             style={{
                 bottom: '24px',

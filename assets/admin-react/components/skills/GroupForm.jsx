@@ -72,11 +72,11 @@ export default function GroupForm({ group, onSave, onCancel }) {
 		if (!formData.name.trim()) {
 			newErrors.name = __(
 				'Group name is required',
-				'smart-woo-chatbot'
+				'agentflow-ai'
 			);
 		}
 		if (!formData.id.trim()) {
-			newErrors.id = __('Group ID is required', 'smart-woo-chatbot');
+			newErrors.id = __('Group ID is required', 'agentflow-ai');
 		}
 
 		setErrors(newErrors);
@@ -105,8 +105,8 @@ export default function GroupForm({ group, onSave, onCancel }) {
 			<div className="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-gray-700">
 				<h3 className="text-xl font-bold text-gray-900 dark:text-white m-0">
 					{isNew
-						? __('Create Group', 'smart-woo-chatbot')
-						: __('Edit Group', 'smart-woo-chatbot')}
+						? __('Create Group', 'agentflow-ai')
+						: __('Edit Group', 'agentflow-ai')}
 				</h3>
 			</div>
 
@@ -121,7 +121,7 @@ export default function GroupForm({ group, onSave, onCancel }) {
 
 			<div>
 				<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5 flex items-center gap-1">
-					{__('Group Name', 'smart-woo-chatbot')}
+					{__('Group Name', 'agentflow-ai')}
 					<span className="text-red-500" title="Required">*</span>
 				</label>
 				<input
@@ -130,7 +130,7 @@ export default function GroupForm({ group, onSave, onCancel }) {
 						}`}
 					value={formData.name}
 					onChange={(e) => updateField('name', e.target.value)}
-					placeholder={__('e.g., Sales Skills', 'smart-woo-chatbot')}
+					placeholder={__('e.g., Sales Skills', 'agentflow-ai')}
 				/>
 				{errors.name && (
 					<p className="mt-1.5 text-xs font-medium text-red-500">{errors.name}</p>
@@ -139,7 +139,7 @@ export default function GroupForm({ group, onSave, onCancel }) {
 
 			<div>
 				<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5 flex items-center gap-1">
-					{__('Group ID', 'smart-woo-chatbot')}
+					{__('Group ID', 'agentflow-ai')}
 					<span className="text-red-500" title="Required">*</span>
 				</label>
 				<input
@@ -153,28 +153,28 @@ export default function GroupForm({ group, onSave, onCancel }) {
 				/>
 				<p className="mt-1.5 text-xs text-gray-500 dark:text-gray-400">
 					{isNew
-						? __('Auto-generated unique identifier', 'smart-woo-chatbot')
-						: __('Cannot be changed', 'smart-woo-chatbot')}
+						? __('Auto-generated unique identifier', 'agentflow-ai')
+						: __('Cannot be changed', 'agentflow-ai')}
 				</p>
 			</div>
 
 			<div>
 				<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-					{__('Description', 'smart-woo-chatbot')}
+					{__('Description', 'agentflow-ai')}
 				</label>
 				<textarea
 					className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm dark:bg-gray-800 dark:text-white transition-colors resize-y"
 					value={formData.description}
 					onChange={(e) => updateField('description', e.target.value)}
 					rows={3}
-					placeholder={__('What kind of skills does this group contain?', 'smart-woo-chatbot')}
+					placeholder={__('What kind of skills does this group contain?', 'agentflow-ai')}
 				/>
 			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50/50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-200 dark:border-gray-700">
 				<div>
 					<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-						{__('Icon', 'smart-woo-chatbot')}
+						{__('Icon', 'agentflow-ai')}
 					</label>
 					<div className="flex flex-wrap gap-2">
 						{PRESET_ICONS.map((icon) => (
@@ -195,7 +195,7 @@ export default function GroupForm({ group, onSave, onCancel }) {
 
 				<div>
 					<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-						{__('Color', 'smart-woo-chatbot')}
+						{__('Color', 'agentflow-ai')}
 					</label>
 					<div className="flex flex-wrap gap-2">
 						{PRESET_COLORS.map((color) => (
@@ -218,7 +218,7 @@ export default function GroupForm({ group, onSave, onCancel }) {
 
 			<div>
 				<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-					{__('Order', 'smart-woo-chatbot')}
+					{__('Order', 'agentflow-ai')}
 				</label>
 				<input
 					type="number"
@@ -228,7 +228,7 @@ export default function GroupForm({ group, onSave, onCancel }) {
 					step={1}
 				/>
 				<p className="mt-1.5 text-xs text-gray-500 dark:text-gray-400">
-					{__('Lower numbers appear first', 'smart-woo-chatbot')}
+					{__('Lower numbers appear first', 'agentflow-ai')}
 				</p>
 			</div>
 
@@ -239,7 +239,7 @@ export default function GroupForm({ group, onSave, onCancel }) {
 					onClick={onCancel}
 					disabled={saving}
 				>
-					{__('Cancel', 'smart-woo-chatbot')}
+					{__('Cancel', 'agentflow-ai')}
 				</button>
 				<button
 					type="submit"
@@ -253,10 +253,10 @@ export default function GroupForm({ group, onSave, onCancel }) {
 						</svg>
 					)}
 					{saving
-						? __('Saving…', 'smart-woo-chatbot')
+						? __('Saving…', 'agentflow-ai')
 						: isNew
-							? __('Create Group', 'smart-woo-chatbot')
-							: __('Update Group', 'smart-woo-chatbot')}
+							? __('Create Group', 'agentflow-ai')
+							: __('Update Group', 'agentflow-ai')}
 				</button>
 			</div>
 		</form>

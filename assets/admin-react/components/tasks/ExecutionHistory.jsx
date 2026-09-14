@@ -78,7 +78,7 @@ export default function ExecutionHistory({ task }) {
 			<div className="flex flex-col items-center justify-center py-12">
 				<div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
 				<p className="text-sm text-gray-500">
-					{__('Loading execution history…', 'smart-woo-chatbot')}
+					{__('Loading execution history…', 'agentflow-ai')}
 				</p>
 			</div>
 		);
@@ -89,12 +89,12 @@ export default function ExecutionHistory({ task }) {
 			<div className="swc-empty-state">
 				<div className="swc-empty-state__icon"></div>
 				<h3 className="swc-empty-state__title">
-					{__('No Execution History', 'smart-woo-chatbot')}
+					{__('No Execution History', 'agentflow-ai')}
 				</h3>
 				<p className="swc-empty-state__description">
 					{__(
 						'This task has not been executed yet.',
-						'smart-woo-chatbot'
+						'agentflow-ai'
 					)}
 				</p>
 			</div>
@@ -166,7 +166,7 @@ export default function ExecutionHistory({ task }) {
 			{ /* Execution Detail Modal */}
 			{selectedExecution && (
 				<Modal
-					title={__('Execution Details', 'smart-woo-chatbot')}
+					title={__('Execution Details', 'agentflow-ai')}
 					isOpen={!!selectedExecution}
 					onClose={() => setSelectedExecution(null)}
 					className="swc-modal swc-execution-modal"
@@ -175,7 +175,7 @@ export default function ExecutionHistory({ task }) {
 							variant="secondary"
 							onClick={() => setSelectedExecution(null)}
 						>
-							{__('Close', 'smart-woo-chatbot')}
+							{__('Close', 'agentflow-ai')}
 						</Button>
 					}
 				>
@@ -185,7 +185,7 @@ export default function ExecutionHistory({ task }) {
 								<strong>
 									{__(
 										'Execution ID:',
-										'smart-woo-chatbot'
+										'agentflow-ai'
 									)}
 								</strong>
 								<code className="swc-code">
@@ -194,7 +194,7 @@ export default function ExecutionHistory({ task }) {
 							</div>
 							<div className="swc-detail-row">
 								<strong>
-									{__('Status:', 'smart-woo-chatbot')}
+									{__('Status:', 'agentflow-ai')}
 								</strong>
 								<span
 									style={{
@@ -217,7 +217,7 @@ export default function ExecutionHistory({ task }) {
 							</div>
 							<div className="swc-detail-row">
 								<strong>
-									{__('Started:', 'smart-woo-chatbot')}
+									{__('Started:', 'agentflow-ai')}
 								</strong>
 								<span>
 									{formatDate(
@@ -227,7 +227,7 @@ export default function ExecutionHistory({ task }) {
 							</div>
 							<div className="swc-detail-row">
 								<strong>
-									{__('Completed:', 'smart-woo-chatbot')}
+									{__('Completed:', 'agentflow-ai')}
 								</strong>
 								<span>
 									{formatDate(
@@ -237,7 +237,7 @@ export default function ExecutionHistory({ task }) {
 							</div>
 							<div className="swc-detail-row">
 								<strong>
-									{__('Duration:', 'smart-woo-chatbot')}
+									{__('Duration:', 'agentflow-ai')}
 								</strong>
 								<span>
 									{formatDuration(
@@ -250,7 +250,7 @@ export default function ExecutionHistory({ task }) {
 									<strong>
 										{__(
 											'Tokens Used:',
-											'smart-woo-chatbot'
+											'agentflow-ai'
 										)}
 									</strong>
 									<span>
@@ -263,7 +263,7 @@ export default function ExecutionHistory({ task }) {
 						{selectedExecution.error_message && (
 							<div className="swc-detail-section">
 								<strong>
-									{__('Error:', 'smart-woo-chatbot')}
+									{__('Error:', 'agentflow-ai')}
 								</strong>
 								<pre className="swc-code-block swc-code-block--error">
 									{selectedExecution.error_message}
@@ -274,7 +274,7 @@ export default function ExecutionHistory({ task }) {
 						{selectedExecution.result && (
 							<div className="swc-detail-section">
 								<strong>
-									{__('Result:', 'smart-woo-chatbot')}
+									{__('Result:', 'agentflow-ai')}
 								</strong>
 								<pre className="swc-code-block">
 									{JSON.stringify(

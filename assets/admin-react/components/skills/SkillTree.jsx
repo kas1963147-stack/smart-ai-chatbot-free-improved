@@ -53,7 +53,7 @@ const buildTree = (skills, groups) => {
 		tree.push({
 			type: 'group',
 			id: 'ungrouped',
-			name: __('Ungrouped', 'smart-woo-chatbot'),
+			name: __('Ungrouped', 'agentflow-ai'),
 			icon: '',
 			color: '#6b7280',
 			children: byGroup.ungrouped,
@@ -97,7 +97,7 @@ export default function SkillTree({
 					<svg className="w-8 h-8 mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
 					</svg>
-					{__('No skills or groups yet', 'smart-woo-chatbot')}
+					{__('No skills or groups yet', 'agentflow-ai')}
 				</div>
 			)}
 		</div>

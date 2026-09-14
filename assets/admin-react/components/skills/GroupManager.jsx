@@ -44,7 +44,7 @@ export default function GroupManager() {
 			confirm(
 				__(
 					'Are you sure you want to delete this team? All member agents will be unassigned.',
-					'smart-woo-chatbot'
+					'agentflow-ai'
 				)
 			)
 		) {
@@ -106,13 +106,13 @@ export default function GroupManager() {
 		<div className="space-y-6">
 			<div className="flex justify-between items-center mb-6">
 				<h3 className="text-xl font-bold text-gray-900 dark:text-white m-0">
-					{__('Agent Teams', 'smart-woo-chatbot')}
+					{__('Agent Teams', 'agentflow-ai')}
 				</h3>
 				<button
 					className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
 					onClick={handleCreate}
 				>
-					{__('Create Team', 'smart-woo-chatbot')}
+					{__('Create Team', 'agentflow-ai')}
 				</button>
 			</div>
 

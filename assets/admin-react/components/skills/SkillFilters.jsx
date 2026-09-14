@@ -36,7 +36,7 @@ export default function SkillFilters({
 	const categoryOptions = useMemo(() => {
 		if (categories) {
 			const opts = [
-				{ id: 'all', label: __('All Categories', 'smart-woo-chatbot') },
+				{ id: 'all', label: __('All Categories', 'agentflow-ai') },
 			];
 
 			if (Array.isArray(categories) && categories.length > 0) {
@@ -89,7 +89,7 @@ export default function SkillFilters({
 						type="text"
 						value={filters.search || ''}
 						onChange={(e) => updateFilter('search', e.target.value)}
-						placeholder={__('Search skills…', 'smart-woo-chatbot')}
+						placeholder={__('Search skills…', 'agentflow-ai')}
 						className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
 					/>
 				</div>
@@ -126,7 +126,7 @@ export default function SkillFilters({
 						onClick={clearFilters}
 						className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
 					>
-						{__('Clear', 'smart-woo-chatbot')}
+						{__('Clear', 'agentflow-ai')}
 					</button>
 				)}
 			</div>

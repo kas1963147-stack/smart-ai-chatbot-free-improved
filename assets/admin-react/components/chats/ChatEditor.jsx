@@ -24,19 +24,19 @@ import {
 import { TEMPLATES } from '../appearance/theme-templates';
 
 const POSITION_OPTIONS = [
-	{ value: 'left', label: __('Bottom Left', 'smart-woo-chatbot'), icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 13l-5 5m0 0l-5-5m5 5V6" /></svg> },
-	{ value: 'right', label: __('Bottom Right', 'smart-woo-chatbot'), icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 13l-5 5m0 0l-5-5m5 5V6" /></svg> },
+	{ value: 'left', label: __('Bottom Left', 'agentflow-ai'), icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 13l-5 5m0 0l-5-5m5 5V6" /></svg> },
+	{ value: 'right', label: __('Bottom Right', 'agentflow-ai'), icon: <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 13l-5 5m0 0l-5-5m5 5V6" /></svg> },
 ];
 
 // Tab configuration with icons
 const SECTION_CONFIG = [
-	{ id: 'basic', label: __('Basic', 'smart-woo-chatbot'), icon: 'M11 5H6a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 013 3L12 15.5l-4 1 1-4L18.5 2.5z' },
-	{ id: 'appearance', label: __('Appearance', 'smart-woo-chatbot'), icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828L15.314 13.5' },
-	{ id: 'behavior', label: __('Behavior', 'smart-woo-chatbot'), icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
-	{ id: 'display', label: __('Display', 'smart-woo-chatbot'), icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
-	{ id: 'engagement', label: __('Engagement', 'smart-woo-chatbot'), icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z' },
-	{ id: 'bubble', label: __('Bubble', 'smart-woo-chatbot'), icon: 'M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
-	{ id: 'controls', label: __('Controls', 'smart-woo-chatbot'), icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
+	{ id: 'basic', label: __('Basic', 'agentflow-ai'), icon: 'M11 5H6a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5M18.5 2.5a2.121 2.121 0 013 3L12 15.5l-4 1 1-4L18.5 2.5z' },
+	{ id: 'appearance', label: __('Appearance', 'agentflow-ai'), icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828L15.314 13.5' },
+	{ id: 'behavior', label: __('Behavior', 'agentflow-ai'), icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z' },
+	{ id: 'display', label: __('Display', 'agentflow-ai'), icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+	{ id: 'engagement', label: __('Engagement', 'agentflow-ai'), icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z' },
+	{ id: 'bubble', label: __('Bubble', 'agentflow-ai'), icon: 'M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+	{ id: 'controls', label: __('Controls', 'agentflow-ai'), icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
 ];
 
 // Default appearance state
@@ -235,7 +235,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 			session_persistence: true,
 			rate_limiting_enabled: false,
 			rate_limit_per_minute: 10,
-			powered_by: true,
+			powered_by: false,
 			custom_css: '',
 			post_chat_rating: false,
 			email_transcript: false,
@@ -396,7 +396,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 	const validate = () => {
 		const nextErrors = {};
 		if (!formData.name.trim()) {
-			nextErrors.name = __('Name is required', 'smart-woo-chatbot');
+			nextErrors.name = __('Name is required', 'agentflow-ai');
 		}
 		setErrors(nextErrors);
 
@@ -436,10 +436,10 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 								</div>
 								<div>
 									<h2 className="text-lg font-semibold text-slate-900">
-										{widget ? __('Edit Widget', 'smart-woo-chatbot') : __('Create New Widget', 'smart-woo-chatbot')}
+										{widget ? __('Edit Widget', 'agentflow-ai') : __('Create New Widget', 'agentflow-ai')}
 									</h2>
 									<p className="text-sm text-slate-500">
-										{widget?.display_name || widget?.name || __('Configure your chat widget settings', 'smart-woo-chatbot')}
+										{widget?.display_name || widget?.name || __('Configure your chat widget settings', 'agentflow-ai')}
 									</p>
 								</div>
 							</div>
@@ -452,13 +452,13 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 									<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 										<path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
 									</svg>
-									{__('Browse Presets', 'smart-woo-chatbot')}
+									{__('Browse Presets', 'agentflow-ai')}
 								</button>
 								<div className="h-8 w-px bg-slate-200 mx-1"></div>
 								<Toggle
 									checked={formData.is_active}
 									onChange={(val) => handleChange('is_active', val)}
-									label={formData.is_active ? __('Active', 'smart-woo-chatbot') : __('Inactive', 'smart-woo-chatbot')}
+									label={formData.is_active ? __('Active', 'agentflow-ai') : __('Inactive', 'agentflow-ai')}
 								/>
 							</div>
 						</div>
@@ -490,10 +490,10 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 						{activeTab === 'basic' && (
 							<div className="space-y-6">
 								<FormField
-									label={__('Name', 'smart-woo-chatbot')}
+									label={__('Name', 'agentflow-ai')}
 									required
 									error={errors.name}
-									hint={__('Used as the widget identifier and shown in the chat header', 'smart-woo-chatbot')}
+									hint={__('Used as the widget identifier and shown in the chat header', 'agentflow-ai')}
 								>
 									<Input
 										type="text"
@@ -505,20 +505,20 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 								</FormField>
 
 								<FormField
-									label={__('Description', 'smart-woo-chatbot')}
-									hint={__('Internal notes about this widget', 'smart-woo-chatbot')}
+									label={__('Description', 'agentflow-ai')}
+									hint={__('Internal notes about this widget', 'agentflow-ai')}
 								>
 									<Textarea
 										value={formData.description}
 										onChange={(e) => handleChange('description', e.target.value)}
 										rows={3}
-										placeholder={__('Describe the purpose of this widget...', 'smart-woo-chatbot')}
+										placeholder={__('Describe the purpose of this widget...', 'agentflow-ai')}
 									/>
 								</FormField>
 
 								<SectionCard
-									title={__('Agent Configuration', 'smart-woo-chatbot')}
-									description={__('Choose which agent handles conversations', 'smart-woo-chatbot')}
+									title={__('Agent Configuration', 'agentflow-ai')}
+									description={__('Choose which agent handles conversations', 'agentflow-ai')}
 									icon="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
 								>
 									<TeamSelector
@@ -550,7 +550,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 									{/* Position Selector */}
 									<SectionCard
-										title={__('Widget Position', 'smart-woo-chatbot')}
+										title={__('Widget Position', 'agentflow-ai')}
 										icon="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
 									>
 										<div className="flex gap-3">
@@ -573,7 +573,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 									{/* Avatar Input */}
 									<SectionCard
-										title={__('Widget Avatar', 'smart-woo-chatbot')}
+										title={__('Widget Avatar', 'agentflow-ai')}
 										icon="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
 									>
 										<div className="flex gap-4 items-center">
@@ -590,10 +590,10 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 													type="text"
 													value={formData.appearance.avatar || ''}
 													onChange={(e) => handleAppearanceChange('avatar', e.target.value)}
-													placeholder={__('Emoji or image URL', 'smart-woo-chatbot')}
+													placeholder={__('Emoji or image URL', 'agentflow-ai')}
 												/>
 												<p className="text-xs text-slate-500 mt-1.5">
-													{__('Use an emoji or paste an image URL', 'smart-woo-chatbot')}
+													{__('Use an emoji or paste an image URL', 'agentflow-ai')}
 												</p>
 											</div>
 										</div>
@@ -601,19 +601,19 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 									{/* Toggle Button Customization */}
 									<SectionCard
-										title={__('Toggle Button', 'smart-woo-chatbot')}
-										description={__('Customize the floating button appearance', 'smart-woo-chatbot')}
+										title={__('Toggle Button', 'agentflow-ai')}
+										description={__('Customize the floating button appearance', 'agentflow-ai')}
 										icon="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
 									>
 										<div className="space-y-5">
 											{/* Shape Selection */}
-											<FormField label={__('Button Shape', 'smart-woo-chatbot')}>
+											<FormField label={__('Button Shape', 'agentflow-ai')}>
 												<div className="grid grid-cols-4 gap-2">
 													{[
-														{ value: 'circle', label: __('Circle', 'smart-woo-chatbot'), shape: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" /></svg>) },
-														{ value: 'pill', label: __('Pill', 'smart-woo-chatbot'), shape: (<svg width="40" height="24" viewBox="0 0 40 24" fill="none"><rect x="1" y="1" width="38" height="22" rx="11" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" /></svg>) },
-														{ value: 'rounded_square', label: __('Square', 'smart-woo-chatbot'), shape: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="6" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" /></svg>) },
-														{ value: 'card', label: __('Card', 'smart-woo-chatbot'), shape: (<svg width="36" height="26" viewBox="0 0 36 26" fill="none"><rect x="1" y="1" width="34" height="24" rx="8" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" /><circle cx="12" cy="13" r="3" fill="currentColor" fillOpacity="0.3" /><line x1="18" y1="11" x2="28" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" /><line x1="18" y1="15" x2="25" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.3" /></svg>) },
+														{ value: 'circle', label: __('Circle', 'agentflow-ai'), shape: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" /></svg>) },
+														{ value: 'pill', label: __('Pill', 'agentflow-ai'), shape: (<svg width="40" height="24" viewBox="0 0 40 24" fill="none"><rect x="1" y="1" width="38" height="22" rx="11" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" /></svg>) },
+														{ value: 'rounded_square', label: __('Square', 'agentflow-ai'), shape: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="24" height="24" rx="6" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" /></svg>) },
+														{ value: 'card', label: __('Card', 'agentflow-ai'), shape: (<svg width="36" height="26" viewBox="0 0 36 26" fill="none"><rect x="1" y="1" width="34" height="24" rx="8" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1" /><circle cx="12" cy="13" r="3" fill="currentColor" fillOpacity="0.3" /><line x1="18" y1="11" x2="28" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" /><line x1="18" y1="15" x2="25" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.3" /></svg>) },
 													].map((shape) => (
 														<button
 															key={shape.value}
@@ -632,15 +632,15 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											</FormField>
 
 											{/* Icon Selection */}
-											<FormField label={__('Button Icon', 'smart-woo-chatbot')}>
+											<FormField label={__('Button Icon', 'agentflow-ai')}>
 												<div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
 													{[
-														{ value: 'chat', label: __('Chat', 'smart-woo-chatbot'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg> },
-														{ value: 'message', label: __('Message', 'smart-woo-chatbot'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> },
-														{ value: 'support', label: __('Support', 'smart-woo-chatbot'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg> },
-														{ value: 'headset', label: __('Headset', 'smart-woo-chatbot'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 18v-6a9 9 0 0118 0v6" /><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" /></svg> },
-														{ value: 'custom', label: __('Custom', 'smart-woo-chatbot'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg> },
-														{ value: 'none', label: __('None', 'smart-woo-chatbot'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg> },
+														{ value: 'chat', label: __('Chat', 'agentflow-ai'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg> },
+														{ value: 'message', label: __('Message', 'agentflow-ai'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> },
+														{ value: 'support', label: __('Support', 'agentflow-ai'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg> },
+														{ value: 'headset', label: __('Headset', 'agentflow-ai'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M3 18v-6a9 9 0 0118 0v6" /><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" /></svg> },
+														{ value: 'custom', label: __('Custom', 'agentflow-ai'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg> },
+														{ value: 'none', label: __('None', 'agentflow-ai'), icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg> },
 													].map((icon) => (
 														<button
 															key={icon.value}
@@ -661,8 +661,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											{/* Custom Icon Input */}
 											{formData.appearance.toggle_icon === 'custom' && (
 												<FormField
-													label={__('Custom Icon', 'smart-woo-chatbot')}
-													hint={__('Enter text or emoji for the icon', 'smart-woo-chatbot')}
+													label={__('Custom Icon', 'agentflow-ai')}
+													hint={__('Enter text or emoji for the icon', 'agentflow-ai')}
 												>
 													<Input
 														type="text"
@@ -676,26 +676,26 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											{/* Label for Pill/Card shapes */}
 											{(formData.appearance.toggle_shape === 'pill' || formData.appearance.toggle_shape === 'card') && (
 												<FormField
-													label={__('Button Label', 'smart-woo-chatbot')}
-													hint={__('Text shown next to the icon', 'smart-woo-chatbot')}
+													label={__('Button Label', 'agentflow-ai')}
+													hint={__('Text shown next to the icon', 'agentflow-ai')}
 												>
 													<Input
 														type="text"
 														value={formData.appearance.toggle_label || ''}
 														onChange={(e) => handleAppearanceChange('toggle_label', e.target.value)}
-														placeholder={__('Chat with us', 'smart-woo-chatbot')}
+														placeholder={__('Chat with us', 'agentflow-ai')}
 													/>
 												</FormField>
 											)}
 
 											{/* Shadow Selection */}
-											<FormField label={__('Shadow Intensity', 'smart-woo-chatbot')}>
+											<FormField label={__('Shadow Intensity', 'agentflow-ai')}>
 												<div className="flex gap-2">
 													{[
-														{ value: 'none', label: __('None', 'smart-woo-chatbot') },
-														{ value: 'small', label: __('Small', 'smart-woo-chatbot') },
-														{ value: 'medium', label: __('Medium', 'smart-woo-chatbot') },
-														{ value: 'large', label: __('Large', 'smart-woo-chatbot') },
+														{ value: 'none', label: __('None', 'agentflow-ai') },
+														{ value: 'small', label: __('Small', 'agentflow-ai') },
+														{ value: 'medium', label: __('Medium', 'agentflow-ai') },
+														{ value: 'large', label: __('Large', 'agentflow-ai') },
 													].map((shadow) => (
 														<button
 															key={shadow.value}
@@ -717,14 +717,14 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 												<Toggle
 													checked={formData.appearance.toggle_glow || false}
 													onChange={(val) => handleAppearanceChange('toggle_glow', val)}
-													label={__('Glow Effect', 'smart-woo-chatbot')}
-													description={__('Subtle glowing animation', 'smart-woo-chatbot')}
+													label={__('Glow Effect', 'agentflow-ai')}
+													description={__('Subtle glowing animation', 'agentflow-ai')}
 												/>
 												<Toggle
 													checked={formData.appearance.toggle_pulse || false}
 													onChange={(val) => handleAppearanceChange('toggle_pulse', val)}
-													label={__('Pulse Animation', 'smart-woo-chatbot')}
-													description={__('Attention-grabbing pulse', 'smart-woo-chatbot')}
+													label={__('Pulse Animation', 'agentflow-ai')}
+													description={__('Attention-grabbing pulse', 'agentflow-ai')}
 												/>
 											</div>
 
@@ -732,12 +732,12 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											<Toggle
 												checked={formData.appearance.toggle_border || false}
 												onChange={(val) => handleAppearanceChange('toggle_border', val)}
-												label={__('Show Border', 'smart-woo-chatbot')}
-												description={__('Add a border around the toggle button', 'smart-woo-chatbot')}
+												label={__('Show Border', 'agentflow-ai')}
+												description={__('Add a border around the toggle button', 'agentflow-ai')}
 											/>
 
 											{formData.appearance.toggle_border && (
-												<FormField label={__('Border Color', 'smart-woo-chatbot')}>
+												<FormField label={__('Border Color', 'agentflow-ai')}>
 													<div className="flex items-center gap-3">
 														<input
 															type="color"
@@ -775,44 +775,44 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 							<div className="space-y-6 max-w-2xl">
 								{/* Section 1: Welcome Messages */}
 								<SectionCard
-									title={__('Welcome Messages', 'smart-woo-chatbot')}
-									description={__('Configure how your widget greets visitors', 'smart-woo-chatbot')}
+									title={__('Welcome Messages', 'agentflow-ai')}
+									description={__('Configure how your widget greets visitors', 'agentflow-ai')}
 									icon="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
 								>
 									<div className="space-y-5">
 										<FormField
-											label={__('Greeting Message', 'smart-woo-chatbot')}
-											hint={__('First message shown when chat opens', 'smart-woo-chatbot')}
+											label={__('Greeting Message', 'agentflow-ai')}
+											hint={__('First message shown when chat opens', 'agentflow-ai')}
 										>
 											<Textarea
 												value={formData.behavior.greeting_message}
 												onChange={(e) => handleBehaviorChange('greeting_message', e.target.value)}
 												rows={3}
-												placeholder={__('Hi! How can I help you today?', 'smart-woo-chatbot')}
+												placeholder={__('Hi! How can I help you today?', 'agentflow-ai')}
 											/>
 										</FormField>
 
 										<FormField
-											label={__('Input Placeholder', 'smart-woo-chatbot')}
-											hint={__('Placeholder text in the message input', 'smart-woo-chatbot')}
+											label={__('Input Placeholder', 'agentflow-ai')}
+											hint={__('Placeholder text in the message input', 'agentflow-ai')}
 										>
 											<Input
 												type="text"
 												value={formData.behavior.placeholder_text}
 												onChange={(e) => handleBehaviorChange('placeholder_text', e.target.value)}
-												placeholder={__('Type your message…', 'smart-woo-chatbot')}
+												placeholder={__('Type your message…', 'agentflow-ai')}
 											/>
 										</FormField>
 
 										<FormField
-											label={__('Returning Visitor Greeting', 'smart-woo-chatbot')}
-											hint={__('Special greeting for visitors who have been to your site before (leave empty to use default)', 'smart-woo-chatbot')}
+											label={__('Returning Visitor Greeting', 'agentflow-ai')}
+											hint={__('Special greeting for visitors who have been to your site before (leave empty to use default)', 'agentflow-ai')}
 										>
 											<Textarea
 												value={formData.behavior.returning_visitor_greeting || ''}
 												onChange={(e) => handleBehaviorChange('returning_visitor_greeting', e.target.value)}
 												rows={2}
-												placeholder={__('Welcome back! How can I assist you today?', 'smart-woo-chatbot')}
+												placeholder={__('Welcome back! How can I assist you today?', 'agentflow-ai')}
 											/>
 										</FormField>
 									</div>
@@ -820,8 +820,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 								{/* Section 2: Proactive Triggers */}
 								<SectionCard
-									title={__('Proactive Triggers', 'smart-woo-chatbot')}
-									description={__('Automatically engage visitors at the right moment', 'smart-woo-chatbot')}
+									title={__('Proactive Triggers', 'agentflow-ai')}
+									description={__('Automatically engage visitors at the right moment', 'agentflow-ai')}
 									icon="M13 10V3L4 14h7v7l9-11h-7z"
 								>
 									<div className="space-y-4">
@@ -835,8 +835,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 														</svg>
 													</div>
 													<div>
-														<span className="text-sm font-semibold text-slate-800">{__('Auto-Open After Delay', 'smart-woo-chatbot')}</span>
-														<p className="text-xs text-slate-500">{__('Open chat automatically after a set time', 'smart-woo-chatbot')}</p>
+														<span className="text-sm font-semibold text-slate-800">{__('Auto-Open After Delay', 'agentflow-ai')}</span>
+														<p className="text-xs text-slate-500">{__('Open chat automatically after a set time', 'agentflow-ai')}</p>
 													</div>
 												</div>
 												<Toggle
@@ -846,7 +846,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											</div>
 											{formData.behavior.auto_open_enabled && (
 												<div className="px-4 pb-4 pt-2 border-t border-slate-100">
-													<FormField label={__('Delay (seconds)', 'smart-woo-chatbot')}>
+													<FormField label={__('Delay (seconds)', 'agentflow-ai')}>
 														<div className="flex items-center gap-4">
 															<input
 																type="range"
@@ -876,8 +876,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 														</svg>
 													</div>
 													<div>
-														<span className="text-sm font-semibold text-slate-800">{__('Exit Intent', 'smart-woo-chatbot')}</span>
-														<p className="text-xs text-slate-500">{__('Show chat when visitor tries to leave', 'smart-woo-chatbot')}</p>
+														<span className="text-sm font-semibold text-slate-800">{__('Exit Intent', 'agentflow-ai')}</span>
+														<p className="text-xs text-slate-500">{__('Show chat when visitor tries to leave', 'agentflow-ai')}</p>
 													</div>
 												</div>
 												<Toggle
@@ -887,12 +887,12 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											</div>
 											{formData.behavior.exit_intent_enabled && (
 												<div className="px-4 pb-4 pt-2 border-t border-slate-100">
-													<FormField label={__('Exit Message', 'smart-woo-chatbot')}>
+													<FormField label={__('Exit Message', 'agentflow-ai')}>
 														<Textarea
 															value={formData.behavior.exit_intent_message || ''}
 															onChange={(e) => handleBehaviorChange('exit_intent_message', e.target.value)}
 															rows={2}
-															placeholder={__('Wait! Before you go, can I help you find what you\'re looking for?', 'smart-woo-chatbot')}
+															placeholder={__('Wait! Before you go, can I help you find what you\'re looking for?', 'agentflow-ai')}
 														/>
 													</FormField>
 												</div>
@@ -909,8 +909,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 														</svg>
 													</div>
 													<div>
-														<span className="text-sm font-semibold text-slate-800">{__('Scroll Depth', 'smart-woo-chatbot')}</span>
-														<p className="text-xs text-slate-500">{__('Open chat when visitor scrolls past a point', 'smart-woo-chatbot')}</p>
+														<span className="text-sm font-semibold text-slate-800">{__('Scroll Depth', 'agentflow-ai')}</span>
+														<p className="text-xs text-slate-500">{__('Open chat when visitor scrolls past a point', 'agentflow-ai')}</p>
 													</div>
 												</div>
 												<Toggle
@@ -920,7 +920,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											</div>
 											{formData.behavior.scroll_depth_enabled && (
 												<div className="px-4 pb-4 pt-2 border-t border-slate-100">
-													<FormField label={__('Scroll Percentage', 'smart-woo-chatbot')}>
+													<FormField label={__('Scroll Percentage', 'agentflow-ai')}>
 														<div className="flex items-center gap-4">
 															<input
 																type="range"
@@ -950,8 +950,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 														</svg>
 													</div>
 													<div>
-														<span className="text-sm font-semibold text-slate-800">{__('Time on Page', 'smart-woo-chatbot')}</span>
-														<p className="text-xs text-slate-500">{__('Trigger after visitor spends time on page', 'smart-woo-chatbot')}</p>
+														<span className="text-sm font-semibold text-slate-800">{__('Time on Page', 'agentflow-ai')}</span>
+														<p className="text-xs text-slate-500">{__('Trigger after visitor spends time on page', 'agentflow-ai')}</p>
 													</div>
 												</div>
 												<Toggle
@@ -961,7 +961,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											</div>
 											{formData.behavior.time_on_page_enabled && (
 												<div className="px-4 pb-4 pt-2 border-t border-slate-100">
-													<FormField label={__('Time (seconds)', 'smart-woo-chatbot')}>
+													<FormField label={__('Time (seconds)', 'agentflow-ai')}>
 														<div className="flex items-center gap-4">
 															<input
 																type="range"
@@ -991,8 +991,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 														</svg>
 													</div>
 													<div>
-														<span className="text-sm font-semibold text-slate-800">{__('Cart Abandonment', 'smart-woo-chatbot')}</span>
-														<p className="text-xs text-slate-500">{__('Engage customers about to leave with cart items', 'smart-woo-chatbot')}</p>
+														<span className="text-sm font-semibold text-slate-800">{__('Cart Abandonment', 'agentflow-ai')}</span>
+														<p className="text-xs text-slate-500">{__('Engage customers about to leave with cart items', 'agentflow-ai')}</p>
 													</div>
 												</div>
 												<Toggle
@@ -1002,12 +1002,12 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 											</div>
 											{formData.behavior.cart_abandonment_enabled && (
 												<div className="px-4 pb-4 pt-2 border-t border-slate-100">
-													<FormField label={__('Abandonment Message', 'smart-woo-chatbot')}>
+													<FormField label={__('Abandonment Message', 'agentflow-ai')}>
 														<Textarea
 															value={formData.behavior.cart_abandonment_message || ''}
 															onChange={(e) => handleBehaviorChange('cart_abandonment_message', e.target.value)}
 															rows={2}
-															placeholder={__('Don\'t forget your items! Need help completing your order?', 'smart-woo-chatbot')}
+															placeholder={__('Don\'t forget your items! Need help completing your order?', 'agentflow-ai')}
 														/>
 													</FormField>
 												</div>
@@ -1039,17 +1039,17 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 							<div className="space-y-6 max-w-2xl">
 								{/* Presentation Mode */}
 								<SectionCard
-									title={__('Presentation Mode', 'smart-woo-chatbot')}
-									description={__('How the widget appears on the page', 'smart-woo-chatbot')}
+									title={__('Presentation Mode', 'agentflow-ai')}
+									description={__('How the widget appears on the page', 'agentflow-ai')}
 									icon="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z"
 								>
 									<div className="space-y-4">
 										<div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
 											{[
-												{ value: 'floating', label: __('Floating', 'smart-woo-chatbot'), icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>, desc: 'Classic bubble button' },
-												{ value: 'centered', label: __('Centered', 'smart-woo-chatbot'), icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>, desc: 'ChatGPT-style input' },
-												{ value: 'embedded', label: __('Embedded', 'smart-woo-chatbot'), icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>, desc: 'Inside a page element' },
-												{ value: 'sidebar', label: __('Sidebar', 'smart-woo-chatbot'), icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 4h18v16H3V4zm6 0v16" /></svg>, desc: 'Fixed side panel' },
+												{ value: 'floating', label: __('Floating', 'agentflow-ai'), icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>, desc: 'Classic bubble button' },
+												{ value: 'centered', label: __('Centered', 'agentflow-ai'), icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>, desc: 'ChatGPT-style input' },
+												{ value: 'embedded', label: __('Embedded', 'agentflow-ai'), icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>, desc: 'Inside a page element' },
+												{ value: 'sidebar', label: __('Sidebar', 'agentflow-ai'), icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 4h18v16H3V4zm6 0v16" /></svg>, desc: 'Fixed side panel' },
 											].map((mode) => (
 												<button
 													key={mode.value}
@@ -1069,8 +1069,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 										{formData.appearance.presentation_mode === 'embedded' && (
 											<FormField
-												label={__('CSS Selector', 'smart-woo-chatbot')}
-												hint={__('e.g. #chat-container or .chat-widget-area', 'smart-woo-chatbot')}
+												label={__('CSS Selector', 'agentflow-ai')}
+												hint={__('e.g. #chat-container or .chat-widget-area', 'agentflow-ai')}
 											>
 												<Input
 													type="text"
@@ -1083,8 +1083,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 										{formData.appearance.presentation_mode === 'sidebar' && (
 											<FormField
-												label={__('Sidebar Width (px)', 'smart-woo-chatbot')}
-												hint={__('Width of the side panel', 'smart-woo-chatbot')}
+												label={__('Sidebar Width (px)', 'agentflow-ai')}
+												hint={__('Width of the side panel', 'agentflow-ai')}
 											>
 												<input
 													type="range"
@@ -1103,21 +1103,21 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 								{/* Greeting Bubble */}
 								<SectionCard
-									title={__('Greeting Bubble', 'smart-woo-chatbot')}
-									description={__('A teaser tooltip shown near the toggle button before the chat opens', 'smart-woo-chatbot')}
+									title={__('Greeting Bubble', 'agentflow-ai')}
+									description={__('A teaser tooltip shown near the toggle button before the chat opens', 'agentflow-ai')}
 									icon="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
 								>
 									<div className="space-y-4">
 										<Toggle
 											checked={formData.appearance.greeting_bubble_enabled || false}
 											onChange={(val) => handleAppearanceChange('greeting_bubble_enabled', val)}
-											label={__('Enable Greeting Bubble', 'smart-woo-chatbot')}
-											description={__('Show a small speech bubble to attract attention', 'smart-woo-chatbot')}
+											label={__('Enable Greeting Bubble', 'agentflow-ai')}
+											description={__('Show a small speech bubble to attract attention', 'agentflow-ai')}
 										/>
 
 										{formData.appearance.greeting_bubble_enabled && (
 											<>
-												<FormField label={__('Greeting Text', 'smart-woo-chatbot')}>
+												<FormField label={__('Greeting Text', 'agentflow-ai')}>
 													<Input
 														type="text"
 														value={formData.appearance.greeting_bubble_text || ''}
@@ -1128,8 +1128,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 												<div className="grid grid-cols-2 gap-4">
 													<FormField
-														label={__('Show After (seconds)', 'smart-woo-chatbot')}
-														hint={__('Delay before the greeting appears', 'smart-woo-chatbot')}
+														label={__('Show After (seconds)', 'agentflow-ai')}
+														hint={__('Delay before the greeting appears', 'agentflow-ai')}
 													>
 														<Input
 															type="number"
@@ -1143,7 +1143,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 														<Toggle
 															checked={formData.appearance.greeting_bubble_dismissible !== false}
 															onChange={(val) => handleAppearanceChange('greeting_bubble_dismissible', val)}
-															label={__('Dismissible', 'smart-woo-chatbot')}
+															label={__('Dismissible', 'agentflow-ai')}
 														/>
 													</div>
 												</div>
@@ -1170,20 +1170,20 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 								{/* Notification Badge */}
 								<SectionCard
-									title={__('Notification Badge', 'smart-woo-chatbot')}
-									description={__('Configure the attention-grabbing notification dot', 'smart-woo-chatbot')}
+									title={__('Notification Badge', 'agentflow-ai')}
+									description={__('Configure the attention-grabbing notification dot', 'agentflow-ai')}
 									icon="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
 								>
 									<div className="space-y-4">
 										<Toggle
 											checked={formData.appearance.notification_badge_enabled !== false}
 											onChange={(val) => handleAppearanceChange('notification_badge_enabled', val)}
-											label={__('Show Notification Badge', 'smart-woo-chatbot')}
-											description={__('Red dot indicator when there are unread messages', 'smart-woo-chatbot')}
+											label={__('Show Notification Badge', 'agentflow-ai')}
+											description={__('Red dot indicator when there are unread messages', 'agentflow-ai')}
 										/>
 
 										{formData.appearance.notification_badge_enabled !== false && (
-											<FormField label={__('Badge Color', 'smart-woo-chatbot')}>
+											<FormField label={__('Badge Color', 'agentflow-ai')}>
 												<div className="flex items-center gap-3">
 													<input
 														type="color"
@@ -1202,8 +1202,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 										)}
 
 										<FormField
-											label={__('Notification Sound URL', 'smart-woo-chatbot')}
-											hint={__('Optional MP3/WAV URL for incoming message sound', 'smart-woo-chatbot')}
+											label={__('Notification Sound URL', 'agentflow-ai')}
+											hint={__('Optional MP3/WAV URL for incoming message sound', 'agentflow-ai')}
 										>
 											<Input
 												type="text"
@@ -1216,25 +1216,25 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 										<Toggle
 											checked={formData.appearance.desktop_notification_enabled || false}
 											onChange={(val) => handleAppearanceChange('desktop_notification_enabled', val)}
-											label={__('Desktop Notifications', 'smart-woo-chatbot')}
-											description={__('Browser push notifications for new messages (requires user permission)', 'smart-woo-chatbot')}
+											label={__('Desktop Notifications', 'agentflow-ai')}
+											description={__('Browser push notifications for new messages (requires user permission)', 'agentflow-ai')}
 										/>
 									</div>
 								</SectionCard>
 
 								{/* Entrance Animation */}
 								<SectionCard
-									title={__('Entrance Animation', 'smart-woo-chatbot')}
-									description={__('How the chat window appears when opened', 'smart-woo-chatbot')}
+									title={__('Entrance Animation', 'agentflow-ai')}
+									description={__('How the chat window appears when opened', 'agentflow-ai')}
 									icon="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 								>
 									<div className="grid grid-cols-5 gap-2">
 										{[
-											{ value: 'none', label: __('None', 'smart-woo-chatbot'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
-											{ value: 'slide-up', label: __('Slide Up', 'smart-woo-chatbot'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg> },
-											{ value: 'fade', label: __('Fade', 'smart-woo-chatbot'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg> },
-											{ value: 'bounce', label: __('Bounce', 'smart-woo-chatbot'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg> },
-											{ value: 'scale', label: __('Scale', 'smart-woo-chatbot'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg> },
+											{ value: 'none', label: __('None', 'agentflow-ai'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
+											{ value: 'slide-up', label: __('Slide Up', 'agentflow-ai'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg> },
+											{ value: 'fade', label: __('Fade', 'agentflow-ai'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg> },
+											{ value: 'bounce', label: __('Bounce', 'agentflow-ai'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg> },
+											{ value: 'scale', label: __('Scale', 'agentflow-ai'), icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg> },
 										].map((anim) => (
 											<button
 												key={anim.value}
@@ -1254,14 +1254,14 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 
 								{/* Mobile Overrides */}
 								<SectionCard
-									title={__('Mobile Settings', 'smart-woo-chatbot')}
-									description={__('Fine-tune behavior on mobile devices', 'smart-woo-chatbot')}
+									title={__('Mobile Settings', 'agentflow-ai')}
+									description={__('Fine-tune behavior on mobile devices', 'agentflow-ai')}
 									icon="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
 								>
 									<div className="space-y-4">
 										<FormField
-											label={__('Mobile Toggle Size', 'smart-woo-chatbot')}
-											hint={__('Button size on mobile (default: 52px)', 'smart-woo-chatbot')}
+											label={__('Mobile Toggle Size', 'agentflow-ai')}
+											hint={__('Button size on mobile (default: 52px)', 'agentflow-ai')}
 										>
 											<div className="flex items-center gap-4">
 												<input
@@ -1280,8 +1280,8 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 										<Toggle
 											checked={formData.appearance.mobile_fullscreen || false}
 											onChange={(val) => handleAppearanceChange('mobile_fullscreen', val)}
-											label={__('Fullscreen on Mobile', 'smart-woo-chatbot')}
-											description={__('Chat window takes the full screen on small devices', 'smart-woo-chatbot')}
+											label={__('Fullscreen on Mobile', 'agentflow-ai')}
+											description={__('Chat window takes the full screen on small devices', 'agentflow-ai')}
 										/>
 									</div>
 								</SectionCard>
@@ -1307,7 +1307,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 							<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 								<path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
 							</svg>
-							{__('Cancel', 'smart-woo-chatbot')}
+							{__('Cancel', 'agentflow-ai')}
 						</button>
 						<button
 							type="submit"
@@ -1316,7 +1316,7 @@ export default function ChatEditor({ widget, agents, onSave, onCancel }) {
 							<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 								<path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
 							</svg>
-							{widget ? __('Update Widget', 'smart-woo-chatbot') : __('Create Widget', 'smart-woo-chatbot')}
+							{widget ? __('Update Widget', 'agentflow-ai') : __('Create Widget', 'agentflow-ai')}
 						</button>
 					</div>
 				</form>

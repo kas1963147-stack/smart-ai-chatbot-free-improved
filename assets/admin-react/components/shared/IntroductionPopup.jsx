@@ -66,51 +66,51 @@ const IconCheck = () => (
 const FEATURES = [
     {
         icon: IconAgents,
-        title: __('AI-Powered Agents', 'smart-ai-chatbot'),
-        description: __('Create intelligent chatbot agents trained on your business data with support for multiple AI providers.', 'smart-ai-chatbot'),
+        title: __('AI-Powered Agents', 'agentflow-ai'),
+        description: __('Create intelligent chatbot agents trained on your business data with support for multiple AI providers.', 'agentflow-ai'),
     },
     {
         icon: IconToolkit,
-        title: __('Rich Toolkits', 'smart-ai-chatbot'),
-        description: __('Equip your agents with powerful tools — product search, order tracking, booking, and more.', 'smart-ai-chatbot'),
+        title: __('Rich Toolkits', 'agentflow-ai'),
+        description: __('Equip your agents with powerful tools — product search, order tracking, booking, and more.', 'agentflow-ai'),
     },
     {
         icon: IconKnowledge,
-        title: __('Knowledge Base', 'smart-ai-chatbot'),
-        description: __('Feed your agents custom knowledge from pages, posts, PDFs, and URLs for accurate answers.', 'smart-ai-chatbot'),
+        title: __('Knowledge Base', 'agentflow-ai'),
+        description: __('Feed your agents custom knowledge from pages, posts, PDFs, and URLs for accurate answers.', 'agentflow-ai'),
     },
     {
         icon: IconChat,
-        title: __('Chat Widgets', 'smart-ai-chatbot'),
-        description: __('Deploy beautiful, customizable chat widgets anywhere on your site with full design control.', 'smart-ai-chatbot'),
+        title: __('Chat Widgets', 'agentflow-ai'),
+        description: __('Deploy beautiful, customizable chat widgets anywhere on your site with full design control.', 'agentflow-ai'),
     },
     {
         icon: IconProviders,
-        title: __('Multi-Provider Support', 'smart-ai-chatbot'),
-        description: __('Connect to OpenAI, Claude, Gemini, Azure, Groq, OpenRouter and more — all in one plugin.', 'smart-ai-chatbot'),
+        title: __('Multi-Provider Support', 'agentflow-ai'),
+        description: __('Connect to OpenAI, Claude, Gemini, Azure, Groq, OpenRouter and more — all in one plugin.', 'agentflow-ai'),
     },
     {
         icon: IconAnalytics,
-        title: __('Analytics & Insights', 'smart-ai-chatbot'),
-        description: __('Track conversations, monitor performance, and gain insights to improve your customer experience.', 'smart-ai-chatbot'),
+        title: __('Analytics & Insights', 'agentflow-ai'),
+        description: __('Track conversations, monitor performance, and gain insights to improve your customer experience.', 'agentflow-ai'),
     },
 ];
 
 const QUICK_START_STEPS = [
     {
         step: '1',
-        title: __('Connect AI Provider', 'smart-ai-chatbot'),
-        description: __('Go to Settings and add your API key from OpenAI, Claude, or any supported provider.', 'smart-ai-chatbot'),
+        title: __('Connect AI Provider', 'agentflow-ai'),
+        description: __('Go to Settings and add your API key from OpenAI, Claude, or any supported provider.', 'agentflow-ai'),
     },
     {
         step: '2',
-        title: __('Create Your First Agent', 'smart-ai-chatbot'),
-        description: __('Head to AI Agents, click "Create", and choose a template or build from scratch.', 'smart-ai-chatbot'),
+        title: __('Create Your First Agent', 'agentflow-ai'),
+        description: __('Head to AI Agents, click "Create", and choose a template or build from scratch.', 'agentflow-ai'),
     },
     {
         step: '3',
-        title: __('Deploy a Widget', 'smart-ai-chatbot'),
-        description: __('Go to Widgets, create a chat widget, assign your agent and it goes live instantly.', 'smart-ai-chatbot'),
+        title: __('Deploy a Widget', 'agentflow-ai'),
+        description: __('Go to Widgets, create a chat widget, assign your agent and it goes live instantly.', 'agentflow-ai'),
     },
 ];
 
@@ -195,7 +195,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                             backgroundClip: 'text',
                             lineHeight: '1.2',
                         }}>
-                            {__('Welcome to Smart Chatbot', 'smart-ai-chatbot')}
+                            {__('Welcome to Smart Chatbot', 'agentflow-ai')}
                         </h2>
 
                         <p style={{
@@ -205,7 +205,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                             lineHeight: '1.7',
                             margin: '0 0 28px 0',
                         }}>
-                            {__('The most powerful AI chatbot plugin for WordPress & WooCommerce. Create intelligent agents, deploy beautiful chat widgets, and delight your customers — all in minutes.', 'smart-ai-chatbot')}
+                            {__('The most powerful AI chatbot plugin for WordPress & WooCommerce. Create intelligent agents, deploy beautiful chat widgets, and delight your customers — all in minutes.', 'agentflow-ai')}
                         </p>
 
                         {/* Highlight Stats */}
@@ -217,9 +217,9 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                             maxWidth: '420px',
                         }}>
                             {[
-                                { value: '20+', label: __('Agent Templates', 'smart-ai-chatbot') },
-                                { value: '50+', label: __('Built-in Tools', 'smart-ai-chatbot') },
-                                { value: '6+', label: __('AI Providers', 'smart-ai-chatbot') },
+                                { value: '20+', label: __('Agent Templates', 'agentflow-ai') },
+                                { value: '50+', label: __('Built-in Tools', 'agentflow-ai') },
+                                { value: '6+', label: __('AI Providers', 'agentflow-ai') },
                             ].map((stat, i) => (
                                 <div key={i} style={{
                                     background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
@@ -266,7 +266,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                             textAlign: 'center',
                             color: '#1e293b',
                         }}>
-                            {__('Everything You Need', 'smart-ai-chatbot')}
+                            {__('Everything You Need', 'agentflow-ai')}
                         </h3>
                         <p style={{
                             fontSize: '13px',
@@ -274,7 +274,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                             textAlign: 'center',
                             margin: '0 0 20px 0',
                         }}>
-                            {__('Packed with features to supercharge your customer support', 'smart-ai-chatbot')}
+                            {__('Packed with features to supercharge your customer support', 'agentflow-ai')}
                         </p>
 
                         <div style={{
@@ -355,7 +355,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                             textAlign: 'center',
                             color: '#1e293b',
                         }}>
-                            {__('Quick Start Guide', 'smart-ai-chatbot')}
+                            {__('Quick Start Guide', 'agentflow-ai')}
                         </h3>
                         <p style={{
                             fontSize: '13px',
@@ -363,7 +363,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                             textAlign: 'center',
                             margin: '0 0 28px 0',
                         }}>
-                            {__('Get up and running in just 3 simple steps', 'smart-ai-chatbot')}
+                            {__('Get up and running in just 3 simple steps', 'agentflow-ai')}
                         </p>
 
                         <div style={{
@@ -450,7 +450,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                                 fontWeight: '600',
                                 margin: 0,
                             }}>
-                                {__("You're all set! Click \"Let's Go\" to start building.", 'smart-ai-chatbot')}
+                                {__("You're all set! Click \"Let's Go\" to start building.", 'agentflow-ai')}
                             </p>
                         </div>
                     </div>
@@ -514,7 +514,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                     <div>
                         {currentSlide > 0 && (
                             <Button variant="ghost" onClick={handlePrev}>
-                                {__('Back', 'smart-ai-chatbot')}
+                                {__('Back', 'agentflow-ai')}
                             </Button>
                         )}
                     </div>
@@ -522,7 +522,7 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                         {currentSlide === 0 && (
                             <Button variant="ghost" onClick={onClose}>
-                                {__('Skip', 'smart-ai-chatbot')}
+                                {__('Skip', 'agentflow-ai')}
                             </Button>
                         )}
                         <Button
@@ -535,8 +535,8 @@ export default function IntroductionPopup({ isOpen, onClose }) {
                             } : {}}
                         >
                             {currentSlide === totalSlides - 1
-                                ? __("Let's Go", 'smart-ai-chatbot')
-                                : __('Next', 'smart-ai-chatbot')}
+                                ? __("Let's Go", 'agentflow-ai')
+                                : __('Next', 'agentflow-ai')}
                         </Button>
                     </div>
                 </div>

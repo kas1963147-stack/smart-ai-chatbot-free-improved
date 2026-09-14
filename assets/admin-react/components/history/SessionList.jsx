@@ -79,7 +79,7 @@ export default function SessionList({
 		const diffHours = Math.floor(diffMs / 3600000);
 		const diffDays = Math.floor(diffMs / 86400000);
 
-		if (diffMins < 1) return __('Just now', 'smart-woo-chatbot');
+		if (diffMins < 1) return __('Just now', 'agentflow-ai');
 		if (diffMins < 60) return `${diffMins}m ago`;
 		if (diffHours < 24) return `${diffHours}h ago`;
 		if (diffDays < 7) return `${diffDays}d ago`;
@@ -94,7 +94,7 @@ export default function SessionList({
 					<div className="flex-1">
 						<input
 							type="text"
-							placeholder={__('Search conversations by content...', 'smart-woo-chatbot')}
+							placeholder={__('Search conversations by content...', 'agentflow-ai')}
 							value={searchQuery}
 							onChange={(e) => onSearchChange(e.target.value)}
 							className="w-full h-11 px-4 text-sm rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary shadow-sm transition-all"
@@ -103,7 +103,7 @@ export default function SessionList({
 					<div className="text-sm text-slate-500 dark:text-slate-400">
 						{sessions.length > 0 && (
 							<span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 rounded-lg font-medium">
-								{sessions.length} {__('sessions', 'smart-woo-chatbot')}
+								{sessions.length} {__('sessions', 'agentflow-ai')}
 							</span>
 						)}
 					</div>
@@ -112,7 +112,7 @@ export default function SessionList({
 
 			{/* Loading */}
 			{loading && (
-				<Loading message={__('Loading conversations...', 'smart-woo-chatbot')} fullPage />
+				<Loading message={__('Loading conversations...', 'agentflow-ai')} fullPage />
 			)}
 
 			{/* Empty State */}
@@ -122,10 +122,10 @@ export default function SessionList({
 						<ChatBubbleIcon />
 					</div>
 					<h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-						{__('No conversations yet', 'smart-woo-chatbot')}
+						{__('No conversations yet', 'agentflow-ai')}
 					</h3>
 					<p className="text-slate-500 dark:text-slate-400 text-center max-w-md">
-						{__('Chat history will appear here once users start conversations with your AI agents.', 'smart-woo-chatbot')}
+						{__('Chat history will appear here once users start conversations with your AI agents.', 'agentflow-ai')}
 					</p>
 				</div>
 			)}
@@ -154,7 +154,7 @@ export default function SessionList({
 											<div className="flex-1 min-w-0">
 												{/* Preview */}
 												<p className="text-sm font-medium text-slate-900 dark:text-white truncate group-hover:text-primary transition-colors">
-													{session.preview || __('Empty conversation', 'smart-woo-chatbot')}
+													{session.preview || __('Empty conversation', 'agentflow-ai')}
 												</p>
 												{/* Meta */}
 												<div className="flex items-center gap-3 mt-1.5">
@@ -170,12 +170,12 @@ export default function SessionList({
 											{/* Stats */}
 											<div className="flex items-center gap-4 text-sm">
 												<div className="flex flex-col items-end">
-													<span className="text-xs text-slate-400 dark:text-slate-500">{__('Messages', 'smart-woo-chatbot')}</span>
+													<span className="text-xs text-slate-400 dark:text-slate-500">{__('Messages', 'agentflow-ai')}</span>
 													<span className="font-semibold text-slate-700 dark:text-slate-300">{session.message_count}</span>
 												</div>
 												{session.action_count > 0 && (
 													<div className="flex flex-col items-end">
-														<span className="text-xs text-slate-400 dark:text-slate-500">{__('Tools', 'smart-woo-chatbot')}</span>
+														<span className="text-xs text-slate-400 dark:text-slate-500">{__('Tools', 'agentflow-ai')}</span>
 														<span className="font-semibold text-primary">{session.action_count}</span>
 													</div>
 												)}
@@ -184,7 +184,7 @@ export default function SessionList({
 
 										{/* Timestamps */}
 										<div className="flex items-center gap-4 mt-2 text-xs text-slate-400 dark:text-slate-500">
-											<span>{__('Started:', 'smart-woo-chatbot')} {formatDate(session.started_at)}</span>
+											<span>{__('Started:', 'agentflow-ai')} {formatDate(session.started_at)}</span>
 										</div>
 									</div>
 
@@ -196,7 +196,7 @@ export default function SessionList({
 												onViewSession(session);
 											}}
 											className="inline-flex items-center justify-center w-9 h-9 rounded-xl text-slate-400 dark:text-slate-500 hover:text-primary hover:bg-primary/10 transition-all"
-											title={__('View', 'smart-woo-chatbot')}
+											title={__('View', 'agentflow-ai')}
 										>
 											<EyeIcon />
 										</button>
@@ -206,7 +206,7 @@ export default function SessionList({
 												onDeleteSession(session.session_id);
 											}}
 											className="inline-flex items-center justify-center w-9 h-9 rounded-xl text-slate-400 dark:text-slate-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 transition-all"
-											title={__('Delete', 'smart-woo-chatbot')}
+											title={__('Delete', 'agentflow-ai')}
 										>
 											<TrashIcon />
 										</button>
@@ -225,7 +225,7 @@ export default function SessionList({
 								className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-600 hover:border-slate-300 dark:hover:border-slate-500 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-all"
 							>
 								<ChevronLeftIcon />
-								{__('Previous', 'smart-woo-chatbot')}
+								{__('Previous', 'agentflow-ai')}
 							</button>
 
 							<div className="flex items-center gap-2">
@@ -260,7 +260,7 @@ export default function SessionList({
 								onClick={() => onPageChange(page + 1)}
 								className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-600 hover:border-slate-300 dark:hover:border-slate-500 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm transition-all"
 							>
-								{__('Next', 'smart-woo-chatbot')}
+								{__('Next', 'agentflow-ai')}
 								<ChevronRightIcon />
 							</button>
 						</div>

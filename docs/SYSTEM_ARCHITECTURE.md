@@ -51,7 +51,7 @@ The **Smart AI Chatbot (SWC)** is an enterprise-grade WordPress plugin that inte
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                          │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
-│  │                  smart-ai-chatbot.php (Entry Point)              │   │
+│  │                  agentflow-ai.php (Entry Point)              │   │
 │  │     - Plugin bootstrap, constants, hooks registration             │   │
 │  └────────────────────────────┬─────────────────────────────────────┘   │
 │                               │                                          │
@@ -82,7 +82,7 @@ The **Smart AI Chatbot (SWC)** is an enterprise-grade WordPress plugin that inte
 
 ```
 azi-chatbot/
-├── smart-ai-chatbot.php    # Entry point (373 lines)
+├── agentflow-ai.php    # Entry point (373 lines)
 ├── src/                     # Modern PSR-4 layer
 │   ├── bootstrap.php        # Module system loader
 │   ├── helpers.php          # Utility functions
@@ -203,7 +203,7 @@ require_once 'modules/woocommerce/WooCommerceModule.php';
 
 ## Core Components
 
-### Entry Point: `smart-ai-chatbot.php`
+### Entry Point: `agentflow-ai.php`
 
 | Function | Purpose |
 |----------|---------|

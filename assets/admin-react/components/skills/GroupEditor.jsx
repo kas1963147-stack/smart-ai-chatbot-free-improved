@@ -42,8 +42,8 @@ import SortableMemberList from './SortableMemberList';
 const ORCHESTRATION_MODES = [
 	{
 		value: 'router',
-		label: __('Auto-Router (Best Agent)', 'smart-woo-chatbot'),
-		description: __('Automatically routes user input to the most relevant agent.', 'smart-woo-chatbot'),
+		label: __('Auto-Router (Best Agent)', 'agentflow-ai'),
+		description: __('Automatically routes user input to the most relevant agent.', 'agentflow-ai'),
 		icon: Zap,
 		bgColor: 'bg-blue-50 dark:bg-blue-900/30',
 		textColor: 'text-blue-600 dark:text-blue-400',
@@ -51,8 +51,8 @@ const ORCHESTRATION_MODES = [
 	},
 	{
 		value: 'sequential',
-		label: __('Sequential (In Order)', 'smart-woo-chatbot'),
-		description: __('Agents execute one by one in the order defined below.', 'smart-woo-chatbot'),
+		label: __('Sequential (In Order)', 'agentflow-ai'),
+		description: __('Agents execute one by one in the order defined below.', 'agentflow-ai'),
 		icon: ArrowRight,
 		bgColor: 'bg-green-50 dark:bg-green-900/30',
 		textColor: 'text-green-600 dark:text-green-400',
@@ -60,8 +60,8 @@ const ORCHESTRATION_MODES = [
 	},
 	{
 		value: 'parallel',
-		label: __('Parallel (All At Once)', 'smart-woo-chatbot'),
-		description: __('All agents execute simultaneously and results are combined.', 'smart-woo-chatbot'),
+		label: __('Parallel (All At Once)', 'agentflow-ai'),
+		description: __('All agents execute simultaneously and results are combined.', 'agentflow-ai'),
 		icon: Layers,
 		bgColor: 'bg-purple-50 dark:bg-purple-900/30',
 		textColor: 'text-purple-600 dark:text-purple-400',
@@ -69,8 +69,8 @@ const ORCHESTRATION_MODES = [
 	},
 	{
 		value: 'handoff',
-		label: __('Manual Handoff', 'smart-woo-chatbot'),
-		description: __('Manual handoff between agents with explicit triggers.', 'smart-woo-chatbot'),
+		label: __('Manual Handoff', 'agentflow-ai'),
+		description: __('Manual handoff between agents with explicit triggers.', 'agentflow-ai'),
 		icon: RefreshCw,
 		bgColor: 'bg-orange-50 dark:bg-orange-900/30',
 		textColor: 'text-orange-600 dark:text-orange-400',
@@ -78,8 +78,8 @@ const ORCHESTRATION_MODES = [
 	},
 	{
 		value: 'supervisor',
-		label: __('Supervisor (Autonomous Manager)', 'smart-woo-chatbot'),
-		description: __('A Manager agent uses AI to autonomously decide which team member handles each task. The Primary agent acts as the Manager and delegates to other agents automatically.', 'smart-woo-chatbot'),
+		label: __('Supervisor (Autonomous Manager)', 'agentflow-ai'),
+		description: __('A Manager agent uses AI to autonomously decide which team member handles each task. The Primary agent acts as the Manager and delegates to other agents automatically.', 'agentflow-ai'),
 		icon: Brain,
 		bgColor: 'bg-rose-50 dark:bg-rose-900/30',
 		textColor: 'text-rose-600 dark:text-rose-400',
@@ -190,7 +190,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 
 		if (!agent.is_active) {
 			window.alert(
-				__('This agent is currently inactive. Please activate the agent first before adding it to a team.', 'smart-woo-chatbot')
+				__('This agent is currently inactive. Please activate the agent first before adding it to a team.', 'agentflow-ai')
 			);
 			return;
 		}
@@ -298,7 +298,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 					<div className="w-12 h-12 border-4 border-primary/20 rounded-full" />
 					<div className="absolute inset-0 w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
 				</div>
-				<p className="mt-4 text-gray-500 dark:text-slate-400 font-medium">{__('Loading...', 'smart-woo-chatbot')}</p>
+				<p className="mt-4 text-gray-500 dark:text-slate-400 font-medium">{__('Loading...', 'agentflow-ai')}</p>
 			</div>
 		);
 	}
@@ -314,7 +314,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 						className="flex items-center gap-1.5 px-3 py-2 text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-all duration-200"
 					>
 						<ChevronLeft className="w-5 h-5" />
-						<span className="font-medium text-sm">{__('Back', 'smart-woo-chatbot')}</span>
+						<span className="font-medium text-sm">{__('Back', 'agentflow-ai')}</span>
 					</button>
 					<div className="flex items-center gap-3">
 						<div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 text-primary">
@@ -322,10 +322,10 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 						</div>
 						<div>
 							<h2 className="text-xl font-bold text-gray-900 dark:text-white">
-								{isNew ? __('New Agent Group', 'smart-woo-chatbot') : __('Edit Agent Group', 'smart-woo-chatbot')}
+								{isNew ? __('New Agent Group', 'agentflow-ai') : __('Edit Agent Group', 'agentflow-ai')}
 							</h2>
 							<p className="text-sm text-gray-500 dark:text-slate-400">
-								{__('Configure team settings and members', 'smart-woo-chatbot')}
+								{__('Configure team settings and members', 'agentflow-ai')}
 							</p>
 						</div>
 					</div>
@@ -339,7 +339,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 						disabled={saving}
 						className="px-4 py-2.5 text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-slate-700 transition-all duration-200 disabled:opacity-50"
 					>
-						{__('Cancel', 'smart-woo-chatbot')}
+						{__('Cancel', 'agentflow-ai')}
 					</button>
 					<button
 						type="submit"
@@ -349,12 +349,12 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 						{saving ? (
 							<>
 								<Loader2 className="w-4 h-4 animate-spin" />
-								{__('Saving...', 'smart-woo-chatbot')}
+								{__('Saving...', 'agentflow-ai')}
 							</>
 						) : (
 							<>
 								<Save className="w-4 h-4" />
-								{isNew ? __('Create Team', 'smart-woo-chatbot') : __('Save Changes', 'smart-woo-chatbot')}
+								{isNew ? __('Create Team', 'agentflow-ai') : __('Save Changes', 'agentflow-ai')}
 							</>
 						)}
 					</button>
@@ -366,7 +366,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 				<div className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl flex items-start gap-3">
 					<AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
 					<div>
-						<p className="font-medium text-red-800 dark:text-red-300">{__('Error', 'smart-woo-chatbot')}</p>
+						<p className="font-medium text-red-800 dark:text-red-300">{__('Error', 'agentflow-ai')}</p>
 						<p className="text-sm text-red-600 dark:text-red-400">{errors.general}</p>
 					</div>
 				</div>
@@ -385,10 +385,10 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 								</div>
 								<div>
 									<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-										{__('Team Settings', 'smart-woo-chatbot')}
+										{__('Team Settings', 'agentflow-ai')}
 									</h3>
 									<p className="text-sm text-gray-500 dark:text-slate-400">
-										{__('Basic information for your agent team', 'smart-woo-chatbot')}
+										{__('Basic information for your agent team', 'agentflow-ai')}
 									</p>
 								</div>
 							</div>
@@ -402,7 +402,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300">
 									<Users className="w-4 h-4 text-gray-400 dark:text-slate-500" />
-									{__('Team Name', 'smart-woo-chatbot')}
+									{__('Team Name', 'agentflow-ai')}
 									<span className="text-red-500">*</span>
 								</label>
 								<input
@@ -423,7 +423,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300">
 									<MessageSquare className="w-4 h-4 text-gray-400 dark:text-slate-500" />
-									{__('Description', 'smart-woo-chatbot')}
+									{__('Description', 'agentflow-ai')}
 								</label>
 								<textarea
 									value={formData.description}
@@ -438,7 +438,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 							<div className="space-y-3">
 								<label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300">
 									<Zap className="w-4 h-4 text-gray-400 dark:text-slate-500" />
-									{__('Orchestration Strategy', 'smart-woo-chatbot')}
+									{__('Orchestration Strategy', 'agentflow-ai')}
 								</label>
 								<select
 									value={formData.orchestration_mode}
@@ -469,7 +469,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300">
 									<MessageSquare className="w-4 h-4 text-gray-400 dark:text-slate-500" />
-									{__('Welcome Message', 'smart-woo-chatbot')}
+									{__('Welcome Message', 'agentflow-ai')}
 								</label>
 								<textarea
 									value={formData.welcome_message}
@@ -479,7 +479,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 									className="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200 resize-none"
 								/>
 								<p className="text-xs text-gray-500 dark:text-slate-400">
-									{__('Message displayed when the group chat starts', 'smart-woo-chatbot')}
+									{__('Message displayed when the group chat starts', 'agentflow-ai')}
 								</p>
 							</div>
 						</div>
@@ -496,10 +496,10 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 									</div>
 									<div>
 										<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-											{__('Team Members', 'smart-woo-chatbot')}
+											{__('Team Members', 'agentflow-ai')}
 										</h3>
 										<p className="text-sm text-gray-500 dark:text-slate-400">
-											{formData.members.length} {formData.members.length === 1 ? __('agent', 'smart-woo-chatbot') : __('agents', 'smart-woo-chatbot')}
+											{formData.members.length} {formData.members.length === 1 ? __('agent', 'agentflow-ai') : __('agents', 'agentflow-ai')}
 										</p>
 									</div>
 								</div>
@@ -510,7 +510,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 									disabled={availableAgents.length === 0}
 									className="h-10 pl-4 pr-10 text-sm rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
 								>
-									<option value="">{__('+ Add Agent', 'smart-woo-chatbot')}</option>
+									<option value="">{__('+ Add Agent', 'agentflow-ai')}</option>
 									{availableAgents.map((agent) => (
 										<option key={agent.id} value={agent.id}>
 											{agent.name}
@@ -529,10 +529,10 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 										<Crown className="w-5 h-5 text-rose-500 mt-0.5 flex-shrink-0" />
 										<div>
 											<p className="text-sm font-medium text-rose-800 dark:text-rose-300">
-												{__('How Supervisor Mode Works', 'smart-woo-chatbot')}
+												{__('How Supervisor Mode Works', 'agentflow-ai')}
 											</p>
 											<p className="text-xs text-rose-700/80 dark:text-rose-400/80 mt-1">
-												{__('The agent with the "Primary" role acts as the Manager. It uses AI to autonomously decide which task to delegate to which team member. All other agents become Workers.', 'smart-woo-chatbot')}
+												{__('The agent with the "Primary" role acts as the Manager. It uses AI to autonomously decide which task to delegate to which team member. All other agents become Workers.', 'agentflow-ai')}
 											</p>
 											<div className="mt-2 flex flex-wrap gap-2">
 												{formData.members.map((m, i) => (
@@ -544,7 +544,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 														{m.role === 'primary' && <Crown className="w-3 h-3" />}
 														{m.agent_name || `Agent ${i + 1}`}
 														<span className="text-[10px] opacity-60">
-															{m.role === 'primary' ? __('Manager', 'smart-woo-chatbot') : __('Worker', 'smart-woo-chatbot')}
+															{m.role === 'primary' ? __('Manager', 'agentflow-ai') : __('Worker', 'agentflow-ai')}
 														</span>
 													</span>
 												))}
@@ -580,13 +580,13 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 									<div>
 										<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
 											{formData.orchestration_mode === 'supervisor' 
-												? __('Manager\'s Project Plan', 'smart-woo-chatbot')
-												: __('Workflow Steps', 'smart-woo-chatbot')}
+												? __('Manager\'s Project Plan', 'agentflow-ai')
+												: __('Workflow Steps', 'agentflow-ai')}
 										</h3>
 										<p className="text-sm text-gray-500 dark:text-slate-400">
 											{formData.orchestration_mode === 'supervisor'
-												? __('Explicitly define tasks the Manager must delegate and complete', 'smart-woo-chatbot')
-												: __('Define the work process and instructions for this team', 'smart-woo-chatbot')}
+												? __('Explicitly define tasks the Manager must delegate and complete', 'agentflow-ai')
+												: __('Define the work process and instructions for this team', 'agentflow-ai')}
 										</p>
 									</div>
 								</div>
@@ -596,7 +596,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 									className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/50 border border-amber-200 dark:border-amber-800 transition-all"
 								>
 									<Plus className="w-4 h-4" />
-									{__('Add Step', 'smart-woo-chatbot')}
+									{__('Add Step', 'agentflow-ai')}
 								</button>
 							</div>
 						</div>
@@ -609,10 +609,10 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 										<ListOrdered className="w-7 h-7 text-amber-400 dark:text-amber-500" />
 									</div>
 									<h4 className="font-semibold text-gray-700 dark:text-slate-300 mb-1">
-										{__('No workflow steps defined', 'smart-woo-chatbot')}
+										{__('No workflow steps defined', 'agentflow-ai')}
 									</h4>
 									<p className="text-sm text-gray-500 dark:text-slate-400 max-w-sm mx-auto mb-4">
-										{__('Add steps to define the work process for this team. Steps can be instructions, agent tasks, approvals, or conditions.', 'smart-woo-chatbot')}
+										{__('Add steps to define the work process for this team. Steps can be instructions, agent tasks, approvals, or conditions.', 'agentflow-ai')}
 									</p>
 									<button
 										type="button"
@@ -620,7 +620,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 										className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-amber-500 text-white hover:bg-amber-600 transition-colors"
 									>
 										<Plus className="w-4 h-4" />
-										{__('Add First Step', 'smart-woo-chatbot')}
+										{__('Add First Step', 'agentflow-ai')}
 									</button>
 								</div>
 							) : (
@@ -638,7 +638,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 													</div>
 													<div>
 														<p className="text-sm font-semibold text-gray-900 dark:text-white">
-															{step.name || `${__('Step', 'smart-woo-chatbot')} ${index + 1}`}
+															{step.name || `${__('Step', 'agentflow-ai')} ${index + 1}`}
 														</p>
 														<p className="text-xs text-gray-500 dark:text-slate-400 capitalize">
 															{step.type || 'instruction'}
@@ -651,7 +651,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 														onClick={() => moveWorkflowStep(index, -1)}
 														disabled={index === 0}
 														className="p-1.5 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-200 dark:hover:bg-slate-700 dark:hover:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-														title={__('Move up', 'smart-woo-chatbot')}
+														title={__('Move up', 'agentflow-ai')}
 													>
 														<ChevronUp className="w-4 h-4" />
 													</button>
@@ -660,7 +660,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 														onClick={() => moveWorkflowStep(index, 1)}
 														disabled={index === formData.workflow_steps.length - 1}
 														className="p-1.5 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-200 dark:hover:bg-slate-700 dark:hover:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-														title={__('Move down', 'smart-woo-chatbot')}
+														title={__('Move down', 'agentflow-ai')}
 													>
 														<ChevronDown className="w-4 h-4" />
 													</button>
@@ -668,7 +668,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 														type="button"
 														onClick={() => removeWorkflowStep(index)}
 														className="p-1.5 rounded-md text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
-														title={__('Remove step', 'smart-woo-chatbot')}
+														title={__('Remove step', 'agentflow-ai')}
 													>
 														<Trash2 className="w-4 h-4" />
 													</button>
@@ -680,8 +680,8 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 												<div>
 													<label className="block text-xs font-medium text-gray-600 dark:text-slate-400 mb-1">
 														{formData.orchestration_mode === 'supervisor' 
-															? __('Task Type', 'smart-woo-chatbot')
-															: __('What should happen in this step?', 'smart-woo-chatbot')}
+															? __('Task Type', 'agentflow-ai')
+															: __('What should happen in this step?', 'agentflow-ai')}
 													</label>
 													<select
 														value={step.type || 'instruction'}
@@ -690,14 +690,14 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 													>
 														{formData.orchestration_mode === 'supervisor' ? (
 															<>
-																<option value="agent">{__('Delegate Task to Agent', 'smart-woo-chatbot')}</option>
-																<option value="instruction">{__('Manager Self-Instruction', 'smart-woo-chatbot')}</option>
+																<option value="agent">{__('Delegate Task to Agent', 'agentflow-ai')}</option>
+																<option value="instruction">{__('Manager Self-Instruction', 'agentflow-ai')}</option>
 															</>
 														) : (
 															<>
-																<option value="instruction">{__('Give an Instruction (System Prompt)', 'smart-woo-chatbot')}</option>
-																<option value="agent">{__('Assign Task to a Specific Agent', 'smart-woo-chatbot')}</option>
-																<option value="approval">{__('Wait for Human Approval', 'smart-woo-chatbot')}</option>
+																<option value="instruction">{__('Give an Instruction (System Prompt)', 'agentflow-ai')}</option>
+																<option value="agent">{__('Assign Task to a Specific Agent', 'agentflow-ai')}</option>
+																<option value="approval">{__('Wait for Human Approval', 'agentflow-ai')}</option>
 															</>
 														)}
 													</select>
@@ -705,11 +705,11 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 												<div>
 													<label className="block text-xs font-medium text-gray-600 dark:text-slate-400 mb-1">
 														{formData.orchestration_mode === 'supervisor'
-															? __('Task Name', 'smart-woo-chatbot')
-															: (step.type === 'instruction' ? __('Name of this Instruction', 'smart-woo-chatbot') :
-														 		step.type === 'agent' ? __('Task Title', 'smart-woo-chatbot') :
-														 		step.type === 'approval' ? __('Approval Title', 'smart-woo-chatbot') :
-														 		__('Step Name', 'smart-woo-chatbot'))}
+															? __('Task Name', 'agentflow-ai')
+															: (step.type === 'instruction' ? __('Name of this Instruction', 'agentflow-ai') :
+														 		step.type === 'agent' ? __('Task Title', 'agentflow-ai') :
+														 		step.type === 'approval' ? __('Approval Title', 'agentflow-ai') :
+														 		__('Step Name', 'agentflow-ai'))}
 													</label>
 													<input
 														type="text"
@@ -717,10 +717,10 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 														onChange={(e) => updateWorkflowStep(index, 'name', e.target.value)}
 														className="w-full h-9 px-3 text-sm rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30"
 														placeholder={
-															step.type === 'instruction' ? __('e.g. Gather Context', 'smart-woo-chatbot') :
-															step.type === 'agent' ? __('e.g. Write Email Draft', 'smart-woo-chatbot') :
-															step.type === 'approval' ? __('e.g. Final Review', 'smart-woo-chatbot') :
-															__('e.g. Review requirements', 'smart-woo-chatbot')
+															step.type === 'instruction' ? __('e.g. Gather Context', 'agentflow-ai') :
+															step.type === 'agent' ? __('e.g. Write Email Draft', 'agentflow-ai') :
+															step.type === 'approval' ? __('e.g. Final Review', 'agentflow-ai') :
+															__('e.g. Review requirements', 'agentflow-ai')
 														}
 													/>
 												</div>
@@ -730,14 +730,14 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 											{step.type === 'agent' && (
 												<div className="mt-3">
 													<label className="block text-xs font-medium text-gray-600 dark:text-slate-400 mb-1">
-														{__('Which agent should perform this task?', 'smart-woo-chatbot')}
+														{__('Which agent should perform this task?', 'agentflow-ai')}
 													</label>
 													<select
 														value={step.agent_id || ''}
 														onChange={(e) => updateWorkflowStep(index, 'agent_id', e.target.value)}
 														className="w-full h-9 px-3 text-sm rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30"
 													>
-														<option value="">{__('Select an agent from the team...', 'smart-woo-chatbot')}</option>
+														<option value="">{__('Select an agent from the team...', 'agentflow-ai')}</option>
 														{allAgents.filter(a => formData.members.some(m => m.agent_db_id === a.id)).map((agent) => (
 															<option key={agent.id} value={agent.agent_id || agent.id}>
 																{agent.name}
@@ -752,12 +752,12 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 											<div className="mt-3">
 												<label className="block text-xs font-medium text-gray-600 dark:text-slate-400 mb-1">
 													{formData.orchestration_mode === 'supervisor' 
-														? (step.type === 'agent' ? __('What exactly should the worker agent do?', 'smart-woo-chatbot') : __('Specific instruction for the manager', 'smart-woo-chatbot'))
+														? (step.type === 'agent' ? __('What exactly should the worker agent do?', 'agentflow-ai') : __('Specific instruction for the manager', 'agentflow-ai'))
 														: (step.type === 'approval'
-															? __('What exactly needs to be approved by the human?', 'smart-woo-chatbot')
+															? __('What exactly needs to be approved by the human?', 'agentflow-ai')
 															: step.type === 'instruction'
-																? __('Provide detailed instructions for what needs to happen', 'smart-woo-chatbot')
-																: __('Describe the exact task the agent needs to complete', 'smart-woo-chatbot'))
+																? __('Provide detailed instructions for what needs to happen', 'agentflow-ai')
+																: __('Describe the exact task the agent needs to complete', 'agentflow-ai'))
 													}
 												</label>
 												<textarea
@@ -767,12 +767,12 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 													className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 resize-none"
 													placeholder={
 														formData.orchestration_mode === 'supervisor'
-															? __('E.g. Analyze the request, check the database, and compile a report.', 'smart-woo-chatbot')
+															? __('E.g. Analyze the request, check the database, and compile a report.', 'agentflow-ai')
 															: (step.type === 'approval'
-																? __('e.g. Please approve the email draft before continuing.', 'smart-woo-chatbot')
+																? __('e.g. Please approve the email draft before continuing.', 'agentflow-ai')
 																: step.type === 'instruction'
-																	? __('Describe the instruction in detail...', 'smart-woo-chatbot')
-																	: __('Describe the task the agent needs to complete...', 'smart-woo-chatbot'))
+																	? __('Describe the instruction in detail...', 'agentflow-ai')
+																	: __('Describe the task the agent needs to complete...', 'agentflow-ai'))
 													}
 												/>
 											</div>
@@ -781,14 +781,14 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 											{formData.orchestration_mode === 'supervisor' && (
 												<div className="mt-3">
 													<label className="block text-xs font-medium text-gray-600 dark:text-slate-400 mb-1">
-														{__('Expected Output (Optional)', 'smart-woo-chatbot')}
+														{__('Expected Output (Optional)', 'agentflow-ai')}
 													</label>
 													<input
 														type="text"
 														value={step.expected_output || ''}
 														onChange={(e) => updateWorkflowStep(index, 'expected_output', e.target.value)}
 														className="w-full h-9 px-3 text-sm rounded-lg border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30"
-														placeholder={__('E.g. A JSON object with the user details.', 'smart-woo-chatbot')}
+														placeholder={__('E.g. A JSON object with the user details.', 'agentflow-ai')}
 													/>
 												</div>
 											)}
@@ -806,7 +806,7 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 					<div className="bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm overflow-hidden">
 						<div className="p-6">
 							<h3 className="text-sm font-semibold text-gray-700 dark:text-slate-300 mb-4">
-								{__('Team Status', 'smart-woo-chatbot')}
+								{__('Team Status', 'agentflow-ai')}
 							</h3>
 
 							{/* Status Toggle */}
@@ -822,12 +822,12 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 										</div>
 										<div>
 											<p className="font-medium text-gray-900 dark:text-white">
-												{formData.is_active ? __('Active', 'smart-woo-chatbot') : __('Inactive', 'smart-woo-chatbot')}
+												{formData.is_active ? __('Active', 'agentflow-ai') : __('Inactive', 'agentflow-ai')}
 											</p>
 											<p className="text-xs text-gray-500 dark:text-slate-400">
 												{formData.is_active
-													? __('Team is available', 'smart-woo-chatbot')
-													: __('Team is disabled', 'smart-woo-chatbot')
+													? __('Team is available', 'agentflow-ai')
+													: __('Team is disabled', 'agentflow-ai')
 												}
 											</p>
 										</div>
@@ -852,15 +852,15 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 							<div className="mt-4 grid grid-cols-3 gap-3">
 								<div className="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800">
 									<p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{formData.members.length}</p>
-									<p className="text-xs text-indigo-600/70 dark:text-indigo-400/70">{__('Members', 'smart-woo-chatbot')}</p>
+									<p className="text-xs text-indigo-600/70 dark:text-indigo-400/70">{__('Members', 'agentflow-ai')}</p>
 								</div>
 								<div className="p-3 rounded-xl bg-purple-50 dark:bg-purple-900/30 border border-purple-100 dark:border-purple-800">
 									<p className="text-2xl font-bold text-purple-600 dark:text-purple-400">{selectedMode.value.charAt(0).toUpperCase()}</p>
-									<p className="text-xs text-purple-600/70 dark:text-purple-400/70">{__('Strategy', 'smart-woo-chatbot')}</p>
+									<p className="text-xs text-purple-600/70 dark:text-purple-400/70">{__('Strategy', 'agentflow-ai')}</p>
 								</div>
 								<div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/30 border border-amber-100 dark:border-amber-800">
 									<p className="text-2xl font-bold text-amber-600 dark:text-amber-400">{formData.workflow_steps.length}</p>
-									<p className="text-xs text-amber-600/70 dark:text-amber-400/70">{__('Steps', 'smart-woo-chatbot')}</p>
+									<p className="text-xs text-amber-600/70 dark:text-amber-400/70">{__('Steps', 'agentflow-ai')}</p>
 								</div>
 							</div>
 						</div>
@@ -870,26 +870,26 @@ export default function GroupEditor({ group, onSave, onCancel, isNew }) {
 					<div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-2xl border border-indigo-100 dark:border-indigo-800 p-6">
 						<div className="flex items-center gap-2 mb-3">
 							<Info className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-							<h4 className="font-semibold text-indigo-900 dark:text-indigo-300">{__('Quick Tips', 'smart-woo-chatbot')}</h4>
+							<h4 className="font-semibold text-indigo-900 dark:text-indigo-300">{__('Quick Tips', 'agentflow-ai')}</h4>
 						</div>
 						<ul className="space-y-2 text-sm text-indigo-800/80 dark:text-indigo-300/80">
 							<li className="flex items-start gap-2">
 								<span className="text-indigo-500 dark:text-indigo-400 mt-1">•</span>
 								{formData.orchestration_mode === 'supervisor'
-									? __('Set one agent as "Primary" \u2014 it becomes the Manager', 'smart-woo-chatbot')
-									: __('Use Auto-Router for automatic agent selection', 'smart-woo-chatbot')}
+									? __('Set one agent as "Primary" \u2014 it becomes the Manager', 'agentflow-ai')
+									: __('Use Auto-Router for automatic agent selection', 'agentflow-ai')}
 							</li>
 							<li className="flex items-start gap-2">
 								<span className="text-indigo-500 dark:text-indigo-400 mt-1">•</span>
 								{formData.orchestration_mode === 'supervisor'
-									? __('All other agents become Workers the Manager delegates to', 'smart-woo-chatbot')
-									: __('Add routing keywords to help with matching', 'smart-woo-chatbot')}
+									? __('All other agents become Workers the Manager delegates to', 'agentflow-ai')
+									: __('Add routing keywords to help with matching', 'agentflow-ai')}
 							</li>
 							<li className="flex items-start gap-2">
 								<span className="text-indigo-500 dark:text-indigo-400 mt-1">•</span>
 								{formData.orchestration_mode === 'supervisor'
-									? __('Give each Worker a clear description so the Manager knows their specialty', 'smart-woo-chatbot')
-									: __('Assign a Primary agent as default', 'smart-woo-chatbot')}
+									? __('Give each Worker a clear description so the Manager knows their specialty', 'agentflow-ai')
+									: __('Assign a Primary agent as default', 'agentflow-ai')}
 							</li>
 						</ul>
 					</div>

@@ -58,8 +58,8 @@ export default function BulkActionsToolbar({
 					</span>
 					<span className="swc-bulk-toolbar__label">
 						{selectedCount === 1
-							? __('agent selected', 'smart-ai-chatbot')
-							: __('agents selected', 'smart-ai-chatbot')}
+							? __('agent selected', 'agentflow-ai')
+							: __('agents selected', 'agentflow-ai')}
 					</span>
 				</div>
 
@@ -69,10 +69,10 @@ export default function BulkActionsToolbar({
 							variant="primary"
 							size="sm"
 							onClick={onUseInWorkspace}
-							title={__('Use selected agents in Workspace', 'smart-ai-chatbot')}
+							title={__('Use selected agents in Workspace', 'agentflow-ai')}
 							icon={<span></span>}
 						>
-							{__('Use in Workspace', 'smart-ai-chatbot')}
+							{__('Use in Workspace', 'agentflow-ai')}
 						</Button>
 					)}
 
@@ -81,10 +81,10 @@ export default function BulkActionsToolbar({
 							variant="secondary"
 							size="sm"
 							onClick={onDuplicate}
-							title={__('Duplicate selected', 'smart-ai-chatbot')}
+							title={__('Duplicate selected', 'agentflow-ai')}
 							icon={<span></span>}
 						>
-							{__('Duplicate', 'smart-ai-chatbot')}
+							{__('Duplicate', 'agentflow-ai')}
 						</Button>
 					)}
 
@@ -93,10 +93,10 @@ export default function BulkActionsToolbar({
 							variant="secondary"
 							size="sm"
 							onClick={onExport}
-							title={__('Export selected', 'smart-ai-chatbot')}
+							title={__('Export selected', 'agentflow-ai')}
 							icon={<span></span>}
 						>
-							{__('Export', 'smart-ai-chatbot')}
+							{__('Export', 'agentflow-ai')}
 						</Button>
 					)}
 
@@ -104,17 +104,17 @@ export default function BulkActionsToolbar({
 						variant="danger"
 						size="sm"
 						onClick={handleDelete}
-						title={__('Delete selected', 'smart-ai-chatbot')}
+						title={__('Delete selected', 'agentflow-ai')}
 						icon={<span>️</span>}
 					>
-						{__('Delete', 'smart-ai-chatbot')}
+						{__('Delete', 'agentflow-ai')}
 					</Button>
 
 					<IconButton
 						className="swc-bulk-toolbar__close"
 						onClick={onClear}
-						title={__('Clear selection', 'smart-ai-chatbot')}
-						aria-label={__('Clear selection', 'smart-ai-chatbot')}
+						title={__('Clear selection', 'agentflow-ai')}
+						aria-label={__('Clear selection', 'agentflow-ai')}
 						size="sm"
 					>
 						
@@ -126,9 +126,9 @@ export default function BulkActionsToolbar({
 				isOpen={showDeleteConfirm}
 				onClose={() => setShowDeleteConfirm(false)}
 				onConfirm={confirmDelete}
-				title={__('Delete Selected Items?', 'smart-ai-chatbot')}
-				message={`${__('Are you sure you want to delete', 'smart-ai-chatbot')} ${selectedCount} ${itemType}? ${__('This action cannot be undone.', 'smart-ai-chatbot')}`}
-				confirmText={__('Delete All', 'smart-ai-chatbot')}
+				title={__('Delete Selected Items?', 'agentflow-ai')}
+				message={`${__('Are you sure you want to delete', 'agentflow-ai')} ${selectedCount} ${itemType}? ${__('This action cannot be undone.', 'agentflow-ai')}`}
+				confirmText={__('Delete All', 'agentflow-ai')}
 				variant="danger"
 			/>
 		</>

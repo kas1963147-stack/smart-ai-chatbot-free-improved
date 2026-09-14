@@ -15,11 +15,11 @@ import Modal from './Modal';
 import { Button, TextField } from '../ui';
 
 const WIZARD_STEPS = [
-	{ id: 'welcome', title: __('Welcome', 'smart-ai-chatbot') },
-	{ id: 'provider', title: __('AI Provider', 'smart-ai-chatbot') },
-	{ id: 'api-key', title: __('API Key', 'smart-ai-chatbot') },
-	{ id: 'first-agent', title: __('First Agent', 'smart-ai-chatbot') },
-	{ id: 'complete', title: __('Complete', 'smart-ai-chatbot') },
+	{ id: 'welcome', title: __('Welcome', 'agentflow-ai') },
+	{ id: 'provider', title: __('AI Provider', 'agentflow-ai') },
+	{ id: 'api-key', title: __('API Key', 'agentflow-ai') },
+	{ id: 'first-agent', title: __('First Agent', 'agentflow-ai') },
+	{ id: 'complete', title: __('Complete', 'agentflow-ai') },
 ];
 
 const AI_PROVIDERS = [
@@ -148,23 +148,23 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 								backgroundClip: 'text',
 							} }
 						>
-							{ __('Welcome to Smart Chatbot', 'smart-ai-chatbot') }
+							{ __('Welcome to Smart Chatbot', 'agentflow-ai') }
 						</h2>
 						<p
 							className="swc-text-gray-500 swc-text-sm"
 							style={ { maxWidth: '380px', lineHeight: '1.6' } }
 						>
-							{ __("Set up your AI shopping assistant in under 2 minutes. We'll connect your AI provider and create your first intelligent agent.", 'smart-ai-chatbot') }
+							{ __("Set up your AI shopping assistant in under 2 minutes. We'll connect your AI provider and create your first intelligent agent.", 'agentflow-ai') }
 						</p>
 						<div className="swc-onboarding__features">
 							<div className="swc-onboarding__feature">
-								{ __('Smart Conversations', 'smart-ai-chatbot') }
+								{ __('Smart Conversations', 'agentflow-ai') }
 							</div>
 							<div className="swc-onboarding__feature">
-								{ __('Product Discovery', 'smart-ai-chatbot') }
+								{ __('Product Discovery', 'agentflow-ai') }
 							</div>
 							<div className="swc-onboarding__feature">
-								{ __('Order Tracking', 'smart-ai-chatbot') }
+								{ __('Order Tracking', 'agentflow-ai') }
 							</div>
 						</div>
 					</div>
@@ -174,10 +174,10 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 				return (
 					<div className="swc-onboarding__provider">
 						<h3 className="swc-text-lg swc-font-bold swc-mb-2">
-							{ __('Choose Your AI Provider', 'smart-ai-chatbot') }
+							{ __('Choose Your AI Provider', 'agentflow-ai') }
 						</h3>
 						<p className="swc-text-sm swc-text-gray-600 swc-mb-4">
-							{ __('Select the AI service you want to power your chatbot.', 'smart-ai-chatbot') }
+							{ __('Select the AI service you want to power your chatbot.', 'agentflow-ai') }
 						</p>
 
 						<div className="swc-onboarding__provider-grid">
@@ -215,7 +215,7 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 
 						<details className="swc-onboarding__more-providers swc-mt-4">
 							<summary className="swc-text-sm swc-text-primary swc-cursor-pointer swc-outline-none">
-								{ __('Show more providers', 'smart-ai-chatbot') }
+								{ __('Show more providers', 'agentflow-ai') }
 							</summary>
 							<div className="swc-onboarding__provider-grid swc-mt-3">
 								{ AI_PROVIDERS.filter(
@@ -252,16 +252,16 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 				return (
 					<div className="swc-onboarding__api-key swc-w-full">
 						<h3 className="swc-text-lg swc-font-bold swc-mb-2">
-							{ __('Enter Your API Key', 'smart-ai-chatbot') }
+							{ __('Enter Your API Key', 'agentflow-ai') }
 						</h3>
 						<p className="swc-text-sm swc-text-gray-600 swc-mb-4">
-							{ __('Paste your API key from', 'smart-ai-chatbot') }{ ' ' }
+							{ __('Paste your API key from', 'agentflow-ai') }{ ' ' }
 							<strong>{ formData.provider }</strong>.
 						</p>
 
 						<div className="swc-form-group">
 							<TextField
-								label={ __('API Key', 'smart-ai-chatbot') }
+								label={ __('API Key', 'agentflow-ai') }
 								type="password"
 								placeholder="sk-..."
 								value={ formData.apiKey }
@@ -275,13 +275,13 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 							/>
 							{ testResult === 'error' && (
 								<p className="swc-help swc-text-error">
-									{ __('Invalid API key. Please check and try again.', 'smart-ai-chatbot') }
+									{ __('Invalid API key. Please check and try again.', 'agentflow-ai') }
 								</p>
 							) }
 							{ testResult === 'success' && (
 								<p className="swc-help swc-text-success">
 									{ ' ' }
-									{ __('Connection successful!', 'smart-ai-chatbot') }
+									{ __('Connection successful!', 'agentflow-ai') }
 								</p>
 							) }
 						</div>
@@ -292,16 +292,16 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 				return (
 					<div className="swc-onboarding__first-agent swc-w-full">
 						<h3 className="swc-text-lg swc-font-bold swc-mb-2">
-							{ __('Name Your First Agent', 'smart-ai-chatbot') }
+							{ __('Name Your First Agent', 'agentflow-ai') }
 						</h3>
 						<p className="swc-text-sm swc-text-gray-600 swc-mb-4">
-							{ __('Give your AI assistant a friendly name that customers will see.', 'smart-ai-chatbot') }
+							{ __('Give your AI assistant a friendly name that customers will see.', 'agentflow-ai') }
 						</p>
 
 						<div className="swc-form-group">
 							<TextField
-								label={ __('Agent Name', 'smart-ai-chatbot') }
-								placeholder={ __('Shopping Assistant', 'smart-ai-chatbot') }
+								label={ __('Agent Name', 'agentflow-ai') }
+								placeholder={ __('Shopping Assistant', 'agentflow-ai') }
 								value={ formData.agentName }
 								onChange={ ( value ) =>
 									setFormData( {
@@ -314,7 +314,7 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 
 						<div className="swc-card swc-p-4 swc-mt-4 swc-bg-gray-50">
 							<div className="swc-bg-white swc-p-3 swc-rounded-lg swc-border swc-border-gray-200 swc-text-sm swc-text-gray-700">
-								{ __('Hello! How can I help you today?', 'smart-ai-chatbot') }
+								{ __('Hello! How can I help you today?', 'agentflow-ai') }
 							</div>
 						</div>
 					</div>
@@ -324,25 +324,25 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 				return (
 					<div className="swc-onboarding__complete">
 						<h2 className="swc-text-2xl swc-font-bold swc-mb-3">
-							{ __("You're All Set!", 'smart-ai-chatbot') }
+							{ __("You're All Set!", 'agentflow-ai') }
 						</h2>
 						<p className="swc-text-gray-600 swc-mb-6">
-							{ __('Your Smart Chatbot is ready to help customers. You can now customize your agent, add more toolkits, and configure advanced settings.', 'smart-ai-chatbot') }
+							{ __('Your Smart Chatbot is ready to help customers. You can now customize your agent, add more toolkits, and configure advanced settings.', 'agentflow-ai') }
 						</p>
 						<div className="swc-onboarding__next-steps swc-grid swc-grid--3 swc-gap-4 swc-w-full">
 							<div className="swc-card swc-p-4 swc-text-center">
 								<span className="swc-text-sm swc-font-medium text-gray-700">
-									{ __('Add Knowledge Base sources', 'smart-ai-chatbot') }
+									{ __('Add Knowledge Base sources', 'agentflow-ai') }
 								</span>
 							</div>
 							<div className="swc-card swc-p-4 swc-text-center">
 								<span className="swc-text-sm swc-font-medium text-gray-700">
-									{ __('Configure chat appearance', 'smart-ai-chatbot') }
+									{ __('Configure chat appearance', 'agentflow-ai') }
 								</span>
 							</div>
 							<div className="swc-card swc-p-4 swc-text-center">
 								<span className="swc-text-sm swc-font-medium text-gray-700">
-									{ __('Customize widget styling', 'smart-ai-chatbot') }
+									{ __('Customize widget styling', 'agentflow-ai') }
 								</span>
 							</div>
 						</div>
@@ -395,14 +395,14 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 					{ currentStep > 0 &&
 						currentStep < WIZARD_STEPS.length - 1 && (
 							<Button variant="secondary" onClick={ handleBack }>
-								{ __('Back', 'smart-ai-chatbot') }
+								{ __('Back', 'agentflow-ai') }
 							</Button>
 						) }
 
 					<div className="swc-onboarding__footer-right">
 						{ currentStep === 0 && (
 							<Button variant="ghost" onClick={ onSkip }>
-								{ __('Skip for now', 'smart-ai-chatbot') }
+								{ __('Skip for now', 'agentflow-ai') }
 							</Button>
 						) }
 						<Button
@@ -412,10 +412,10 @@ export default function OnboardingWizard( { isOpen, onComplete, onSkip } ) {
 							isBusy={ testing || saving }
 						>
 							{ step.id === 'complete'
-								? __('Get Started', 'smart-ai-chatbot')
+								? __('Get Started', 'agentflow-ai')
 								: step.id === 'first-agent'
-								? __('Finish Setup', 'smart-ai-chatbot')
-								: __('Continue', 'smart-ai-chatbot') }
+								? __('Finish Setup', 'agentflow-ai')
+								: __('Continue', 'agentflow-ai') }
 						</Button>
 					</div>
 				</div>

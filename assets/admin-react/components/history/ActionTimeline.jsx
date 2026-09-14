@@ -54,10 +54,10 @@ export default function ActionTimeline({ actions }) {
 				</div>
 				<div>
 					<h4 className="text-sm font-semibold text-slate-900">
-						{__('Tool Executions', 'smart-woo-chatbot')}
+						{__('Tool Executions', 'agentflow-ai')}
 					</h4>
 					<p className="text-xs text-slate-500">
-						{actions.length} {actions.length === 1 ? __('action', 'smart-woo-chatbot') : __('actions', 'smart-woo-chatbot')} {__('executed', 'smart-woo-chatbot')}
+						{actions.length} {actions.length === 1 ? __('action', 'agentflow-ai') : __('actions', 'agentflow-ai')} {__('executed', 'agentflow-ai')}
 					</p>
 				</div>
 			</div>
@@ -166,7 +166,7 @@ function ActionCard({ action, isLast }) {
 								: 'bg-red-100 text-red-700'
 								}`}
 						>
-							{isSuccess ? __('Success', 'smart-woo-chatbot') : __('Failed', 'smart-woo-chatbot')}
+							{isSuccess ? __('Success', 'agentflow-ai') : __('Failed', 'agentflow-ai')}
 						</span>
 
 						{/* Expand Icon */}
@@ -191,7 +191,7 @@ function ActionCard({ action, isLast }) {
 									</div>
 									<div>
 										<p className="text-xs font-semibold text-red-800 uppercase tracking-wide mb-1">
-											{__('Error', 'smart-woo-chatbot')}
+											{__('Error', 'agentflow-ai')}
 										</p>
 										<pre className="text-sm text-red-700 whitespace-pre-wrap font-mono bg-red-100 rounded-lg p-3 border border-red-200">
 											{action.error || action.error_message}
@@ -210,7 +210,7 @@ function ActionCard({ action, isLast }) {
 									</svg>
 								</div>
 								<p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-									{__('Inputs', 'smart-woo-chatbot')}
+									{__('Inputs', 'agentflow-ai')}
 								</p>
 							</div>
 							<pre className="text-xs text-slate-700 whitespace-pre-wrap font-mono bg-white rounded-lg p-3 border border-slate-200 max-h-40 overflow-auto">
@@ -227,7 +227,7 @@ function ActionCard({ action, isLast }) {
 									</svg>
 								</div>
 								<p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-									{__('Output', 'smart-woo-chatbot')}
+									{__('Output', 'agentflow-ai')}
 								</p>
 							</div>
 							<pre className="text-xs text-slate-700 whitespace-pre-wrap font-mono bg-white rounded-lg p-3 border border-slate-200 max-h-40 overflow-auto">

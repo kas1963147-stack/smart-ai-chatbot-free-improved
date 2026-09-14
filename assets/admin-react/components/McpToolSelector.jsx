@@ -283,7 +283,7 @@ export default function McpToolSelector({ onStatsChange }) {
             <div className="flex flex-col items-center justify-center py-12">
                 <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4"></div>
                 <p className="text-gray-500">
-                    {__('Loading MCP tools...', 'smart-woo-chatbot')}
+                    {__('Loading MCP tools...', 'agentflow-ai')}
                 </p>
             </div>
         );
@@ -297,7 +297,7 @@ export default function McpToolSelector({ onStatsChange }) {
                     <TextField
                         value={searchQuery}
                         onChange={setSearchQuery}
-                        placeholder={__('Search tools...', 'smart-woo-chatbot')}
+                        placeholder={__('Search tools...', 'agentflow-ai')}
                         className="w-full"
                     />
                 </div>
@@ -308,7 +308,7 @@ export default function McpToolSelector({ onStatsChange }) {
                         onClick={enableAllInView}
                         disabled={saving}
                     >
-                        {__('Enable All', 'smart-woo-chatbot')}
+                        {__('Enable All', 'agentflow-ai')}
                     </Button>
                     <Button
                         variant="secondary"
@@ -316,7 +316,7 @@ export default function McpToolSelector({ onStatsChange }) {
                         onClick={disableAllInView}
                         disabled={saving}
                     >
-                        {__('Disable All', 'smart-woo-chatbot')}
+                        {__('Disable All', 'agentflow-ai')}
                     </Button>
                 </div>
             </div>
@@ -399,7 +399,7 @@ export default function McpToolSelector({ onStatsChange }) {
                                             )}
                                         >
                                             {enabledCount}/{tools.length}{' '}
-                                            {__('tools', 'smart-woo-chatbot')}
+                                            {__('tools', 'agentflow-ai')}
                                         </span>
                                     </div>
                                 </div>
@@ -478,11 +478,11 @@ export default function McpToolSelector({ onStatsChange }) {
                         {stats.enabled}
                     </strong>{' '}
                     / {stats.total}{' '}
-                    {__('tools enabled for MCP server', 'smart-woo-chatbot')}
+                    {__('tools enabled for MCP server', 'agentflow-ai')}
                 </span>
                 {saving && (
                     <span className="text-xs text-amber-600 ml-2">
-                        {__('Saving...', 'smart-woo-chatbot')}
+                        {__('Saving...', 'agentflow-ai')}
                     </span>
                 )}
             </div>

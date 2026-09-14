@@ -96,7 +96,7 @@ export default function McpServerAccessPage() {
 	};
 
 	if (mcpLoading) {
-		return <Loading message={__('Loading external AI access...', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading external AI access...', 'agentflow-ai')} fullPage />;
 	}
 
 	return (
@@ -110,17 +110,17 @@ export default function McpServerAccessPage() {
 							</div>
 							<div>
 								<h1 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
-									{__('Connect AI Apps', 'smart-woo-chatbot')}
+									{__('Connect AI Apps', 'agentflow-ai')}
 								</h1>
 								<p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-									{__('Turn this WordPress site into an MCP server so external AI apps like Claude Desktop, Cursor, and other MCP clients can use your site tools.', 'smart-woo-chatbot')}
+									{__('Turn this WordPress site into an MCP server so external AI apps like Claude Desktop, Cursor, and other MCP clients can use your site tools.', 'agentflow-ai')}
 								</p>
 							</div>
 						</div>
 					</div>
 					<div className="inline-flex self-start rounded-full bg-slate-50 px-3 py-1.5 text-sm text-slate-600 ring-1 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700">
 						<span className={`mr-2 inline-block h-2.5 w-2.5 rounded-full ${mcpServer?.enabled ? 'bg-emerald-500' : 'bg-slate-400'}`} />
-						{mcpServer?.enabled ? __('Enabled', 'smart-woo-chatbot') : __('Disabled', 'smart-woo-chatbot')}
+						{mcpServer?.enabled ? __('Enabled', 'agentflow-ai') : __('Disabled', 'agentflow-ai')}
 					</div>
 				</div>
 			</div>
@@ -139,17 +139,17 @@ export default function McpServerAccessPage() {
 					<div className="rounded-xl border border-gray-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
 						<div className="px-6 py-4 border-b border-gray-100 dark:border-slate-700">
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-								{__('Server Status', 'smart-woo-chatbot')}
+								{__('Server Status', 'agentflow-ai')}
 							</h3>
 						</div>
 						<div className="p-6">
 							<div className="flex items-center justify-between gap-4">
 								<div>
 									<div className="text-sm font-medium text-gray-900 dark:text-white">
-										{__('Enable External AI Access', 'smart-woo-chatbot')}
+										{__('Enable External AI Access', 'agentflow-ai')}
 									</div>
 									<div className="text-sm text-gray-500 dark:text-slate-400">
-										{__('Allow external AI apps to connect to this site through MCP.', 'smart-woo-chatbot')}
+										{__('Allow external AI apps to connect to this site through MCP.', 'agentflow-ai')}
 									</div>
 								</div>
 								<label className="relative inline-flex items-center cursor-pointer">
@@ -167,10 +167,10 @@ export default function McpServerAccessPage() {
 								<div className="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700">
 									<div className="flex items-center gap-4 text-sm">
 										<span className="px-3 py-1 bg-green-100 text-green-700 rounded-full font-medium">
-											{mcpServer.tools.enabled} {__('tools enabled', 'smart-woo-chatbot')}
+											{mcpServer.tools.enabled} {__('tools enabled', 'agentflow-ai')}
 										</span>
 										<span className="text-gray-500 dark:text-slate-400">
-											{__('of', 'smart-woo-chatbot')} {mcpServer.tools.total} {__('total', 'smart-woo-chatbot')}
+											{__('of', 'agentflow-ai')} {mcpServer.tools.total} {__('total', 'agentflow-ai')}
 										</span>
 									</div>
 								</div>
@@ -182,7 +182,7 @@ export default function McpServerAccessPage() {
 						<div className="rounded-xl border border-gray-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
 							<div className="px-6 py-4 border-b border-gray-100 dark:border-slate-700">
 								<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-									{__('Authentication Token', 'smart-woo-chatbot')}
+									{__('Authentication Token', 'agentflow-ai')}
 								</h3>
 							</div>
 							<div className="p-6 space-y-4">
@@ -190,7 +190,7 @@ export default function McpServerAccessPage() {
 									<>
 										<div>
 											<label className="block text-sm font-medium text-gray-900 dark:text-white mb-1.5">
-												{__('Bearer Token', 'smart-woo-chatbot')}
+												{__('Bearer Token', 'agentflow-ai')}
 											</label>
 											<div className="flex gap-2">
 												<input
@@ -204,7 +204,7 @@ export default function McpServerAccessPage() {
 													className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 transition-colors dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
 												>
 													<Copy className="w-4 h-4" />
-													{__('Copy', 'smart-woo-chatbot')}
+													{__('Copy', 'agentflow-ai')}
 												</button>
 											</div>
 										</div>
@@ -214,13 +214,13 @@ export default function McpServerAccessPage() {
 											className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-amber-700 bg-amber-50 border border-amber-200 hover:bg-amber-100 transition-colors disabled:opacity-50"
 										>
 											<RefreshCw className={`w-4 h-4 ${generatingToken ? 'animate-spin' : ''}`} />
-											{generatingToken ? __('Regenerating...', 'smart-woo-chatbot') : __('Regenerate Token', 'smart-woo-chatbot')}
+											{generatingToken ? __('Regenerating...', 'agentflow-ai') : __('Regenerate Token', 'agentflow-ai')}
 										</button>
 									</>
 								) : (
 									<div className="text-center py-4">
 										<p className="text-gray-500 dark:text-slate-400 mb-4">
-											{__('No token generated yet. Generate a token to allow external AI apps to connect.', 'smart-woo-chatbot')}
+											{__('No token generated yet. Generate a token to allow external AI apps to connect.', 'agentflow-ai')}
 										</p>
 										<button
 											onClick={generateMcpToken}
@@ -228,7 +228,7 @@ export default function McpServerAccessPage() {
 											className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 transition-colors disabled:opacity-50"
 										>
 											<RefreshCw className={`w-4 h-4 ${generatingToken ? 'animate-spin' : ''}`} />
-											{generatingToken ? __('Generating...', 'smart-woo-chatbot') : __('Generate Token', 'smart-woo-chatbot')}
+											{generatingToken ? __('Generating...', 'agentflow-ai') : __('Generate Token', 'agentflow-ai')}
 										</button>
 									</div>
 								)}
@@ -240,13 +240,13 @@ export default function McpServerAccessPage() {
 						<div className="rounded-xl border border-gray-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
 							<div className="px-6 py-4 border-b border-gray-100 dark:border-slate-700">
 								<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-									{__('Connection URLs', 'smart-woo-chatbot')}
+									{__('Connection URLs', 'agentflow-ai')}
 								</h3>
 							</div>
 							<div className="p-6 space-y-4">
 								<div>
 									<label className="block text-sm font-medium text-gray-900 dark:text-white mb-1.5">
-										{__('SSE Endpoint', 'smart-woo-chatbot')}
+										{__('SSE Endpoint', 'agentflow-ai')}
 									</label>
 									<div className="flex gap-2">
 										<input
@@ -265,7 +265,7 @@ export default function McpServerAccessPage() {
 								</div>
 								<div>
 									<label className="block text-sm font-medium text-gray-900 dark:text-white mb-1.5">
-										{__('Direct URL With Token', 'smart-woo-chatbot')}
+										{__('Direct URL With Token', 'agentflow-ai')}
 									</label>
 									<div className="flex gap-2">
 										<input
@@ -290,7 +290,7 @@ export default function McpServerAccessPage() {
 						<div className="rounded-xl border border-gray-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
 							<div className="px-6 py-4 border-b border-gray-100 dark:border-slate-700 flex items-center justify-between gap-3">
 								<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-									{__('Claude Desktop Setup', 'smart-woo-chatbot')}
+									{__('Claude Desktop Setup', 'agentflow-ai')}
 								</h3>
 								<a
 									href="https://modelcontextprotocol.io/quickstart/user"
@@ -298,12 +298,12 @@ export default function McpServerAccessPage() {
 									rel="noopener noreferrer"
 									className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
 								>
-									{__('Setup Guide', 'smart-woo-chatbot')} <ExternalLink className="w-3 h-3" />
+									{__('Setup Guide', 'agentflow-ai')} <ExternalLink className="w-3 h-3" />
 								</a>
 							</div>
 							<div className="p-6">
 								<p className="text-sm text-gray-500 dark:text-slate-400 mb-3">
-									{__('Add this to your Claude Desktop configuration file.', 'smart-woo-chatbot')}
+									{__('Add this to your Claude Desktop configuration file.', 'agentflow-ai')}
 								</p>
 								<div className="relative">
 									<pre className="p-4 bg-gray-900 text-gray-100 rounded-lg text-sm overflow-x-auto font-mono">
@@ -314,7 +314,7 @@ export default function McpServerAccessPage() {
 										className="absolute top-2 right-2 inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded bg-gray-700 text-gray-200 hover:bg-gray-600 transition-colors"
 									>
 										<Copy className="w-3 h-3" />
-										{__('Copy', 'smart-woo-chatbot')}
+										{__('Copy', 'agentflow-ai')}
 									</button>
 								</div>
 							</div>
@@ -325,10 +325,10 @@ export default function McpServerAccessPage() {
 						<div className="rounded-xl border border-gray-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
 							<div className="px-6 py-4 border-b border-gray-100 dark:border-slate-700">
 								<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-									{__('Shared Tools For External Apps', 'smart-woo-chatbot')}
+									{__('Shared Tools For External Apps', 'agentflow-ai')}
 								</h3>
 								<p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
-									{__('Choose which plugin tools external MCP clients are allowed to use.', 'smart-woo-chatbot')}
+									{__('Choose which plugin tools external MCP clients are allowed to use.', 'agentflow-ai')}
 								</p>
 							</div>
 							<div className="p-6">
@@ -344,9 +344,9 @@ export default function McpServerAccessPage() {
 				</>
 			) : (
 				<div className="text-center py-12 text-gray-500 dark:text-slate-400">
-					{__('Unable to load external AI access status.', 'smart-woo-chatbot')}
+					{__('Unable to load external AI access status.', 'agentflow-ai')}
 					<button onClick={loadMcpServer} className="ml-2 text-primary hover:underline">
-						{__('Retry', 'smart-woo-chatbot')}
+						{__('Retry', 'agentflow-ai')}
 					</button>
 				</div>
 			)}

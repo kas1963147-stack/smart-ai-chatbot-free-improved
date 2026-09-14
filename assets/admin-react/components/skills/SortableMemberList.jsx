@@ -25,9 +25,9 @@ import PropTypes from 'prop-types';
 import { Button, IconButton, Select, TextField } from '../ui';
 
 const MEMBER_ROLES = [
-	{ value: 'primary', label: __('Primary', 'smart-woo-chatbot') },
-	{ value: 'specialist', label: __('Specialist', 'smart-woo-chatbot') },
-	{ value: 'fallback', label: __('Fallback', 'smart-woo-chatbot') },
+	{ value: 'primary', label: __('Primary', 'agentflow-ai') },
+	{ value: 'specialist', label: __('Specialist', 'agentflow-ai') },
+	{ value: 'fallback', label: __('Fallback', 'agentflow-ai') },
 ];
 
 /**
@@ -76,8 +76,8 @@ function SortableMemberCard({
 						className="cursor-move p-1.5 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50"
 						{...attributes}
 						{...listeners}
-						title={__('Drag to reorder', 'smart-woo-chatbot')}
-						aria-label={__('Drag to reorder', 'smart-woo-chatbot')}
+						title={__('Drag to reorder', 'agentflow-ai')}
+						aria-label={__('Drag to reorder', 'agentflow-ai')}
 						type="button"
 					>
 						<svg
@@ -101,13 +101,13 @@ function SortableMemberCard({
 					onClick={() => onRemove(index)}
 					className="px-3 py-1.5 text-sm font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/40 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-500/50"
 				>
-					{__('Remove', 'smart-woo-chatbot')}
+					{__('Remove', 'agentflow-ai')}
 				</button>
 			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<div>
-					<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{__('Role', 'smart-woo-chatbot')}</label>
+					<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{__('Role', 'agentflow-ai')}</label>
 					<select
 						className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary px-3 py-2 outline-none transition-colors"
 						value={member.role}
@@ -123,32 +123,32 @@ function SortableMemberCard({
 
 				{orchestrationMode === 'router' && (
 					<div className="md:col-span-2">
-						<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{__('Routing Keywords', 'smart-woo-chatbot')}</label>
+						<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{__('Routing Keywords', 'agentflow-ai')}</label>
 						<input
 							type="text"
 							className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary px-3 py-2 outline-none transition-colors"
-							placeholder={__('Comma-separated keywords (e.g., billing, invoice)', 'smart-woo-chatbot')}
+							placeholder={__('Comma-separated keywords (e.g., billing, invoice)', 'agentflow-ai')}
 							value={member.routing_keywords || ''}
 							onChange={(e) => onUpdate(index, 'routing_keywords', e.target.value)}
 						/>
 						<p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-							{__('Comma-separated keywords (e.g., billing, invoice)', 'smart-woo-chatbot')}
+							{__('Comma-separated keywords (e.g., billing, invoice)', 'agentflow-ai')}
 						</p>
 					</div>
 				)}
 
 				{orchestrationMode === 'supervisor' && member.role !== 'primary' && (
 					<div className="md:col-span-2">
-						<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{__('Agent Responsibilities (Supervisor Instructions)', 'smart-woo-chatbot')}</label>
+						<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{__('Agent Responsibilities (Supervisor Instructions)', 'agentflow-ai')}</label>
 						<textarea
 							rows={2}
 							className="w-full text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary px-3 py-2 outline-none transition-colors"
-							placeholder={__('Explain to the manager exactly what tasks this agent should handle...', 'smart-woo-chatbot')}
+							placeholder={__('Explain to the manager exactly what tasks this agent should handle...', 'agentflow-ai')}
 							value={member.routing_keywords || ''}
 							onChange={(e) => onUpdate(index, 'routing_keywords', e.target.value)}
 						/>
 						<p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-							{__('This helps the Manager decide when to delegate tasks to this worker.', 'smart-woo-chatbot')}
+							{__('This helps the Manager decide when to delegate tasks to this worker.', 'agentflow-ai')}
 						</p>
 					</div>
 				)}
@@ -216,7 +216,7 @@ export default function SortableMemberList({
 				<p className="text-gray-500 dark:text-gray-400 m-0">
 					{__(
 						'No agents added yet. Add agents to create a team.',
-						'smart-woo-chatbot'
+						'agentflow-ai'
 					)}
 				</p>
 			</div>
@@ -251,7 +251,7 @@ export default function SortableMemberList({
 					<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
 					{__(
 						'Drag to reorder. Agents will execute in the order shown above.',
-						'smart-woo-chatbot'
+						'agentflow-ai'
 					)}
 				</p>
 			)}

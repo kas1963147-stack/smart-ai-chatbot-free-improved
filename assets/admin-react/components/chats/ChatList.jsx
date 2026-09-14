@@ -105,15 +105,15 @@ export default function ChatList({ widgets, onEdit, onDelete }) {
 						<div className="absolute top-4 right-4 shrink-0 text-gray-400" onClick={(e) => e.stopPropagation()}>
 							<DropdownMenu
 								icon={moreVertical}
-								label={__('More actions', 'smart-woo-chatbot')}
+								label={__('More actions', 'agentflow-ai')}
 								controls={[
 									{
-										title: __('Edit', 'smart-woo-chatbot'),
+										title: __('Edit', 'agentflow-ai'),
 										icon: edit,
 										onClick: () => onEdit(widget),
 									},
 									{
-										title: __('Delete', 'smart-woo-chatbot'),
+										title: __('Delete', 'agentflow-ai'),
 										icon: trash,
 										onClick: () => onDelete(widget.id),
 										isDestructive: true,

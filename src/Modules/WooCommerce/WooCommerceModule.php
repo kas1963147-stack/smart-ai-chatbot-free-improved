@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 /**
  * WooCommerce Module
@@ -185,3 +185,4 @@ class WooCommerceModule implements ModuleInterface, ModuleManifestProvider
         // Register WooCommerce-specific hooks if needed
     }
 }
+

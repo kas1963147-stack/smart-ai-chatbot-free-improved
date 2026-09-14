@@ -81,7 +81,7 @@ export default function AgentDocumentAssigner({
 					<FileText className="w-5 h-5 text-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 				</div>
 				<p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-					{__('Loading document sections...', 'smart-woo-chatbot')}
+					{__('Loading document sections...', 'agentflow-ai')}
 				</p>
 			</div>
 		);
@@ -99,10 +99,10 @@ export default function AgentDocumentAssigner({
 						</div>
 						<div>
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-								{__('Document Sections', 'smart-woo-chatbot')}
+								{__('Document Sections', 'agentflow-ai')}
 							</h3>
 							<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-								{__('Select document sections to make available to this agent. The AI can search and read these documents.', 'smart-woo-chatbot')}
+								{__('Select document sections to make available to this agent. The AI can search and read these documents.', 'agentflow-ai')}
 							</p>
 						</div>
 					</div>
@@ -117,7 +117,7 @@ export default function AgentDocumentAssigner({
 								type="text"
 								value={searchQuery}
 								onChange={(e) => setSearchQuery(e.target.value)}
-								placeholder={__('Search sections...', 'smart-woo-chatbot')}
+								placeholder={__('Search sections...', 'agentflow-ai')}
 								className="
 									w-full h-10 px-4 text-sm rounded-lg
 									border border-gray-200 dark:border-gray-600
@@ -142,7 +142,7 @@ export default function AgentDocumentAssigner({
 								"
 							>
 								<Check className="w-4 h-4" />
-								{__('Enable All', 'smart-woo-chatbot')}
+								{__('Enable All', 'agentflow-ai')}
 							</button>
 							<button
 								onClick={deselectAll}
@@ -154,7 +154,7 @@ export default function AgentDocumentAssigner({
 									transition-all duration-200
 								"
 							>
-								{__('Disable All', 'smart-woo-chatbot')}
+								{__('Disable All', 'agentflow-ai')}
 							</button>
 						</div>
 					</div>
@@ -168,10 +168,10 @@ export default function AgentDocumentAssigner({
 								<FolderOpen className="w-8 h-8 text-gray-400" />
 							</div>
 							<h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-								{__('No document sections available', 'smart-woo-chatbot')}
+								{__('No document sections available', 'agentflow-ai')}
 							</h4>
 							<p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-								{__('Create sections in the Documents settings to organize your knowledge base.', 'smart-woo-chatbot')}
+								{__('Create sections in the Documents settings to organize your knowledge base.', 'agentflow-ai')}
 							</p>
 						</div>
 					) : (
@@ -218,7 +218,7 @@ export default function AgentDocumentAssigner({
 													text-xs font-medium bg-gray-100 dark:bg-gray-700
 													text-gray-600 dark:text-gray-300
 												">
-													{section.document_count || 0} {__('docs', 'smart-woo-chatbot')}
+													{section.document_count || 0} {__('docs', 'agentflow-ai')}
 												</span>
 											</div>
 											{section.description && (
@@ -237,7 +237,7 @@ export default function AgentDocumentAssigner({
 						<div className="text-center py-12">
 							<Search className="w-12 h-12 mx-auto mb-4 text-gray-300 dark:text-gray-600" />
 							<p className="text-sm text-gray-500 dark:text-gray-400">
-								{__('No sections match your search.', 'smart-woo-chatbot')}
+								{__('No sections match your search.', 'agentflow-ai')}
 							</p>
 						</div>
 					)}
@@ -254,7 +254,7 @@ export default function AgentDocumentAssigner({
 							{' / '}
 							{sections.length}
 							{' '}
-							{__('sections enabled for this agent', 'smart-woo-chatbot')}
+							{__('sections enabled for this agent', 'agentflow-ai')}
 						</span>
 					</div>
 				</div>

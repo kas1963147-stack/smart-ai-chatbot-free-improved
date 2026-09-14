@@ -21,7 +21,7 @@ class SWC_Chatbot_Manager_Admin
 {
 
     /** Admin page slug - this is the MAIN menu */
-    const PAGE_SLUG = 'smart-ai-chatbot';
+    const PAGE_SLUG = 'agentflow-ai';
 
     /** Script handle */
     const SCRIPT_HANDLE = 'smart-ai-chatbot-manager';
@@ -45,8 +45,8 @@ class SWC_Chatbot_Manager_Admin
     {
         // Main menu page - React app
         add_menu_page(
-            __('Quarksol AI Chatbot & Agent Workflows', 'smart-ai-chatbot'),
-            __('Quarksol AI Chatbot', 'smart-ai-chatbot'),
+            __('Quarksol AI Chatbot & Agent Workflows', 'agentflow-ai'),
+            __('Quarksol AI Chatbot', 'agentflow-ai'),
             'manage_options',
             self::PAGE_SLUG,
             [$this, 'render_page'],
@@ -153,8 +153,9 @@ class SWC_Chatbot_Manager_Admin
                     $version
                 );
             }
+        }
         // WordPress components styles
-        wp_enqueue_style('swc-admin-loader', plugins_url('assets/css/admin-loader.css', dirname(__DIR__, 2) . '/smart-ai-chatbot.php'), [], '1.0.0');
+        wp_enqueue_style('swc-admin-loader', plugins_url('assets/css/admin-loader.css', dirname(__DIR__, 2) . '/agentflow-ai.php'), [], '1.0.0');
         wp_enqueue_style('wp-components');
 
         // Get current settings for the React app
@@ -180,7 +181,7 @@ class SWC_Chatbot_Manager_Admin
 
         // Localize script with API info and settings
         wp_localize_script(self::SCRIPT_HANDLE, 'swcChatbot', [
-            'apiUrl' => rest_url('smart-ai-chatbot/v1'),
+            'apiUrl' => rest_url('agentflow-ai/v1'),
             'nonce' => wp_create_nonce('wp_rest'),
             'adminUrl' => admin_url(),
             'siteUrl' => site_url(),
@@ -192,10 +193,10 @@ class SWC_Chatbot_Manager_Admin
             'logoUrl' => SWC_CHATBOT_URL . 'assets/images/logo.png',
         ]);
 
-        // Legacy support
-        wp_localize_script(self::SCRIPT_HANDLE, 'starterAgentManager', [
-            'restUrl' => rest_url('smart-ai-chatbot/v1'),
-            'nonce' => wp_create_nonce('wp_rest'),
+        // Legacy support — prefixed to avoid naming collisions with other plugins
+        wp_localize_script(self::SCRIPT_HANDLE, 'qafaiLegacyData', [
+            'restUrl'  => rest_url('quark-agentflow-ai/v1'),
+            'nonce'    => wp_create_nonce('wp_rest'),
             'adminUrl' => admin_url(),
         ]);
 
@@ -222,6 +223,8 @@ class SWC_Chatbot_Manager_Admin
         $primaryHover = $this->adjust_brightness($primaryColor, -15);
         $primaryLight = $this->adjust_brightness($primaryColor, 90);
         $primaryMuted = $this->adjust_brightness($primaryColor, 85);
+        $ringColor = $this->hex2rgba($primaryColor, 0.15);
+        $shadowPrimary = $this->hex2rgba($primaryColor, 0.20);
 
         $custom_css = "
             :root {
@@ -236,8 +239,8 @@ class SWC_Chatbot_Manager_Admin
                 
                 /* Admin Specific Overrides */
                 --wp-admin-theme-color: {$primaryColor} !important;
-                --swc-ring-color: " . $this->hex2rgba($primaryColor, 0.15) . " !important;
-                --swc-shadow-primary: 0 4px 12px 0 " . $this->hex2rgba($primaryColor, 0.20) . " !important;
+                --swc-ring-color: {$ringColor} !important;
+                --swc-shadow-primary: 0 4px 12px 0 {$shadowPrimary} !important;
             }
             #smart-ai-chatbot-manager-root .bg-primary { background-color: {$primaryColor} !important; }
             #smart-ai-chatbot-manager-root .text-primary { color: {$primaryColor} !important; }
@@ -325,7 +328,7 @@ class SWC_Chatbot_Manager_Admin
                         <div class="swc-initial-loader__particle swc-initial-loader__particle--2"></div>
                         <div class="swc-initial-loader__particle swc-initial-loader__particle--3"></div>
                     </div>
-                    <p class="swc-initial-loader__text"><?php esc_html_e('Loading Smart Chatbot…', 'smart-ai-chatbot'); ?></p>
+                    <p class="swc-initial-loader__text"><?php esc_html_e('Loading Smart Chatbot…', 'agentflow-ai'); ?></p>
                 </div>
                 
             </div>

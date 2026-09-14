@@ -121,7 +121,7 @@ export default function SkillsPage() {
 		() => [
 			{
 				id: 'all',
-				label: `${__('All', 'smart-woo-chatbot')} (${skills.length})`,
+				label: `${__('All', 'agentflow-ai')} (${skills.length})`,
 			},
 			...availableCategories.map((catId) => ({
 				id: catId,
@@ -203,15 +203,15 @@ export default function SkillsPage() {
 		try {
 			if (view === VIEW_MODES.CREATE) {
 				await createSkill(skillData);
-				showNotification(__('Skill created successfully!', 'smart-woo-chatbot'), 'success');
+				showNotification(__('Skill created successfully!', 'agentflow-ai'), 'success');
 			} else {
 				await updateSkill(selectedSkill.name, skillData);
-				showNotification(__('Skill updated successfully!', 'smart-woo-chatbot'), 'success');
+				showNotification(__('Skill updated successfully!', 'agentflow-ai'), 'success');
 			}
 			setView(VIEW_MODES.LIST);
 			fetchSkills();
 		} catch (err) {
-			showNotification(err.message || __('Failed to save skill', 'smart-woo-chatbot'), 'error');
+			showNotification(err.message || __('Failed to save skill', 'agentflow-ai'), 'error');
 			throw err;
 		}
 	};
@@ -219,7 +219,7 @@ export default function SkillsPage() {
 	const handleDelete = async (skillId) => {
 		try {
 			await deleteSkill(skillId);
-			showNotification(__('Skill deleted successfully!', 'smart-woo-chatbot'), 'success');
+			showNotification(__('Skill deleted successfully!', 'agentflow-ai'), 'success');
 			fetchSkills();
 		} catch (err) {
 			showNotification(err.message, 'error');
@@ -235,7 +235,7 @@ export default function SkillsPage() {
 				display_name: `${fullSkill.display_name || skill.name} (Copy)`,
 			};
 			await createSkill(newSkill);
-			showNotification(__('Skill duplicated successfully!', 'smart-woo-chatbot'), 'success');
+			showNotification(__('Skill duplicated successfully!', 'agentflow-ai'), 'success');
 			fetchSkills();
 		} catch (err) {
 			showNotification(err.message, 'error');
@@ -272,22 +272,22 @@ export default function SkillsPage() {
 
 	const getPageTitle = () => {
 		switch (view) {
-			case VIEW_MODES.CREATE: return __('Create Skill', 'smart-woo-chatbot');
-			case VIEW_MODES.EDIT: return __('Edit Skill', 'smart-woo-chatbot');
-			case VIEW_MODES.ANALYTICS: return __('Skill Analytics', 'smart-woo-chatbot');
-			case VIEW_MODES.TEMPLATES: return __('Skill Templates', 'smart-woo-chatbot');
-			case VIEW_MODES.GROUPS: return __('Agent Teams', 'smart-woo-chatbot');
-			default: return __('Skills', 'smart-woo-chatbot');
+			case VIEW_MODES.CREATE: return __('Create Skill', 'agentflow-ai');
+			case VIEW_MODES.EDIT: return __('Edit Skill', 'agentflow-ai');
+			case VIEW_MODES.ANALYTICS: return __('Skill Analytics', 'agentflow-ai');
+			case VIEW_MODES.TEMPLATES: return __('Skill Templates', 'agentflow-ai');
+			case VIEW_MODES.GROUPS: return __('Agent Teams', 'agentflow-ai');
+			default: return __('Skills', 'agentflow-ai');
 		}
 	};
 
 	// Loading state
 	if (loading && skills.length === 0) {
-		return <Loading message={__('Loading skills…', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading skills…', 'agentflow-ai')} fullPage />;
 	}
 
 	if (isOpening) {
-		return <Loading message={__('Opening skill editor…', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Opening skill editor…', 'agentflow-ai')} fullPage />;
 	}
 
 	return (
@@ -302,14 +302,14 @@ export default function SkillsPage() {
 								onClick={() => setView(VIEW_MODES.TEMPLATES)}
 								className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
 							>
-								{__('Templates', 'smart-woo-chatbot')}
+								{__('Templates', 'agentflow-ai')}
 							</button>
 							<button
 								onClick={handleCreate}
 								className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors"
 							>
 								<span>+</span>
-								{__('New Skill', 'smart-woo-chatbot')}
+								{__('New Skill', 'agentflow-ai')}
 							</button>
 						</>
 					) : (
@@ -318,7 +318,7 @@ export default function SkillsPage() {
 							className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
 						>
 							<span>←</span>
-							{__('Back to Skills', 'smart-woo-chatbot')}
+							{__('Back to Skills', 'agentflow-ai')}
 						</button>
 					)}
 				</div>
@@ -361,10 +361,10 @@ export default function SkillsPage() {
 									</div>
 									<div>
 										<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-											{__('All Skills', 'smart-woo-chatbot')}
+											{__('All Skills', 'agentflow-ai')}
 										</h3>
 										<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-											{__('Manage and organize skills for your AI agents.', 'smart-woo-chatbot')}
+											{__('Manage and organize skills for your AI agents.', 'agentflow-ai')}
 										</p>
 									</div>
 								</div>
@@ -376,7 +376,7 @@ export default function SkillsPage() {
 									<TextField
 										value={searchQuery}
 										onChange={setSearchQuery}
-										placeholder={__('Search skills...', 'smart-woo-chatbot')}
+										placeholder={__('Search skills...', 'agentflow-ai')}
 										className="w-full"
 									/>
 								</div>
@@ -433,7 +433,7 @@ export default function SkillsPage() {
 																	{skill.display_name || skill.name}
 																	{skill.always_on && (
 																		<span className="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-																			{__('Core', 'smart-woo-chatbot')}
+																			{__('Core', 'agentflow-ai')}
 																		</span>
 																	)}
 																</div>
@@ -479,7 +479,7 @@ export default function SkillsPage() {
 																				}}
 																				className="flex w-full items-center gap-2 px-3 py-2 text-xs text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
 																			>
-																				{__('Edit', 'smart-woo-chatbot')}
+																				{__('Edit', 'agentflow-ai')}
 																			</button>
 																			<button
 																				onClick={(e) => {
@@ -489,19 +489,19 @@ export default function SkillsPage() {
 																				}}
 																				className="flex w-full items-center gap-2 px-3 py-2 text-xs text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
 																			>
-																				{__('Duplicate', 'smart-woo-chatbot')}
+																				{__('Duplicate', 'agentflow-ai')}
 																			</button>
 																			<button
 																				onClick={(e) => {
 																					e.stopPropagation();
 																					setOpenMenuId(null);
-																					if (confirm(__('Are you sure you want to delete this skill?', 'smart-woo-chatbot'))) {
+																					if (confirm(__('Are you sure you want to delete this skill?', 'agentflow-ai'))) {
 																						handleDelete(skill.id);
 																					}
 																				}}
 																				className="flex w-full items-center gap-2 px-3 py-2 text-xs text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/30"
 																			>
-																				{__('Delete', 'smart-woo-chatbot')}
+																				{__('Delete', 'agentflow-ai')}
 																			</button>
 																		</div>
 																	)}
@@ -520,13 +520,13 @@ export default function SkillsPage() {
 										<BookOpen className="w-12 h-12 mx-auto mb-4 text-gray-300 dark:text-gray-600" />
 										<h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
 											{skills.length === 0
-												? __('No skills yet', 'smart-woo-chatbot')
-												: __('No skills match your search', 'smart-woo-chatbot')}
+												? __('No skills yet', 'agentflow-ai')
+												: __('No skills match your search', 'agentflow-ai')}
 										</h3>
 										<p className="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
 											{skills.length === 0
-												? __('Create your first skill to teach your AI agent new behaviors.', 'smart-woo-chatbot')
-												: __('Try adjusting your search or category filter.', 'smart-woo-chatbot')}
+												? __('Create your first skill to teach your AI agent new behaviors.', 'agentflow-ai')
+												: __('Try adjusting your search or category filter.', 'agentflow-ai')}
 										</p>
 										{skills.length === 0 && (
 											<button
@@ -534,7 +534,7 @@ export default function SkillsPage() {
 												className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors"
 											>
 												<span>+</span>
-												{__('Create Skill', 'smart-woo-chatbot')}
+												{__('Create Skill', 'agentflow-ai')}
 											</button>
 										)}
 									</div>
@@ -551,11 +551,11 @@ export default function SkillsPage() {
 										<span>
 											<strong className="text-gray-900 dark:text-white">{skills.length}</strong>
 											{' '}
-											{__('total skills', 'smart-woo-chatbot')}
+											{__('total skills', 'agentflow-ai')}
 											<span className="mx-2">•</span>
 											<strong className="text-gray-900 dark:text-white">{skills.filter(s => s.always_on).length}</strong>
 											{' '}
-											{__('active', 'smart-woo-chatbot')}
+											{__('active', 'agentflow-ai')}
 										</span>
 									</div>
 									<button
@@ -563,7 +563,7 @@ export default function SkillsPage() {
 										className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg text-primary hover:bg-primary/5 transition-colors"
 									>
 										<span>+</span>
-										{__('Add Skill', 'smart-woo-chatbot')}
+										{__('Add Skill', 'agentflow-ai')}
 									</button>
 								</div>
 							</div>

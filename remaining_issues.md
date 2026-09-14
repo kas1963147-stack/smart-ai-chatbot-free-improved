@@ -6,7 +6,7 @@ Here is the exact count and list of remaining issues you need to address:
 
 ### 1. Missing "Tested Up To" in the Plugin Header (1 Issue)
 You added `Tested up to: 6.9` in `readme.txt`, but it is completely missing from your main plugin file.
-- **Location:** `smart-ai-chatbot.php`
+- **Location:** `agentflow-ai.php`
 
 ### 2. User Creation/Login Functions Still Present (2 Files)
 Even though we removed the Pro tools from the registry, the actual underlying functions (like `wp_create_user` or `wp_set_auth_cookie`) are still written inside your executor files. The WordPress scanner finds these strings and flags them as restricted code.

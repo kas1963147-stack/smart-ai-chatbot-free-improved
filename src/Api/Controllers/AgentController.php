@@ -33,7 +33,7 @@ class AgentController
 {
 
     /** API namespace */
-    const NAMESPACE = 'smart-ai-chatbot/v1';
+    const NAMESPACE = 'quark-agentflow-ai/v1';
 
     /**
      * Register REST routes
@@ -136,27 +136,27 @@ class AgentController
         register_rest_route(self::NAMESPACE , '/toolkits', [
             'methods' => 'GET',
             'callback' => [self::class, 'getToolkits'],
-            'permission_callback' => [self::class, 'canRead'],
+            'permission_callback' => [self::class, 'canManage'],
         ]);
 
         // Connections info (for tool config selectors)
         register_rest_route(self::NAMESPACE , '/connections', [
             'methods' => 'GET',
             'callback' => [self::class, 'getConnections'],
-            'permission_callback' => [self::class, 'canRead'],
+            'permission_callback' => [self::class, 'canManage'],
         ]);
 
         // Templates
         register_rest_route(self::NAMESPACE , '/templates', [
             'methods' => 'GET',
             'callback' => [self::class, 'getTemplates'],
-            'permission_callback' => [self::class, 'canRead'],
+            'permission_callback' => [self::class, 'canManage'],
         ]);
 
         register_rest_route(self::NAMESPACE , '/templates/(?P<template_id>[a-z0-9_]+)', [
             'methods' => 'GET',
             'callback' => [self::class, 'getTemplate'],
-            'permission_callback' => [self::class, 'canRead'],
+            'permission_callback' => [self::class, 'canManage'],
         ]);
 
         // Agent Groups
@@ -177,7 +177,7 @@ class AgentController
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'getGroup'],
-                'permission_callback' => [self::class, 'canRead'],
+                'permission_callback' => [self::class, 'canManage'],
             ],
             [
                 'methods' => 'PUT',
@@ -195,7 +195,7 @@ class AgentController
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'getGroupMembers'],
-                'permission_callback' => [self::class, 'canRead'],
+                'permission_callback' => [self::class, 'canManage'],
             ],
             [
                 'methods' => 'POST',
@@ -246,7 +246,7 @@ class AgentController
         register_rest_route(self::NAMESPACE , '/agents/(?P<id>\d+)/ratings', [
             'methods' => 'GET',
             'callback' => [self::class, 'getAgentRatings'],
-            'permission_callback' => [self::class, 'canRead'],
+            'permission_callback' => [self::class, 'canManage'],
         ]);
 
         // Sync agents from folder

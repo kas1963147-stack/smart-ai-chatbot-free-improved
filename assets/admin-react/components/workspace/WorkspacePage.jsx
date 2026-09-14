@@ -267,12 +267,12 @@ function WorkspaceContent() {
 					});
 
 					if (result.success) {
-						toast.success(__('File uploaded successfully', 'smart-woo-chatbot'));
+						toast.success(__('File uploaded successfully', 'agentflow-ai'));
 					} else {
-						toast.error(result.error || __('Failed to upload file', 'smart-woo-chatbot'));
+						toast.error(result.error || __('Failed to upload file', 'agentflow-ai'));
 					}
 				} catch (err) {
-					toast.error(__('Failed to upload file', 'smart-woo-chatbot'));
+					toast.error(__('Failed to upload file', 'agentflow-ai'));
 				}
 			}
 		};
@@ -698,10 +698,10 @@ function WorkspaceContent() {
 					setPendingMessages([]);
 					pendingMessagesRef.current = [];
 				}
-				toast.success(__('Conversation deleted', 'smart-woo-chatbot'));
+				toast.success(__('Conversation deleted', 'agentflow-ai'));
 			} catch (err) {
 				console.error('Failed to delete conversation:', err);
-				toast.error(__('Failed to delete conversation', 'smart-woo-chatbot'));
+				toast.error(__('Failed to delete conversation', 'agentflow-ai'));
 			}
 		},
 		[activeConversation, toast]
@@ -729,10 +729,10 @@ function WorkspaceContent() {
 			setConversations((prev) =>
 				prev.map((c) => c.id === convId ? { ...c, title: newTitle } : c)
 			);
-			toast.success(__('Conversation renamed', 'smart-woo-chatbot'));
+			toast.success(__('Conversation renamed', 'agentflow-ai'));
 		} catch (err) {
 			console.error('Failed to rename conversation:', err);
-			toast.error(__('Failed to rename conversation', 'smart-woo-chatbot'));
+			toast.error(__('Failed to rename conversation', 'agentflow-ai'));
 		}
 	}, [toast]);
 
@@ -769,10 +769,10 @@ function WorkspaceContent() {
 			a.download = filename;
 			a.click();
 			URL.revokeObjectURL(url);
-			toast.success(__('Conversation exported', 'smart-woo-chatbot'));
+			toast.success(__('Conversation exported', 'agentflow-ai'));
 		} catch (err) {
 			console.error('Failed to export conversation:', err);
-			toast.error(__('Failed to export conversation', 'smart-woo-chatbot'));
+			toast.error(__('Failed to export conversation', 'agentflow-ai'));
 		}
 	}, [toast]);
 
@@ -811,9 +811,9 @@ function WorkspaceContent() {
 	// Handle feedback from ChatMessage
 	const handleFeedback = useCallback((type) => {
 		if (type === 'regenerate') {
-			toast.info(__('Regenerating response...', 'smart-woo-chatbot'));
+			toast.info(__('Regenerating response...', 'agentflow-ai'));
 		} else {
-			toast.success(__('Feedback submitted', 'smart-woo-chatbot'));
+			toast.success(__('Feedback submitted', 'agentflow-ai'));
 		}
 	}, [toast]);
 
@@ -853,14 +853,14 @@ function WorkspaceContent() {
 						onClick={handleNewConversation}
 					>
 						<Plus className="w-4 h-4" />
-						{__('New Chat', 'smart-woo-chatbot')}
+						{__('New Chat', 'agentflow-ai')}
 					</button>
 				</div>
 
 				{/* Conversations Section */}
 				<div className="flex items-center justify-between px-4 py-2 border-t border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-black">
 					<h3 className="text-xs font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider">
-						{__('Recent', 'smart-woo-chatbot')}
+						{__('Recent', 'agentflow-ai')}
 					</h3>
 				</div>
 				<div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-black">
@@ -892,8 +892,8 @@ function WorkspaceContent() {
 					<h2 className="text-lg font-semibold text-gray-900 dark:text-white flex-1">
 						{activeConversation
 							? conversations.find((c) => c.id === activeConversation)?.title ||
-							__('Chat', 'smart-woo-chatbot')
-							: __('New Chat', 'smart-woo-chatbot')}
+							__('Chat', 'agentflow-ai')
+							: __('New Chat', 'agentflow-ai')}
 					</h2>
 
 					{/* Agent/Workflow Dropdown Selector */}
@@ -917,7 +917,7 @@ function WorkspaceContent() {
 								{availableAgents.length > 0 && (
 									<>
 										<div className="px-3 py-1.5 text-xs font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider">
-											{__('AI Agents', 'smart-woo-chatbot')}
+											{__('AI Agents', 'agentflow-ai')}
 										</div>
 										{availableAgents.map((agent) => (
 											<button
@@ -949,7 +949,7 @@ function WorkspaceContent() {
 									<>
 										<div className="border-t border-gray-200 dark:border-slate-700 mt-2 pt-2">
 											<div className="px-3 py-1.5 text-xs font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider">
-												{__('Workflows', 'smart-woo-chatbot')}
+												{__('Workflows', 'agentflow-ai')}
 											</div>
 										</div>
 										{availableWorkflows.map((workflow) => (
@@ -983,7 +983,7 @@ function WorkspaceContent() {
 									<>
 										<div className="border-t border-gray-200 dark:border-slate-700 mt-2 pt-2">
 											<div className="px-3 py-1.5 text-xs font-semibold text-gray-500 dark:text-slate-400 uppercase tracking-wider">
-												{__('Teams', 'smart-woo-chatbot')}
+												{__('Teams', 'agentflow-ai')}
 											</div>
 										</div>
 										{availableTeams.map((team) => (
@@ -1015,7 +1015,7 @@ function WorkspaceContent() {
 								{/* Empty State */}
 								{availableAgents.length === 0 && (
 									<div className="px-3 py-4 text-sm text-gray-500 dark:text-slate-400 text-center">
-										{__('No agents available', 'smart-woo-chatbot')}
+										{__('No agents available', 'agentflow-ai')}
 									</div>
 								)}
 							</div>
@@ -1026,7 +1026,7 @@ function WorkspaceContent() {
 					<button
 						className="w-9 h-9 border border-gray-200 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-500 dark:text-slate-400 flex items-center justify-center transition-colors"
 						onClick={toggleDarkMode}
-						title={darkMode ? __('Light mode', 'smart-woo-chatbot') : __('Dark mode', 'smart-woo-chatbot')}
+						title={darkMode ? __('Light mode', 'agentflow-ai') : __('Dark mode', 'agentflow-ai')}
 					>
 						{darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
 					</button>
@@ -1050,7 +1050,7 @@ function WorkspaceContent() {
 							disabled={false}
 							isStreaming={isSending}
 							onStopGeneration={handleStopGeneration}
-							placeholder={__('Ask me to create pages, edit content, manage products…', 'smart-woo-chatbot')}
+							placeholder={__('Ask me to create pages, edit content, manage products…', 'agentflow-ai')}
 							selectedAgent={availableAgents.find(a => a.id === selectedAgent || a.agent_id === selectedAgent)}
 							darkMode={darkMode}
 						/>
@@ -1091,7 +1091,7 @@ function WorkspaceContent() {
 										disabled={false}
 										isStreaming={isSending}
 										onStopGeneration={handleStopGeneration}
-										placeholder={__('Continue the conversation…', 'smart-woo-chatbot')}
+										placeholder={__('Continue the conversation…', 'agentflow-ai')}
 										compact={true}
 										darkMode={darkMode}
 									/>

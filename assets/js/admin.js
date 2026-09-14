@@ -1,5 +1,5 @@
 /**
- * Smart Woo Chatbot Admin JavaScript
+ * Quarksol AI Chatbot Admin JavaScript
  */
 (function ($) {
   "use strict";

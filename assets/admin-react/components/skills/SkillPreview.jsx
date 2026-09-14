@@ -119,21 +119,21 @@ export default function SkillPreview({
 	const categoryStyle =
 		CATEGORY_COLORS[skillData?.category] || CATEGORY_COLORS.general;
 	const tabItems = [
-		{ id: 'preview', label: __('Preview', 'smart-woo-chatbot') },
+		{ id: 'preview', label: __('Preview', 'agentflow-ai') },
 		{
 			id: 'tools',
 			label: (
 				<>
-					{__('Tools', 'smart-woo-chatbot')} (
+					{__('Tools', 'agentflow-ai')} (
 					{skillData?.toolsRequired?.length || 0})
 				</>
 			),
 		},
 		{
 			id: 'dependencies',
-			label: __('Dependencies', 'smart-woo-chatbot'),
+			label: __('Dependencies', 'agentflow-ai'),
 		},
-		{ id: 'raw', label: __('Raw', 'smart-woo-chatbot') },
+		{ id: 'raw', label: __('Raw', 'agentflow-ai') },
 	];
 
 	return (
@@ -153,7 +153,7 @@ export default function SkillPreview({
 					<h3 className="text-xl font-bold text-gray-900 dark:text-white m-0">
 						{skillData?.displayName ||
 							skillData?.name ||
-							__('Untitled Skill', 'smart-woo-chatbot')}
+							__('Untitled Skill', 'agentflow-ai')}
 					</h3>
 				</div>
 
@@ -163,7 +163,7 @@ export default function SkillPreview({
 						className="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
 						onClick={onTest}
 					>
-						{__('Test Skill', 'smart-woo-chatbot')}
+						{__('Test Skill', 'agentflow-ai')}
 					</button>
 				)}
 			</div>
@@ -172,7 +172,7 @@ export default function SkillPreview({
 			<div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-px bg-gray-200 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700">
 				<div className="bg-white dark:bg-gray-800 p-4">
 					<span className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">
-						{__('Tokens', 'smart-woo-chatbot')}
+						{__('Tokens', 'agentflow-ai')}
 					</span>
 					<span className="block text-lg font-semibold text-gray-900 dark:text-white">
 						~{tokenStats.total}
@@ -180,7 +180,7 @@ export default function SkillPreview({
 				</div>
 				<div className="bg-white dark:bg-gray-800 p-4">
 					<span className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">
-						{__('With Refs', 'smart-woo-chatbot')}
+						{__('With Refs', 'agentflow-ai')}
 					</span>
 					<span className="block text-lg font-semibold text-gray-900 dark:text-white">
 						~{tokenStats.withRefs}
@@ -188,7 +188,7 @@ export default function SkillPreview({
 				</div>
 				<div className="bg-white dark:bg-gray-800 p-4">
 					<span className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">
-						{__('Tools', 'smart-woo-chatbot')}
+						{__('Tools', 'agentflow-ai')}
 					</span>
 					<span className="block text-lg font-semibold text-gray-900 dark:text-white">
 						{skillData?.toolsRequired?.length || 0}
@@ -196,7 +196,7 @@ export default function SkillPreview({
 				</div>
 				<div className="bg-white dark:bg-gray-800 p-4">
 					<span className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">
-						{__('References', 'smart-woo-chatbot')}
+						{__('References', 'agentflow-ai')}
 					</span>
 					<span className="block text-lg font-semibold text-gray-900 dark:text-white">
 						{skillData?.references?.length || 0}
@@ -205,11 +205,11 @@ export default function SkillPreview({
 				<div className="bg-white dark:bg-gray-800 p-4 flex items-center gap-2">
 					{skillData?.alwaysOn ? (
 						<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300">
-							{__('Always On', 'smart-woo-chatbot')}
+							{__('Always On', 'agentflow-ai')}
 						</span>
 					) : (
 						<span className="text-gray-400 dark:text-gray-500 text-sm italic">
-							{__('On Demand', 'smart-woo-chatbot')}
+							{__('On Demand', 'agentflow-ai')}
 						</span>
 					)}
 				</div>
@@ -264,7 +264,7 @@ export default function SkillPreview({
 								<p className="m-0">
 									{__(
 										'No tools required for this skill.',
-										'smart-woo-chatbot'
+										'agentflow-ai'
 									)}
 								</p>
 							</div>
@@ -354,7 +354,7 @@ function DependencyDisplay({ requires, suggests, conflicts }) {
 	if (!hasAny) {
 		return (
 			<div className="text-center py-8 text-gray-500 dark:text-gray-400">
-				<p className="m-0">{__('No dependencies defined.', 'smart-woo-chatbot')}</p>
+				<p className="m-0">{__('No dependencies defined.', 'agentflow-ai')}</p>
 			</div>
 		);
 	}
@@ -366,10 +366,10 @@ function DependencyDisplay({ requires, suggests, conflicts }) {
 					<div className="px-4 py-3 bg-blue-50/50 dark:bg-blue-900/10 border-b border-gray-200 dark:border-gray-700">
 						<h4 className="font-medium text-gray-900 dark:text-white m-0 flex items-center gap-2">
 							<span className="w-2 h-2 rounded-full bg-blue-500"></span>
-							{__('Requires', 'smart-woo-chatbot')}
+							{__('Requires', 'agentflow-ai')}
 						</h4>
 						<p className="text-xs text-gray-500 dark:text-gray-400 mt-1 m-0 block">
-							{__('Must be loaded before this skill', 'smart-woo-chatbot')}
+							{__('Must be loaded before this skill', 'agentflow-ai')}
 						</p>
 					</div>
 					<div className="p-4 flex flex-wrap gap-2">
@@ -389,10 +389,10 @@ function DependencyDisplay({ requires, suggests, conflicts }) {
 					<div className="px-4 py-3 bg-gray-50/50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700">
 						<h4 className="font-medium text-gray-900 dark:text-white m-0 flex items-center gap-2">
 							<span className="w-2 h-2 rounded-full bg-gray-400"></span>
-							{__('Suggests', 'smart-woo-chatbot')}
+							{__('Suggests', 'agentflow-ai')}
 						</h4>
 						<p className="text-xs text-gray-500 dark:text-gray-400 mt-1 m-0 block">
-							{__('Recommended to load after this skill', 'smart-woo-chatbot')}
+							{__('Recommended to load after this skill', 'agentflow-ai')}
 						</p>
 					</div>
 					<div className="p-4 flex flex-wrap gap-2">
@@ -412,10 +412,10 @@ function DependencyDisplay({ requires, suggests, conflicts }) {
 					<div className="px-4 py-3 bg-red-50/50 dark:bg-red-900/10 border-b border-gray-200 dark:border-gray-700">
 						<h4 className="font-medium text-gray-900 dark:text-white m-0 flex items-center gap-2">
 							<span className="w-2 h-2 rounded-full bg-red-500"></span>
-							{__('Conflicts', 'smart-woo-chatbot')}
+							{__('Conflicts', 'agentflow-ai')}
 						</h4>
 						<p className="text-xs text-gray-500 dark:text-gray-400 mt-1 m-0 block">
-							{__('Cannot be used together', 'smart-woo-chatbot')}
+							{__('Cannot be used together', 'agentflow-ai')}
 						</p>
 					</div>
 					<div className="p-4 flex flex-wrap gap-2">

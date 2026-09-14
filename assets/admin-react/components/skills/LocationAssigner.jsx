@@ -128,13 +128,13 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 	const getValuePlaceholder = (type) => {
 		switch (type) {
 			case 'page_id':
-				return __('Enter page ID', 'smart-woo-chatbot');
+				return __('Enter page ID', 'agentflow-ai');
 			case 'post_type':
-				return __('e.g., product, post', 'smart-woo-chatbot');
+				return __('e.g., product, post', 'agentflow-ai');
 			case 'url_pattern':
-				return __('e.g., /contact*, /shop/*', 'smart-woo-chatbot');
+				return __('e.g., /contact*, /shop/*', 'agentflow-ai');
 			case 'taxonomy':
-				return __('e.g., category:123', 'smart-woo-chatbot');
+				return __('e.g., category:123', 'agentflow-ai');
 			default:
 				return '';
 		}
@@ -145,14 +145,14 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 			<div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm">
 				<div className="pb-4 mb-4 border-b border-gray-100 dark:border-gray-700">
 					<h3 className="text-lg font-semibold text-gray-900 dark:text-white m-0">
-						{__('Page Locations', 'smart-woo-chatbot')}
+						{__('Page Locations', 'agentflow-ai')}
 					</h3>
 				</div>
 				<div>
 					<p className="text-sm text-gray-500 dark:text-gray-400 m-0">
 						{__(
 							'Save the agent or group first, then assign it to page locations.',
-							'smart-woo-chatbot'
+							'agentflow-ai'
 						)}
 					</p>
 				</div>
@@ -167,17 +167,17 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 				<div className="flex justify-between items-start pb-4 mb-4 border-b border-gray-100 dark:border-gray-700">
 					<div>
 						<h3 className="text-lg font-semibold text-gray-900 dark:text-white m-0">
-							{__('Page Locations', 'smart-woo-chatbot')}
+							{__('Page Locations', 'agentflow-ai')}
 						</h3>
 						<p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
 							{isGroup
 								? __(
 									'Choose where this agent group should appear.',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)
 								: __(
 									'Choose where this agent should appear.',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)}
 						</p>
 					</div>
@@ -197,7 +197,7 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 						<p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
 							{__(
 								'No locations assigned yet.',
-								'smart-woo-chatbot'
+								'agentflow-ai'
 							)}
 						</p>
 					)}
@@ -227,7 +227,7 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 										<span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
 											{__(
 												'Priority',
-												'smart-woo-chatbot'
+												'agentflow-ai'
 											)}
 											: {assignment.priority}
 										</span>
@@ -239,7 +239,7 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 											handleRemove(assignment)
 										}
 									>
-										{__('Remove', 'smart-woo-chatbot')}
+										{__('Remove', 'agentflow-ai')}
 									</button>
 								</div>
 							))}
@@ -249,14 +249,14 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 					{ /* Add New Assignment Section */}
 					<div className="p-5 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700 mt-6">
 						<h4 className="m-0 mb-4 text-base font-semibold text-gray-800 dark:text-gray-200">
-							{__('Add Location', 'smart-woo-chatbot')}
+							{__('Add Location', 'agentflow-ai')}
 						</h4>
 
 						<div className="flex flex-col gap-4">
 							<Select
 								label={__(
 									'Location Type',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)}
 								value={newAssignment.location_type}
 								options={LOCATION_TYPES}
@@ -271,7 +271,7 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 
 							{needsValue(newAssignment.location_type) && (
 								<TextField
-									label={__('Value', 'smart-woo-chatbot')}
+									label={__('Value', 'agentflow-ai')}
 									value={newAssignment.location_value}
 									onChange={(val) =>
 										setNewAssignment((prev) => ({
@@ -286,10 +286,10 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 							)}
 
 							<TextField
-								label={__('Priority', 'smart-woo-chatbot')}
+								label={__('Priority', 'agentflow-ai')}
 								help={__(
 									'Higher priority wins when multiple agents match',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)}
 								type="number"
 								value={newAssignment.priority}
@@ -307,7 +307,7 @@ export default function LocationAssigner({ agentId, groupId, isNew }) {
 								disabled={loading}
 								className="mt-2 self-start inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
 							>
-								{__('Add Location', 'smart-woo-chatbot')}
+								{__('Add Location', 'agentflow-ai')}
 							</button>
 						</div>
 					</div>

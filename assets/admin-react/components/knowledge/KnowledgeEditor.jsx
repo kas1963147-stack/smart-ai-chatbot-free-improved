@@ -10,10 +10,10 @@ import PropTypes from 'prop-types';
 import { FileText, Link as LinkIcon, Upload, Type, AlertCircle } from 'lucide-react';
 
 const CATEGORIES = [
-    { value: 'policies', label: __('Policies', 'smart-woo-chatbot') },
-    { value: 'products', label: __('Products', 'smart-woo-chatbot') },
-    { value: 'company_info', label: __('Company Info', 'smart-woo-chatbot') },
-    { value: 'general', label: __('General', 'smart-woo-chatbot') },
+    { value: 'policies', label: __('Policies', 'agentflow-ai') },
+    { value: 'products', label: __('Products', 'agentflow-ai') },
+    { value: 'company_info', label: __('Company Info', 'agentflow-ai') },
+    { value: 'general', label: __('General', 'agentflow-ai') },
 ];
 
 export default function KnowledgeEditor({ item, onSave, onCancel }) {
@@ -76,32 +76,32 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
             setErrors(prev => ({ ...prev, file: null }));
         } else {
             setFile(null);
-            setErrors(prev => ({ ...prev, file: __('Please select a valid PDF file.', 'smart-woo-chatbot') }));
+            setErrors(prev => ({ ...prev, file: __('Please select a valid PDF file.', 'agentflow-ai') }));
         }
     };
 
     const validate = () => {
         const nextErrors = {};
         if (!formData.title.trim()) {
-            nextErrors.title = __('Title is required', 'smart-woo-chatbot');
+            nextErrors.title = __('Title is required', 'agentflow-ai');
         }
         
         if (inputType === 'markdown' && !formData.content.trim()) {
-            nextErrors.content = __('Content is required', 'smart-woo-chatbot');
+            nextErrors.content = __('Content is required', 'agentflow-ai');
         }
         
         if (inputType === 'url' && !formData.sourceUrl.trim()) {
-            nextErrors.sourceUrl = __('URL is required', 'smart-woo-chatbot');
+            nextErrors.sourceUrl = __('URL is required', 'agentflow-ai');
         } else if (inputType === 'url') {
             try {
                 new URL(formData.sourceUrl);
             } catch (e) {
-                nextErrors.sourceUrl = __('Please enter a valid URL (including http/https)', 'smart-woo-chatbot');
+                nextErrors.sourceUrl = __('Please enter a valid URL (including http/https)', 'agentflow-ai');
             }
         }
         
         if (inputType === 'pdf' && !file && !item) {
-            nextErrors.file = __('Please select a PDF file to upload', 'smart-woo-chatbot');
+            nextErrors.file = __('Please select a PDF file to upload', 'agentflow-ai');
         }
 
         setErrors(nextErrors);
@@ -173,10 +173,10 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                     </div>
                     <div>
                         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                            {item ? __('Edit Document', 'smart-woo-chatbot') : __('Create Document', 'smart-woo-chatbot')}
+                            {item ? __('Edit Document', 'agentflow-ai') : __('Create Document', 'agentflow-ai')}
                         </h2>
                         <p className="text-sm text-gray-500 dark:text-slate-400">
-                            {item ? __('Update document information', 'smart-woo-chatbot') : __('Add knowledge for an AI agent', 'smart-woo-chatbot')}
+                            {item ? __('Update document information', 'agentflow-ai') : __('Add knowledge for an AI agent', 'agentflow-ai')}
                         </p>
                     </div>
                 </div>
@@ -198,13 +198,13 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                 {(
                     <div className="mb-6">
                         <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
-                            {__('Source Method', 'smart-woo-chatbot')}
+                            {__('Source Method', 'agentflow-ai')}
                         </label>
                         <div className="grid grid-cols-3 gap-3 p-1 bg-gray-100 dark:bg-slate-900/50 rounded-xl border border-gray-200 dark:border-slate-700/50">
                             {[
-                                { id: 'markdown', label: __('Write Text', 'smart-woo-chatbot'), icon: Type },
-                                { id: 'url', label: __('Web Page', 'smart-woo-chatbot'), icon: LinkIcon },
-                                { id: 'pdf', label: __('Upload PDF', 'smart-woo-chatbot'), icon: Upload },
+                                { id: 'markdown', label: __('Write Text', 'agentflow-ai'), icon: Type },
+                                { id: 'url', label: __('Web Page', 'agentflow-ai'), icon: LinkIcon },
+                                { id: 'pdf', label: __('Upload PDF', 'agentflow-ai'), icon: Upload },
                             ].map((tab) => (
                                 <button
                                     key={tab.id}
@@ -228,14 +228,14 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                     {/* Title */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                            {__('Document Title', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+                            {__('Document Title', 'agentflow-ai')} <span className="text-red-500">*</span>
                         </label>
                         <input
                             type="text"
                             value={formData.title}
                             onChange={(e) => handleChange('title', e.target.value)}
                             className={`${inputBase} ${errors.title ? inputError : inputNormal}`}
-                            placeholder={__('e.g. 2024 Refund Policy', 'smart-woo-chatbot')}
+                            placeholder={__('e.g. 2024 Refund Policy', 'agentflow-ai')}
                             autoFocus
                         />
                         {errors.title && (
@@ -253,8 +253,8 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                         {inputType === 'url' && (
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5 flex justify-between">
-                                    <span>{__('Web Page URL', 'smart-woo-chatbot')} <span className="text-red-500">*</span></span>
-                                    <span className="text-xs text-primary font-normal">{__('Will be converted to text', 'smart-woo-chatbot')}</span>
+                                    <span>{__('Web Page URL', 'agentflow-ai')} <span className="text-red-500">*</span></span>
+                                    <span className="text-xs text-primary font-normal">{__('Will be converted to text', 'agentflow-ai')}</span>
                                 </label>
                                 <div className="relative">
                                     <input
@@ -278,8 +278,8 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                         {inputType === 'pdf' && (
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5 flex justify-between">
-                                    <span>{__('PDF File', 'smart-woo-chatbot')} <span className="text-red-500">*</span></span>
-                                    <span className="text-xs text-primary font-normal">{__('Will be converted to text', 'smart-woo-chatbot')}</span>
+                                    <span>{__('PDF File', 'agentflow-ai')} <span className="text-red-500">*</span></span>
+                                    <span className="text-xs text-primary font-normal">{__('Will be converted to text', 'agentflow-ai')}</span>
                                 </label>
                                 <div className={`flex justify-center px-6 pt-5 pb-6 border-2 border-dashed rounded-xl ${errors.file ? 'border-red-300 bg-red-50 dark:bg-red-900/10' : 'border-gray-300 dark:border-slate-600 hover:border-primary dark:hover:border-primary bg-white dark:bg-slate-800 transition-colors'}`}>
                                     <div className="space-y-1 text-center">
@@ -288,13 +288,13 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                                         </div>
                                         <div className="flex text-sm text-gray-600 dark:text-slate-400 justify-center">
                                             <label htmlFor="file-upload" className="relative cursor-pointer bg-white dark:bg-slate-800 rounded-md font-medium text-primary hover:text-primary/80 focus-within:outline-none">
-                                                <span>{file ? file.name : __('Upload a PDF file', 'smart-woo-chatbot')}</span>
+                                                <span>{file ? file.name : __('Upload a PDF file', 'agentflow-ai')}</span>
                                                 <input id="file-upload" name="file-upload" type="file" className="sr-only" accept=".pdf" onChange={handleFileChange} />
                                             </label>
-                                            {!file && <p className="pl-1">{__('or drag and drop', 'smart-woo-chatbot')}</p>}
+                                            {!file && <p className="pl-1">{__('or drag and drop', 'agentflow-ai')}</p>}
                                         </div>
                                         <p className="text-xs text-gray-500 dark:text-slate-500">
-                                            {__('PDF up to 10MB', 'smart-woo-chatbot')}
+                                            {__('PDF up to 10MB', 'agentflow-ai')}
                                         </p>
                                     </div>
                                 </div>
@@ -311,15 +311,15 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                         {inputType === 'markdown' && (
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5 flex justify-between">
-                                    <span>{__('Content', 'smart-woo-chatbot')} <span className="text-red-500">*</span></span>
-                                    <span className="text-xs text-gray-400 font-normal">{__('Markdown supported', 'smart-woo-chatbot')}</span>
+                                    <span>{__('Content', 'agentflow-ai')} <span className="text-red-500">*</span></span>
+                                    <span className="text-xs text-gray-400 font-normal">{__('Markdown supported', 'agentflow-ai')}</span>
                                 </label>
                                 <textarea
                                     value={formData.content}
                                     onChange={(e) => handleChange('content', e.target.value)}
                                     rows={12}
                                     className={`${inputBase} ${errors.content ? inputError : inputNormal} resize-y font-mono text-[13px] leading-relaxed`}
-                                    placeholder={__('Write your document content here. You can use markdown for headings, bold text, and lists.', 'smart-woo-chatbot')}
+                                    placeholder={__('Write your document content here. You can use markdown for headings, bold text, and lists.', 'agentflow-ai')}
                                 />
                                 {errors.content && (
                                     <p className="flex items-center gap-1.5 mt-2 text-xs text-red-600 dark:text-red-400">
@@ -334,7 +334,7 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                     {/* Short Description */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                            {__('Short Description', 'smart-woo-chatbot')}
+                            {__('Short Description', 'agentflow-ai')}
                         </label>
                         <textarea
                             value={formData.description}
@@ -342,11 +342,11 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                             rows={2}
                             maxLength={200}
                             className={`${inputBase} ${inputNormal} resize-none`}
-                            placeholder={__('Briefly describe what this document contains (visible to AI to help it decide when to read it).', 'smart-woo-chatbot')}
+                            placeholder={__('Briefly describe what this document contains (visible to AI to help it decide when to read it).', 'agentflow-ai')}
                         />
                         <div className="flex justify-between items-center mt-1">
                             <p className="text-[11px] text-gray-500 dark:text-slate-400">
-                                {__('Keep it under 30 words for best AI performance.', 'smart-woo-chatbot')}
+                                {__('Keep it under 30 words for best AI performance.', 'agentflow-ai')}
                             </p>
                             <span className="text-[11px] text-gray-400">
                                 {formData.description.length}/200
@@ -358,7 +358,7 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2 border-t border-gray-100 dark:border-slate-700/50">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1.5">
-                                {__('Category', 'smart-woo-chatbot')}
+                                {__('Category', 'agentflow-ai')}
                             </label>
                             <div className="relative">
                                 <select
@@ -391,10 +391,10 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                                 </div>
                                 <div>
                                     <span className="text-sm font-medium text-gray-900 dark:text-white block">
-                                        {__('Active Document', 'smart-woo-chatbot')}
+                                        {__('Active Document', 'agentflow-ai')}
                                     </span>
                                     <span className="text-xs text-gray-500 dark:text-slate-400 hidden lg:block">
-                                        {__('Available to AI agents', 'smart-woo-chatbot')}
+                                        {__('Available to AI agents', 'agentflow-ai')}
                                     </span>
                                 </div>
                             </label>
@@ -412,7 +412,7 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                     disabled={isSaving}
                     className="px-4 py-2.5 text-sm font-medium rounded-xl text-gray-700 dark:text-slate-300 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-50"
                 >
-                    {__('Cancel', 'smart-woo-chatbot')}
+                    {__('Cancel', 'agentflow-ai')}
                 </button>
                 <button
                     type="submit"
@@ -425,10 +425,10 @@ export default function KnowledgeEditor({ item, onSave, onCancel }) {
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
-                            {__('Saving...', 'smart-woo-chatbot')}
+                            {__('Saving...', 'agentflow-ai')}
                         </>
                     ) : (
-                        item ? __('Update Document', 'smart-woo-chatbot') : __('Save Document', 'smart-woo-chatbot')
+                        item ? __('Update Document', 'agentflow-ai') : __('Save Document', 'agentflow-ai')
                     )}
                 </button>
             </div>

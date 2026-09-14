@@ -8,7 +8,7 @@
  * @package Toolkits\WordPress
  */
 
-namespace Toolkits\WordPress;
+namespace Quarksol\AgentFlowAI\Toolkits\WordPress;
 
 if (!defined('ABSPATH')) {
     exit;

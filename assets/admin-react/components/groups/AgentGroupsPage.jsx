@@ -30,10 +30,10 @@ import AgentGroupEditor from './AgentGroupEditor';
 
 // Orchestration mode configurations
 const ORCHESTRATION_MODES = {
-    router: { label: __('Auto-Router', 'smart-woo-chatbot'), icon: Zap, color: 'bg-blue-100 text-blue-600' },
-    sequential: { label: __('Sequential', 'smart-woo-chatbot'), icon: ArrowRight, color: 'bg-green-100 text-green-600' },
-    parallel: { label: __('Parallel', 'smart-woo-chatbot'), icon: Layers, color: 'bg-purple-100 text-purple-600' },
-    handoff: { label: __('Handoff', 'smart-woo-chatbot'), icon: RefreshCw, color: 'bg-orange-100 text-orange-600' },
+    router: { label: __('Auto-Router', 'agentflow-ai'), icon: Zap, color: 'bg-blue-100 text-blue-600' },
+    sequential: { label: __('Sequential', 'agentflow-ai'), icon: ArrowRight, color: 'bg-green-100 text-green-600' },
+    parallel: { label: __('Parallel', 'agentflow-ai'), icon: Layers, color: 'bg-purple-100 text-purple-600' },
+    handoff: { label: __('Handoff', 'agentflow-ai'), icon: RefreshCw, color: 'bg-orange-100 text-orange-600' },
 };
 
 export default function AgentGroupsPage() {
@@ -57,7 +57,7 @@ export default function AgentGroupsPage() {
             setError(null);
         } catch (err) {
             console.error('Failed to fetch groups:', err);
-            setError(__('Failed to load agent groups', 'smart-woo-chatbot'));
+            setError(__('Failed to load agent groups', 'agentflow-ai'));
         } finally {
             setLoading(false);
         }
@@ -140,7 +140,7 @@ export default function AgentGroupsPage() {
     if (loading && groups.length === 0) {
         return (
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 flex items-center justify-center">
-                <Loading message={__('Loading agent groups...', 'smart-woo-chatbot')} fullPage />
+                <Loading message={__('Loading agent groups...', 'agentflow-ai')} fullPage />
             </div>
         );
     }
@@ -169,7 +169,7 @@ export default function AgentGroupsPage() {
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder={__('Search teams...', 'smart-woo-chatbot')}
+                            placeholder={__('Search teams...', 'agentflow-ai')}
                             className="w-full h-10 pl-10 pr-4 text-sm rounded-xl border border-gray-200 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all"
                         />
                     </div>
@@ -178,12 +178,12 @@ export default function AgentGroupsPage() {
                     <div className="flex items-center gap-4 text-sm">
                         <span className="flex items-center gap-1.5 text-gray-500">
                             <CheckCircle2 className="w-4 h-4 text-green-500" />
-                            <span className="font-semibold text-gray-900">{groups.filter((g) => g.is_active !== false).length}</span> {__('Active', 'smart-woo-chatbot')}
+                            <span className="font-semibold text-gray-900">{groups.filter((g) => g.is_active !== false).length}</span> {__('Active', 'agentflow-ai')}
                         </span>
                         <span className="text-gray-300">|</span>
                         <span className="flex items-center gap-1.5 text-gray-500">
                             <Users className="w-4 h-4 text-indigo-500" />
-                            <span className="font-semibold text-gray-900">{groups.length}</span> {__('Total', 'smart-woo-chatbot')}
+                            <span className="font-semibold text-gray-900">{groups.length}</span> {__('Total', 'agentflow-ai')}
                         </span>
                     </div>
                 </div>
@@ -216,7 +216,7 @@ export default function AgentGroupsPage() {
                         className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-medium shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-200"
                     >
                         <Plus className="w-5 h-5" />
-                        {__('Create Team', 'smart-woo-chatbot')}
+                        {__('Create Team', 'agentflow-ai')}
                     </button>
                 </div>
             </div>
@@ -237,14 +237,14 @@ export default function AgentGroupsPage() {
                         </div>
                         <h3 className="text-xl font-semibold text-gray-700 mb-2">
                             {searchQuery
-                                ? __('No teams found', 'smart-woo-chatbot')
-                                : __('No agent teams yet', 'smart-woo-chatbot')
+                                ? __('No teams found', 'agentflow-ai')
+                                : __('No agent teams yet', 'agentflow-ai')
                             }
                         </h3>
                         <p className="text-gray-500 max-w-md mx-auto mb-6">
                             {searchQuery
-                                ? __('Try adjusting your search query', 'smart-woo-chatbot')
-                                : __('Create your first team to enable multi-agent orchestration', 'smart-woo-chatbot')
+                                ? __('Try adjusting your search query', 'agentflow-ai')
+                                : __('Create your first team to enable multi-agent orchestration', 'agentflow-ai')
                             }
                         </p>
                         {!searchQuery && (
@@ -253,7 +253,7 @@ export default function AgentGroupsPage() {
                                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded-xl font-medium hover:bg-indigo-700 transition-colors"
                             >
                                 <Plus className="w-5 h-5" />
-                                {__('Create Your First Team', 'smart-woo-chatbot')}
+                                {__('Create Your First Team', 'agentflow-ai')}
                             </button>
                         )}
                     </div>
@@ -294,7 +294,7 @@ export default function AgentGroupsPage() {
                                                     : 'bg-gray-100 text-gray-500'
                                                     }`}
                                             >
-                                                {group.is_active !== false ? __('Active', 'smart-woo-chatbot') : __('Inactive', 'smart-woo-chatbot')}
+                                                {group.is_active !== false ? __('Active', 'agentflow-ai') : __('Inactive', 'agentflow-ai')}
                                             </span>
                                         </div>
 
@@ -320,7 +320,7 @@ export default function AgentGroupsPage() {
                                             <div className="flex items-center gap-1.5 text-gray-500">
                                                 <Users className="w-4 h-4" />
                                                 <span>
-                                                    {memberCount} {memberCount === 1 ? __('agent', 'smart-woo-chatbot') : __('agents', 'smart-woo-chatbot')}
+                                                    {memberCount} {memberCount === 1 ? __('agent', 'agentflow-ai') : __('agents', 'agentflow-ai')}
                                                 </span>
                                             </div>
                                         </div>
@@ -333,14 +333,14 @@ export default function AgentGroupsPage() {
                                             className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded-lg transition-colors"
                                         >
                                             <Edit3 className="w-3.5 h-3.5" />
-                                            {__('Edit', 'smart-woo-chatbot')}
+                                            {__('Edit', 'agentflow-ai')}
                                         </button>
                                         <button
                                             onClick={() => setDeleteConfirm(group.id)}
                                             className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors opacity-0 group-hover:opacity-100"
                                         >
                                             <Trash2 className="w-3.5 h-3.5" />
-                                            {__('Delete', 'smart-woo-chatbot')}
+                                            {__('Delete', 'agentflow-ai')}
                                         </button>
                                     </div>
                                 </div>
@@ -354,19 +354,19 @@ export default function AgentGroupsPage() {
                             <thead className="bg-gray-50 border-b border-gray-200">
                                 <tr>
                                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                                        {__('Team', 'smart-woo-chatbot')}
+                                        {__('Team', 'agentflow-ai')}
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                                        {__('Strategy', 'smart-woo-chatbot')}
+                                        {__('Strategy', 'agentflow-ai')}
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                                        {__('Members', 'smart-woo-chatbot')}
+                                        {__('Members', 'agentflow-ai')}
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                                        {__('Status', 'smart-woo-chatbot')}
+                                        {__('Status', 'agentflow-ai')}
                                     </th>
                                     <th className="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                                        {__('Actions', 'smart-woo-chatbot')}
+                                        {__('Actions', 'agentflow-ai')}
                                     </th>
                                 </tr>
                             </thead>
@@ -397,7 +397,7 @@ export default function AgentGroupsPage() {
                                             </td>
                                             <td className="px-6 py-4">
                                                 <span className="text-sm text-gray-600">
-                                                    {memberCount} {memberCount === 1 ? __('agent', 'smart-woo-chatbot') : __('agents', 'smart-woo-chatbot')}
+                                                    {memberCount} {memberCount === 1 ? __('agent', 'agentflow-ai') : __('agents', 'agentflow-ai')}
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4">
@@ -407,7 +407,7 @@ export default function AgentGroupsPage() {
                                                         : 'bg-gray-100 text-gray-500'
                                                         }`}
                                                 >
-                                                    {group.is_active !== false ? __('Active', 'smart-woo-chatbot') : __('Inactive', 'smart-woo-chatbot')}
+                                                    {group.is_active !== false ? __('Active', 'agentflow-ai') : __('Inactive', 'agentflow-ai')}
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 text-right">
@@ -444,10 +444,10 @@ export default function AgentGroupsPage() {
                                 <AlertTriangle className="w-6 h-6 text-red-600" />
                             </div>
                             <h3 className="text-lg font-semibold text-gray-900 text-center mb-2">
-                                {__('Delete Team?', 'smart-woo-chatbot')}
+                                {__('Delete Team?', 'agentflow-ai')}
                             </h3>
                             <p className="text-sm text-gray-500 text-center">
-                                {__('Are you sure you want to delete this team? All member agents will be unassigned. This action cannot be undone.', 'smart-woo-chatbot')}
+                                {__('Are you sure you want to delete this team? All member agents will be unassigned. This action cannot be undone.', 'agentflow-ai')}
                             </p>
                         </div>
                         <div className="px-6 py-4 bg-gray-50 flex items-center justify-end gap-3">
@@ -455,13 +455,13 @@ export default function AgentGroupsPage() {
                                 onClick={() => setDeleteConfirm(null)}
                                 className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
                             >
-                                {__('Cancel', 'smart-woo-chatbot')}
+                                {__('Cancel', 'agentflow-ai')}
                             </button>
                             <button
                                 onClick={() => handleDelete(deleteConfirm)}
                                 className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors"
                             >
-                                {__('Delete Team', 'smart-woo-chatbot')}
+                                {__('Delete Team', 'agentflow-ai')}
                             </button>
                         </div>
                     </div>

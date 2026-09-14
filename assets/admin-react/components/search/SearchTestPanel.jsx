@@ -61,10 +61,10 @@ export default function SearchTestPanel({ enabled }) {
             <div className="flex flex-col items-center justify-center rounded-2xl border border-amber-200 bg-amber-50 py-16 dark:border-amber-800 dark:bg-amber-900/20">
                 <span className="text-4xl"></span>
                 <h3 className="mt-4 text-lg font-semibold text-amber-800 dark:text-amber-200">
-                    {__('AI Search is Disabled', 'smart-woo-chatbot')}
+                    {__('AI Search is Disabled', 'agentflow-ai')}
                 </h3>
                 <p className="mt-2 text-sm text-amber-700 dark:text-amber-300">
-                    {__('Enable AI-Powered Search in the Settings tab to test it here.', 'smart-woo-chatbot')}
+                    {__('Enable AI-Powered Search in the Settings tab to test it here.', 'agentflow-ai')}
                 </p>
             </div>
         );
@@ -75,7 +75,7 @@ export default function SearchTestPanel({ enabled }) {
             {/* Test Input */}
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
                 <h3 className="mb-4 text-lg font-semibold text-slate-900 dark:text-white">
-                    {__('Test Search Enhancement', 'smart-woo-chatbot')}
+                    {__('Test Search Enhancement', 'agentflow-ai')}
                 </h3>
                 <div className="flex gap-3">
                     <div className="relative flex-1">
@@ -84,7 +84,7 @@ export default function SearchTestPanel({ enabled }) {
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             onKeyDown={(e) => e.key === 'Enter' && runTest()}
-                            placeholder={__('Type a search query to test… e.g. "laptop"', 'smart-woo-chatbot')}
+                            placeholder={__('Type a search query to test… e.g. "laptop"', 'agentflow-ai')}
                             className="h-12 w-full rounded-xl border border-slate-300 bg-white pl-4 pr-4 text-sm text-slate-900 transition-all focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200 dark:border-slate-600 dark:bg-slate-800 dark:text-white"
                         />
                     </div>
@@ -96,11 +96,11 @@ export default function SearchTestPanel({ enabled }) {
                         {testing ? (
                             <>
                                 <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                                {__('Testing…', 'smart-woo-chatbot')}
+                                {__('Testing…', 'agentflow-ai')}
                             </>
                         ) : (
                             <>
-                                {__('Test', 'smart-woo-chatbot')}
+                                {__('Test', 'agentflow-ai')}
                             </>
                         )}
                     </button>
@@ -117,7 +117,7 @@ export default function SearchTestPanel({ enabled }) {
                                     {result.error ? '' : ''}
                                 </span>
                                 <span className={`font-semibold ${result.error ? 'text-red-800 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}`}>
-                                    {result.error ? __('Test Failed', 'smart-woo-chatbot') : __('Test Successful', 'smart-woo-chatbot')}
+                                    {result.error ? __('Test Failed', 'agentflow-ai') : __('Test Successful', 'agentflow-ai')}
                                 </span>
                             </div>
                             {!result.error && (
@@ -126,7 +126,7 @@ export default function SearchTestPanel({ enabled }) {
                                          {result.duration_ms}ms
                                     </span>
                                     <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400">
-                                         {result.keyword_count} {__('keywords', 'smart-woo-chatbot')}
+                                         {result.keyword_count} {__('keywords', 'agentflow-ai')}
                                     </span>
                                 </div>
                             )}
@@ -141,7 +141,7 @@ export default function SearchTestPanel({ enabled }) {
                                 {/* Original Query */}
                                 <div>
                                     <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                                        {__('Original Search Term', 'smart-woo-chatbot')}
+                                        {__('Original Search Term', 'agentflow-ai')}
                                     </div>
                                     <div className="inline-flex items-center gap-2 rounded-lg bg-slate-100 px-3 py-1.5 text-sm font-medium text-slate-900 dark:bg-slate-800 dark:text-white">
                                          {result.search_term}
@@ -151,7 +151,7 @@ export default function SearchTestPanel({ enabled }) {
                                 {/* Generated Keywords */}
                                 <div>
                                     <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                                        {__('AI-Generated Keywords', 'smart-woo-chatbot')}
+                                        {__('AI-Generated Keywords', 'agentflow-ai')}
                                     </div>
                                     <div className="flex flex-wrap gap-2">
                                         {(result.keywords || []).map((kw, idx) => (
@@ -164,7 +164,7 @@ export default function SearchTestPanel({ enabled }) {
                                             </span>
                                         ))}
                                         {(!result.keywords || result.keywords.length === 0) && (
-                                            <span className="text-sm text-slate-400">{__('No keywords generated', 'smart-woo-chatbot')}</span>
+                                            <span className="text-sm text-slate-400">{__('No keywords generated', 'agentflow-ai')}</span>
                                         )}
                                     </div>
                                 </div>
@@ -178,14 +178,14 @@ export default function SearchTestPanel({ enabled }) {
                                         }}
                                         className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                                     >
-                                         {__('Copy Keywords', 'smart-woo-chatbot')}
+                                         {__('Copy Keywords', 'agentflow-ai')}
                                     </button>
                                     <button
                                         onClick={() => clearCache(result.search_term)}
                                         disabled={clearing}
                                         className="inline-flex items-center gap-1.5 rounded-lg bg-amber-100 px-3 py-1.5 text-xs font-medium text-amber-700 transition hover:bg-amber-200 disabled:opacity-50 dark:bg-amber-900/30 dark:text-amber-400"
                                     >
-                                         {clearing ? __('Clearing…', 'smart-woo-chatbot') : __('Clear Cache for This Term', 'smart-woo-chatbot')}
+                                         {clearing ? __('Clearing…', 'agentflow-ai') : __('Clear Cache for This Term', 'agentflow-ai')}
                                     </button>
                                 </div>
                             </div>
@@ -199,13 +199,13 @@ export default function SearchTestPanel({ enabled }) {
                 <div className="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
                     <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 dark:border-slate-800">
                         <h3 className="text-base font-semibold text-slate-900 dark:text-white">
-                            {__('Recent Tests', 'smart-woo-chatbot')}
+                            {__('Recent Tests', 'agentflow-ai')}
                         </h3>
                         <button
                             onClick={() => setHistory([])}
                             className="text-xs text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
                         >
-                            {__('Clear History', 'smart-woo-chatbot')}
+                            {__('Clear History', 'agentflow-ai')}
                         </button>
                     </div>
                     <div className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -218,7 +218,7 @@ export default function SearchTestPanel({ enabled }) {
                                     <span className="text-sm font-medium text-slate-900 dark:text-white">"{item.query}"</span>
                                     <span className="text-xs text-slate-400">→</span>
                                     <span className="text-xs text-slate-500">
-                                        {item.result.keyword_count} {__('keywords', 'smart-woo-chatbot')} · {item.result.duration_ms}ms
+                                        {item.result.keyword_count} {__('keywords', 'agentflow-ai')} · {item.result.duration_ms}ms
                                     </span>
                                 </div>
                                 <button
@@ -228,7 +228,7 @@ export default function SearchTestPanel({ enabled }) {
                                     }}
                                     className="text-xs text-violet-600 hover:text-violet-800 dark:text-violet-400"
                                 >
-                                    {__('Rerun', 'smart-woo-chatbot')}
+                                    {__('Rerun', 'agentflow-ai')}
                                 </button>
                             </div>
                         ))}

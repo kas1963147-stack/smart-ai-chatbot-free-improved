@@ -1,17 +1,18 @@
 {
-    "name": "quarksol/smart-ai-chatbot",
+    "name": "quarksol/quark-agentflow-ai",
     "description": "AI-powered chatbot for e-commerce with multi-agent orchestration",
     "license": "GPL-2.0-or-later",
     "require": {
-        "neuron-core/neuron-ai": "3.4.8",
-        "inspector-apm/inspector-php": "3.17.1",
+        "neuron-core/neuron-ai": "^3.16.10",
+        "inspector-apm/inspector-php": "^3.18.0",
         "smalot/pdfparser": "2.12.5"
     },
     "autoload": {
         "psr-4": {
             "Quarksol\\SmartChatbot\\": "src/",
-            "Toolkits\\": "toolkits/",
+            "Quarksol\\AgentFlowAI\\Toolkits\\": "toolkits/",
             "SWC\\": "includes/"
         }
     }
 }
+

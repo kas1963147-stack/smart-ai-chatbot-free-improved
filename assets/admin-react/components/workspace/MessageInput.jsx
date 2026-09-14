@@ -83,13 +83,13 @@ export default function MessageInput({ onSend, disabled, placeholder, onAttachme
 					setIsRecording(false);
 					// Show user friendly error
 					if (event.error === 'not-allowed') {
-						alert(__('Microphone access denied. Please allow microphone access in browser settings.', 'smart-woo-chatbot'));
+						alert(__('Microphone access denied. Please allow microphone access in browser settings.', 'agentflow-ai'));
 					} else if (event.error === 'no-speech') {
 						// User didn't speak - this is normal, don't show error
 					} else if (event.error === 'network') {
-						alert(__('Network error. Please check your internet connection.', 'smart-woo-chatbot'));
+						alert(__('Network error. Please check your internet connection.', 'agentflow-ai'));
 					} else if (event.error === 'service-not-allowed') {
-						alert(__('Voice input requires HTTPS. Please access this site over HTTPS.', 'smart-woo-chatbot'));
+						alert(__('Voice input requires HTTPS. Please access this site over HTTPS.', 'agentflow-ai'));
 					}
 				};
 
@@ -293,7 +293,7 @@ export default function MessageInput({ onSend, disabled, placeholder, onAttachme
 		console.log('Voice button clicked, voiceSupported:', voiceSupported, 'recognitionRef:', !!recognitionRef.current);
 
 		if (!recognitionRef.current) {
-			alert(__('Voice input is not supported in this browser. Please use Chrome or Edge.', 'smart-woo-chatbot'));
+			alert(__('Voice input is not supported in this browser. Please use Chrome or Edge.', 'agentflow-ai'));
 			return;
 		}
 
@@ -324,7 +324,7 @@ export default function MessageInput({ onSend, disabled, placeholder, onAttachme
 						// ignore
 					}
 				} else {
-					alert(__('Could not start voice input. Error: ', 'smart-woo-chatbot') + err.message);
+					alert(__('Could not start voice input. Error: ', 'agentflow-ai') + err.message);
 				}
 			}
 		}
@@ -430,27 +430,27 @@ export default function MessageInput({ onSend, disabled, placeholder, onAttachme
 			{showShortcuts && (
 				<div className="absolute bottom-full left-0 right-0 mb-2 p-4 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-xl z-10">
 					<div className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
-						{__('Keyboard Shortcuts', 'smart-woo-chatbot')}
+						{__('Keyboard Shortcuts', 'agentflow-ai')}
 					</div>
 					<div className="space-y-2 text-sm text-gray-600 dark:text-slate-400">
 						<div className="flex items-center gap-2">
 							<kbd className="px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-xs">Enter</kbd>
-							{__('Send message', 'smart-woo-chatbot')}
+							{__('Send message', 'agentflow-ai')}
 						</div>
 						<div className="flex items-center gap-2">
 							<kbd className="px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-xs">Shift</kbd>+
 							<kbd className="px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-xs">Enter</kbd>
-							{__('New line', 'smart-woo-chatbot')}
+							{__('New line', 'agentflow-ai')}
 						</div>
 						<div className="flex items-center gap-2">
 							<kbd className="px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-xs"></kbd>+
 							<kbd className="px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-xs">K</kbd>
-							{__('Command palette', 'smart-woo-chatbot')}
+							{__('Command palette', 'agentflow-ai')}
 						</div>
 						<div className="flex items-center gap-2">
 							<kbd className="px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-xs"></kbd>+
 							<kbd className="px-2 py-1 bg-gray-100 dark:bg-slate-700 rounded text-xs">/</kbd>
-							{__('Toggle shortcuts', 'smart-woo-chatbot')}
+							{__('Toggle shortcuts', 'agentflow-ai')}
 						</div>
 					</div>
 				</div>
@@ -472,7 +472,7 @@ export default function MessageInput({ onSend, disabled, placeholder, onAttachme
 				<button
 					className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors disabled:opacity-50"
 					onClick={() => fileInputRef.current?.click()}
-					title={__('Attach file', 'smart-woo-chatbot')}
+					title={__('Attach file', 'agentflow-ai')}
 					disabled={disabled}
 				>
 					<Paperclip className="w-5 h-5" />
@@ -507,7 +507,7 @@ export default function MessageInput({ onSend, disabled, placeholder, onAttachme
 							: 'text-gray-400 hover:text-gray-600 dark:hover:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700'
 					)}
 					onClick={toggleVoiceInput}
-					title={isRecording ? __('Stop recording', 'smart-woo-chatbot') : __('Voice input', 'smart-woo-chatbot')}
+					title={isRecording ? __('Stop recording', 'agentflow-ai') : __('Voice input', 'agentflow-ai')}
 					disabled={disabled}
 					type="button"
 				>
@@ -524,7 +524,7 @@ export default function MessageInput({ onSend, disabled, placeholder, onAttachme
 					)}
 					onClick={handleSubmit}
 					disabled={disabled || hasUploadingAttachments || (!value.trim() && attachments.length === 0)}
-					title={hasUploadingAttachments ? __('Waiting for upload...', 'smart-woo-chatbot') : __('Send message', 'smart-woo-chatbot')}
+					title={hasUploadingAttachments ? __('Waiting for upload...', 'agentflow-ai') : __('Send message', 'agentflow-ai')}
 				>
 					{disabled || hasUploadingAttachments ? (
 						<Loader2 className="w-4 h-4 animate-spin" />
@@ -537,12 +537,12 @@ export default function MessageInput({ onSend, disabled, placeholder, onAttachme
 			{/* Helper text */}
 			<div className="flex items-center justify-center gap-3 mt-2 text-xs text-gray-400 dark:text-slate-500">
 				<span className="flex items-center gap-1">
-					{__('Press', 'smart-woo-chatbot')}
+					{__('Press', 'agentflow-ai')}
 					<kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px]">/</kbd>
-					{__('for commands', 'smart-woo-chatbot')}
+					{__('for commands', 'agentflow-ai')}
 				</span>
 				<span className="flex items-center gap-1">
-					{__('or', 'smart-woo-chatbot')}
+					{__('or', 'agentflow-ai')}
 					<kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px]">K</kbd>
 				</span>
 			</div>

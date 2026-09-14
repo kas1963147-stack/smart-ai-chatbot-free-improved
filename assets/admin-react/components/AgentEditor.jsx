@@ -177,13 +177,13 @@ export default function AgentEditor({
 		const newErrors = {};
 
 		if (!formData.name.trim()) {
-			newErrors.name = __('Name is required', 'smart-woo-chatbot');
+			newErrors.name = __('Name is required', 'agentflow-ai');
 		}
 
 		if (isNew && !formData.agent_id.trim()) {
 			newErrors.agent_id = __(
 				'Agent ID is required',
-				'smart-woo-chatbot'
+				'agentflow-ai'
 			);
 		}
 
@@ -194,7 +194,7 @@ export default function AgentEditor({
 		) {
 			newErrors.agent_id = __(
 				'Agent ID must be lowercase letters, numbers, and underscores only',
-				'smart-woo-chatbot'
+				'agentflow-ai'
 			);
 		}
 
@@ -211,9 +211,9 @@ export default function AgentEditor({
 
 	// Tab definitions
 	const tabs = [
-		{ id: 'general', label: __('General', 'smart-woo-chatbot'), icon: Settings },
-		{ id: 'prompts', label: __('Prompts', 'smart-woo-chatbot'), icon: Bot },
-		{ id: 'knowledge', label: __('Knowledge', 'smart-woo-chatbot'), icon: BookOpen }
+		{ id: 'general', label: __('General', 'agentflow-ai'), icon: Settings },
+		{ id: 'prompts', label: __('Prompts', 'agentflow-ai'), icon: Bot },
+		{ id: 'knowledge', label: __('Knowledge', 'agentflow-ai'), icon: BookOpen }
 	];
 
 	return (
@@ -268,10 +268,10 @@ export default function AgentEditor({
 								</div>
 								<div>
 									<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-										{__('Basic Information', 'smart-woo-chatbot')}
+										{__('Basic Information', 'agentflow-ai')}
 									</h3>
 									<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-										{__("Configure your agent's identity and status", 'smart-woo-chatbot')}
+										{__("Configure your agent's identity and status", 'agentflow-ai')}
 									</p>
 								</div>
 							</div>
@@ -285,7 +285,7 @@ export default function AgentEditor({
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-200">
 									<User className="w-4 h-4 text-gray-400" />
-									{__('Display Name', 'smart-woo-chatbot')}
+									{__('Display Name', 'agentflow-ai')}
 									<span className="text-red-500">*</span>
 								</label>
 								<input
@@ -313,7 +313,7 @@ export default function AgentEditor({
 									`}
 								/>
 								<p className="text-xs text-gray-500 dark:text-gray-400">
-									{__('The name users will see for this agent', 'smart-woo-chatbot')}
+									{__('The name users will see for this agent', 'agentflow-ai')}
 								</p>
 								{errors.name && (
 									<p className="text-xs text-red-500 flex items-center gap-1">
@@ -327,7 +327,7 @@ export default function AgentEditor({
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-200">
 									<FileText className="w-4 h-4 text-gray-400" />
-									{__('Description', 'smart-woo-chatbot')}
+									{__('Description', 'agentflow-ai')}
 								</label>
 								<textarea
 									value={formData.description}
@@ -343,7 +343,7 @@ export default function AgentEditor({
 									"
 								/>
 								<p className="text-xs text-gray-500 dark:text-gray-400">
-									{__('Brief description of what this agent does', 'smart-woo-chatbot')}
+									{__('Brief description of what this agent does', 'agentflow-ai')}
 								</p>
 							</div>
 
@@ -366,12 +366,12 @@ export default function AgentEditor({
 										</div>
 										<div>
 											<div className="text-sm font-semibold text-gray-900 dark:text-white">
-												{__('Agent Status', 'smart-woo-chatbot')}
+												{__('Agent Status', 'agentflow-ai')}
 											</div>
 											<div className={`text-sm ${formData.is_active ? 'text-green-600 dark:text-green-400' : 'text-gray-500 dark:text-gray-400'}`}>
 												{formData.is_active
-													? __('Active - Available for assignment', 'smart-woo-chatbot')
-													: __('Inactive - Not available for assignment', 'smart-woo-chatbot')
+													? __('Active - Available for assignment', 'agentflow-ai')
+													: __('Inactive - Not available for assignment', 'agentflow-ai')
 												}
 											</div>
 										</div>
@@ -404,7 +404,7 @@ export default function AgentEditor({
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-200">
 									<span className="text-lg"></span>
-									{__('AI Provider', 'smart-woo-chatbot')}
+									{__('AI Provider', 'agentflow-ai')}
 								</label>
 								<select
 									id="swc-agent-provider-select"
@@ -412,7 +412,7 @@ export default function AgentEditor({
 									onChange={(e) => updateConfig('provider_instance_id', e.target.value)}
 									className="w-full h-11 px-4 pr-10 text-sm rounded-lg border bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200 cursor-pointer"
 								>
-									<option value="">{__('-- Use Global Settings --', 'smart-woo-chatbot')}</option>
+									<option value="">{__('-- Use Global Settings --', 'agentflow-ai')}</option>
 									{providerInstances
 										.filter((inst) => inst.id !== '' && inst.id)
 										.map((inst) => (
@@ -420,7 +420,7 @@ export default function AgentEditor({
 										))}
 								</select>
 								<p className="text-xs text-gray-500 dark:text-gray-400">
-									{__('Select which AI provider this agent should use', 'smart-woo-chatbot')}
+									{__('Select which AI provider this agent should use', 'agentflow-ai')}
 								</p>
 							</div>
 						</div>
@@ -488,10 +488,10 @@ export default function AgentEditor({
 								</div>
 								<div>
 									<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-										{__('Agent Personality & Behavior', 'smart-woo-chatbot')}
+										{__('Agent Personality & Behavior', 'agentflow-ai')}
 									</h3>
 									<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-										{__('Define how your AI agent thinks and responds', 'smart-woo-chatbot')}
+										{__('Define how your AI agent thinks and responds', 'agentflow-ai')}
 									</p>
 								</div>
 							</div>
@@ -503,7 +503,7 @@ export default function AgentEditor({
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
 									<span className="flex items-center justify-center w-6 h-6 rounded-md bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold">1</span>
-									{__('Background (Who is this agent?)', 'smart-woo-chatbot')}
+									{__('Background (Who is this agent?)', 'agentflow-ai')}
 								</label>
 								<textarea
 									value={formData.config.prompt_sections?.background || ''}
@@ -524,7 +524,7 @@ export default function AgentEditor({
 									"
 								/>
 								<p className="text-xs text-gray-500 dark:text-gray-400">
-									{__("Define the agent's identity, role, and expertise", 'smart-woo-chatbot')}
+									{__("Define the agent's identity, role, and expertise", 'agentflow-ai')}
 								</p>
 							</div>
 
@@ -532,7 +532,7 @@ export default function AgentEditor({
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
 									<span className="flex items-center justify-center w-6 h-6 rounded-md bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold">2</span>
-									{__('Steps (How should it work?)', 'smart-woo-chatbot')}
+									{__('Steps (How should it work?)', 'agentflow-ai')}
 								</label>
 								<textarea
 									value={formData.config.prompt_sections?.steps || ''}
@@ -553,7 +553,7 @@ export default function AgentEditor({
 									"
 								/>
 								<p className="text-xs text-gray-500 dark:text-gray-400">
-									{__('Define the thinking process', 'smart-woo-chatbot')}
+									{__('Define the thinking process', 'agentflow-ai')}
 								</p>
 							</div>
 
@@ -561,7 +561,7 @@ export default function AgentEditor({
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
 									<span className="flex items-center justify-center w-6 h-6 rounded-md bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-bold">3</span>
-									{__('Output (Response format)', 'smart-woo-chatbot')}
+									{__('Output (Response format)', 'agentflow-ai')}
 								</label>
 								<textarea
 									value={formData.config.prompt_sections?.output || ''}
@@ -582,7 +582,7 @@ export default function AgentEditor({
 									"
 								/>
 								<p className="text-xs text-gray-500 dark:text-gray-400">
-									{__('Define how responses should be formatted', 'smart-woo-chatbot')}
+									{__('Define how responses should be formatted', 'agentflow-ai')}
 								</p>
 							</div>
 
@@ -590,7 +590,7 @@ export default function AgentEditor({
 							<div className="space-y-2">
 								<label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
 									<span className="flex items-center justify-center w-6 h-6 rounded-md bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-bold">4</span>
-									{__('Tools Usage (When to use tools)', 'smart-woo-chatbot')}
+									{__('Tools Usage (When to use tools)', 'agentflow-ai')}
 								</label>
 								<textarea
 									value={formData.config.prompt_sections?.tools_usage || ''}
@@ -611,7 +611,7 @@ export default function AgentEditor({
 									"
 								/>
 								<p className="text-xs text-gray-500 dark:text-gray-400">
-									{__('Instructions for when and how to use the available tools', 'smart-woo-chatbot')}
+									{__('Instructions for when and how to use the available tools', 'agentflow-ai')}
 								</p>
 							</div>
 						</div>

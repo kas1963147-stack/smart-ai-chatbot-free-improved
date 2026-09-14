@@ -56,9 +56,9 @@ export default function UsageTrends({ period }) {
 	}, [period, metric]);
 
 	const metricOptions = [
-		{ value: 'cost', label: __('Cost', 'smart-woo-chatbot'), prefix: '$', icon: TrendingUp },
-		{ value: 'sessions', label: __('Sessions', 'smart-woo-chatbot'), prefix: '', icon: Activity },
-		{ value: 'tokens', label: __('Tokens', 'smart-woo-chatbot'), prefix: '', icon: BarChart2 },
+		{ value: 'cost', label: __('Cost', 'agentflow-ai'), prefix: '$', icon: TrendingUp },
+		{ value: 'sessions', label: __('Sessions', 'agentflow-ai'), prefix: '', icon: Activity },
+		{ value: 'tokens', label: __('Tokens', 'agentflow-ai'), prefix: '', icon: BarChart2 },
 	];
 
 	const currentMetric = metricOptions.find((m) => m.value === metric);
@@ -66,7 +66,7 @@ export default function UsageTrends({ period }) {
 	if (loading) {
 		return (
 			<div className="flex flex-col items-center justify-center py-12 gap-4">
-				<Loading message={__('Loading trends...', 'smart-woo-chatbot')} />
+				<Loading message={__('Loading trends...', 'agentflow-ai')} />
 			</div>
 		);
 	}
@@ -77,8 +77,8 @@ export default function UsageTrends({ period }) {
 				<div className="w-16 h-16 bg-gray-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
 					<TrendingUp className="w-8 h-8 text-gray-400 dark:text-slate-500" />
 				</div>
-				<p className="text-sm text-gray-500 dark:text-slate-400">{__('No trend data available', 'smart-woo-chatbot')}</p>
-				<p className="text-xs text-gray-400 dark:text-slate-500 mt-1">{__('Data will appear as you use the chatbot', 'smart-woo-chatbot')}</p>
+				<p className="text-sm text-gray-500 dark:text-slate-400">{__('No trend data available', 'agentflow-ai')}</p>
+				<p className="text-xs text-gray-400 dark:text-slate-500 mt-1">{__('Data will appear as you use the chatbot', 'agentflow-ai')}</p>
 			</div>
 		);
 	}
@@ -141,7 +141,7 @@ export default function UsageTrends({ period }) {
 					<span className="text-lg font-bold text-gray-900 dark:text-white">
 						{formatValue(totalVal)}
 					</span>
-					<span className="text-xs text-gray-500 dark:text-slate-400 ml-1">{__('total', 'smart-woo-chatbot')}</span>
+					<span className="text-xs text-gray-500 dark:text-slate-400 ml-1">{__('total', 'agentflow-ai')}</span>
 				</div>
 			</div>
 
@@ -236,15 +236,15 @@ export default function UsageTrends({ period }) {
 			{/* Stats */}
 			<div className="grid grid-cols-3 gap-3">
 				<div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-3 text-center">
-					<p className="text-xs text-gray-500 dark:text-slate-400">{__('Average', 'smart-woo-chatbot')}</p>
+					<p className="text-xs text-gray-500 dark:text-slate-400">{__('Average', 'agentflow-ai')}</p>
 					<p className="text-sm font-semibold text-gray-900 dark:text-white">{formatValue(avgVal)}</p>
 				</div>
 				<div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-3 text-center">
-					<p className="text-xs text-gray-500 dark:text-slate-400">{__('Peak', 'smart-woo-chatbot')}</p>
+					<p className="text-xs text-gray-500 dark:text-slate-400">{__('Peak', 'agentflow-ai')}</p>
 					<p className="text-sm font-semibold text-gray-900 dark:text-white">{formatValue(maxVal)}</p>
 				</div>
 				<div className="bg-gray-50 dark:bg-slate-700/50 rounded-lg p-3 text-center">
-					<p className="text-xs text-gray-500 dark:text-slate-400">{__('Data Points', 'smart-woo-chatbot')}</p>
+					<p className="text-xs text-gray-500 dark:text-slate-400">{__('Data Points', 'agentflow-ai')}</p>
 					<p className="text-sm font-semibold text-gray-900 dark:text-white">{data.length}</p>
 				</div>
 			</div>

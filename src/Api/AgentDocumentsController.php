@@ -27,7 +27,7 @@ use Quarksol\SmartChatbot\Models\ChatAgent;
  */
 class AgentDocumentsController
 {
-    const NAMESPACE = 'smart-ai-chatbot/v1';
+    const NAMESPACE = 'quark-agentflow-ai/v1';
     
     /**
      * Register routes

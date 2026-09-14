@@ -1,9 +1,9 @@
-=== Quarksol AI Chatbot & Agent Workflows ===
+=== Quark AgentFlow AI – Multi-Agent Chatbot & Automated Workflows ===
 Contributors: quarksol
 Donate link: https://quarksol.org/
 Tags: ai chatbot, ai assistant, customer support, agents, woocommerce
 Requires at least: 5.8
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.1
 Stable tag: 1.1.1
 License: GPLv2 or later
@@ -31,14 +31,14 @@ OpenAI (GPT-4o), Anthropic (Claude 3.5), Google Gemini, DeepSeek, Groq, Mistral,
 
 = Features =
 
-Smart AI Chatbot includes complete chatbot functionality, multi-agent support, and all AI provider integrations.
+Quark AgentFlow AI includes complete chatbot functionality, multi-agent support, and all AI provider integrations.
 
 == Technical Implementation Notes ==
-* CURL Usage: This plugin utilizes curl_multi_exec and related cURL functions exclusively for real-time streaming of AI responses when both curl_init and curl_multi_init are available. For hosts that have disabled cURL, a full native WordPress HTTP API fallback (wp_remote_post) is implemented, ensuring robust compatibility across all environments.
+* WordPress HTTP API: This plugin exclusively uses the native WordPress HTTP API (wp_remote_post / wp_remote_get) for all external communications.
 
 == Source Code ==
 This plugin includes React-based administrative and storefront interfaces. To comply with Guideline #4, the uncompiled, human-readable source code is bundled directly within the plugin package, as well as being publicly hosted in our repository:
-https://github.com/quarksol/smart-ai-chatbot
+https://github.com/kas1963147-stack/smart-ai-chatbot-free-improved
 
 Source code folders inside the plugin:
 * Storefront Chat Widget Source: assets/frontend-react/
@@ -59,48 +59,76 @@ To rebuild the compiled assets yourself:
 This plugin connects to external AI Provider APIs to process user messages and generate AI responses. Depending on which provider you select and configure with your API key, the plugin will send the user's chat messages (and any retrieved context) to that specific service when a user interacts with the chatbot. Additionally, built-in MCPs may connect to external data sources if configured.
 
 List of supported external services:
-* OpenAI (used for AI chat generation and embeddings): Sends chat prompts. [Terms](https://openai.com/policies/terms-of-use), [Privacy](https://openai.com/policies/privacy-policy)
-* Anthropic / Claude (used for AI chat generation): Sends chat prompts. [Terms](https://www.anthropic.com/legal/consumer-terms), [Privacy](https://www.anthropic.com/legal/privacy)
-* Google Gemini / Generative Language (used for AI chat generation): Sends chat prompts. [Terms](https://policies.google.com/terms), [Privacy](https://policies.google.com/privacy)
-* Google Vertex AI (used for enterprise AI chat generation): Sends chat prompts. [Terms](https://cloud.google.com/terms), [Privacy](https://cloud.google.com/terms/cloud-privacy-notice)
-* OpenRouter (used for routing to various AI models): Sends chat prompts. [Terms](https://openrouter.ai/terms), [Privacy](https://openrouter.ai/privacy)
-* Cloudflare AI (used for edge AI chat generation): Sends chat prompts. [Terms](https://www.cloudflare.com/website-terms/), [Privacy](https://www.cloudflare.com/privacypolicy/)
-* DeepInfra (used for AI chat generation): Sends chat prompts. [Terms](https://deepinfra.com/terms), [Privacy](https://deepinfra.com/privacy)
-* Fireworks AI (used for fast AI inference): Sends chat prompts. [Terms](https://fireworks.ai/terms), [Privacy](https://fireworks.ai/privacy)
-* Featherless (used for AI chat generation): Sends chat prompts. [Terms](https://featherless.ai/terms), [Privacy](https://featherless.ai/privacy)
-* Hugging Face (used for AI models): Sends chat prompts. [Terms](https://huggingface.co/terms-of-service), [Privacy](https://huggingface.co/privacy)
-* IoIntelligence (used for AI inference): Sends chat prompts. [Terms](https://intelligence.io.solutions/terms), [Privacy](https://intelligence.io.solutions/privacy)
-* Perplexity (used for search-augmented AI): Sends chat prompts. [Terms](https://www.perplexity.ai/hub/legal/terms-of-service), [Privacy](https://www.perplexity.ai/hub/legal/privacy-policy)
-* xAI / Grok (used for AI chat generation): Sends chat prompts. [Terms](https://x.ai/terms), [Privacy](https://x.ai/privacy)
-* AI21 Labs (used for AI chat generation): Sends chat prompts. [Terms](https://www.ai21.com/terms-of-use), [Privacy](https://www.ai21.com/privacy-policy)
-* Firecrawl (used for web scraping via MCP): Sends URLs to scrape. [Terms](https://www.firecrawl.dev/terms), [Privacy](https://www.firecrawl.dev/privacy)
-* Google Maps Platform (used for location/mapping tools via MCP): Sends location queries. [Terms](https://cloud.google.com/maps-platform/terms/), [Privacy](https://policies.google.com/privacy)
-* Azure OpenAI (used for AI chat generation): Sends chat prompts. [Terms](https://azure.microsoft.com/en-us/support/legal/), [Privacy](https://privacy.microsoft.com/en-us/privacystatement)
-* Baichuan (used for AI chat generation): Sends chat prompts. [Terms](https://www.baichuan-ai.com/protocol), [Privacy](https://www.baichuan-ai.com/privacy)
-* Cerebras (used for AI chat generation): Sends chat prompts. [Terms](https://cerebras.ai/terms-of-service/), [Privacy](https://cerebras.ai/privacy-policy/)
-* Cohere (used for AI chat generation): Sends chat prompts. [Terms](https://cohere.com/terms-of-use), [Privacy](https://cohere.com/privacy)
-* DeepSeek (used for AI chat generation): Sends chat prompts. [Terms](https://www.deepseek.com/terms), [Privacy](https://www.deepseek.com/privacy)
-* Groq (used for AI chat generation): Sends chat prompts. [Terms](https://groq.com/terms-of-use/), [Privacy](https://groq.com/privacy-policy/)
-* Hyperbolic (used for AI chat generation): Sends chat prompts. [Terms](https://hyperbolic.xyz/terms), [Privacy](https://hyperbolic.xyz/privacy)
-* Lepton (used for AI chat generation): Sends chat prompts. [Terms](https://www.lepton.ai/terms), [Privacy](https://www.lepton.ai/privacy)
-* MiniMax (used for AI chat generation): Sends chat prompts. [Terms](https://www.minimaxi.com/terms), [Privacy](https://www.minimaxi.com/privacy)
-* Mistral (used for AI chat generation): Sends chat prompts. [Terms](https://mistral.ai/terms/), [Privacy](https://mistral.ai/privacy-policy/)
-* Moonshot (used for AI chat generation): Sends chat prompts. [Terms](https://www.moonshot.cn/terms), [Privacy](https://www.moonshot.cn/privacy)
-* Novita (used for AI chat generation): Sends chat prompts. [Terms](https://novita.ai/terms), [Privacy](https://novita.ai/privacy)
-* Replicate (used for AI chat generation): Sends chat prompts. [Terms](https://replicate.com/terms), [Privacy](https://replicate.com/privacy)
-* SambaNova (used for AI chat generation): Sends chat prompts. [Terms](https://sambanova.ai/terms-of-use), [Privacy](https://sambanova.ai/privacy-policy)
-* SiliconFlow (used for AI chat generation): Sends chat prompts. [Terms](https://siliconflow.cn/terms), [Privacy](https://siliconflow.cn/privacy)
-* Together AI (used for AI chat generation): Sends chat prompts. [Terms](https://www.together.ai/terms-of-service), [Privacy](https://www.together.ai/privacy-policy)
-* Yi (used for AI chat generation): Sends chat prompts. [Terms](https://www.lingyiwanwu.com/terms), [Privacy](https://www.lingyiwanwu.com/privacy)
-* Zhipu AI (used for AI chat generation): Sends chat prompts. [Terms](https://open.bigmodel.cn/terms), [Privacy](https://open.bigmodel.cn/privacy)
+
+* **OpenAI** (used for AI chat generation and embeddings): Sends chat prompts when configured. [Terms](https://openai.com/policies/terms-of-use), [Privacy](https://openai.com/policies/privacy-policy)
+* **Anthropic / Claude** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.anthropic.com/legal/consumer-terms), [Privacy](https://www.anthropic.com/legal/privacy)
+* **Google Gemini / Generative Language** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://policies.google.com/terms), [Privacy](https://policies.google.com/privacy)
+* **Google Vertex AI** (used for enterprise AI chat generation): Sends chat prompts when configured. [Terms](https://cloud.google.com/terms), [Privacy](https://cloud.google.com/terms/cloud-privacy-notice)
+* **OpenRouter** (used for routing to various AI models): Sends chat prompts when configured. [Terms](https://openrouter.ai/terms), [Privacy](https://openrouter.ai/privacy)
+* **Cloudflare AI** (used for edge AI chat generation): Sends chat prompts when configured. [Terms](https://www.cloudflare.com/website-terms/), [Privacy](https://www.cloudflare.com/privacypolicy/)
+* **DeepInfra** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://deepinfra.com/terms), [Privacy](https://deepinfra.com/privacy)
+* **Fireworks AI** (used for fast AI inference): Sends chat prompts when configured. [Terms](https://www.fireworks.ai/terms), [Privacy](https://www.fireworks.ai/privacy)
+* **Featherless** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://featherless.ai/terms), [Privacy](https://featherless.ai/privacy)
+* **Hugging Face** (used for AI models): Sends chat prompts when configured. [Terms](https://huggingface.co/terms-of-service), [Privacy](https://huggingface.co/privacy)
+* **IoIntelligence** (used for AI inference): Sends chat prompts when configured. [Terms](https://intelligence.io.solutions/terms), [Privacy](https://intelligence.io.solutions/privacy)
+* **Perplexity** (used for search-augmented AI): Sends chat prompts when configured. [Terms](https://www.perplexity.ai/hub/legal/terms-of-service), [Privacy](https://www.perplexity.ai/hub/legal/privacy-policy)
+* **xAI / Grok** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://x.ai/legal/terms-of-service), [Privacy](https://x.ai/legal/privacy-policy)
+* **AI21 Labs** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.ai21.com/terms-of-use), [Privacy](https://www.ai21.com/privacy-policy)
+* **Firecrawl** (used for web scraping via MCP): Sends URLs to scrape when configured. [Terms](https://www.firecrawl.dev/terms-of-service), [Privacy](https://www.firecrawl.dev/privacy-policy)
+* **Google Maps Platform** (used for location/mapping tools via MCP): Sends location queries when configured. [Terms](https://cloud.google.com/maps-platform/terms/), [Privacy](https://policies.google.com/privacy)
+* **Azure OpenAI** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://azure.microsoft.com/en-us/support/legal/), [Privacy](https://privacy.microsoft.com/en-us/privacystatement)
+* **Baichuan** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.baichuan-ai.com/), [Privacy](https://www.baichuan-ai.com/)
+* **Cerebras** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://cerebras.ai/terms-of-service/), [Privacy](https://cerebras.ai/privacy-policy/)
+* **Cohere** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://cohere.com/terms-of-use), [Privacy](https://cohere.com/privacy)
+* **DeepSeek** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html), [Privacy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html)
+* **Groq** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://groq.com/terms-of-use/), [Privacy](https://groq.com/privacy-policy/)
+* **Hyperbolic** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://hyperbolic.xyz/terms), [Privacy](https://hyperbolic.xyz/privacy)
+* **Lepton** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.lepton.ai/), [Privacy](https://www.lepton.ai/)
+* **MiniMax** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.minimaxi.com/terms), [Privacy](https://www.minimaxi.com/privacy)
+* **Mistral** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://mistral.ai/terms/), [Privacy](https://mistral.ai/privacy-policy/)
+* **Moonshot** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.moonshot.cn/terms), [Privacy](https://www.moonshot.cn/privacy)
+* **Novita** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://novita.ai/terms-of-service), [Privacy](https://novita.ai/privacy-policy)
+* **Replicate** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://replicate.com/terms), [Privacy](https://replicate.com/privacy)
+* **SambaNova** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://sambanova.ai/legal), [Privacy](https://sambanova.ai/legal)
+* **SiliconFlow** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://siliconflow.cn/terms), [Privacy](https://siliconflow.cn/privacy)
+* **Together AI** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.together.ai/trust), [Privacy](https://www.together.ai/trust)
+* **Yi / Lingyiwanwu** (used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.lingyiwanwu.com/terms), [Privacy](https://www.lingyiwanwu.com/privacy)
+* **Baseten** (used for AI model deployment and inference): Sends chat prompts when configured. [Terms](https://www.baseten.co/terms), [Privacy](https://www.baseten.co/privacy)
+* **Requesty** (used for AI routing proxy): Sends chat prompts when configured. [Terms](https://requesty.ai/terms), [Privacy](https://requesty.ai/privacy)
+* **Doubao / Volcengine Ark** (ByteDance AI, used for AI chat generation): Sends chat prompts when configured. [Terms](https://www.volcengine.com/), [Privacy](https://www.volcengine.com/)
+* **Amazon Bedrock / AWS** (used for enterprise AI chat generation): Sends chat prompts signed with AWS4-HMAC when configured. [Terms](https://aws.amazon.com/service-terms), [Privacy](https://aws.amazon.com/privacy)
+* **Unbound AI** (used for AI inference): Sends chat prompts when configured. [Terms](https://getunbound.ai/terms), [Privacy](https://getunbound.ai/privacy)
+* **IP-API** (used for visitor IP geolocation for WooCommerce store personalization): Sends the visitor's IP address when WooCommerce built-in geolocation is unavailable. [Terms](https://members.ip-api.com/terms), [Privacy](https://ip-api.com/)
+* **Google Calendar** (used for calendar event creation and scheduling via MCP): Sends calendar event data when configured. [Terms](https://policies.google.com/terms), [Privacy](https://policies.google.com/privacy)
+* **Supabase** (used for database and edge operations via MCP): Sends database queries when configured. [Terms](https://supabase.com/terms), [Privacy](https://supabase.com/privacy)
+* **Cloudflare Workers & MCP** (used for edge execution and storage via MCP): Sends worker payloads when configured. [Terms](https://www.cloudflare.com/website-terms/), [Privacy](https://www.cloudflare.com/privacypolicy/)
+* **Vercel** (used for deployment management via MCP): Sends deployment requests when configured. [Terms](https://vercel.com/legal/terms), [Privacy](https://vercel.com/legal/privacy-policy)
+* **Slack** (used for channel notifications via MCP): Sends message payloads when configured. [Terms](https://slack.com/terms-of-service), [Privacy](https://slack.com/privacy-policy)
+* **Notion** (used for document management via MCP): Sends document data when configured. [Terms](https://www.notion.so/Terms-and-Privacy-2867d2b5e78e4bb08e5d05f564344358), [Privacy](https://www.notion.so/Privacy-Policy-3468d120cf614d4c9014c46f45724105)
+* **Jira / Atlassian** (used for project issue tracking via MCP): Sends issue tickets when configured. [Terms](https://www.atlassian.com/legal/cloud-terms-of-service), [Privacy](https://www.atlassian.com/legal/privacy-policy)
+* **Linear** (used for issue tracking via MCP): Sends issue payloads when configured. [Terms](https://linear.app/terms), [Privacy](https://linear.app/privacy)
+* **Sentry** (used for error tracking via MCP): Sends error trace data when configured. [Terms](https://sentry.io/terms/), [Privacy](https://sentry.io/privacy/)
+* **GitHub** (used for repository management via MCP): Sends issue and repository queries when configured. [Terms](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service), [Privacy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
+* **GitLab** (used for project management via MCP): Sends repository and issue queries when configured. [Terms](https://about.gitlab.com/terms/), [Privacy](https://about.gitlab.com/privacy/)
+* **Todoist** (used for task management via MCP): Sends task descriptions when configured. [Terms](https://todoist.com/terms), [Privacy](https://todoist.com/privacy)
+* **E2B** (used for secure sandbox execution via MCP): Sends code snippets to execute when configured. [Terms](https://e2b.dev/terms), [Privacy](https://e2b.dev/privacy)
+* **Upstash** (used for Redis and vector storage via MCP): Sends query vectors when configured. [Terms](https://upstash.com/trust/terms.pdf), [Privacy](https://upstash.com/trust/privacy.pdf)
+* **Tavily** (used for AI web search via MCP): Sends search queries when configured. [Terms](https://tavily.com/terms), [Privacy](https://tavily.com/privacy)
+* **Exa AI** (used for semantic web search via MCP): Sends search queries when configured. [Terms](https://trust.exa.ai), [Privacy](https://trust.exa.ai)
+* **BrightData** (used for web data indexing via MCP): Sends search URLs when configured. [Terms](https://brightdata.com/legal/terms), [Privacy](https://brightdata.com/legal/privacy)
+* **Browserbase** (used for headless browser sessions via MCP): Sends page URLs when configured. [Terms](https://www.browserbase.com/terms), [Privacy](https://www.browserbase.com/privacy)
+* **AlphaVantage** (used for market/financial data via MCP): Sends stock ticker symbols when configured. [Terms](https://www.alphavantage.co/terms_of_service/), [Privacy](https://www.alphavantage.co/privacy_policy/)
+* **Pinecone** (used for vector database search via MCP): Sends embeddings when configured. [Terms](https://www.pinecone.io/terms/), [Privacy](https://www.pinecone.io/privacy/)
+* **Composio** (used for app integrations via MCP): Sends action parameters when configured. [Terms](https://composio.dev/terms), [Privacy](https://composio.dev/privacy)
+* **Quarksol Public Services** (used for demographic and weather lookup via MCP): Sends location queries when configured. [Terms](https://quarksol.org/terms), [Privacy](https://quarksol.org/privacy)
 
 == Installation ==
 
-1. Upload the `smart-ai-chatbot` folder to the `/wp-content/plugins/` directory.
+1. Upload the `quark-agentflow-ai` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Navigate to **Smart Chatbot** in the admin sidebar to configure your AI provider.
+3. Navigate to **Quark AgentFlow AI** in the admin sidebar to configure your AI provider.
 4. Add your API key for your preferred AI provider.
-5. The chatbot widget will automatically appear on your store's frontend.
+5. The chatbot widget will automatically appear on your site's frontend.
 
 == Frequently Asked Questions ==
 

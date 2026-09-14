@@ -11,7 +11,7 @@ import Loading from '../common/Loading';
  * Loading skeleton for lazy-loaded pages (now uses spinner)
  */
 export function PageLoadingSkeleton() {
-    return <Loading message={__('Loading…', 'smart-woo-chatbot')} fullPage />;
+    return <Loading message={__('Loading…', 'agentflow-ai')} fullPage />;
 }
 
 /**

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 
@@ -385,42 +385,42 @@ class ToolsController
     public function registerRoutes(): void
     {
         // Get tool registry (metadata only)
-        register_rest_route('smart-ai-chatbot/v1', '/tools/registry', [
+        register_rest_route('quark-agentflow-ai/v1', '/tools/registry', [
             'methods' => WP_REST_Server::READABLE,
             'callback' => [$this, 'getRegistry'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // Get tool configs (values)
-        register_rest_route('smart-ai-chatbot/v1', '/tools/config', [
+        register_rest_route('quark-agentflow-ai/v1', '/tools/config', [
             'methods' => WP_REST_Server::READABLE,
             'callback' => [$this, 'getConfig'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // Update tool config
-        register_rest_route('smart-ai-chatbot/v1', '/tools/config', [
+        register_rest_route('quark-agentflow-ai/v1', '/tools/config', [
             'methods' => WP_REST_Server::CREATABLE,
             'callback' => [$this, 'updateConfig'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // Google OAuth status
-        register_rest_route('smart-ai-chatbot/v1', '/tools/google/status', [
+        register_rest_route('quark-agentflow-ai/v1', '/tools/google/status', [
             'methods' => WP_REST_Server::READABLE,
             'callback' => [$this, 'getGoogleStatus'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // Google OAuth connect (get auth URL)
-        register_rest_route('smart-ai-chatbot/v1', '/tools/google/connect', [
+        register_rest_route('quark-agentflow-ai/v1', '/tools/google/connect', [
             'methods' => WP_REST_Server::CREATABLE,
             'callback' => [$this, 'connectGoogle'],
             'permission_callback' => [$this, 'checkPermission'],
         ]);
 
         // Google OAuth disconnect
-        register_rest_route('smart-ai-chatbot/v1', '/tools/google/disconnect', [
+        register_rest_route('quark-agentflow-ai/v1', '/tools/google/disconnect', [
             'methods' => WP_REST_Server::CREATABLE,
             'callback' => [$this, 'disconnectGoogle'],
             'permission_callback' => [$this, 'checkPermission'],
@@ -493,7 +493,7 @@ class ToolsController
                 $value = get_option($field['key'], '');
                 // Mask password fields (show only if configured)
                 if ($field['type'] === 'password' && !empty($value)) {
-                    $config[$toolId][$fieldId] = '••••••••';
+                    $config[$toolId][$fieldId] = 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢';
                     $config[$toolId][$fieldId . '_configured'] = true;
                 } else {
                     $config[$toolId][$fieldId] = $value;
@@ -530,7 +530,7 @@ class ToolsController
                 $fieldDef = $toolDef['fields'][$fieldId];
 
                 // Skip masked password values (user didn't change it)
-                if ($fieldDef['type'] === 'password' && $value === '••••••••') {
+                if ($fieldDef['type'] === 'password' && $value === 'â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢') {
                     continue;
                 }
 
@@ -670,3 +670,4 @@ class ToolsController
         exit;
     }
 }
+

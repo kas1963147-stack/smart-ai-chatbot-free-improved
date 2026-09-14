@@ -24,7 +24,7 @@ export default function ToolsPage() {
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         if (params.get('google_connected') === '1') {
-            setSuccess(__('Google Calendar connected successfully!', 'smart-woo-chatbot'));
+            setSuccess(__('Google Calendar connected successfully!', 'agentflow-ai'));
             setExpandedCategory('google_workspace');
             // Clean URL
             window.history.replaceState({}, '', window.location.pathname + '?page=swc_chatbot&tab=tools');
@@ -64,7 +64,7 @@ export default function ToolsPage() {
         try {
             await apiFetch({ path: '/smart-ai-chatbot/v1/tools/google/disconnect', method: 'POST' });
             setGoogleStatus({ configured: true, connected: false });
-            setSuccess(__('Google account disconnected.', 'smart-woo-chatbot'));
+            setSuccess(__('Google account disconnected.', 'agentflow-ai'));
         } catch (err) {
             setError(err.message);
         }
@@ -161,7 +161,7 @@ export default function ToolsPage() {
                 data: dataToSend,
             });
 
-            setSuccess(__('Settings saved successfully!', 'smart-woo-chatbot'));
+            setSuccess(__('Settings saved successfully!', 'agentflow-ai'));
             setTimeout(() => fetchData(), 1000);
         } catch (err) {
             setError(err.message || 'Failed to save settings');
@@ -172,7 +172,7 @@ export default function ToolsPage() {
 
     // Loading state
     if (loading) {
-        return <Loading message={__('Loading tools…', 'smart-woo-chatbot')} fullPage />;
+        return <Loading message={__('Loading tools…', 'agentflow-ai')} fullPage />;
     }
 
     return (
@@ -185,7 +185,7 @@ export default function ToolsPage() {
 					disabled={saving}
 					className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors disabled:opacity-50"
 				>
-					{saving ? __('Saving...', 'smart-woo-chatbot') : __('Save All', 'smart-woo-chatbot')}
+					{saving ? __('Saving...', 'agentflow-ai') : __('Save All', 'agentflow-ai')}
 				</button>
 			</div>
 
@@ -243,7 +243,7 @@ export default function ToolsPage() {
                                                                 onClick={handleGoogleDisconnect}
                                                                 className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg text-red-700 bg-red-100 dark:bg-red-900/30 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors"
                                                             >
-                                                                {__('Disconnect', 'smart-woo-chatbot')}
+                                                                {__('Disconnect', 'agentflow-ai')}
                                                             </button>
                                                         ) : (
                                                             <button
@@ -251,7 +251,7 @@ export default function ToolsPage() {
                                                                 disabled={googleConnecting}
                                                                 className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 transition-colors"
                                                             >
-                                                                {googleConnecting ? __('Connecting...', 'smart-woo-chatbot') : __('Connect Google Account', 'smart-woo-chatbot')}
+                                                                {googleConnecting ? __('Connecting...', 'agentflow-ai') : __('Connect Google Account', 'agentflow-ai')}
                                                             </button>
                                                         )}
                                                     </div>
@@ -274,7 +274,7 @@ export default function ToolsPage() {
                                                         <span className="text-base font-medium text-gray-900 dark:text-white flex-1">{tool.name}</span>
                                                         {isConfigured && (
                                                             <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300">
-                                                                {__('Configured', 'smart-woo-chatbot')}
+                                                                {__('Configured', 'agentflow-ai')}
                                                             </span>
                                                         )}
                                                         {tool.docs_url && (
@@ -284,7 +284,7 @@ export default function ToolsPage() {
                                                                 rel="noopener noreferrer"
                                                                 className="text-xs text-primary hover:underline"
                                                             >
-                                                                {__('Docs', 'smart-woo-chatbot')}
+                                                                {__('Docs', 'agentflow-ai')}
                                                             </a>
                                                         )}
                                                     </div>
@@ -319,7 +319,7 @@ export default function ToolsPage() {
                 <div className="mt-6 bg-blue-50 dark:bg-blue-900/30 rounded-xl border border-blue-200 dark:border-blue-800 p-4">
                     <p className="text-sm text-blue-800 dark:text-blue-300">
                         <strong>Tip:</strong>{' '}
-                        {__('Some tools (like YouTube, ArXiv) have FREE modes that work without API keys. API keys are optional for enhanced functionality.', 'smart-woo-chatbot')}
+                        {__('Some tools (like YouTube, ArXiv) have FREE modes that work without API keys. API keys are optional for enhanced functionality.', 'agentflow-ai')}
                     </p>
                 </div>
             </main>

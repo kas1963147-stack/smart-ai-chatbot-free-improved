@@ -49,7 +49,7 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 	if (loading) {
 		return (
 			<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8">
-				<Loading message={__('Loading analytics…', 'smart-woo-chatbot')} fullPage />
+				<Loading message={__('Loading analytics…', 'agentflow-ai')} fullPage />
 			</div>
 		);
 	}
@@ -63,7 +63,7 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 						<span className="text-3xl"></span>
 					</div>
 					<h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-						{__('Error Loading Analytics', 'smart-woo-chatbot')}
+						{__('Error Loading Analytics', 'agentflow-ai')}
 					</h3>
 					<p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md">{error}</p>
 					<button
@@ -71,7 +71,7 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 						className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 transition-colors"
 					>
 						<RefreshCw className="w-4 h-4" />
-						{__('Retry', 'smart-woo-chatbot')}
+						{__('Retry', 'agentflow-ai')}
 					</button>
 				</div>
 			</div>
@@ -90,11 +90,11 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 						<div>
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
 								{skillId
-									? __('Skill Analytics', 'smart-woo-chatbot')
-									: __('All Skills Analytics', 'smart-woo-chatbot')}
+									? __('Skill Analytics', 'agentflow-ai')
+									: __('All Skills Analytics', 'agentflow-ai')}
 							</h3>
 							<p className="text-sm text-gray-500 dark:text-gray-400">
-								{__('Performance metrics and usage trends', 'smart-woo-chatbot')}
+								{__('Performance metrics and usage trends', 'agentflow-ai')}
 							</p>
 						</div>
 					</div>
@@ -104,9 +104,9 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 						onChange={(e) => setTimeRange(parseInt(e.target.value, 10))}
 						className="h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all cursor-pointer"
 					>
-						<option value={7}>{__('Last 7 days', 'smart-woo-chatbot')}</option>
-						<option value={30}>{__('Last 30 days', 'smart-woo-chatbot')}</option>
-						<option value={90}>{__('Last 90 days', 'smart-woo-chatbot')}</option>
+						<option value={7}>{__('Last 7 days', 'agentflow-ai')}</option>
+						<option value={30}>{__('Last 30 days', 'agentflow-ai')}</option>
+						<option value={90}>{__('Last 90 days', 'agentflow-ai')}</option>
 					</select>
 				</div>
 			</div>
@@ -114,25 +114,25 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 			{/* Stats cards */}
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 				<StatCard
-					label={__('Total Loads', 'smart-woo-chatbot')}
+					label={__('Total Loads', 'agentflow-ai')}
 					value={data?.stats?.loads || 0}
 					icon={<TrendingUp className="w-5 h-5" />}
 					color="blue"
 				/>
 				<StatCard
-					label={__('Success Rate', 'smart-woo-chatbot')}
+					label={__('Success Rate', 'agentflow-ai')}
 					value={`${data?.stats?.success_rate || 0}%`}
 					icon={<CheckCircle className="w-5 h-5" />}
 					color={data?.stats?.success_rate >= 80 ? 'green' : 'yellow'}
 				/>
 				<StatCard
-					label={__('Avg Tokens', 'smart-woo-chatbot')}
+					label={__('Avg Tokens', 'agentflow-ai')}
 					value={data?.stats?.avg_tokens || 0}
 					icon={<Zap className="w-5 h-5" />}
 					color="purple"
 				/>
 				<StatCard
-					label={__('Avg Response', 'smart-woo-chatbot')}
+					label={__('Avg Response', 'agentflow-ai')}
 					value={`${data?.stats?.avg_response_time_ms || 0}ms`}
 					icon={<Clock className="w-5 h-5" />}
 					color="orange"
@@ -143,7 +143,7 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 			{data?.timeline && data.timeline.length > 0 && (
 				<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
 					<h4 className="text-base font-semibold text-gray-900 dark:text-white mb-4">
-						{__('Usage Over Time', 'smart-woo-chatbot')}
+						{__('Usage Over Time', 'agentflow-ai')}
 					</h4>
 					<SimpleBarChart data={data.timeline} />
 				</div>
@@ -154,7 +154,7 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 				<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
 					<div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
 						<h4 className="text-base font-semibold text-gray-900 dark:text-white">
-							{__('Top Skills', 'smart-woo-chatbot')}
+							{__('Top Skills', 'agentflow-ai')}
 						</h4>
 					</div>
 					<div className="overflow-x-auto">
@@ -162,16 +162,16 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 							<thead>
 								<tr className="bg-gray-50 dark:bg-gray-900/50">
 									<th className="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider text-xs">
-										{__('Skill', 'smart-woo-chatbot')}
+										{__('Skill', 'agentflow-ai')}
 									</th>
 									<th className="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider text-xs">
-										{__('Loads', 'smart-woo-chatbot')}
+										{__('Loads', 'agentflow-ai')}
 									</th>
 									<th className="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider text-xs">
-										{__('Success', 'smart-woo-chatbot')}
+										{__('Success', 'agentflow-ai')}
 									</th>
 									<th className="px-6 py-3 text-left font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider text-xs">
-										{__('Rate', 'smart-woo-chatbot')}
+										{__('Rate', 'agentflow-ai')}
 									</th>
 								</tr>
 							</thead>
@@ -216,12 +216,12 @@ export default function SkillAnalyticsDashboard({ skillId = null }) {
 							<BarChart2 className="w-8 h-8 text-gray-400 dark:text-gray-500" />
 						</div>
 						<h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-							{__('No Data Yet', 'smart-woo-chatbot')}
+							{__('No Data Yet', 'agentflow-ai')}
 						</h3>
 						<p className="text-gray-500 dark:text-gray-400 max-w-md">
 							{__(
 								'Analytics will appear once skills are used in conversations.',
-								'smart-woo-chatbot'
+								'agentflow-ai'
 							)}
 						</p>
 					</div>

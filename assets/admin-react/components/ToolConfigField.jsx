@@ -96,7 +96,7 @@ export default function ToolConfigField( {
 					options={ [
 						{
 							value: '',
-							label: __( 'Select…', 'smart-woo-chatbot' ),
+							label: __( 'Select…', 'agentflow-ai' ),
 						},
 						...choices,
 					] }
@@ -158,7 +158,7 @@ export default function ToolConfigField( {
 								value: '',
 								label: __(
 									'Select connection…',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								),
 							},
 							...connectionOptions,
@@ -170,7 +170,7 @@ export default function ToolConfigField( {
 						<p className="swc-help swc-help--warning">
 							{ __(
 								'No connections available. ',
-								'smart-woo-chatbot'
+								'agentflow-ai'
 							) }
 							<a
 								href="#"
@@ -178,7 +178,7 @@ export default function ToolConfigField( {
 									e.preventDefault(); /* TODO: open connection modal */
 								} }
 							>
-								{ __( 'Create one', 'smart-woo-chatbot' ) }
+								{ __( 'Create one', 'agentflow-ai' ) }
 							</a>
 						</p>
 					) }
@@ -202,14 +202,14 @@ export default function ToolConfigField( {
 							<>
 								<span className="swc-status swc-status--success">
 									{ ' ' }
-									{ __( 'Connected', 'smart-woo-chatbot' ) }
+									{ __( 'Connected', 'agentflow-ai' ) }
 								</span>
 								<Button
 									variant="secondary"
 									isDestructive
 									onClick={ () => handleChange( null ) }
 								>
-									{ __( 'Disconnect', 'smart-woo-chatbot' ) }
+									{ __( 'Disconnect', 'agentflow-ai' ) }
 								</Button>
 							</>
 						) : (
@@ -218,7 +218,7 @@ export default function ToolConfigField( {
 									️{ ' ' }
 									{ __(
 										'Not connected',
-										'smart-woo-chatbot'
+										'agentflow-ai'
 									) }
 								</span>
 								<Button
@@ -229,12 +229,12 @@ export default function ToolConfigField( {
 											__(
 												'OAuth flow not yet implemented for ' +
 													field.provider,
-												'smart-woo-chatbot'
+												'agentflow-ai'
 											)
 										);
 									} }
 								>
-									{ __( 'Connect', 'smart-woo-chatbot' ) }{ ' ' }
+									{ __( 'Connect', 'agentflow-ai' ) }{ ' ' }
 									{ field.provider }
 								</Button>
 							</>

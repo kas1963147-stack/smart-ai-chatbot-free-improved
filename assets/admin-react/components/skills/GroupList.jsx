@@ -18,12 +18,12 @@ export default function GroupList({ groups, onEdit, onDelete }) {
 					<Users className="w-10 h-10 text-gray-400 dark:text-slate-500" />
 				</div>
 				<h3 className="text-xl font-semibold text-gray-700 dark:text-slate-200 mb-2">
-					{__('No Agent Teams', 'smart-woo-chatbot')}
+					{__('No Agent Teams', 'agentflow-ai')}
 				</h3>
 				<p className="text-gray-500 dark:text-slate-400 max-w-md mx-auto">
 					{__(
 						'Create a team to orchestrate multiple agents together. Teams enable powerful multi-agent workflows with auto-routing, sequential execution, or parallel processing.',
-						'smart-woo-chatbot'
+						'agentflow-ai'
 					)}
 				</p>
 			</div>

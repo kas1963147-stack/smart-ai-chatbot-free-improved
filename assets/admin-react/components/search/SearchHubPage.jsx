@@ -73,7 +73,7 @@ export default function SearchHubPage() {
     };
 
     if (loading) {
-        return <Loading message={__('Loading search settings…', 'smart-woo-chatbot')} fullPage />;
+        return <Loading message={__('Loading search settings…', 'agentflow-ai')} fullPage />;
     }
 
     return (
@@ -86,10 +86,10 @@ export default function SearchHubPage() {
                             <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-2xl"></span>
                             <div>
                                 <h1 className="text-2xl font-bold tracking-tight text-foreground">
-                                    {__('AI Search Enhancement', 'smart-woo-chatbot')}
+                                    {__('AI Search Enhancement', 'agentflow-ai')}
                                 </h1>
                                 <p className="mt-1 text-sm text-muted-foreground">
-                                    {__('Supercharge your site search with AI-powered keyword expansion', 'smart-woo-chatbot')}
+                                    {__('Supercharge your site search with AI-powered keyword expansion', 'agentflow-ai')}
                                 </p>
                             </div>
                         </div>
@@ -103,14 +103,14 @@ export default function SearchHubPage() {
                                 }`}
                         >
                             <span className={`h-2 w-2 rounded-full ${settings.search_enhancement_enabled ? 'bg-emerald-500 animate-pulse' : 'bg-red-500'}`} />
-                            {settings.search_enhancement_enabled ? __('Active', 'smart-woo-chatbot') : __('Inactive', 'smart-woo-chatbot')}
+                            {settings.search_enhancement_enabled ? __('Active', 'agentflow-ai') : __('Inactive', 'agentflow-ai')}
                         </span>
                         <button
                             onClick={saveSettings}
                             disabled={saving}
                             className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-primary/90 disabled:opacity-50"
                         >
-                            {saving ? __('Saving…', 'smart-woo-chatbot') : __('Save Settings', 'smart-woo-chatbot')}
+                            {saving ? __('Saving…', 'agentflow-ai') : __('Save Settings', 'agentflow-ai')}
                         </button>
                     </div>
                 </div>

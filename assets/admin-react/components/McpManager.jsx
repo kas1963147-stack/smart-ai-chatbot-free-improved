@@ -179,7 +179,7 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 					<Server className="w-5 h-5 text-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 				</div>
 				<p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-					{__('Loading external MCP servers...', 'smart-woo-chatbot')}
+					{__('Loading external MCP servers...', 'agentflow-ai')}
 				</p>
 			</div>
 		);
@@ -198,10 +198,10 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 						</div>
 						<div className="flex-1">
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-								{__('External MCPs', 'smart-woo-chatbot')}
+								{__('External MCPs', 'agentflow-ai')}
 							</h3>
 							<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-								{__('Enable external MCP servers for this agent and review setup status below.', 'smart-woo-chatbot')}
+								{__('Enable external MCP servers for this agent and review setup status below.', 'agentflow-ai')}
 							</p>
 						</div>
 					</div>
@@ -209,7 +209,7 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 							<div className="inline-flex items-center gap-2 self-start rounded-full border border-amber-200 bg-amber-50/80 px-3 py-1.5 text-xs font-medium text-amber-700">
 								<AlertTriangle className="h-3.5 w-3.5 flex-shrink-0" />
 								<span>
-									{enabledButNotConfigured} {__('enabled', 'smart-woo-chatbot')} MCP{enabledButNotConfigured > 1 ? 's' : ''} {enabledButNotConfigured > 1 ? __('need API keys', 'smart-woo-chatbot') : __('needs an API key', 'smart-woo-chatbot')}
+									{enabledButNotConfigured} {__('enabled', 'agentflow-ai')} MCP{enabledButNotConfigured > 1 ? 's' : ''} {enabledButNotConfigured > 1 ? __('need API keys', 'agentflow-ai') : __('needs an API key', 'agentflow-ai')}
 								</span>
 							</div>
 						)}
@@ -256,14 +256,14 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 							</div>
 							<h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
 								{activeCategory === 'not_configured'
-									? __('All external MCPs are configured!', 'smart-woo-chatbot')
-									: __('No external MCP servers available', 'smart-woo-chatbot')
+									? __('All external MCPs are configured!', 'agentflow-ai')
+									: __('No external MCP servers available', 'agentflow-ai')
 								}
 							</h4>
 							<p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto">
 								{activeCategory === 'not_configured'
-									? __('All your external MCP servers have their API keys set up and are ready to use.', 'smart-woo-chatbot')
-									: __('Configure external MCP servers in the global settings to connect external services.', 'smart-woo-chatbot')
+									? __('All your external MCP servers have their API keys set up and are ready to use.', 'agentflow-ai')
+									: __('Configure external MCP servers in the global settings to connect external services.', 'agentflow-ai')
 								}
 							</p>
 						</div>
@@ -296,12 +296,12 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 								{' / '}
 								{allMcps.length}
 								{' '}
-								{__('external MCP servers enabled for this agent', 'smart-woo-chatbot')}
+								{__('external MCP servers enabled for this agent', 'agentflow-ai')}
 							</span>
 						</div>
 						<div className="flex items-center gap-1 text-xs text-gray-500">
 							<Info className="w-3.5 h-3.5" />
-							{__('API keys are managed from the main External MCPs page', 'smart-woo-chatbot')}
+							{__('API keys are managed from the main External MCPs page', 'agentflow-ai')}
 						</div>
 					</div>
 				</div>
@@ -310,7 +310,7 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 			{/* Config Modal */}
 			{configModal && (
 				<Modal
-					title={__(`Configure ${configModal.mcp.name}`, 'smart-woo-chatbot')}
+					title={__(`Configure ${configModal.mcp.name}`, 'agentflow-ai')}
 					isOpen={!!configModal}
 					onClose={() => setConfigModal(null)}
 					size="md"
@@ -320,13 +320,13 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 								variant="secondary"
 								onClick={() => setConfigModal(null)}
 							>
-								{__('Cancel', 'smart-woo-chatbot')}
+								{__('Cancel', 'agentflow-ai')}
 							</Button>
 							<Button
 								variant="primary"
 								onClick={handleSaveConfig}
 							>
-								{__('Save Configuration', 'smart-woo-chatbot')}
+								{__('Save Configuration', 'agentflow-ai')}
 							</Button>
 						</div>
 					}
@@ -334,8 +334,8 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 					<div className="space-y-5">
 						{configModal.mcp.type === 'sse' ? (
 							<TextField
-								label={__('Server URL (SSE)', 'smart-woo-chatbot')}
-								help={__('The full URL to the MCP SSE endpoint.', 'smart-woo-chatbot')}
+								label={__('Server URL (SSE)', 'agentflow-ai')}
+								help={__('The full URL to the MCP SSE endpoint.', 'agentflow-ai')}
 								value={configModal.config.url || ''}
 								onChange={(val) => updateModalConfig('url', val)}
 								placeholder="https://..."
@@ -343,14 +343,14 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 						) : (
 							<div className="space-y-5">
 								<TextField
-									label={__('Command', 'smart-woo-chatbot')}
+									label={__('Command', 'agentflow-ai')}
 									value={configModal.config.command || ''}
 									onChange={(val) => updateModalConfig('command', val)}
 									placeholder="npx"
 								/>
 								<TextField
-									label={__('Arguments (JSON Array)', 'smart-woo-chatbot')}
-									help={__('Arguments to pass to the command. Must be valid JSON.', 'smart-woo-chatbot')}
+									label={__('Arguments (JSON Array)', 'agentflow-ai')}
+									help={__('Arguments to pass to the command. Must be valid JSON.', 'agentflow-ai')}
 									value={
 										Array.isArray(configModal.config.args)
 											? JSON.stringify(configModal.config.args)
@@ -376,13 +376,13 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 								<TextField
 									label={
 										configModal.mcp.api_key_field
-											? __('API Key', 'smart-woo-chatbot') + ` (${configModal.mcp.api_key_field})`
-											: __('API Key', 'smart-woo-chatbot')
+											? __('API Key', 'agentflow-ai') + ` (${configModal.mcp.api_key_field})`
+											: __('API Key', 'agentflow-ai')
 									}
 									help={
 										configModal.mcp.docs_url
-											? __('Required API key for this service.', 'smart-woo-chatbot')
-											: __('API key for authentication (if required).', 'smart-woo-chatbot')
+											? __('Required API key for this service.', 'agentflow-ai')
+											: __('API key for authentication (if required).', 'agentflow-ai')
 									}
 									value={configModal.config.api_key || ''}
 									onChange={(val) => updateModalConfig('api_key', val)}
@@ -397,13 +397,13 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 											rel="noopener noreferrer"
 											className="hover:underline"
 										>
-											{__('Get API Key ->', 'smart-woo-chatbot')}
+											{__('Get API Key ->', 'agentflow-ai')}
 										</a>
 									</p>
 								)}
 								<TextField
-									label={__('Auth Token (Optional)', 'smart-woo-chatbot')}
-									help={__('Bearer token if the server requires additional authentication.', 'smart-woo-chatbot')}
+									label={__('Auth Token (Optional)', 'agentflow-ai')}
+									help={__('Bearer token if the server requires additional authentication.', 'agentflow-ai')}
 									value={configModal.config.token || ''}
 									onChange={(val) => updateModalConfig('token', val)}
 									type="password"
@@ -414,14 +414,14 @@ export default function McpManager({ mcpConfigs = {}, onConfigChange }) {
 						{/* Environment Variables */}
 						<div>
 							<h4 className="text-sm font-semibold text-gray-900 dark:text-white">
-								{__('Environment Variables', 'smart-woo-chatbot')}
+								{__('Environment Variables', 'agentflow-ai')}
 							</h4>
 							<p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-								{__('Sensitive keys required by this MCP (e.g., API_KEY). Saved in database.', 'smart-woo-chatbot')}
+								{__('Sensitive keys required by this MCP (e.g., API_KEY). Saved in database.', 'agentflow-ai')}
 							</p>
 
 							<TextField
-								label={__('Environment Variables (JSON Object)', 'smart-woo-chatbot')}
+								label={__('Environment Variables (JSON Object)', 'agentflow-ai')}
 								value={
 									typeof configModal.config.env === 'string'
 										? configModal.config.env

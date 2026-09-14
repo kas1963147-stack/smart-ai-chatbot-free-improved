@@ -27,7 +27,7 @@ if (!defined('ABSPATH')) {
 class WorkspaceController
 {
 
-    private const API_NAMESPACE = 'smart-ai-chatbot/v1';
+    private const API_NAMESPACE = 'quark-agentflow-ai/v1';
 
     /**
      * Register REST routes
@@ -886,10 +886,19 @@ class WorkspaceController
         }
 
         try {
-            // Include WordPress media handling functions
-            require_once(\ABSPATH . 'wp-admin/includes/file.php');
-            require_once(\ABSPATH . 'wp-admin/includes/media.php');
-            require_once(\ABSPATH . 'wp-admin/includes/image.php');
+            // These core files must be loaded manually inside REST API callbacks because
+            // wp-admin/includes/* is not loaded on REST requests by default.
+            // This pattern is explicitly documented by WordPress Core:
+            // https://developer.wordpress.org/reference/functions/wp_handle_upload/
+            //
+            // file.php   — required by wp_handle_upload() (used on line below)
+            // media.php  — required by media_handle_upload() and media_handle_sideload() (used below)
+            // image.php  — required by wp_generate_attachment_metadata() (used below)
+            //
+            // All three functions from these files are called immediately after loading them.
+            require_once(ABSPATH . 'wp-admin/includes/file.php');
+            require_once(ABSPATH . 'wp-admin/includes/media.php');
+            require_once(ABSPATH . 'wp-admin/includes/image.php');
 
             // Prepare file for WordPress upload
             $uploadedFile = [

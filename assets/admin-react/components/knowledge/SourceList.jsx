@@ -13,10 +13,10 @@ export default function SourceList({ sources, onEdit, onDelete, onSync }) {
 			<div className="text-center py-16 border-2 border-dashed border-gray-200 dark:border-slate-600 rounded-xl bg-gray-50/50 dark:bg-slate-800/50">
 				<div className="text-5xl mb-4"></div>
 				<h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-					{__('No knowledge sources yet', 'smart-woo-chatbot')}
+					{__('No knowledge sources yet', 'agentflow-ai')}
 				</h3>
 				<p className="text-gray-500 dark:text-slate-400 max-w-md mx-auto">
-					{__('Add your first source to start building your knowledge base.', 'smart-woo-chatbot')}
+					{__('Add your first source to start building your knowledge base.', 'agentflow-ai')}
 				</p>
 			</div>
 		);
@@ -24,10 +24,10 @@ export default function SourceList({ sources, onEdit, onDelete, onSync }) {
 
 	const getStatusBadge = (status) => {
 		const configs = {
-			active: { label: __('Active', 'smart-woo-chatbot'), class: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' },
-			indexing: { label: __('Syncing...', 'smart-woo-chatbot'), class: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400' },
-			error: { label: __('Error', 'smart-woo-chatbot'), class: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400' },
-			disabled: { label: __('Disabled', 'smart-woo-chatbot'), class: 'bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-slate-400' },
+			active: { label: __('Active', 'agentflow-ai'), class: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' },
+			indexing: { label: __('Syncing...', 'agentflow-ai'), class: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400' },
+			error: { label: __('Error', 'agentflow-ai'), class: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400' },
+			disabled: { label: __('Disabled', 'agentflow-ai'), class: 'bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-slate-400' },
 		};
 		return configs[status] || configs.disabled;
 	};
@@ -46,18 +46,18 @@ export default function SourceList({ sources, onEdit, onDelete, onSync }) {
 
 	const getSourceTypeLabel = (type) => {
 		const labels = {
-			folder: __('Folder', 'smart-woo-chatbot'),
-			wordpress_pages: __('WordPress Pages', 'smart-woo-chatbot'),
-			wordpress_posts: __('WordPress Posts', 'smart-woo-chatbot'),
-			woocommerce_products: __('WooCommerce Products', 'smart-woo-chatbot'),
-			uploaded: __('Uploaded Files', 'smart-woo-chatbot'),
-			external_url: __('External URL', 'smart-woo-chatbot'),
+			folder: __('Folder', 'agentflow-ai'),
+			wordpress_pages: __('WordPress Pages', 'agentflow-ai'),
+			wordpress_posts: __('WordPress Posts', 'agentflow-ai'),
+			woocommerce_products: __('WooCommerce Products', 'agentflow-ai'),
+			uploaded: __('Uploaded Files', 'agentflow-ai'),
+			external_url: __('External URL', 'agentflow-ai'),
 		};
 		return labels[type] || type;
 	};
 
 	const formatDate = (dateStr) => {
-		if (!dateStr) return __('Never', 'smart-woo-chatbot');
+		if (!dateStr) return __('Never', 'agentflow-ai');
 		const date = new Date(dateStr);
 		return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 	};
@@ -93,7 +93,7 @@ export default function SourceList({ sources, onEdit, onDelete, onSync }) {
 											{statusBadge.label}
 										</span>
 										<span className="text-xs text-gray-500 dark:text-slate-400">
-											{source.doc_count} {__('docs', 'smart-woo-chatbot')}
+											{source.doc_count} {__('docs', 'agentflow-ai')}
 										</span>
 									</div>
 								</div>
@@ -109,7 +109,7 @@ export default function SourceList({ sources, onEdit, onDelete, onSync }) {
 							{/* Last Indexed */}
 							<div className="mt-3 flex items-center gap-1.5 text-xs text-gray-400 dark:text-slate-500">
 								<span></span>
-								<span>{__('Last sync:', 'smart-woo-chatbot')} {formatDate(source.last_indexed)}</span>
+								<span>{__('Last sync:', 'agentflow-ai')} {formatDate(source.last_indexed)}</span>
 							</div>
 
 							{/* Error Message */}
@@ -126,13 +126,13 @@ export default function SourceList({ sources, onEdit, onDelete, onSync }) {
 								onClick={() => onEdit(source)}
 								className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-600 border border-gray-300 dark:border-slate-600 shadow-sm transition-colors"
 							>
-								{__('Edit', 'smart-woo-chatbot')}
+								{__('Edit', 'agentflow-ai')}
 							</button>
 							<button
 								onClick={() => onDelete(source.id)}
 								className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
 							>
-								{__('Delete', 'smart-woo-chatbot')}
+								{__('Delete', 'agentflow-ai')}
 							</button>
 						</div>
 					</article>

@@ -84,7 +84,7 @@ export default function AgentCard({
 									className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
 								>
 									<Edit3 className="w-4 h-4" />
-									{__('Edit', 'smart-woo-chatbot')}
+									{__('Edit', 'agentflow-ai')}
 								</button>
 								{onTest && (
 									<button
@@ -92,7 +92,7 @@ export default function AgentCard({
 										className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
 									>
 										<MessageSquare className="w-4 h-4" />
-										{__('Test', 'smart-woo-chatbot')}
+										{__('Test', 'agentflow-ai')}
 									</button>
 								)}
 								{onDuplicate && (
@@ -101,7 +101,7 @@ export default function AgentCard({
 										className="w-full flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
 									>
 										<Copy className="w-4 h-4" />
-										{__('Duplicate', 'smart-woo-chatbot')}
+										{__('Duplicate', 'agentflow-ai')}
 									</button>
 								)}
 								{onDelete && (
@@ -110,7 +110,7 @@ export default function AgentCard({
 										className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
 									>
 										<Trash2 className="w-4 h-4" />
-										{__('Delete', 'smart-woo-chatbot')}
+										{__('Delete', 'agentflow-ai')}
 									</button>
 								)}
 							</div>

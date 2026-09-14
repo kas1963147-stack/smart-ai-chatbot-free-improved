@@ -189,7 +189,7 @@ class SWC_Chatbot_Admin {
         <div class="wrap swc-admin-wrap">
             <h1> AI Agent</h1>
             <div class="notice notice-info">
-                <p><?php esc_html_e('Please use the new Smart Chatbot menu to access settings.', 'smart-ai-chatbot'); ?></p>
+                <p><?php esc_html_e('Please use the new Smart Chatbot menu to access settings.', 'agentflow-ai'); ?></p>
             </div>
         </div>
         <?php

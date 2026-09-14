@@ -96,7 +96,7 @@ export default function SessionDetail({ session, onDelete }) {
 		switch (role) {
 			case 'user':
 				return {
-					label: __('User', 'smart-woo-chatbot'),
+					label: __('User', 'agentflow-ai'),
 					icon: <UserIcon />,
 					gradient: 'bg-primary',
 					bgColor: 'bg-blue-50 dark:bg-blue-900/40',
@@ -107,7 +107,7 @@ export default function SessionDetail({ session, onDelete }) {
 				};
 			case 'assistant':
 				return {
-					label: __('Agent', 'smart-woo-chatbot'),
+					label: __('Agent', 'agentflow-ai'),
 					icon: <RobotIcon />,
 					gradient: 'bg-slate-700',
 					bgColor: 'bg-slate-50 dark:bg-slate-700',
@@ -118,7 +118,7 @@ export default function SessionDetail({ session, onDelete }) {
 				};
 			case 'system':
 				return {
-					label: __('System', 'smart-woo-chatbot'),
+					label: __('System', 'agentflow-ai'),
 					icon: <SystemIcon />,
 					gradient: 'bg-amber-500',
 					bgColor: 'bg-amber-50 dark:bg-amber-900/40',
@@ -154,10 +154,10 @@ export default function SessionDetail({ session, onDelete }) {
 							</div>
 							<div>
 								<h2 className="text-lg font-semibold text-white">
-									{__('Conversation with', 'smart-woo-chatbot')} {session.agent_name}
+									{__('Conversation with', 'agentflow-ai')} {session.agent_name}
 								</h2>
 								<p className="text-sm text-slate-400">
-									{__('Session ID:', 'smart-woo-chatbot')} {session.session_id.substring(0, 8)}...
+									{__('Session ID:', 'agentflow-ai')} {session.session_id.substring(0, 8)}...
 								</p>
 							</div>
 						</div>
@@ -168,7 +168,7 @@ export default function SessionDetail({ session, onDelete }) {
 									className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl bg-blue-500/20 text-blue-100 hover:bg-blue-500/30 hover:text-white border border-blue-500/30 transition-all"
 								>
 									<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-									{__('View Booking', 'smart-woo-chatbot')}
+									{__('View Booking', 'agentflow-ai')}
 								</a>
 							)}
 							<button
@@ -176,7 +176,7 @@ export default function SessionDetail({ session, onDelete }) {
 								className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl bg-red-500/20 text-red-300 hover:bg-red-500/30 hover:text-red-200 border border-red-500/30 transition-all"
 							>
 								<TrashIcon />
-								{__('Delete Session', 'smart-woo-chatbot')}
+								{__('Delete Session', 'agentflow-ai')}
 							</button>
 						</div>
 					</div>
@@ -190,7 +190,7 @@ export default function SessionDetail({ session, onDelete }) {
 								<RobotIcon />
 							</div>
 							<div>
-								<p className="text-xs text-slate-400 dark:text-slate-500">{__('Agent', 'smart-woo-chatbot')}</p>
+								<p className="text-xs text-slate-400 dark:text-slate-500">{__('Agent', 'agentflow-ai')}</p>
 								<p className="text-sm font-medium text-slate-900 dark:text-white">{session.agent_name}</p>
 							</div>
 						</div>
@@ -200,7 +200,7 @@ export default function SessionDetail({ session, onDelete }) {
 								<ClockIcon />
 							</div>
 							<div>
-								<p className="text-xs text-slate-400 dark:text-slate-500">{__('Started', 'smart-woo-chatbot')}</p>
+								<p className="text-xs text-slate-400 dark:text-slate-500">{__('Started', 'agentflow-ai')}</p>
 								<p className="text-sm font-medium text-slate-900 dark:text-white">{formatDate(session.started_at)}</p>
 							</div>
 						</div>
@@ -210,7 +210,7 @@ export default function SessionDetail({ session, onDelete }) {
 								<ClockIcon />
 							</div>
 							<div>
-								<p className="text-xs text-slate-400 dark:text-slate-500">{__('Last Activity', 'smart-woo-chatbot')}</p>
+								<p className="text-xs text-slate-400 dark:text-slate-500">{__('Last Activity', 'agentflow-ai')}</p>
 								<p className="text-sm font-medium text-slate-900 dark:text-white">{formatDate(session.last_message_at)}</p>
 							</div>
 						</div>
@@ -220,7 +220,7 @@ export default function SessionDetail({ session, onDelete }) {
 								<ChatIcon />
 							</div>
 							<div>
-								<p className="text-xs text-slate-400 dark:text-slate-500">{__('Messages', 'smart-woo-chatbot')}</p>
+								<p className="text-xs text-slate-400 dark:text-slate-500">{__('Messages', 'agentflow-ai')}</p>
 								<p className="text-sm font-medium text-slate-900 dark:text-white">{session.messages?.length || 0}</p>
 							</div>
 						</div>
@@ -233,7 +233,7 @@ export default function SessionDetail({ session, onDelete }) {
 										<LocationIcon />
 									</div>
 									<div className="max-w-[120px]">
-										<p className="text-xs text-slate-400 dark:text-slate-500">{__('Location', 'smart-woo-chatbot')}</p>
+										<p className="text-xs text-slate-400 dark:text-slate-500">{__('Location', 'agentflow-ai')}</p>
 										<p className="text-sm font-medium text-slate-900 dark:text-white truncate" title={session.metadata.location || session.metadata.timezone}>
 											{session.metadata.location || session.metadata.timezone}
 										</p>
@@ -248,7 +248,7 @@ export default function SessionDetail({ session, onDelete }) {
 			{/* Messages */}
 			<div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
 				<div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
-					<h3 className="text-lg font-semibold text-slate-900 dark:text-white">{__('Conversation', 'smart-woo-chatbot')}</h3>
+					<h3 className="text-lg font-semibold text-slate-900 dark:text-white">{__('Conversation', 'agentflow-ai')}</h3>
 				</div>
 
 				<div className="p-6 space-y-6 bg-slate-50/50 dark:bg-slate-800/50 max-h-[600px] overflow-y-auto">
@@ -307,7 +307,7 @@ export default function SessionDetail({ session, onDelete }) {
 								<ChatBubbleEmptyIcon />
 							</div>
 							<p className="text-slate-500 dark:text-slate-400">
-								{__('No messages in this session', 'smart-woo-chatbot')}
+								{__('No messages in this session', 'agentflow-ai')}
 							</p>
 						</div>
 					)}
@@ -326,9 +326,9 @@ export default function SessionDetail({ session, onDelete }) {
 								<SystemIcon />
 							</div>
 							<div>
-								<h3 className="text-lg font-semibold text-amber-900 dark:text-amber-300">{__('Unlinked Tool Calls', 'smart-woo-chatbot')}</h3>
+								<h3 className="text-lg font-semibold text-amber-900 dark:text-amber-300">{__('Unlinked Tool Calls', 'agentflow-ai')}</h3>
 								<p className="text-sm text-amber-700 dark:text-amber-400">
-									{__('These tool calls could not be matched to a specific message.', 'smart-woo-chatbot')}
+									{__('These tool calls could not be matched to a specific message.', 'agentflow-ai')}
 								</p>
 							</div>
 						</div>

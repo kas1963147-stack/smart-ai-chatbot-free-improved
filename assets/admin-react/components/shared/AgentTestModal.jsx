@@ -37,7 +37,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 
 	const agentAvatar = agent?.avatar || agent?.config?.avatar || '';
 	const agentName =
-		agent?.name || __('AI Assistant', 'smart-ai-chatbot');
+		agent?.name || __('AI Assistant', 'agentflow-ai');
 
 	// Clear messages when agent changes
 	useEffect(() => {
@@ -45,7 +45,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 			const welcomeMessage =
 				agent.config?.welcome_message ||
 				agent.welcome_message ||
-				__('Hello! How can I help you today?', 'smart-ai-chatbot');
+				__('Hello! How can I help you today?', 'agentflow-ai');
 			setMessages([
 				{
 					role: 'bot',
@@ -109,7 +109,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 					{
 						role: 'bot',
 						content: ` ${response.message ||
-							__('Failed to get response', 'smart-ai-chatbot')
+							__('Failed to get response', 'agentflow-ai')
 							}`,
 						time: new Date(),
 					},
@@ -121,7 +121,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 				{
 					role: 'bot',
 					content: ` ${err.message ||
-						__('An error occurred', 'smart-ai-chatbot')
+						__('An error occurred', 'agentflow-ai')
 						}`,
 					time: new Date(),
 				},
@@ -144,7 +144,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 		const welcomeMessage =
 			agent?.config?.welcome_message ||
 			agent?.welcome_message ||
-			__('Hello! How can I help you today?', 'smart-ai-chatbot');
+			__('Hello! How can I help you today?', 'agentflow-ai');
 		setMessages([
 			{
 				role: 'bot',
@@ -158,7 +158,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 		<Modal
 			isOpen={isOpen}
 			onClose={onClose}
-			title={__('Test Agent', 'smart-ai-chatbot')}
+			title={__('Test Agent', 'agentflow-ai')}
 			subtitle={
 				agent?.name ? `Testing: ${agent.name}` : undefined
 			}
@@ -170,10 +170,10 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 						onClick={handleClear}
 						icon={<span></span>}
 					>
-						{__('Clear Chat', 'smart-ai-chatbot')}
+						{__('Clear Chat', 'agentflow-ai')}
 					</Button>
 					<Button variant="primary" onClick={onClose}>
-						{__('Done', 'smart-ai-chatbot')}
+						{__('Done', 'agentflow-ai')}
 					</Button>
 				</div>
 			}
@@ -192,7 +192,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 						</span>
 						<span className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
 							<span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" style={{ boxShadow: '0 0 4px rgba(16, 185, 129, 0.6)' }} />
-							{__('Online', 'smart-ai-chatbot')}
+							{__('Online', 'agentflow-ai')}
 						</span>
 					</div>
 				</div>
@@ -257,7 +257,7 @@ export default function AgentTestModal({ isOpen, onClose, agent }) {
 						value={input}
 						onChange={(e) => setInput(e.target.value)}
 						onKeyDown={handleKeyDown}
-						placeholder={__('Type a message…', 'smart-ai-chatbot')}
+						placeholder={__('Type a message…', 'agentflow-ai')}
 						disabled={loading}
 						className="flex-1 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:bg-slate-900"
 					/>

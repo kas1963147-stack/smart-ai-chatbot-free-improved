@@ -77,7 +77,7 @@ export default function LiveChatPage() {
 	};
 
 	if (loading && sessions.length === 0) {
-		return <Loading message={__('Loading Live Inbox…', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading Live Inbox…', 'agentflow-ai')} fullPage />;
 	}
 
 	return (

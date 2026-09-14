@@ -71,7 +71,7 @@ export default function LiveStatsPanel() {
 			(Date.now() - lastUpdate.getTime()) / 1000
 		);
 		if (seconds < 5) {
-			return __('Just now', 'smart-ai-chatbot');
+			return __('Just now', 'agentflow-ai');
 		}
 		if (seconds < 60) {
 			return `${seconds}s ago`;
@@ -88,7 +88,7 @@ export default function LiveStatsPanel() {
 						<span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
 					</span>
 					<span className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-						{__('Live Activity', 'smart-ai-chatbot')}
+						{__('Live Activity', 'agentflow-ai')}
 					</span>
 				</div>
 
@@ -99,7 +99,7 @@ export default function LiveStatsPanel() {
 						<>
 							<div className="flex items-center gap-2">
 								<span className="text-xs uppercase tracking-wide text-slate-400">
-									{__('Active Now', 'smart-ai-chatbot')}
+									{__('Active Now', 'agentflow-ai')}
 								</span>
 								<span className="rounded-full bg-emerald-50 px-2 py-0.5 text-sm font-semibold text-emerald-700">
 									{stats.activeSessions}
@@ -108,7 +108,7 @@ export default function LiveStatsPanel() {
 							<span className="hidden h-4 w-px bg-slate-200 md:block" />
 							<div className="flex items-center gap-2">
 								<span className="text-xs uppercase tracking-wide text-slate-400">
-									{__('Today', 'smart-ai-chatbot')}
+									{__('Today', 'agentflow-ai')}
 								</span>
 								<span className="text-sm font-semibold text-slate-900 dark:text-slate-100">
 									{stats.todayConversations}
@@ -117,7 +117,7 @@ export default function LiveStatsPanel() {
 							<span className="hidden h-4 w-px bg-slate-200 md:block" />
 							<div className="flex items-center gap-2">
 								<span className="text-xs uppercase tracking-wide text-slate-400">
-									{__('Messages', 'smart-ai-chatbot')}
+									{__('Messages', 'agentflow-ai')}
 								</span>
 								<span className="text-sm font-semibold text-slate-900 dark:text-slate-100">
 									{stats.todayMessages}
@@ -126,7 +126,7 @@ export default function LiveStatsPanel() {
 							<span className="hidden h-4 w-px bg-slate-200 md:block" />
 							<div className="flex items-center gap-2">
 								<span className="text-xs uppercase tracking-wide text-slate-400">
-									{__('Avg Response', 'smart-ai-chatbot')}
+									{__('Avg Response', 'agentflow-ai')}
 								</span>
 								<span className="text-sm font-semibold text-slate-900 dark:text-slate-100">
 									{formatTime(stats.avgResponseTime || 0)}
@@ -142,8 +142,8 @@ export default function LiveStatsPanel() {
 					</span>
 					<IconButton
 						onClick={fetchLiveStats}
-						title={__('Refresh', 'smart-ai-chatbot')}
-						aria-label={__('Refresh', 'smart-ai-chatbot')}
+						title={__('Refresh', 'agentflow-ai')}
+						aria-label={__('Refresh', 'agentflow-ai')}
 						variant="ghost"
 						size="sm"
 					>

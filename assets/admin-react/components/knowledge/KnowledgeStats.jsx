@@ -13,26 +13,26 @@ export default function KnowledgeStats({ stats }) {
 
 	const statItems = [
 		{
-			label: __('Sources', 'smart-woo-chatbot'),
+			label: __('Sources', 'agentflow-ai'),
 			value: stats.active_sources || 0,
 			icon: '',
 			color: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
 		},
 		{
-			label: __('Documents', 'smart-woo-chatbot'),
+			label: __('Documents', 'agentflow-ai'),
 			value: stats.total_docs || 0,
 			icon: '',
 			color: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
 		},
 		{
-			label: __('Total Words', 'smart-woo-chatbot'),
+			label: __('Total Words', 'agentflow-ai'),
 			value: stats.total_words ? stats.total_words.toLocaleString() : '0',
 			icon: '',
 			color: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400',
 		},
 		{
-			label: __('Last Updated', 'smart-woo-chatbot'),
-			value: stats.last_indexed ? new Date(stats.last_indexed).toLocaleDateString() : __('Never', 'smart-woo-chatbot'),
+			label: __('Last Updated', 'agentflow-ai'),
+			value: stats.last_indexed ? new Date(stats.last_indexed).toLocaleDateString() : __('Never', 'agentflow-ai'),
 			icon: '',
 			color: 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400',
 		},

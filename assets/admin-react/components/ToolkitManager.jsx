@@ -304,7 +304,7 @@ export default function ToolkitManager({
 	if (!toolkits || Object.keys(toolkits).length === 0) {
 		return (
 			<div className="rounded-2xl border border-slate-200/70 bg-white p-6 text-sm text-slate-500 shadow-sm dark:border-slate-800/70 dark:bg-slate-900">
-				<p>{__('No toolkits available.', 'smart-woo-chatbot')}</p>
+				<p>{__('No toolkits available.', 'agentflow-ai')}</p>
 			</div>
 		);
 	}
@@ -314,7 +314,7 @@ export default function ToolkitManager({
 	const categoryTabs = [
 		{
 			id: 'all',
-			label: `${__('All', 'smart-woo-chatbot')} (${totalToolkits})`,
+			label: `${__('All', 'agentflow-ai')} (${totalToolkits})`,
 		},
 		...availableCategories.map((catId) => ({
 			id: catId,
@@ -333,10 +333,10 @@ export default function ToolkitManager({
 						</div>
 						<div>
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-								{__('Agent Toolkits', 'smart-woo-chatbot')}
+								{__('Agent Toolkits', 'agentflow-ai')}
 							</h3>
 							<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-								{__('Select toolkits to enable for this agent. Only checked toolkits will be available.', 'smart-woo-chatbot')}
+								{__('Select toolkits to enable for this agent. Only checked toolkits will be available.', 'agentflow-ai')}
 							</p>
 						</div>
 					</div>
@@ -349,7 +349,7 @@ export default function ToolkitManager({
 							onChange={setSearchQuery}
 							placeholder={__(
 								'Search toolkits...',
-								'smart-woo-chatbot'
+								'agentflow-ai'
 							)}
 							className="w-full"
 						/>
@@ -360,14 +360,14 @@ export default function ToolkitManager({
 							size="sm"
 							onClick={selectAllInView}
 						>
-							{__('Enable All', 'smart-woo-chatbot')}
+							{__('Enable All', 'agentflow-ai')}
 						</Button>
 						<Button
 							variant="secondary"
 							size="sm"
 							onClick={deselectAllInView}
 						>
-							{__('Disable All', 'smart-woo-chatbot')}
+							{__('Disable All', 'agentflow-ai')}
 						</Button>
 					</div>
 				</div>
@@ -451,7 +451,7 @@ export default function ToolkitManager({
 																	}{' '}
 																	{__(
 																		'tools',
-																		'smart-woo-chatbot'
+																		'agentflow-ai'
 																	)}
 																</span>
 															</div>
@@ -491,7 +491,7 @@ export default function ToolkitManager({
 																			>
 																				{__(
 																					'Configure',
-																					'smart-woo-chatbot'
+																					'agentflow-ai'
 																				)}
 																			</Button>
 																		)}
@@ -516,11 +516,11 @@ export default function ToolkitManager({
 																		{isExpanded
 																			? __(
 																				'Hide Tools',
-																				'smart-woo-chatbot'
+																				'agentflow-ai'
 																			)
 																			: __(
 																				'Show Tools',
-																				'smart-woo-chatbot'
+																				'agentflow-ai'
 																			)}
 																	</Button>
 																</div>
@@ -612,7 +612,7 @@ export default function ToolkitManager({
 																									<span className="rounded-md bg-amber-100 px-1.5 py-0.5 text-[9px] font-semibold text-amber-700">
 																										{__(
 																											'Setup',
-																											'smart-woo-chatbot'
+																											'agentflow-ai'
 																										)}
 																									</span>
 																								)}
@@ -633,7 +633,7 @@ export default function ToolkitManager({
 																									>
 																										{__(
 																											'Edit',
-																											'smart-woo-chatbot'
+																											'agentflow-ai'
 																										)}
 																									</Button>
 																								)}
@@ -651,7 +651,7 @@ export default function ToolkitManager({
 														<div className="mt-3 rounded-md border border-amber-200 bg-amber-50 px-2 py-1 text-xs text-amber-700">
 															{__(
 																'Requires additional plugins',
-																'smart-woo-chatbot'
+																'agentflow-ai'
 															)}
 														</div>
 													)}
@@ -669,11 +669,11 @@ export default function ToolkitManager({
 							{totalToolkits === 0
 								? __(
 									'No toolkits available.',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)
 								: __(
 									'No toolkits match your search.',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)}
 						</div>
 					)}
@@ -691,7 +691,7 @@ export default function ToolkitManager({
 								{' / '}
 								{totalToolkits}
 								{' '}
-								{__('toolkits enabled', 'smart-woo-chatbot')}
+								{__('toolkits enabled', 'agentflow-ai')}
 							</span>
 						</div>
 						{/* Tool count indicator with color coding */}
@@ -708,10 +708,10 @@ export default function ToolkitManager({
 								totalToolCount >= 128 ? 'bg-red-500' : totalToolCount >= 100 ? 'bg-amber-500' : 'bg-green-500'
 							)} />
 							<span>
-								<strong>{totalToolCount}</strong> / 128 {__('tools', 'smart-woo-chatbot')}
+								<strong>{totalToolCount}</strong> / 128 {__('tools', 'agentflow-ai')}
 							</span>
 							{totalToolCount >= 128 && (
-								<span className="text-xs">({__('over limit!', 'smart-woo-chatbot')})</span>
+								<span className="text-xs">({__('over limit!', 'agentflow-ai')})</span>
 							)}
 						</div>
 					</div>

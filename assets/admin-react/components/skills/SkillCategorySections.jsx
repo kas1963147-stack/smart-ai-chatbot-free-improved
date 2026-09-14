@@ -53,17 +53,17 @@ export default function SkillCategorySections({
 			<div className="text-center py-20 bg-white dark:bg-gray-800 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700">
 				<BookOpen className="w-12 h-12 mx-auto mb-4 text-gray-300 dark:text-gray-600" />
 				<h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-					{__('No skills yet', 'smart-woo-chatbot')}
+					{__('No skills yet', 'agentflow-ai')}
 				</h3>
 				<p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
-					{__('Create your first skill to teach your AI agent new behaviors.', 'smart-woo-chatbot')}
+					{__('Create your first skill to teach your AI agent new behaviors.', 'agentflow-ai')}
 				</p>
 				<button
 					onClick={onCreate}
 					className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors"
 				>
 					<span>+</span>
-					{__('Create Skill', 'smart-woo-chatbot')}
+					{__('Create Skill', 'agentflow-ai')}
 				</button>
 			</div>
 		);
@@ -107,16 +107,16 @@ export default function SkillCategorySections({
 			{/* Summary Footer */}
 			<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 px-5 py-4 flex items-center justify-between">
 				<div className="text-sm text-gray-600 dark:text-gray-400">
-					<strong className="text-gray-900 dark:text-white">{skills.length}</strong> {__('total skills', 'smart-woo-chatbot')}
+					<strong className="text-gray-900 dark:text-white">{skills.length}</strong> {__('total skills', 'agentflow-ai')}
 					<span className="mx-2">•</span>
-					<strong className="text-gray-900 dark:text-white">{categoriesWithSkills.length}</strong> {__('categories', 'smart-woo-chatbot')}
+					<strong className="text-gray-900 dark:text-white">{categoriesWithSkills.length}</strong> {__('categories', 'agentflow-ai')}
 				</div>
 				<button
 					onClick={onCreate}
 					className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg text-primary hover:bg-primary/5 transition-colors"
 				>
 					<span>+</span>
-					{__('Add Skill', 'smart-woo-chatbot')}
+					{__('Add Skill', 'agentflow-ai')}
 				</button>
 			</div>
 		</div>

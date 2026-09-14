@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 
 
@@ -24,36 +24,20 @@ class SkillManager
 {
     /** Skills base path */
     protected static ?string $basePath = null;
-    
+
+    public static function setBasePath(string $path): void { self::$basePath = $path; }
+
     /**
-     * Set the base path for skills
+     * Get base path for skills. Writes go to wp_upload_dir() - NOT the plugin folder.
      */
-    public static function setBasePath(string $path): void
-    {
-        self::$basePath = $path;
-    }
-    
-    /**
-     * Get the base path for skills
-     */
-    public static function getBasePath(): string
-    {
+    public static function getBasePath(): string {
         if (self::$basePath === null) {
             self::$basePath = wp_upload_dir()['basedir'] . '/smart-ai-chatbot/skills';
         }
         return self::$basePath;
     }
-    
-    /**
-     * Create a new skill from form data
-     * 
-     * @param SkillFormData $formData Form data
-     * @return Skill Created skill
-     * @throws SkillValidationException
-     */
-    public static function create(SkillFormData $formData): Skill
-    {
-        // Validate
+
+    public static function create(SkillFormData $formData): Skill {
         $validator = new SkillValidator();
         if (!$validator->validate($formData->toArray())) {
             throw new SkillValidationException(
@@ -336,7 +320,7 @@ class SkillManager
             'admin' => [
                 'id' => 'admin',
                 'name' => 'Admin',
-                'icon' => '️',
+                'icon' => 'ï¸',
                 'description' => 'Administrative skills',
             ],
             'compliance' => [
@@ -391,3 +375,4 @@ class SkillValidationException extends \Exception
         return $this->errors;
     }
 }
+

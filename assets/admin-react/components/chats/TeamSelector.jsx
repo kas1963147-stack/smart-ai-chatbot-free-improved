@@ -41,14 +41,14 @@ export default function TeamSelector({ value, onChange, agents = [] }) {
 			{/* Agent Selector */}
 			<div>
 				<label className="block text-sm font-medium text-gray-700 mb-1.5">
-					{__('Select Agent', 'smart-woo-chatbot')}
+					{__('Select Agent', 'agentflow-ai')}
 				</label>
 				<select
 					value={selectedId}
 					onChange={(e) => handleSelection(e.target.value)}
 					className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
 				>
-					<option value="">{__('Select an agent…', 'smart-woo-chatbot')}</option>
+					<option value="">{__('Select an agent…', 'agentflow-ai')}</option>
 					{agents.map((agent) => (
 						<option key={agent.agent_id || agent.id} value={agent.agent_id || agent.id}>
 							{agent.name || agent.agent_id}
@@ -56,7 +56,7 @@ export default function TeamSelector({ value, onChange, agents = [] }) {
 					))}
 				</select>
 				<p className="text-xs text-gray-500 mt-1">
-					{__('This agent will handle all conversations for this widget.', 'smart-woo-chatbot')}
+					{__('This agent will handle all conversations for this widget.', 'agentflow-ai')}
 				</p>
 			</div>
 		</div>

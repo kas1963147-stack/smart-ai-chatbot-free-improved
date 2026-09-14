@@ -221,7 +221,7 @@ export default function DependencyEditor({
 											onClick={() =>
 												removeSkill(skillId)
 											}
-											title={__('Remove', 'smart-woo-chatbot')}
+											title={__('Remove', 'agentflow-ai')}
 										>
 											<svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -239,7 +239,7 @@ export default function DependencyEditor({
 						</svg>
 						{__(
 							'No dependencies. Add skills below.',
-							'smart-woo-chatbot'
+							'agentflow-ai'
 						)}
 					</div>
 				)}
@@ -247,7 +247,7 @@ export default function DependencyEditor({
 
 			{ /* Add skill */}
 			<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 shadow-sm">
-				<h4 className="font-semibold text-gray-900 dark:text-white mb-4 mt-0">{__('Add Skill', 'smart-woo-chatbot')}</h4>
+				<h4 className="font-semibold text-gray-900 dark:text-white mb-4 mt-0">{__('Add Skill', 'agentflow-ai')}</h4>
 				<div className="relative mb-4">
 					<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 						<svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -259,7 +259,7 @@ export default function DependencyEditor({
 						className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-gray-900 dark:text-white"
 						value={searchQuery}
 						onChange={(e) => setSearchQuery(e.target.value)}
-						placeholder={__('Search skills…', 'smart-woo-chatbot')}
+						placeholder={__('Search skills…', 'agentflow-ai')}
 					/>
 				</div>
 
@@ -292,11 +292,11 @@ export default function DependencyEditor({
 							{allSkills.length === 0
 								? __(
 									'No other skills available.',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)
 								: __(
 									'No matching skills found.',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)}
 						</p>
 					)}
@@ -306,7 +306,7 @@ export default function DependencyEditor({
 							+{availableSkills.length - 10}{' '}
 							{__(
 								'more. Type to filter.',
-								'smart-woo-chatbot'
+								'agentflow-ai'
 							)}
 						</p>
 					)}

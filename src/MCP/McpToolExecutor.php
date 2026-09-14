@@ -2669,9 +2669,12 @@ class McpToolExecutor
     {
         if (!class_exists('WooCommerce')) throw new \Exception('WooCommerce is not active');
         global $wpdb;
-        $class = $args['class'] ?? '';
-        $where = $class ? $wpdb->prepare(" WHERE tax_rate_class = %s", $class) : '';
-        $rates = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}woocommerce_tax_rates{$where} LIMIT 100");
+        $class = sanitize_text_field($args['class'] ?? '');
+        if ($class !== '') {
+            $rates = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$wpdb->prefix}woocommerce_tax_rates WHERE tax_rate_class = %s LIMIT 100", $class));
+        } else {
+            $rates = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}woocommerce_tax_rates LIMIT 100");
+        }
         return [
             'total' => count($rates),
             'rates' => array_map(function ($rate) {
@@ -2850,10 +2853,34 @@ class McpToolExecutor
         $value = $args['value'] ?? '';
         if (!$id) throw new \Exception('id is required');
 
-        // Only allow woocommerce_ prefixed options
         $optionKey = str_starts_with($id, 'woocommerce_') ? $id : 'woocommerce_' . $id;
-        $blocked = ['woocommerce_stripe_settings', 'woocommerce_paypal_settings'];
-        if (in_array($optionKey, $blocked)) throw new \Exception('Cannot modify this setting');
+
+        // Strict allowlist — only explicitly permitted WooCommerce store settings
+        // may be updated via this MCP tool. This prevents arbitrary option manipulation.
+        $allowedSettings = [
+            'woocommerce_currency',
+            'woocommerce_currency_pos',
+            'woocommerce_price_decimal_sep',
+            'woocommerce_price_thousand_sep',
+            'woocommerce_price_num_decimals',
+            'woocommerce_store_address',
+            'woocommerce_store_address_2',
+            'woocommerce_store_city',
+            'woocommerce_default_country',
+            'woocommerce_store_postcode',
+            'woocommerce_enable_shipping_calc',
+            'woocommerce_ship_to_destination',
+            'woocommerce_weight_unit',
+            'woocommerce_dimension_unit',
+            'woocommerce_calc_taxes',
+            'woocommerce_prices_include_tax',
+            'woocommerce_tax_display_shop',
+            'woocommerce_tax_display_cart',
+        ];
+
+        if (!in_array($optionKey, $allowedSettings, true)) {
+            throw new \Exception('Setting not permitted: ' . esc_html($id));
+        }
 
         update_option($optionKey, sanitize_text_field($value));
         return ['success' => true, 'id' => $id, 'option_key' => $optionKey];

@@ -68,13 +68,13 @@ export default function TaskEditor({
 	const validate = () => {
 		const newErrors = {};
 		if (!formData.name.trim()) {
-			newErrors.name = __('Name is required', 'smart-woo-chatbot');
+			newErrors.name = __('Name is required', 'agentflow-ai');
 		}
 		if (!formData.agent_id) {
-			newErrors.agent_id = __('Agent is required', 'smart-woo-chatbot');
+			newErrors.agent_id = __('Agent is required', 'agentflow-ai');
 		}
 		if (formData.schedule_type === 'cron' && !formData.schedule_config.expression) {
-			newErrors.cron = __('Cron expression is required', 'smart-woo-chatbot');
+			newErrors.cron = __('Cron expression is required', 'agentflow-ai');
 		}
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
@@ -89,35 +89,35 @@ export default function TaskEditor({
 
 	// Fallback defaults in case API doesn't return options
 	const defaultTaskTypes = {
-		content_generation: __('Content Generation', 'smart-woo-chatbot'),
-		product_management: __('Product Management', 'smart-woo-chatbot'),
-		research: __('Research & Analysis', 'smart-woo-chatbot'),
-		analytics: __('Analytics Report', 'smart-woo-chatbot'),
-		sync: __('Data Sync', 'smart-woo-chatbot'),
-		custom: __('Custom Task', 'smart-woo-chatbot'),
+		content_generation: __('Content Generation', 'agentflow-ai'),
+		product_management: __('Product Management', 'agentflow-ai'),
+		research: __('Research & Analysis', 'agentflow-ai'),
+		analytics: __('Analytics Report', 'agentflow-ai'),
+		sync: __('Data Sync', 'agentflow-ai'),
+		custom: __('Custom Task', 'agentflow-ai'),
 	};
 
 	const defaultScheduleTypes = {
-		once: __('Run Once', 'smart-woo-chatbot'),
-		recurring: __('Recurring', 'smart-woo-chatbot'),
-		cron: __('Cron Expression', 'smart-woo-chatbot'),
+		once: __('Run Once', 'agentflow-ai'),
+		recurring: __('Recurring', 'agentflow-ai'),
+		cron: __('Cron Expression', 'agentflow-ai'),
 	};
 
 	const defaultIntervals = {
-		hourly: __('Hourly', 'smart-woo-chatbot'),
-		daily: __('Daily', 'smart-woo-chatbot'),
-		weekly: __('Weekly', 'smart-woo-chatbot'),
-		monthly: __('Monthly', 'smart-woo-chatbot'),
+		hourly: __('Hourly', 'agentflow-ai'),
+		daily: __('Daily', 'agentflow-ai'),
+		weekly: __('Weekly', 'agentflow-ai'),
+		monthly: __('Monthly', 'agentflow-ai'),
 	};
 
 	const defaultWeekdays = {
-		monday: __('Monday', 'smart-woo-chatbot'),
-		tuesday: __('Tuesday', 'smart-woo-chatbot'),
-		wednesday: __('Wednesday', 'smart-woo-chatbot'),
-		thursday: __('Thursday', 'smart-woo-chatbot'),
-		friday: __('Friday', 'smart-woo-chatbot'),
-		saturday: __('Saturday', 'smart-woo-chatbot'),
-		sunday: __('Sunday', 'smart-woo-chatbot'),
+		monday: __('Monday', 'agentflow-ai'),
+		tuesday: __('Tuesday', 'agentflow-ai'),
+		wednesday: __('Wednesday', 'agentflow-ai'),
+		thursday: __('Thursday', 'agentflow-ai'),
+		friday: __('Friday', 'agentflow-ai'),
+		saturday: __('Saturday', 'agentflow-ai'),
+		sunday: __('Sunday', 'agentflow-ai'),
 	};
 
 	const taskTypes = Object.keys(scheduleOptions?.task_types || {}).length > 0
@@ -134,10 +134,10 @@ export default function TaskEditor({
 		: defaultWeekdays;
 
 	const sections = [
-		{ id: 'basic', label: __('Basic Info', 'smart-woo-chatbot'), icon: '' },
-		{ id: 'schedule', label: __('Schedule', 'smart-woo-chatbot'), icon: '' },
-		{ id: 'config', label: __('Task Config', 'smart-woo-chatbot'), icon: '' },
-		{ id: 'advanced', label: __('Advanced', 'smart-woo-chatbot'), icon: '' },
+		{ id: 'basic', label: __('Basic Info', 'agentflow-ai'), icon: '' },
+		{ id: 'schedule', label: __('Schedule', 'agentflow-ai'), icon: '' },
+		{ id: 'config', label: __('Task Config', 'agentflow-ai'), icon: '' },
+		{ id: 'advanced', label: __('Advanced', 'agentflow-ai'), icon: '' },
 	];
 
 	return (
@@ -166,7 +166,7 @@ export default function TaskEditor({
 					<div className="space-y-6">
 						<div>
 							<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-								{__('Task Name', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+								{__('Task Name', 'agentflow-ai')} <span className="text-red-500">*</span>
 							</label>
 							<input
 								type="text"
@@ -180,7 +180,7 @@ export default function TaskEditor({
 
 						<div>
 							<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-								{__('Description', 'smart-woo-chatbot')}
+								{__('Description', 'agentflow-ai')}
 							</label>
 							<textarea
 								value={formData.description}
@@ -193,7 +193,7 @@ export default function TaskEditor({
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 							<div>
 								<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-									{__('Task Type', 'smart-woo-chatbot')}
+									{__('Task Type', 'agentflow-ai')}
 								</label>
 								<select
 									value={formData.task_type}
@@ -208,7 +208,7 @@ export default function TaskEditor({
 
 							<div>
 								<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-									{__('Agent', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+									{__('Agent', 'agentflow-ai')} <span className="text-red-500">*</span>
 								</label>
 								<select
 									value={formData.agent_id}
@@ -216,7 +216,7 @@ export default function TaskEditor({
 									className={`w-full h-10 px-4 text-sm rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all ${errors.agent_id ? 'border-red-300' : 'border-gray-300 dark:border-gray-600'
 										}`}
 								>
-									<option value="">{__('Select an agent...', 'smart-woo-chatbot')}</option>
+									<option value="">{__('Select an agent...', 'agentflow-ai')}</option>
 									{agents.map((agent) => (
 										<option
 											key={agent.agent_id || agent.id}
@@ -226,7 +226,7 @@ export default function TaskEditor({
 										</option>
 									))}
 								</select>
-								<p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{__('The agent that will execute this task', 'smart-woo-chatbot')}</p>
+								<p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{__('The agent that will execute this task', 'agentflow-ai')}</p>
 							</div>
 						</div>
 					</div>
@@ -237,7 +237,7 @@ export default function TaskEditor({
 					<div className="space-y-6">
 						<div>
 							<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-								{__('Schedule Type', 'smart-woo-chatbot')}
+								{__('Schedule Type', 'agentflow-ai')}
 							</label>
 							<select
 								value={formData.schedule_type}
@@ -254,7 +254,7 @@ export default function TaskEditor({
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 								<div>
 									<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-										{__('Interval', 'smart-woo-chatbot')}
+										{__('Interval', 'agentflow-ai')}
 									</label>
 									<select
 										value={formData.schedule_config.interval || 'daily'}
@@ -269,7 +269,7 @@ export default function TaskEditor({
 
 								<div>
 									<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-										{__('Time (HH:MM)', 'smart-woo-chatbot')}
+										{__('Time (HH:MM)', 'agentflow-ai')}
 									</label>
 									<input
 										type="time"
@@ -282,7 +282,7 @@ export default function TaskEditor({
 								{formData.schedule_config.interval === 'weekly' && (
 									<div>
 										<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-											{__('Day of Week', 'smart-woo-chatbot')}
+											{__('Day of Week', 'agentflow-ai')}
 										</label>
 										<select
 											value={formData.schedule_config.day || 'monday'}
@@ -299,7 +299,7 @@ export default function TaskEditor({
 								{formData.schedule_config.interval === 'monthly' && (
 									<div>
 										<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-											{__('Day of Month', 'smart-woo-chatbot')}
+											{__('Day of Month', 'agentflow-ai')}
 										</label>
 										<input
 											type="number"
@@ -317,7 +317,7 @@ export default function TaskEditor({
 						{formData.schedule_type === 'cron' && (
 							<div>
 								<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-									{__('Cron Expression', 'smart-woo-chatbot')}
+									{__('Cron Expression', 'agentflow-ai')}
 								</label>
 								<input
 									type="text"
@@ -327,7 +327,7 @@ export default function TaskEditor({
 									className={`w-full h-10 px-4 text-sm rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white font-mono focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all ${errors.cron ? 'border-red-300' : 'border-gray-300 dark:border-gray-600'
 										}`}
 								/>
-								<p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{__('Standard 5-field cron format: minute hour day month weekday', 'smart-woo-chatbot')}</p>
+								<p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{__('Standard 5-field cron format: minute hour day month weekday', 'agentflow-ai')}</p>
 								{errors.cron && <p className="text-sm text-red-600 dark:text-red-400 mt-1">{errors.cron}</p>}
 							</div>
 						)}
@@ -341,13 +341,13 @@ export default function TaskEditor({
 							<>
 								<div>
 									<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-										{__('Topic', 'smart-woo-chatbot')}
+										{__('Topic', 'agentflow-ai')}
 									</label>
 									<input
 										type="text"
 										value={formData.task_config.topic || ''}
 										onChange={(e) => handleTaskConfigChange('topic', e.target.value)}
-										placeholder={__('e.g., WordPress Tips', 'smart-woo-chatbot')}
+										placeholder={__('e.g., WordPress Tips', 'agentflow-ai')}
 										className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
 									/>
 								</div>
@@ -355,7 +355,7 @@ export default function TaskEditor({
 								<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 									<div>
 										<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-											{__('Word Count', 'smart-woo-chatbot')}
+											{__('Word Count', 'agentflow-ai')}
 										</label>
 										<input
 											type="number"
@@ -369,16 +369,16 @@ export default function TaskEditor({
 
 									<div>
 										<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-											{__('Publish Status', 'smart-woo-chatbot')}
+											{__('Publish Status', 'agentflow-ai')}
 										</label>
 										<select
 											value={formData.task_config.publish_status || 'draft'}
 											onChange={(e) => handleTaskConfigChange('publish_status', e.target.value)}
 											className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
 										>
-											<option value="draft">{__('Draft', 'smart-woo-chatbot')}</option>
-											<option value="publish">{__('Publish', 'smart-woo-chatbot')}</option>
-											<option value="pending">{__('Pending Review', 'smart-woo-chatbot')}</option>
+											<option value="draft">{__('Draft', 'agentflow-ai')}</option>
+											<option value="publish">{__('Publish', 'agentflow-ai')}</option>
+											<option value="pending">{__('Pending Review', 'agentflow-ai')}</option>
 										</select>
 									</div>
 								</div>
@@ -389,7 +389,7 @@ export default function TaskEditor({
 							<>
 								<div>
 									<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-										{__('Research Topic', 'smart-woo-chatbot')}
+										{__('Research Topic', 'agentflow-ai')}
 									</label>
 									<input
 										type="text"
@@ -401,16 +401,16 @@ export default function TaskEditor({
 
 								<div>
 									<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-										{__('Research Depth', 'smart-woo-chatbot')}
+										{__('Research Depth', 'agentflow-ai')}
 									</label>
 									<select
 										value={formData.task_config.depth || 'comprehensive'}
 										onChange={(e) => handleTaskConfigChange('depth', e.target.value)}
 										className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
 									>
-										<option value="quick">{__('Quick Overview', 'smart-woo-chatbot')}</option>
-										<option value="comprehensive">{__('Comprehensive', 'smart-woo-chatbot')}</option>
-										<option value="deep">{__('Deep Dive', 'smart-woo-chatbot')}</option>
+										<option value="quick">{__('Quick Overview', 'agentflow-ai')}</option>
+										<option value="comprehensive">{__('Comprehensive', 'agentflow-ai')}</option>
+										<option value="deep">{__('Deep Dive', 'agentflow-ai')}</option>
 									</select>
 								</div>
 							</>
@@ -422,19 +422,19 @@ export default function TaskEditor({
 <div className="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-4 mb-4">
 <p className="text-sm text-blue-800 dark:text-blue-300">
 <strong>Product Management:</strong>{' '}
-{__('Fill in the product details below. The AI will use the woo_product_manage tool to add this product to your store.', 'smart-woo-chatbot')}
+{__('Fill in the product details below. The AI will use the woo_product_manage tool to add this product to your store.', 'agentflow-ai')}
 </p>
 </div>
 
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('Product Name', 'smart-woo-chatbot')} <span className="text-red-500">*</span>
+{__('Product Name', 'agentflow-ai')} <span className="text-red-500">*</span>
 </label>
 <input
 type="text"
 value={formData.task_config.product_name || ''}
 onChange={(e) => handleTaskConfigChange('product_name', e.target.value)}
-placeholder={__('e.g., Premium Wireless Headphones', 'smart-woo-chatbot')}
+placeholder={__('e.g., Premium Wireless Headphones', 'agentflow-ai')}
 className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
 />
 </div>
@@ -442,7 +442,7 @@ className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:borde
 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('Regular Price', 'smart-woo-chatbot')}
+{__('Regular Price', 'agentflow-ai')}
 </label>
 <input
 type="text"
@@ -454,7 +454,7 @@ className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:borde
 </div>
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('Sale Price', 'smart-woo-chatbot')}
+{__('Sale Price', 'agentflow-ai')}
 </label>
 <input
 type="text"
@@ -469,19 +469,19 @@ className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:borde
 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('Category', 'smart-woo-chatbot')}
+{__('Category', 'agentflow-ai')}
 </label>
 <input
 type="text"
 value={formData.task_config.category || ''}
 onChange={(e) => handleTaskConfigChange('category', e.target.value)}
-placeholder={__('e.g., Electronics', 'smart-woo-chatbot')}
+placeholder={__('e.g., Electronics', 'agentflow-ai')}
 className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
 />
 </div>
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('SKU', 'smart-woo-chatbot')}
+{__('SKU', 'agentflow-ai')}
 </label>
 <input
 type="text"
@@ -496,7 +496,7 @@ className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:borde
 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('Stock Quantity', 'smart-woo-chatbot')}
+{__('Stock Quantity', 'agentflow-ai')}
 </label>
 <input
 type="number"
@@ -509,43 +509,43 @@ className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:borde
 </div>
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('Product Status', 'smart-woo-chatbot')}
+{__('Product Status', 'agentflow-ai')}
 </label>
 <select
 value={formData.task_config.product_status || 'publish'}
 onChange={(e) => handleTaskConfigChange('product_status', e.target.value)}
 className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
 >
-<option value="publish">{__('Publish', 'smart-woo-chatbot')}</option>
-<option value="draft">{__('Draft', 'smart-woo-chatbot')}</option>
-<option value="pending">{__('Pending Review', 'smart-woo-chatbot')}</option>
-<option value="private">{__('Private', 'smart-woo-chatbot')}</option>
+<option value="publish">{__('Publish', 'agentflow-ai')}</option>
+<option value="draft">{__('Draft', 'agentflow-ai')}</option>
+<option value="pending">{__('Pending Review', 'agentflow-ai')}</option>
+<option value="private">{__('Private', 'agentflow-ai')}</option>
 </select>
 </div>
 </div>
 
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('Product Description', 'smart-woo-chatbot')}
+{__('Product Description', 'agentflow-ai')}
 </label>
 <textarea
 value={formData.task_config.description || ''}
 onChange={(e) => handleTaskConfigChange('description', e.target.value)}
 rows={3}
-placeholder={__('Describe the product or leave blank for AI to generate...', 'smart-woo-chatbot')}
+placeholder={__('Describe the product or leave blank for AI to generate...', 'agentflow-ai')}
 className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
 />
 </div>
 
 <div>
 <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-{__('Additional Instructions', 'smart-woo-chatbot')}
+{__('Additional Instructions', 'agentflow-ai')}
 </label>
 <textarea
 value={formData.task_config.additional_instructions || ''}
 onChange={(e) => handleTaskConfigChange('additional_instructions', e.target.value)}
 rows={2}
-placeholder={__('Any additional instructions for the AI...', 'smart-woo-chatbot')}
+placeholder={__('Any additional instructions for the AI...', 'agentflow-ai')}
 className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
 />
 </div>
@@ -554,13 +554,13 @@ className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:borde
 						{formData.task_type === 'custom' && (
 							<div>
 								<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-									{__('Custom Prompt', 'smart-woo-chatbot')}
+									{__('Custom Prompt', 'agentflow-ai')}
 								</label>
 								<textarea
 									value={formData.task_config.prompt || ''}
 									onChange={(e) => handleTaskConfigChange('prompt', e.target.value)}
 									rows={6}
-									placeholder={__('Describe what the agent should do...€¦', 'smart-woo-chatbot')}
+									placeholder={__('Describe what the agent should do...€¦', 'agentflow-ai')}
 									className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
 								/>
 							</div>
@@ -569,7 +569,7 @@ className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:borde
 						{!['content_generation', 'research', 'custom', 'product_management'].includes(formData.task_type) && (
 							<div className="text-center py-12 text-gray-500 dark:text-gray-400">
 								<div className="text-4xl mb-3">ï¸</div>
-								<p>{__('No additional configuration required for this task type.', 'smart-woo-chatbot')}</p>
+								<p>{__('No additional configuration required for this task type.', 'agentflow-ai')}</p>
 							</div>
 						)}
 					</div>
@@ -581,7 +581,7 @@ className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:borde
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 							<div>
 								<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-									{__('Max Retries', 'smart-woo-chatbot')}
+									{__('Max Retries', 'agentflow-ai')}
 								</label>
 								<input
 									type="number"
@@ -595,7 +595,7 @@ className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:borde
 
 							<div>
 								<label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-1.5">
-									{__('Timeout (seconds)', 'smart-woo-chatbot')}
+									{__('Timeout (seconds)', 'agentflow-ai')}
 								</label>
 								<input
 									type="number"
@@ -611,7 +611,7 @@ className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:borde
 						<div className="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-4">
 							<p className="text-sm text-blue-800 dark:text-blue-300">
 								<strong> Tip:</strong>{' '}
-								{__('Increase timeout for complex tasks that may take longer to complete.', 'smart-woo-chatbot')}
+								{__('Increase timeout for complex tasks that may take longer to complete.', 'agentflow-ai')}
 							</p>
 						</div>
 					</div>
@@ -625,13 +625,13 @@ className="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 dark:borde
 					onClick={onCancel}
 					className="px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
 				>
-					{__('Cancel', 'smart-woo-chatbot')}
+					{__('Cancel', 'agentflow-ai')}
 				</button>
 				<button
 					type="submit"
 					className="px-5 py-2 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors"
 				>
-					{isNew ? __('Create Task', 'smart-woo-chatbot') : __('Save Changes', 'smart-woo-chatbot')}
+					{isNew ? __('Create Task', 'agentflow-ai') : __('Save Changes', 'agentflow-ai')}
 				</button>
 			</div>
 		</form>

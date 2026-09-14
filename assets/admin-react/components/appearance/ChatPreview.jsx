@@ -468,7 +468,7 @@ export default function ChatPreview({ settings = {}, displayName = '', behavior 
 
 			<div className="flex items-center justify-between">
 				<h3 className="text-sm font-semibold text-slate-900">
-					{__('Live Preview', 'smart-woo-chatbot')}
+					{__('Live Preview', 'agentflow-ai')}
 				</h3>
 				<div className="inline-flex rounded-full bg-slate-100 p-1">
 					<button
@@ -500,7 +500,7 @@ export default function ChatPreview({ settings = {}, displayName = '', behavior 
 						)}
 					>
 						<Icon icon={desktop} size={14} />
-						{__('Desktop', 'smart-woo-chatbot')}
+						{__('Desktop', 'agentflow-ai')}
 					</button>
 					<button
 						type="button"
@@ -511,7 +511,7 @@ export default function ChatPreview({ settings = {}, displayName = '', behavior 
 						)}
 					>
 						<Icon icon={mobile} size={14} />
-						{__('Mobile', 'smart-woo-chatbot')}
+						{__('Mobile', 'agentflow-ai')}
 					</button>
 				</div>
 			</div>

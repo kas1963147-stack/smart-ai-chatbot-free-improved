@@ -101,33 +101,33 @@ export default function ChatsPage() {
 				: await updateWidget(selectedWidget.id, widgetData);
 
 			if (response?.success === false) {
-				throw new Error(response?.message || __('Failed to save widget', 'smart-woo-chatbot'));
+				throw new Error(response?.message || __('Failed to save widget', 'agentflow-ai'));
 			}
 
 			showNotification(
 				isCreate
-					? __('Widget created successfully!', 'smart-woo-chatbot')
-					: __('Widget updated successfully!', 'smart-woo-chatbot'),
+					? __('Widget created successfully!', 'agentflow-ai')
+					: __('Widget updated successfully!', 'agentflow-ai'),
 				'success'
 			);
 			handleBack();
 		} catch (err) {
-			showNotification(err.message || __('Failed to save widget', 'smart-woo-chatbot'), 'error');
+			showNotification(err.message || __('Failed to save widget', 'agentflow-ai'), 'error');
 		}
 	};
 
 	const handleDelete = async (id) => {
-		if (!confirm(__('Are you sure you want to delete this widget?', 'smart-woo-chatbot'))) return;
+		if (!confirm(__('Are you sure you want to delete this widget?', 'agentflow-ai'))) return;
 		try {
 			const response = await deleteWidget(id);
 			if (response?.success === false) {
-				throw new Error(response?.message || __('Failed to delete widget', 'smart-woo-chatbot'));
+				throw new Error(response?.message || __('Failed to delete widget', 'agentflow-ai'));
 			}
-			showNotification(__('Widget deleted successfully', 'smart-woo-chatbot'), 'success');
+			showNotification(__('Widget deleted successfully', 'agentflow-ai'), 'success');
 			invalidateCache('chat_widgets');
 			loadWidgets();
 		} catch (err) {
-			showNotification(err.message || __('Failed to delete widget', 'smart-woo-chatbot'), 'error');
+			showNotification(err.message || __('Failed to delete widget', 'agentflow-ai'), 'error');
 		}
 	};
 
@@ -146,7 +146,7 @@ export default function ChatsPage() {
 							className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 transition-all duration-200"
 						>
 							<Icon path="M10 19l-7-7m0 0l7-7m-7 7h18" className="w-4 h-4" />
-							{__('Back to List', 'smart-woo-chatbot')}
+							{__('Back to List', 'agentflow-ai')}
 						</button>
 					)}
 				</div>
@@ -208,7 +208,7 @@ export default function ChatsPage() {
 			{/* Loading State */}
 			{loading && view === 'list' && widgets.length === 0 && (
 				<div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 py-8">
-					<Loading message={__('Loading widgets…', 'smart-woo-chatbot')} fullPage />
+					<Loading message={__('Loading widgets…', 'agentflow-ai')} fullPage />
 				</div>
 			)}
 
@@ -222,10 +222,10 @@ export default function ChatsPage() {
 						/>
 					</div>
 					<h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-						{__('No Widgets Yet', 'smart-woo-chatbot')}
+						{__('No Widgets Yet', 'agentflow-ai')}
 					</h3>
 					<p className="text-slate-500 dark:text-slate-400 mb-6 max-w-md mx-auto">
-						{__('Default widgets will appear here after plugin setup.', 'smart-woo-chatbot')}
+						{__('Default widgets will appear here after plugin setup.', 'agentflow-ai')}
 					</p>
 				</div>
 			)}

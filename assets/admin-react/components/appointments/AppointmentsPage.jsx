@@ -117,8 +117,8 @@ const AddAppointmentModal = ({ isOpen, onClose, onSave, saving }) => {
 								<PlusIcon />
 							</div>
 							<div>
-								<h3 className="text-lg font-bold text-slate-900 dark:text-white">{__('New Appointment', 'smart-woo-chatbot')}</h3>
-								<p className="text-xs text-slate-500 dark:text-slate-400">{__('Manually book an appointment', 'smart-woo-chatbot')}</p>
+								<h3 className="text-lg font-bold text-slate-900 dark:text-white">{__('New Appointment', 'agentflow-ai')}</h3>
+								<p className="text-xs text-slate-500 dark:text-slate-400">{__('Manually book an appointment', 'agentflow-ai')}</p>
 							</div>
 						</div>
 						<button onClick={onClose} className="p-2 rounded-lg text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition">
@@ -131,22 +131,22 @@ const AddAppointmentModal = ({ isOpen, onClose, onSave, saving }) => {
 				<form id="add-appointment-form" onSubmit={handleSubmit} className="px-6 py-5 space-y-4 max-h-[65vh] overflow-y-auto">
 					<div className="grid grid-cols-2 gap-4">
 						<div className="col-span-2 sm:col-span-1">
-							<label className={labelClass}>{__('Customer Name', 'smart-woo-chatbot')}</label>
+							<label className={labelClass}>{__('Customer Name', 'agentflow-ai')}</label>
 							<input ref={nameRef} type="text" value={form.customer_name} onChange={e => handleChange('customer_name', e.target.value)} className={inputClass} placeholder="John Doe" />
 						</div>
 						<div className="col-span-2 sm:col-span-1">
-							<label className={labelClass}>{__('Email', 'smart-woo-chatbot')}</label>
+							<label className={labelClass}>{__('Email', 'agentflow-ai')}</label>
 							<input type="email" value={form.customer_email} onChange={e => handleChange('customer_email', e.target.value)} className={inputClass} placeholder="john@example.com" />
 						</div>
 					</div>
 
 					<div className="grid grid-cols-2 gap-4">
 						<div>
-							<label className={labelClass}>{__('Phone', 'smart-woo-chatbot')}</label>
+							<label className={labelClass}>{__('Phone', 'agentflow-ai')}</label>
 							<input type="tel" value={form.customer_phone} onChange={e => handleChange('customer_phone', e.target.value)} className={inputClass} placeholder="+1 234 567 890" />
 						</div>
 						<div>
-							<label className={labelClass}>{__('Type', 'smart-woo-chatbot')}</label>
+							<label className={labelClass}>{__('Type', 'agentflow-ai')}</label>
 							<select value={form.appointment_type} onChange={e => handleChange('appointment_type', e.target.value)} className={inputClass + ' cursor-pointer'}>
 								<option value="consultation">Consultation</option>
 								<option value="demo">Demo</option>
@@ -160,15 +160,15 @@ const AddAppointmentModal = ({ isOpen, onClose, onSave, saving }) => {
 
 					<div className="grid grid-cols-3 gap-4">
 						<div>
-							<label className={labelClass}>{__('Date', 'smart-woo-chatbot')}</label>
+							<label className={labelClass}>{__('Date', 'agentflow-ai')}</label>
 							<input type="date" value={form.date} onChange={e => handleChange('date', e.target.value)} className={inputClass} />
 						</div>
 						<div>
-							<label className={labelClass}>{__('Time', 'smart-woo-chatbot')}</label>
+							<label className={labelClass}>{__('Time', 'agentflow-ai')}</label>
 							<input type="time" value={form.time} onChange={e => handleChange('time', e.target.value)} className={inputClass} />
 						</div>
 						<div>
-							<label className={labelClass}>{__('Duration', 'smart-woo-chatbot')}</label>
+							<label className={labelClass}>{__('Duration', 'agentflow-ai')}</label>
 							<select value={form.duration} onChange={e => handleChange('duration', parseInt(e.target.value))} className={inputClass + ' cursor-pointer'}>
 								<option value={15}>15 min</option>
 								<option value={30}>30 min</option>
@@ -181,7 +181,7 @@ const AddAppointmentModal = ({ isOpen, onClose, onSave, saving }) => {
 					</div>
 
 					<div>
-						<label className={labelClass}>{__('Notes', 'smart-woo-chatbot')}</label>
+						<label className={labelClass}>{__('Notes', 'agentflow-ai')}</label>
 						<textarea value={form.notes} onChange={e => handleChange('notes', e.target.value)} rows={3} className="w-full px-3 py-2 text-sm rounded-xl border border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none" placeholder="Optional notes..." />
 					</div>
 				</form>
@@ -189,12 +189,12 @@ const AddAppointmentModal = ({ isOpen, onClose, onSave, saving }) => {
 				{/* Footer */}
 				<div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
 					<button type="button" onClick={onClose} className="h-10 px-5 text-sm font-medium rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700 transition">
-						{__('Cancel', 'smart-woo-chatbot')}
+						{__('Cancel', 'agentflow-ai')}
 					</button>
 					<button type="submit" form="add-appointment-form" disabled={saving}
 						className="h-10 px-5 text-sm font-semibold rounded-xl bg-primary text-white shadow-sm hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition inline-flex items-center gap-2">
 						{saving && <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
-						{saving ? __('Booking…', 'smart-woo-chatbot') : __('Book Appointment', 'smart-woo-chatbot')}
+						{saving ? __('Booking…', 'agentflow-ai') : __('Book Appointment', 'agentflow-ai')}
 					</button>
 				</div>
 			</div>
@@ -291,7 +291,7 @@ export default function AppointmentsPage() {
 	};
 
 	const handleDelete = async (id) => {
-		if (!confirm(__('Are you sure you want to permanently delete this appointment?', 'smart-woo-chatbot'))) return;
+		if (!confirm(__('Are you sure you want to permanently delete this appointment?', 'agentflow-ai'))) return;
 		try {
 			await apiFetch({ path: `${apiBase}/appointments/${id}`, method: 'DELETE' });
 			showNotif('Appointment deleted');
@@ -354,15 +354,15 @@ export default function AppointmentsPage() {
 					<div className="flex items-center gap-3">
 						<button onClick={() => { fetchAppointments(); fetchStats(); }} className="inline-flex items-center gap-2 h-10 px-4 text-sm rounded-xl border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-all">
 							<RefreshIcon />
-							{__('Refresh', 'smart-woo-chatbot')}
+							{__('Refresh', 'agentflow-ai')}
 						</button>
 						<button onClick={() => setView('settings')} className="inline-flex items-center gap-2 h-10 px-4 text-sm rounded-xl border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-all">
 							<SettingsIcon />
-							{__('Settings', 'smart-woo-chatbot')}
+							{__('Settings', 'agentflow-ai')}
 						</button>
 						<button onClick={() => setShowAddModal(true)} className="inline-flex items-center gap-2 h-10 px-5 text-sm font-semibold rounded-xl bg-primary text-white shadow-sm hover:bg-primary/90 transition-all">
 							<PlusIcon />
-							{__('Add Appointment', 'smart-woo-chatbot')}
+							{__('Add Appointment', 'agentflow-ai')}
 						</button>
 					</div>
 				)}
@@ -376,7 +376,7 @@ export default function AppointmentsPage() {
 							<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
 						</div>
 						<div>
-							<p className="font-medium text-red-800 dark:text-red-300">{__('Error', 'smart-woo-chatbot')}</p>
+							<p className="font-medium text-red-800 dark:text-red-300">{__('Error', 'agentflow-ai')}</p>
 							<p className="text-sm text-red-600 dark:text-red-400">{error}</p>
 						</div>
 					</div>
@@ -389,10 +389,10 @@ export default function AppointmentsPage() {
 				{view === 'list' && stats && (
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 						{[
-							{ label: __('Total Appointments', 'smart-woo-chatbot'), value: stats.total, color: 'primary', icon: <CalendarIcon />, sub: __('All time bookings', 'smart-woo-chatbot'), textColor: 'text-primary' },
-							{ label: __("Today's", 'smart-woo-chatbot'), value: stats.today, color: 'primary', icon: <TodayIcon />, sub: __('Appointments today', 'smart-woo-chatbot'), textColor: 'text-primary' },
-							{ label: __('Upcoming', 'smart-woo-chatbot'), value: stats.upcoming, color: 'primary', icon: <UpcomingIcon />, sub: __('Next 7 days', 'smart-woo-chatbot'), textColor: 'text-primary' },
-							{ label: __('Canceled', 'smart-woo-chatbot'), value: stats.canceled, color: 'primary', icon: <CancelIcon />, sub: __('Total canceled', 'smart-woo-chatbot'), textColor: 'text-primary' },
+							{ label: __('Total Appointments', 'agentflow-ai'), value: stats.total, color: 'primary', icon: <CalendarIcon />, sub: __('All time bookings', 'agentflow-ai'), textColor: 'text-primary' },
+							{ label: __("Today's", 'agentflow-ai'), value: stats.today, color: 'primary', icon: <TodayIcon />, sub: __('Appointments today', 'agentflow-ai'), textColor: 'text-primary' },
+							{ label: __('Upcoming', 'agentflow-ai'), value: stats.upcoming, color: 'primary', icon: <UpcomingIcon />, sub: __('Next 7 days', 'agentflow-ai'), textColor: 'text-primary' },
+							{ label: __('Canceled', 'agentflow-ai'), value: stats.canceled, color: 'primary', icon: <CancelIcon />, sub: __('Total canceled', 'agentflow-ai'), textColor: 'text-primary' },
 						].map((card, i) => (
 							<div key={i} className="group relative overflow-hidden bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300">
 								<div className={`absolute top-0 right-0 w-32 h-32 bg-${card.color}/5 rounded-bl-full`} />
@@ -421,7 +421,7 @@ export default function AppointmentsPage() {
 								<div className="relative flex-1 min-w-[220px] max-w-[340px]">
 									<input
 										type="text"
-										placeholder={__('Search by name, email…', 'smart-woo-chatbot')}
+										placeholder={__('Search by name, email…', 'agentflow-ai')}
 										value={searchQuery}
 										onChange={(e) => { setSearchQuery(e.target.value); setPage(1); }}
 										className="w-full h-10 px-4 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 placeholder:text-slate-400 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary focus:bg-white dark:focus:bg-slate-700 transition-all shadow-sm"
@@ -442,11 +442,11 @@ export default function AppointmentsPage() {
 									onChange={(e) => { setStatusFilter(e.target.value); setPage(1); }}
 									className="h-10 px-3 pr-8 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition cursor-pointer shadow-sm"
 								>
-									<option value="">{__('All Statuses', 'smart-woo-chatbot')}</option>
-									<option value="booked">{__('Booked', 'smart-woo-chatbot')}</option>
-									<option value="completed">{__('Completed', 'smart-woo-chatbot')}</option>
-									<option value="canceled">{__('Canceled', 'smart-woo-chatbot')}</option>
-									<option value="no_show">{__('No Show', 'smart-woo-chatbot')}</option>
+									<option value="">{__('All Statuses', 'agentflow-ai')}</option>
+									<option value="booked">{__('Booked', 'agentflow-ai')}</option>
+									<option value="completed">{__('Completed', 'agentflow-ai')}</option>
+									<option value="canceled">{__('Canceled', 'agentflow-ai')}</option>
+									<option value="no_show">{__('No Show', 'agentflow-ai')}</option>
 								</select>
 
 								{/* Type filter */}
@@ -455,13 +455,13 @@ export default function AppointmentsPage() {
 									onChange={(e) => { setTypeFilter(e.target.value); setPage(1); }}
 									className="h-10 px-3 pr-8 text-sm rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 dark:border-slate-600 dark:bg-slate-700/80 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition cursor-pointer shadow-sm"
 								>
-									<option value="">{__('All Types', 'smart-woo-chatbot')}</option>
-									<option value="consultation">{__('Consultation', 'smart-woo-chatbot')}</option>
-									<option value="demo">{__('Demo', 'smart-woo-chatbot')}</option>
-									<option value="meeting">{__('Meeting', 'smart-woo-chatbot')}</option>
-									<option value="followup">{__('Follow-up', 'smart-woo-chatbot')}</option>
-									<option value="interview">{__('Interview', 'smart-woo-chatbot')}</option>
-									<option value="support">{__('Support', 'smart-woo-chatbot')}</option>
+									<option value="">{__('All Types', 'agentflow-ai')}</option>
+									<option value="consultation">{__('Consultation', 'agentflow-ai')}</option>
+									<option value="demo">{__('Demo', 'agentflow-ai')}</option>
+									<option value="meeting">{__('Meeting', 'agentflow-ai')}</option>
+									<option value="followup">{__('Follow-up', 'agentflow-ai')}</option>
+									<option value="interview">{__('Interview', 'agentflow-ai')}</option>
+									<option value="support">{__('Support', 'agentflow-ai')}</option>
 								</select>
 
 								{/* Date range */}
@@ -478,7 +478,7 @@ export default function AppointmentsPage() {
 								{hasActiveFilters && (
 									<button onClick={handleResetFilters} className="h-10 px-4 text-sm font-medium rounded-xl text-red-500 border border-red-200 hover:bg-red-50 dark:border-red-700 dark:hover:bg-red-900/20 transition shadow-sm">
 										<svg className="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-										{__('Clear', 'smart-woo-chatbot')}
+										{__('Clear', 'agentflow-ai')}
 									</button>
 								)}
 							</div>
@@ -495,15 +495,15 @@ export default function AppointmentsPage() {
 									<CalendarIcon />
 								</div>
 								<h3 className="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-1">
-									{hasActiveFilters ? __('No appointments match your filters', 'smart-woo-chatbot') : __('No appointments yet', 'smart-woo-chatbot')}
+									{hasActiveFilters ? __('No appointments match your filters', 'agentflow-ai') : __('No appointments yet', 'agentflow-ai')}
 								</h3>
 								<p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
-									{hasActiveFilters ? __('Try adjusting your filters.', 'smart-woo-chatbot') : __('Appointments booked through the chatbot will appear here.', 'smart-woo-chatbot')}
+									{hasActiveFilters ? __('Try adjusting your filters.', 'agentflow-ai') : __('Appointments booked through the chatbot will appear here.', 'agentflow-ai')}
 								</p>
 								{!hasActiveFilters && (
 									<button onClick={() => setShowAddModal(true)} className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-primary text-white shadow-sm hover:bg-primary/90 transition">
 										<PlusIcon />
-										{__('Book Your First Appointment', 'smart-woo-chatbot')}
+										{__('Book Your First Appointment', 'agentflow-ai')}
 									</button>
 								)}
 							</div>
@@ -513,12 +513,12 @@ export default function AppointmentsPage() {
 									<table className="w-full text-sm">
 										<thead>
 											<tr className="bg-slate-50 dark:bg-slate-700/50">
-												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Date & Time', 'smart-woo-chatbot')}</th>
-												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Customer', 'smart-woo-chatbot')}</th>
-												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Type', 'smart-woo-chatbot')}</th>
-												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Duration', 'smart-woo-chatbot')}</th>
-												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Status', 'smart-woo-chatbot')}</th>
-												<th className="px-6 py-3 text-right font-semibold text-slate-600 dark:text-slate-300">{__('Actions', 'smart-woo-chatbot')}</th>
+												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Date & Time', 'agentflow-ai')}</th>
+												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Customer', 'agentflow-ai')}</th>
+												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Type', 'agentflow-ai')}</th>
+												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Duration', 'agentflow-ai')}</th>
+												<th className="px-6 py-3 text-left font-semibold text-slate-600 dark:text-slate-300">{__('Status', 'agentflow-ai')}</th>
+												<th className="px-6 py-3 text-right font-semibold text-slate-600 dark:text-slate-300">{__('Actions', 'agentflow-ai')}</th>
 											</tr>
 										</thead>
 										<tbody className="divide-y divide-slate-100 dark:divide-slate-700">
@@ -545,25 +545,25 @@ export default function AppointmentsPage() {
 														<td className="px-6 py-4"><StatusBadge status={apt.status} /></td>
 														<td className="px-6 py-4">
 															<div className="flex items-center justify-end gap-1">
-																<button onClick={() => handleViewDetail(apt)} className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 transition" title={__('View Details', 'smart-woo-chatbot')}>
+																<button onClick={() => handleViewDetail(apt)} className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 transition" title={__('View Details', 'agentflow-ai')}>
 																	<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
 																</button>
 																{apt.status === 'booked' && (
 																	<>
-																		<button onClick={() => handleUpdateStatus(apt.id, 'completed')} className="p-2 rounded-lg text-green-500 hover:bg-green-50 dark:hover:bg-green-900/30 transition" title={__('Complete', 'smart-woo-chatbot')}>
+																		<button onClick={() => handleUpdateStatus(apt.id, 'completed')} className="p-2 rounded-lg text-green-500 hover:bg-green-50 dark:hover:bg-green-900/30 transition" title={__('Complete', 'agentflow-ai')}>
 																			<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
 																		</button>
-																		<button onClick={() => handleUpdateStatus(apt.id, 'canceled')} className="p-2 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 transition" title={__('Cancel', 'smart-woo-chatbot')}>
+																		<button onClick={() => handleUpdateStatus(apt.id, 'canceled')} className="p-2 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 transition" title={__('Cancel', 'agentflow-ai')}>
 																			<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
 																		</button>
 																	</>
 																)}
 																{isPast && apt.status === 'booked' && (
-																	<button onClick={() => handleUpdateStatus(apt.id, 'no_show')} className="p-2 rounded-lg text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-900/30 transition" title={__('No Show', 'smart-woo-chatbot')}>
+																	<button onClick={() => handleUpdateStatus(apt.id, 'no_show')} className="p-2 rounded-lg text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-900/30 transition" title={__('No Show', 'agentflow-ai')}>
 																		<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
 																	</button>
 																)}
-																<button onClick={() => handleDelete(apt.id)} className="p-2 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 transition" title={__('Delete', 'smart-woo-chatbot')}>
+																<button onClick={() => handleDelete(apt.id)} className="p-2 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/30 transition" title={__('Delete', 'agentflow-ai')}>
 																	<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
 																</button>
 															</div>
@@ -579,17 +579,17 @@ export default function AppointmentsPage() {
 								{totalPages > 1 && (
 									<div className="flex items-center justify-between px-6 py-4 border-t border-slate-100 dark:border-slate-700">
 										<p className="text-sm text-slate-500 dark:text-slate-400">
-											{__('Showing', 'smart-woo-chatbot')} {((page - 1) * 20) + 1}–{Math.min(page * 20, total)} {__('of', 'smart-woo-chatbot')} {total}
+											{__('Showing', 'agentflow-ai')} {((page - 1) * 20) + 1}–{Math.min(page * 20, total)} {__('of', 'agentflow-ai')} {total}
 										</p>
 										<div className="flex items-center gap-1">
 											<button onClick={() => setPage(Math.max(1, page - 1))} disabled={page === 1}
 												className="h-9 px-3 text-sm rounded-lg border border-slate-200 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition">
-												{__('Previous', 'smart-woo-chatbot')}
+												{__('Previous', 'agentflow-ai')}
 											</button>
 											<span className="px-3 text-sm text-slate-600 dark:text-slate-300">{page} / {totalPages}</span>
 											<button onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page === totalPages}
 												className="h-9 px-3 text-sm rounded-lg border border-slate-200 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition">
-												{__('Next', 'smart-woo-chatbot')}
+												{__('Next', 'agentflow-ai')}
 											</button>
 										</div>
 									</div>

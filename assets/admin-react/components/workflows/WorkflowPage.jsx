@@ -52,7 +52,7 @@ export default function WorkflowPage() {
 			setWorkflows(list);
 			setCache('workflows', list);
 		} catch (err) {
-			setError(err.message || __('Failed to load workflows', 'smart-woo-chatbot'));
+			setError(err.message || __('Failed to load workflows', 'agentflow-ai'));
 		} finally {
 			setLoading(false);
 		}
@@ -117,17 +117,17 @@ export default function WorkflowPage() {
 			});
 			const data = await resp.json();
 			if (!data?.success) {
-				throw new Error(data?.message || __('Failed to save workflow', 'smart-woo-chatbot'));
+				throw new Error(data?.message || __('Failed to save workflow', 'agentflow-ai'));
 			}
-			showNotification(isCreate ? __('Workflow created!', 'smart-woo-chatbot') : __('Workflow updated!', 'smart-woo-chatbot'));
+			showNotification(isCreate ? __('Workflow created!', 'agentflow-ai') : __('Workflow updated!', 'agentflow-ai'));
 			handleBack();
 		} catch (err) {
-			showNotification(err.message || __('Failed to save workflow', 'smart-woo-chatbot'), 'error');
+			showNotification(err.message || __('Failed to save workflow', 'agentflow-ai'), 'error');
 		}
 	};
 
 	const handleDelete = async (id) => {
-		if (!confirm(__('Delete this workflow?', 'smart-woo-chatbot'))) return;
+		if (!confirm(__('Delete this workflow?', 'agentflow-ai'))) return;
 		try {
 			const resp = await fetch(`${API_BASE}/workflows/${id}`, {
 				method: 'DELETE',
@@ -135,13 +135,13 @@ export default function WorkflowPage() {
 			});
 			const data = await resp.json();
 			if (!data?.success) {
-				throw new Error(data?.message || __('Failed to delete workflow', 'smart-woo-chatbot'));
+				throw new Error(data?.message || __('Failed to delete workflow', 'agentflow-ai'));
 			}
-			showNotification(__('Workflow deleted', 'smart-woo-chatbot'));
+			showNotification(__('Workflow deleted', 'agentflow-ai'));
 			invalidateCache('workflows');
 			fetchWorkflows();
 		} catch (err) {
-			showNotification(err.message || __('Failed to delete workflow', 'smart-woo-chatbot'), 'error');
+			showNotification(err.message || __('Failed to delete workflow', 'agentflow-ai'), 'error');
 		}
 	};
 
@@ -153,12 +153,12 @@ export default function WorkflowPage() {
 			});
 			const data = await resp.json();
 			if (!data?.success) {
-				throw new Error(data?.message || __('Execution failed', 'smart-woo-chatbot'));
+				throw new Error(data?.message || __('Execution failed', 'agentflow-ai'));
 			}
-			showNotification(__('Workflow started', 'smart-woo-chatbot'));
+			showNotification(__('Workflow started', 'agentflow-ai'));
 			fetchPendingApprovals();
 		} catch (err) {
-			showNotification(err.message || __('Execution failed', 'smart-woo-chatbot'), 'error');
+			showNotification(err.message || __('Execution failed', 'agentflow-ai'), 'error');
 		}
 	};
 
@@ -188,12 +188,12 @@ export default function WorkflowPage() {
 			});
 			const data = await resp.json();
 			if (!data?.success) {
-				throw new Error(data?.message || __('Failed to resume execution', 'smart-woo-chatbot'));
+				throw new Error(data?.message || __('Failed to resume execution', 'agentflow-ai'));
 			}
-			showNotification(approved ? __('Approved', 'smart-woo-chatbot') : __('Rejected', 'smart-woo-chatbot'));
+			showNotification(approved ? __('Approved', 'agentflow-ai') : __('Rejected', 'agentflow-ai'));
 			fetchPendingApprovals();
 		} catch (err) {
-			showNotification(err.message || __('Failed to resume execution', 'smart-woo-chatbot'), 'error');
+			showNotification(err.message || __('Failed to resume execution', 'agentflow-ai'), 'error');
 		}
 	};
 
@@ -205,10 +205,10 @@ export default function WorkflowPage() {
 			<div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200/70 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm">
 				<div>
 					<h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-						{__('Workflow Builder', 'smart-woo-chatbot')}
+						{__('Workflow Builder', 'agentflow-ai')}
 					</h1>
 					<p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-						{__('Create automated multi-step workflows with agents and approvals.', 'smart-woo-chatbot')}
+						{__('Create automated multi-step workflows with agents and approvals.', 'agentflow-ai')}
 					</p>
 				</div>
 				{view === 'list' && (
@@ -216,7 +216,7 @@ export default function WorkflowPage() {
 						onClick={handleCreate}
 						className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors"
 					>
-						+ {__('New Workflow', 'smart-woo-chatbot')}
+						+ {__('New Workflow', 'agentflow-ai')}
 					</button>
 				)}
 			</div>
@@ -239,15 +239,15 @@ export default function WorkflowPage() {
 				<>
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 						<div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
-							<p className="text-sm text-gray-500 dark:text-gray-400">{__('Active Workflows', 'smart-woo-chatbot')}</p>
+							<p className="text-sm text-gray-500 dark:text-gray-400">{__('Active Workflows', 'agentflow-ai')}</p>
 							<p className="text-2xl font-semibold text-gray-900 dark:text-white mt-2">{activeWorkflows}</p>
 						</div>
 						<div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
-							<p className="text-sm text-gray-500 dark:text-gray-400">{__('Total Workflows', 'smart-woo-chatbot')}</p>
+							<p className="text-sm text-gray-500 dark:text-gray-400">{__('Total Workflows', 'agentflow-ai')}</p>
 							<p className="text-2xl font-semibold text-gray-900 dark:text-white mt-2">{totalWorkflows}</p>
 						</div>
 						<div className="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
-							<p className="text-sm text-gray-500 dark:text-gray-400">{__('Pending Approvals', 'smart-woo-chatbot')}</p>
+							<p className="text-sm text-gray-500 dark:text-gray-400">{__('Pending Approvals', 'agentflow-ai')}</p>
 							<p className="text-2xl font-semibold text-gray-900 dark:text-white mt-2">{pendingApprovals.length}</p>
 						</div>
 					</div>
@@ -257,10 +257,10 @@ export default function WorkflowPage() {
 							<div className="flex items-center justify-between">
 								<div>
 									<h3 className="text-sm font-semibold text-yellow-800 dark:text-yellow-400">
-										{__('Pending Approvals', 'smart-woo-chatbot')}
+										{__('Pending Approvals', 'agentflow-ai')}
 									</h3>
 									<p className="text-xs text-yellow-700 dark:text-yellow-500">
-										{__('These workflows are waiting for human approval.', 'smart-woo-chatbot')}
+										{__('These workflows are waiting for human approval.', 'agentflow-ai')}
 									</p>
 								</div>
 							</div>
@@ -269,7 +269,7 @@ export default function WorkflowPage() {
 									<div key={execution.id} className="flex flex-wrap items-center justify-between gap-3 bg-white dark:bg-slate-800 border border-yellow-200 dark:border-yellow-800 rounded-lg p-3">
 										<div>
 											<p className="text-sm font-medium text-gray-900 dark:text-white">
-												{execution.workflow_name || __('Workflow Execution', 'smart-woo-chatbot')}
+												{execution.workflow_name || __('Workflow Execution', 'agentflow-ai')}
 											</p>
 											<p className="text-xs text-gray-500 dark:text-gray-400">#{execution.id}</p>
 										</div>
@@ -278,13 +278,13 @@ export default function WorkflowPage() {
 												onClick={() => handleApproval(execution.id, true)}
 												className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg bg-green-600 text-white hover:bg-green-700"
 											>
-												{__('Approve', 'smart-woo-chatbot')}
+												{__('Approve', 'agentflow-ai')}
 											</button>
 											<button
 												onClick={() => handleApproval(execution.id, false)}
 												className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg bg-red-600 text-white hover:bg-red-700"
 											>
-												{__('Reject', 'smart-woo-chatbot')}
+												{__('Reject', 'agentflow-ai')}
 											</button>
 										</div>
 									</div>
@@ -317,7 +317,7 @@ export default function WorkflowPage() {
 			)}
 
 			{loading && view === 'list' && workflows.length === 0 && (
-				<div className="text-center text-sm text-gray-500 dark:text-gray-400">{__('Loading workflows…', 'smart-woo-chatbot')}</div>
+				<div className="text-center text-sm text-gray-500 dark:text-gray-400">{__('Loading workflows…', 'agentflow-ai')}</div>
 			)}
 		</div>
 	);

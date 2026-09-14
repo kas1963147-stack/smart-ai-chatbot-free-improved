@@ -71,42 +71,42 @@ export default function ThemeBuilder({ settings, onChange }) {
 		<div className="space-y-4">
 			<Panel>
 				<PanelBody
-					title={__('Color Palette', 'smart-woo-chatbot')}
+					title={__('Color Palette', 'agentflow-ai')}
 					initialOpen={true}
 				>
 					<div className="grid gap-4 sm:grid-cols-2">
 						<ColorPicker
-							label={__('Primary Color', 'smart-woo-chatbot')}
+							label={__('Primary Color', 'agentflow-ai')}
 							value={settings.color_primary || '#6366f1'}
 							onChange={(val) => updateSetting('color_primary', val)}
 						/>
 						<ColorPicker
-							label={__('Primary Hover', 'smart-woo-chatbot')}
+							label={__('Primary Hover', 'agentflow-ai')}
 							value={settings.color_primary_hover || '#4f46e5'}
 							onChange={(val) => updateSetting('color_primary_hover', val)}
 						/>
 						<ColorPicker
-							label={__('Background', 'smart-woo-chatbot')}
+							label={__('Background', 'agentflow-ai')}
 							value={settings.color_bg_main || '#ffffff'}
 							onChange={(val) => updateSetting('color_bg_main', val)}
 						/>
 						<ColorPicker
-							label={__('Background Light', 'smart-woo-chatbot')}
+							label={__('Background Light', 'agentflow-ai')}
 							value={settings.color_bg_light || '#f8fafc'}
 							onChange={(val) => updateSetting('color_bg_light', val)}
 						/>
 						<ColorPicker
-							label={__('Text Primary', 'smart-woo-chatbot')}
+							label={__('Text Primary', 'agentflow-ai')}
 							value={settings.color_text_primary || '#1e293b'}
 							onChange={(val) => updateSetting('color_text_primary', val)}
 						/>
 						<ColorPicker
-							label={__('Text Secondary', 'smart-woo-chatbot')}
+							label={__('Text Secondary', 'agentflow-ai')}
 							value={settings.color_text_secondary || '#64748b'}
 							onChange={(val) => updateSetting('color_text_secondary', val)}
 						/>
 						<ColorPicker
-							label={__('Border Color', 'smart-woo-chatbot')}
+							label={__('Border Color', 'agentflow-ai')}
 							value={settings.color_border || '#e2e8f0'}
 							onChange={(val) => updateSetting('color_border', val)}
 						/>
@@ -114,19 +114,19 @@ export default function ThemeBuilder({ settings, onChange }) {
 				</PanelBody>
 
 				<PanelBody
-					title={__('Typography', 'smart-woo-chatbot')}
+					title={__('Typography', 'agentflow-ai')}
 					initialOpen={false}
 				>
 					<div className="space-y-4">
 						<Select
-							label={__('Font Family', 'smart-woo-chatbot')}
+							label={__('Font Family', 'agentflow-ai')}
 							value={settings.font_family || 'system'}
 							onChange={(val) => updateSetting('font_family', val)}
 							options={FONT_OPTIONS}
-							help={__('Google Fonts will be loaded automatically', 'smart-woo-chatbot')}
+							help={__('Google Fonts will be loaded automatically', 'agentflow-ai')}
 						/>
 						<RangeField
-							label={__('Base Font Size', 'smart-woo-chatbot')}
+							label={__('Base Font Size', 'agentflow-ai')}
 							settingKey="font_size_base"
 							defaultValue={14}
 							min={10}
@@ -134,7 +134,7 @@ export default function ThemeBuilder({ settings, onChange }) {
 							unit="px"
 						/>
 						<RangeField
-							label={__('Line Height', 'smart-woo-chatbot')}
+							label={__('Line Height', 'agentflow-ai')}
 							settingKey="line_height"
 							defaultValue={1.5}
 							min={1.2}
@@ -145,12 +145,12 @@ export default function ThemeBuilder({ settings, onChange }) {
 				</PanelBody>
 
 				<PanelBody
-					title={__('Spacing & Sizing', 'smart-woo-chatbot')}
+					title={__('Spacing & Sizing', 'agentflow-ai')}
 					initialOpen={false}
 				>
 					<div className="space-y-4">
 						<RangeField
-							label={__('Window Width', 'smart-woo-chatbot')}
+							label={__('Window Width', 'agentflow-ai')}
 							settingKey="window_width"
 							defaultValue={380}
 							min={300}
@@ -159,7 +159,7 @@ export default function ThemeBuilder({ settings, onChange }) {
 							unit="px"
 						/>
 						<RangeField
-							label={__('Window Height', 'smart-woo-chatbot')}
+							label={__('Window Height', 'agentflow-ai')}
 							settingKey="window_height"
 							defaultValue={550}
 							min={400}
@@ -168,7 +168,7 @@ export default function ThemeBuilder({ settings, onChange }) {
 							unit="px"
 						/>
 						<RangeField
-							label={__('Border Radius', 'smart-woo-chatbot')}
+							label={__('Border Radius', 'agentflow-ai')}
 							settingKey="border_radius"
 							defaultValue={16}
 							min={0}
@@ -177,7 +177,7 @@ export default function ThemeBuilder({ settings, onChange }) {
 							unit="px"
 						/>
 						<RangeField
-							label={__('Message Bubble Radius', 'smart-woo-chatbot')}
+							label={__('Message Bubble Radius', 'agentflow-ai')}
 							settingKey="bubble_radius"
 							defaultValue={18}
 							min={0}
@@ -186,7 +186,7 @@ export default function ThemeBuilder({ settings, onChange }) {
 							unit="px"
 						/>
 						<RangeField
-							label={__('Toggle Button Size', 'smart-woo-chatbot')}
+							label={__('Toggle Button Size', 'agentflow-ai')}
 							settingKey="toggle_size"
 							defaultValue={60}
 							min={48}
@@ -198,37 +198,37 @@ export default function ThemeBuilder({ settings, onChange }) {
 				</PanelBody>
 
 				<PanelBody
-					title={__('Effects & Animation', 'smart-woo-chatbot')}
+					title={__('Effects & Animation', 'agentflow-ai')}
 					initialOpen={false}
 				>
 					<div className="space-y-4">
 						<Select
-							label={__('Shadow Intensity', 'smart-woo-chatbot')}
+							label={__('Shadow Intensity', 'agentflow-ai')}
 							value={settings.shadow_intensity || 'medium'}
 							onChange={(val) => updateSetting('shadow_intensity', val)}
 							options={SHADOW_OPTIONS}
 						/>
 						<Select
-							label={__('Animation Speed', 'smart-woo-chatbot')}
+							label={__('Animation Speed', 'agentflow-ai')}
 							value={settings.animation_speed || 'normal'}
 							onChange={(val) => updateSetting('animation_speed', val)}
 							options={ANIMATION_SPEED_OPTIONS}
 						/>
 						<Toggle
-							label={__('Enable Hover Effects', 'smart-woo-chatbot')}
-							help={__('Add subtle hover highlights in the widget.', 'smart-woo-chatbot')}
+							label={__('Enable Hover Effects', 'agentflow-ai')}
+							help={__('Add subtle hover highlights in the widget.', 'agentflow-ai')}
 							checked={settings.enable_hover_effects !== false}
 							onChange={(val) => updateSetting('enable_hover_effects', val)}
 						/>
 						<Toggle
-							label={__('Glassmorphism Effect', 'smart-woo-chatbot')}
-							help={__('Adds blur and transparency effects.', 'smart-woo-chatbot')}
+							label={__('Glassmorphism Effect', 'agentflow-ai')}
+							help={__('Adds blur and transparency effects.', 'agentflow-ai')}
 							checked={!!settings.enable_glassmorphism}
 							onChange={(val) => updateSetting('enable_glassmorphism', val)}
 						/>
 						<Toggle
-							label={__('Sound Effects', 'smart-woo-chatbot')}
-							help={__('Play sounds on message send/receive.', 'smart-woo-chatbot')}
+							label={__('Sound Effects', 'agentflow-ai')}
+							help={__('Play sounds on message send/receive.', 'agentflow-ai')}
 							checked={!!settings.enable_sounds}
 							onChange={(val) => updateSetting('enable_sounds', val)}
 						/>

@@ -7,8 +7,8 @@ import { __ } from '@wordpress/i18n';
 import PropTypes from 'prop-types';
 
 const STATUS_LABELS = {
-	active: { label: __('Active', 'smart-woo-chatbot'), class: 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400' },
-	inactive: { label: __('Inactive', 'smart-woo-chatbot'), class: 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400' },
+	active: { label: __('Active', 'agentflow-ai'), class: 'bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400' },
+	inactive: { label: __('Inactive', 'agentflow-ai'), class: 'bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400' },
 };
 
 export default function WorkflowList({ workflows, onEdit, onDelete, onExecute, onHistory }) {
@@ -21,10 +21,10 @@ export default function WorkflowList({ workflows, onEdit, onDelete, onExecute, o
 					</svg>
 				</div>
 				<h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-					{__('No Workflows Yet', 'smart-woo-chatbot')}
+					{__('No Workflows Yet', 'agentflow-ai')}
 				</h3>
 				<p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-					{__('Create a workflow to automate multi-step agent operations.', 'smart-woo-chatbot')}
+					{__('Create a workflow to automate multi-step agent operations.', 'agentflow-ai')}
 				</p>
 			</div>
 		);
@@ -49,7 +49,7 @@ export default function WorkflowList({ workflows, onEdit, onDelete, onExecute, o
 										{workflow.name}
 									</h3>
 									<p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
-										{workflow.description || __('No description', 'smart-woo-chatbot')}
+										{workflow.description || __('No description', 'agentflow-ai')}
 									</p>
 								</div>
 								<span className={`inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full ${status.class}`}>
@@ -59,13 +59,13 @@ export default function WorkflowList({ workflows, onEdit, onDelete, onExecute, o
 
 							<div className="mt-4 grid grid-cols-2 gap-4">
 								<div>
-									<div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{__('Trigger', 'smart-woo-chatbot')}</div>
+									<div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{__('Trigger', 'agentflow-ai')}</div>
 									<div className="text-sm font-medium text-gray-700 dark:text-gray-300 capitalize">
 										{workflow.trigger_type || 'manual'}
 									</div>
 								</div>
 								<div>
-									<div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{__('Steps', 'smart-woo-chatbot')}</div>
+									<div className="text-xs text-gray-400 dark:text-gray-500 mb-0.5">{__('Steps', 'agentflow-ai')}</div>
 									<div className="text-sm font-medium text-gray-700 dark:text-gray-300">
 										{(workflow.steps || []).length}
 									</div>
@@ -79,13 +79,13 @@ export default function WorkflowList({ workflows, onEdit, onDelete, onExecute, o
 									onClick={() => onExecute(workflow)}
 									className="inline-flex items-center px-2.5 py-1.5 text-xs font-medium rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
 								>
-									{__('Run', 'smart-woo-chatbot')}
+									{__('Run', 'agentflow-ai')}
 								</button>
 								<button
 									onClick={() => onHistory(workflow)}
 									className="inline-flex items-center px-2.5 py-1.5 text-xs font-medium rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-600 transition-colors"
 								>
-									{__('History', 'smart-woo-chatbot')}
+									{__('History', 'agentflow-ai')}
 								</button>
 							</div>
 							<div className="flex items-center gap-1">
@@ -93,13 +93,13 @@ export default function WorkflowList({ workflows, onEdit, onDelete, onExecute, o
 									onClick={() => onEdit(workflow)}
 									className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-600 border border-gray-300 dark:border-slate-600 shadow-sm transition-colors"
 								>
-									{__('Edit', 'smart-woo-chatbot')}
+									{__('Edit', 'agentflow-ai')}
 								</button>
 								<button
 									onClick={() => onDelete(workflow.id)}
 									className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-lg text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
 								>
-									{__('Delete', 'smart-woo-chatbot')}
+									{__('Delete', 'agentflow-ai')}
 								</button>
 							</div>
 						</div>

@@ -89,7 +89,7 @@ export default function AgentKnowledgeAssigner({
 					<BookOpen className="w-5 h-5 text-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 				</div>
 				<p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-					{__('Loading knowledge sources...', 'smart-woo-chatbot')}
+					{__('Loading knowledge sources...', 'agentflow-ai')}
 				</p>
 			</div>
 		);
@@ -107,10 +107,10 @@ export default function AgentKnowledgeAssigner({
 						</div>
 						<div>
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-								{__('Knowledge Sources', 'smart-woo-chatbot')}
+								{__('Knowledge Sources', 'agentflow-ai')}
 							</h3>
 							<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-								{__('Select knowledge sources to make available to this agent. Only checked sources will be searchable.', 'smart-woo-chatbot')}
+								{__('Select knowledge sources to make available to this agent. Only checked sources will be searchable.', 'agentflow-ai')}
 							</p>
 						</div>
 					</div>
@@ -125,7 +125,7 @@ export default function AgentKnowledgeAssigner({
 								type="text"
 								value={searchQuery}
 								onChange={(e) => setSearchQuery(e.target.value)}
-								placeholder={__('Search sources...', 'smart-woo-chatbot')}
+								placeholder={__('Search sources...', 'agentflow-ai')}
 								className="
 									w-full h-10 px-4 text-sm rounded-lg
 									border border-gray-200 dark:border-gray-600
@@ -150,7 +150,7 @@ export default function AgentKnowledgeAssigner({
 								"
 							>
 								<Check className="w-4 h-4" />
-								{__('Enable All', 'smart-woo-chatbot')}
+								{__('Enable All', 'agentflow-ai')}
 							</button>
 							<button
 								onClick={deselectAll}
@@ -162,7 +162,7 @@ export default function AgentKnowledgeAssigner({
 									transition-all duration-200
 								"
 							>
-								{__('Disable All', 'smart-woo-chatbot')}
+								{__('Disable All', 'agentflow-ai')}
 							</button>
 						</div>
 					</div>
@@ -177,14 +177,14 @@ export default function AgentKnowledgeAssigner({
 							</div>
 							<h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
 								{sources.length === 0
-									? __('No knowledge sources found', 'smart-woo-chatbot')
-									: __('No sources match your search', 'smart-woo-chatbot')
+									? __('No knowledge sources found', 'agentflow-ai')
+									: __('No sources match your search', 'agentflow-ai')
 								}
 							</h4>
 							<p className="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto">
 								{sources.length === 0
-									? __('Create knowledge sources in the Knowledge settings to start building your AI knowledge base.', 'smart-woo-chatbot')
-									: __('Try adjusting your search terms.', 'smart-woo-chatbot')
+									? __('Create knowledge sources in the Knowledge settings to start building your AI knowledge base.', 'agentflow-ai')
+									: __('Try adjusting your search terms.', 'agentflow-ai')
 								}
 							</p>
 						</div>
@@ -245,7 +245,7 @@ export default function AgentKnowledgeAssigner({
 														${source.is_active ? 'bg-green-500' : 'bg-gray-400'}
 													`} />
 													<span className="text-xs text-gray-500 dark:text-gray-400">
-														{source.is_active ? __('Active', 'smart-woo-chatbot') : __('Inactive', 'smart-woo-chatbot')}
+														{source.is_active ? __('Active', 'agentflow-ai') : __('Inactive', 'agentflow-ai')}
 													</span>
 												</div>
 											)}
@@ -280,7 +280,7 @@ export default function AgentKnowledgeAssigner({
 							{' / '}
 							{sources.length}
 							{' '}
-							{__('sources enabled for this agent', 'smart-woo-chatbot')}
+							{__('sources enabled for this agent', 'agentflow-ai')}
 						</span>
 					</div>
 				</div>

@@ -54,7 +54,7 @@ export default function Modal( {
 			closeOnClickOutside={ closeOnOverlay }
 			withCloseButton={ showCloseButton }
 			closeButtonProps={ {
-				'aria-label': __('Close', 'smart-ai-chatbot'),
+				'aria-label': __('Close', 'agentflow-ai'),
 			} }
 			overlayProps={ {
 				className: 'swc-modal-overlay swc-modal-overlay--open',
@@ -89,10 +89,10 @@ export function ConfirmModal( {
 	isOpen,
 	onClose,
 	onConfirm,
-	title = __('Confirm Action', 'smart-ai-chatbot'),
+	title = __('Confirm Action', 'agentflow-ai'),
 	message,
-	confirmText = __('Confirm', 'smart-ai-chatbot'),
-	cancelText = __('Cancel', 'smart-ai-chatbot'),
+	confirmText = __('Confirm', 'agentflow-ai'),
+	cancelText = __('Cancel', 'agentflow-ai'),
 	variant = 'danger', // 'danger' | 'warning' | 'primary'
 } ) {
 	return (

@@ -58,7 +58,7 @@ export default function KnowledgePage() {
             const items = await fetchKnowledgeItems();
             setKnowledgeItems(Array.isArray(items) ? items : []);
         } catch (err) {
-            setError(err.message || __('Failed to load knowledge documents', 'smart-woo-chatbot'));
+            setError(err.message || __('Failed to load knowledge documents', 'agentflow-ai'));
         } finally {
             setLoading(false);
         }
@@ -77,14 +77,14 @@ export default function KnowledgePage() {
                 : await updateKnowledgeItem(itemData.id, itemData);
 
             if (response?.success === false) {
-                throw new Error(response?.message || __('Failed to save knowledge document', 'smart-woo-chatbot'));
+                throw new Error(response?.message || __('Failed to save knowledge document', 'agentflow-ai'));
             }
 
             setShowKnowledgeModal(false);
             setEditingKnowledge(null);
             await fetchKnowledge();
         } catch (err) {
-            setError(err.message || __('Failed to save knowledge document', 'smart-woo-chatbot'));
+            setError(err.message || __('Failed to save knowledge document', 'agentflow-ai'));
             throw err; // Re-throw to be caught by the modal
         }
     };
@@ -97,24 +97,24 @@ export default function KnowledgePage() {
             const fullItem = await getKnowledgeItem(item.id);
             setEditingKnowledge(fullItem);
         } catch (err) {
-            setError(err.message || __('Failed to load document details', 'smart-woo-chatbot'));
+            setError(err.message || __('Failed to load document details', 'agentflow-ai'));
         } finally {
             setLoading(false);
         }
     };
 
     const handleDeleteKnowledge = async (itemId) => {
-        if (!confirm(__('Are you sure you want to delete this document?', 'smart-woo-chatbot'))) {
+        if (!confirm(__('Are you sure you want to delete this document?', 'agentflow-ai'))) {
             return;
         }
         try {
             const response = await deleteKnowledgeItem(itemId);
             if (response?.success === false) {
-                throw new Error(response?.message || __('Failed to delete knowledge document', 'smart-woo-chatbot'));
+                throw new Error(response?.message || __('Failed to delete knowledge document', 'agentflow-ai'));
             }
             await fetchKnowledge();
         } catch (err) {
-            setError(err.message || __('Failed to delete knowledge document', 'smart-woo-chatbot'));
+            setError(err.message || __('Failed to delete knowledge document', 'agentflow-ai'));
         }
     };
 
@@ -146,11 +146,11 @@ export default function KnowledgePage() {
                 <div>
                     <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                         <FileText className="w-6 h-6 text-primary" />
-                        {__('Knowledge Documents', 'smart-woo-chatbot')}
+                        {__('Knowledge Documents', 'agentflow-ai')}
                         <span className="text-[8px] opacity-10 self-end mb-1">v1.12-pro</span>
                     </h1>
                     <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
-                        {__('Manage the knowledge base documents your agents use as reference.', 'smart-woo-chatbot')}
+                        {__('Manage the knowledge base documents your agents use as reference.', 'agentflow-ai')}
                     </p>
                 </div>
                 <button
@@ -158,7 +158,7 @@ export default function KnowledgePage() {
                     className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors"
                 >
                     <Plus className="w-4 h-4" />
-                    {__('Add Document', 'smart-woo-chatbot')}
+                    {__('Add Document', 'agentflow-ai')}
                 </button>
             </div>
 
@@ -185,17 +185,17 @@ export default function KnowledgePage() {
                                 <FileText className="w-8 h-8 text-primary" />
                             </div>
                             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                                {__('No Documents Yet', 'smart-woo-chatbot')}
+                                {__('No Documents Yet', 'agentflow-ai')}
                             </h3>
                             <p className="text-gray-500 dark:text-slate-400 max-w-sm mx-auto mb-6">
-                                {__('Create documents from text, PDFs, or URLs to give your AI agents factual context.', 'smart-woo-chatbot')}
+                                {__('Create documents from text, PDFs, or URLs to give your AI agents factual context.', 'agentflow-ai')}
                             </p>
                             <button
                                 onClick={() => setShowKnowledgeModal(true)}
                                 className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-xl text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors cursor-pointer"
                             >
                                 <Plus className="w-4 h-4" />
-                                {__('Create First Document', 'smart-woo-chatbot')}
+                                {__('Create First Document', 'agentflow-ai')}
                             </button>
                         </div>
                     ) : (

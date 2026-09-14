@@ -55,7 +55,7 @@ export default function TopTools({ period }) {
 	if (loading) {
 		return (
 			<div className="flex flex-col items-center justify-center py-12 gap-4">
-				<Loading message={__('Loading tool analytics...', 'smart-woo-chatbot')} />
+				<Loading message={__('Loading tool analytics...', 'agentflow-ai')} />
 			</div>
 		);
 	}
@@ -66,8 +66,8 @@ export default function TopTools({ period }) {
 				<div className="w-16 h-16 bg-gray-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
 					<Wrench className="w-8 h-8 text-gray-400 dark:text-slate-500" />
 				</div>
-				<p className="text-sm text-gray-500 dark:text-slate-400">{__('No tool usage recorded', 'smart-woo-chatbot')}</p>
-				<p className="text-xs text-gray-400 dark:text-slate-500 mt-1">{__('Tools will appear here when used', 'smart-woo-chatbot')}</p>
+				<p className="text-sm text-gray-500 dark:text-slate-400">{__('No tool usage recorded', 'agentflow-ai')}</p>
+				<p className="text-xs text-gray-400 dark:text-slate-500 mt-1">{__('Tools will appear here when used', 'agentflow-ai')}</p>
 			</div>
 		);
 	}
@@ -121,7 +121,7 @@ export default function TopTools({ period }) {
 							<div className="flex items-center gap-4 mt-1 text-xs text-gray-500 dark:text-slate-400">
 								<span className="inline-flex items-center gap-1">
 									<TrendingUp className="w-3 h-3" />
-									{callCount.toLocaleString()} {__('calls', 'smart-woo-chatbot')}
+									{callCount.toLocaleString()} {__('calls', 'agentflow-ai')}
 								</span>
 								<span className="inline-flex items-center gap-1">
 									<Clock className="w-3 h-3" />
@@ -154,7 +154,7 @@ export default function TopTools({ period }) {
 			{/* Show more indicator */}
 			{data.length > 8 && (
 				<p className="text-xs text-center text-gray-400 dark:text-slate-500 pt-2">
-					{__('+ ', 'smart-woo-chatbot')}{data.length - 8}{__(' more tools', 'smart-woo-chatbot')}
+					{__('+ ', 'agentflow-ai')}{data.length - 8}{__(' more tools', 'agentflow-ai')}
 				</p>
 			)}
 		</div>

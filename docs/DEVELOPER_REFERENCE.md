@@ -386,7 +386,7 @@ $logger->error('Something failed', ['exception' => $e]);
 
 | Purpose | Location |
 |---------|----------|
-| Main plugin file | `smart-ai-chatbot.php` |
+| Main plugin file | `agentflow-ai.php` |
 | Frontend chatbot class | `includes/class-chatbot.php` |
 | API Controllers | `src/Api/Controllers/` |
 | AI Providers | `src/Api/Providers/` |

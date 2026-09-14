@@ -57,7 +57,7 @@ export default function ToolSelector({ selected, onChange }) {
 					<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
 					<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
 				</svg>
-				{__('Loading tools…', 'smart-woo-chatbot')}
+				{__('Loading tools…', 'agentflow-ai')}
 			</div>
 		);
 	}
@@ -66,7 +66,7 @@ export default function ToolSelector({ selected, onChange }) {
 		return (
 			<div className="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-8 text-center bg-gray-50 dark:bg-gray-800/50">
 				<p className="text-gray-500 dark:text-gray-400">
-					{__('No tools available.', 'smart-woo-chatbot')}
+					{__('No tools available.', 'agentflow-ai')}
 				</p>
 			</div>
 		);
@@ -77,7 +77,7 @@ export default function ToolSelector({ selected, onChange }) {
 			{selected.length > 0 && (
 				<div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
 					<div className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-						{__('Selected:', 'smart-woo-chatbot')}
+						{__('Selected:', 'agentflow-ai')}
 					</div>
 					<div className="flex flex-wrap gap-2">
 						{selected.map((toolId) => (
@@ -118,7 +118,7 @@ export default function ToolSelector({ selected, onChange }) {
 									{toolkit.name}
 								</span>
 								<span className="text-sm text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-700 px-2 py-0.5 rounded-full border border-gray-200 dark:border-gray-600">
-									{toolkit.tool_count}{' '}{__('tools', 'smart-woo-chatbot')}
+									{toolkit.tool_count}{' '}{__('tools', 'agentflow-ai')}
 								</span>
 							</div>
 							<span className="text-gray-400 dark:text-gray-500">

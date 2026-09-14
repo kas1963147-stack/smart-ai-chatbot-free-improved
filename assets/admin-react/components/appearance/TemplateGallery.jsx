@@ -18,10 +18,10 @@ export default function TemplateGallery({
 		<div className="space-y-4">
 			<div>
 				<h3 className="text-lg font-semibold text-slate-900">
-					{__('Choose a Template', 'smart-woo-chatbot')}
+					{__('Choose a Template', 'agentflow-ai')}
 				</h3>
 				<p className="mt-1 text-sm text-slate-500">
-					{__('Pick a ready-made look and feel for your chatbot.', 'smart-woo-chatbot')}
+					{__('Pick a ready-made look and feel for your chatbot.', 'agentflow-ai')}
 				</p>
 			</div>
 
@@ -76,7 +76,7 @@ export default function TemplateGallery({
 									</h4>
 									{isActive && (
 										<span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
-											{__('Active', 'smart-woo-chatbot')}
+											{__('Active', 'agentflow-ai')}
 										</span>
 									)}
 								</div>
@@ -94,7 +94,7 @@ export default function TemplateGallery({
 										onSelect(template);
 									}}
 								>
-									{__('Apply', 'smart-woo-chatbot')}
+									{__('Apply', 'agentflow-ai')}
 								</Button>
 								{onCustomize && (
 									<Button
@@ -105,7 +105,7 @@ export default function TemplateGallery({
 											onCustomize(template);
 										}}
 									>
-										{__('Edit', 'smart-woo-chatbot')}
+										{__('Edit', 'agentflow-ai')}
 									</Button>
 								)}
 							</div>

@@ -123,7 +123,7 @@ export default function AgentSkillAssigner({
 		() => [
 			{
 				id: 'all',
-				label: `${__('All', 'smart-woo-chatbot')} (${skills.length})`,
+				label: `${__('All', 'agentflow-ai')} (${skills.length})`,
 			},
 			...availableCategories.map((catId) => ({
 				id: catId,
@@ -155,7 +155,7 @@ export default function AgentSkillAssigner({
 	};
 
 	if (loading) {
-		return <Loading message={__('Loading skills…', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading skills…', 'agentflow-ai')} fullPage />;
 	}
 
 	return (
@@ -169,10 +169,10 @@ export default function AgentSkillAssigner({
 						</div>
 						<div>
 							<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-								{__('Agent Skills', 'smart-woo-chatbot')}
+								{__('Agent Skills', 'agentflow-ai')}
 							</h3>
 							<p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-								{__('Select skills to enable for this agent. Only checked skills will be available.', 'smart-woo-chatbot')}
+								{__('Select skills to enable for this agent. Only checked skills will be available.', 'agentflow-ai')}
 							</p>
 						</div>
 					</div>
@@ -183,16 +183,16 @@ export default function AgentSkillAssigner({
 						<TextField
 							value={searchQuery}
 							onChange={setSearchQuery}
-							placeholder={__('Search skills...', 'smart-woo-chatbot')}
+							placeholder={__('Search skills...', 'agentflow-ai')}
 							className="w-full"
 						/>
 					</div>
 					<div className="flex flex-wrap items-center gap-2">
 						<Button variant="primary" size="sm" onClick={selectAllInView}>
-							{__('Enable All', 'smart-woo-chatbot')}
+							{__('Enable All', 'agentflow-ai')}
 						</Button>
 						<Button variant="secondary" size="sm" onClick={deselectAllInView}>
-							{__('Disable All', 'smart-woo-chatbot')}
+							{__('Disable All', 'agentflow-ai')}
 						</Button>
 					</div>
 				</div>
@@ -242,7 +242,7 @@ export default function AgentSkillAssigner({
 														{skill.display_name || skill.name}
 														{skill.always_on && (
 															<span className="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-																{__('Core', 'smart-woo-chatbot')}
+																{__('Core', 'agentflow-ai')}
 															</span>
 														)}
 													</div>
@@ -267,8 +267,8 @@ export default function AgentSkillAssigner({
 					{filteredSkills.length === 0 && (
 						<div className="py-10 text-center text-sm text-slate-500">
 							{skills.length === 0
-								? __('No skills available.', 'smart-woo-chatbot')
-								: __('No skills match your search.', 'smart-woo-chatbot')}
+								? __('No skills available.', 'agentflow-ai')
+								: __('No skills match your search.', 'agentflow-ai')}
 						</div>
 					)}
 				</div>
@@ -284,7 +284,7 @@ export default function AgentSkillAssigner({
 							{' / '}
 							{skills.length}
 							{' '}
-							{__('skills enabled for this agent', 'smart-woo-chatbot')}
+							{__('skills enabled for this agent', 'agentflow-ai')}
 						</span>
 					</div>
 				</div>

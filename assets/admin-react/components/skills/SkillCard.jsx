@@ -39,7 +39,7 @@ export default function SkillCard({ skill, onEdit, onDelete, onDuplicate }) {
 	}, [menuOpen]);
 
 	const handleDelete = async () => {
-		if (!confirm(__('Are you sure you want to delete this skill?', 'smart-woo-chatbot'))) {
+		if (!confirm(__('Are you sure you want to delete this skill?', 'agentflow-ai'))) {
 			return;
 		}
 		setDeleting(true);
@@ -72,12 +72,12 @@ export default function SkillCard({ skill, onEdit, onDelete, onDuplicate }) {
 							</h3>
 							{skill.always_on && (
 								<span className="inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full bg-green-50 dark:bg-green-900/40 text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20 dark:ring-green-500/30">
-									{__('Active', 'smart-woo-chatbot')}
+									{__('Active', 'agentflow-ai')}
 								</span>
 							)}
 						</div>
 						<p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
-							{skill.description || __('No description', 'smart-woo-chatbot')}
+							{skill.description || __('No description', 'agentflow-ai')}
 						</p>
 					</div>
 
@@ -96,7 +96,7 @@ export default function SkillCard({ skill, onEdit, onDelete, onDuplicate }) {
 									setMenuOpen(!menuOpen);
 								}}
 								className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-								title={__('Actions', 'smart-woo-chatbot')}
+								title={__('Actions', 'agentflow-ai')}
 							>
 								<MoreVertical className="w-4 h-4" />
 							</button>
@@ -109,14 +109,14 @@ export default function SkillCard({ skill, onEdit, onDelete, onDuplicate }) {
 										className="flex items-center gap-2 w-full px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
 									>
 										<Copy className="w-3.5 h-3.5" />
-										{__('Duplicate', 'smart-woo-chatbot')}
+										{__('Duplicate', 'agentflow-ai')}
 									</button>
 									<button
 										onClick={(e) => { e.stopPropagation(); onEdit(skill); setMenuOpen(false); }}
 										className="flex items-center gap-2 w-full px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
 									>
 										<Edit2 className="w-3.5 h-3.5" />
-										{__('Edit', 'smart-woo-chatbot')}
+										{__('Edit', 'agentflow-ai')}
 									</button>
 									<div className="border-t border-gray-100 dark:border-gray-700 my-1" />
 									<button
@@ -125,7 +125,7 @@ export default function SkillCard({ skill, onEdit, onDelete, onDuplicate }) {
 										className="flex items-center gap-2 w-full px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors disabled:opacity-50"
 									>
 										<Trash2 className="w-3.5 h-3.5" />
-										{deleting ? __('Deleting...', 'smart-woo-chatbot') : __('Delete', 'smart-woo-chatbot')}
+										{deleting ? __('Deleting...', 'agentflow-ai') : __('Delete', 'agentflow-ai')}
 									</button>
 								</div>
 							)}
@@ -156,7 +156,7 @@ export default function SkillCard({ skill, onEdit, onDelete, onDuplicate }) {
 				{skill.reference_count > 0 && (
 					<div className="mt-3 flex items-center gap-1.5 text-xs text-gray-400 dark:text-gray-500">
 						<FileIcon className="w-3.5 h-3.5" />
-						<span>{skill.reference_count} {__('reference document(s)', 'smart-woo-chatbot')}</span>
+						<span>{skill.reference_count} {__('reference document(s)', 'agentflow-ai')}</span>
 					</div>
 				)}
 			</div>

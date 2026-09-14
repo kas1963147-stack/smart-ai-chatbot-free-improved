@@ -18,7 +18,7 @@ final class ExtensionApi
 {
     public const VERSION = '1.0.0';
     public const MIN_SUPPORTED = '1.0.0';
-    public const REST_NAMESPACE = 'smart-ai-chatbot/v1';
+    public const REST_NAMESPACE = 'quark-agentflow-ai/v1';
 
     /**
      * Versions deprecated but still accepted.

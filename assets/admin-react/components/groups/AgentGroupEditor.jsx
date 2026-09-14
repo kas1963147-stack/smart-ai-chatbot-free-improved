@@ -32,8 +32,8 @@ import {
 const ORCHESTRATION_MODES = [
     {
         value: 'router',
-        label: __('Auto-Router (Best Agent)', 'smart-woo-chatbot'),
-        description: __('Automatically routes user input to the most relevant agent.', 'smart-woo-chatbot'),
+        label: __('Auto-Router (Best Agent)', 'agentflow-ai'),
+        description: __('Automatically routes user input to the most relevant agent.', 'agentflow-ai'),
         icon: Zap,
         color: 'from-blue-500 to-indigo-600',
         bgColor: 'bg-blue-50',
@@ -41,8 +41,8 @@ const ORCHESTRATION_MODES = [
     },
     {
         value: 'sequential',
-        label: __('Sequential (In Order)', 'smart-woo-chatbot'),
-        description: __('Agents execute one by one in the order defined below.', 'smart-woo-chatbot'),
+        label: __('Sequential (In Order)', 'agentflow-ai'),
+        description: __('Agents execute one by one in the order defined below.', 'agentflow-ai'),
         icon: ArrowRight,
         color: 'from-green-500 to-emerald-600',
         bgColor: 'bg-green-50',
@@ -50,8 +50,8 @@ const ORCHESTRATION_MODES = [
     },
     {
         value: 'parallel',
-        label: __('Parallel (All At Once)', 'smart-woo-chatbot'),
-        description: __('All agents execute simultaneously and results are combined.', 'smart-woo-chatbot'),
+        label: __('Parallel (All At Once)', 'agentflow-ai'),
+        description: __('All agents execute simultaneously and results are combined.', 'agentflow-ai'),
         icon: Layers,
         color: 'from-purple-500 to-pink-600',
         bgColor: 'bg-purple-50',
@@ -59,8 +59,8 @@ const ORCHESTRATION_MODES = [
     },
     {
         value: 'handoff',
-        label: __('Manual Handoff', 'smart-woo-chatbot'),
-        description: __('Manual handoff between agents with explicit triggers.', 'smart-woo-chatbot'),
+        label: __('Manual Handoff', 'agentflow-ai'),
+        description: __('Manual handoff between agents with explicit triggers.', 'agentflow-ai'),
         icon: RefreshCw,
         color: 'from-orange-500 to-amber-600',
         bgColor: 'bg-orange-50',
@@ -69,9 +69,9 @@ const ORCHESTRATION_MODES = [
 ];
 
 const MEMBER_ROLES = [
-    { value: 'primary', label: __('Primary', 'smart-woo-chatbot'), color: 'bg-blue-100 text-blue-700' },
-    { value: 'specialist', label: __('Specialist', 'smart-woo-chatbot'), color: 'bg-purple-100 text-purple-700' },
-    { value: 'fallback', label: __('Fallback', 'smart-woo-chatbot'), color: 'bg-amber-100 text-amber-700' },
+    { value: 'primary', label: __('Primary', 'agentflow-ai'), color: 'bg-blue-100 text-blue-700' },
+    { value: 'specialist', label: __('Specialist', 'agentflow-ai'), color: 'bg-purple-100 text-purple-700' },
+    { value: 'fallback', label: __('Fallback', 'agentflow-ai'), color: 'bg-amber-100 text-amber-700' },
 ];
 
 export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true }) {
@@ -126,7 +126,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                 }
             } catch (err) {
                 console.error('Failed to load data:', err);
-                setErrors({ general: __('Failed to load data.', 'smart-woo-chatbot') });
+                setErrors({ general: __('Failed to load data.', 'agentflow-ai') });
             } finally {
                 setLoading(false);
             }
@@ -196,16 +196,16 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
         try {
             // Validation
             if (!formData.name.trim()) {
-                throw new Error(__('Team name is required', 'smart-woo-chatbot'));
+                throw new Error(__('Team name is required', 'agentflow-ai'));
             }
             if (isNew && !formData.group_id.trim()) {
-                throw new Error(__('Team ID is required', 'smart-woo-chatbot'));
+                throw new Error(__('Team ID is required', 'agentflow-ai'));
             }
 
             await onSave(formData);
         } catch (err) {
             console.error('Failed to save group:', err);
-            setErrors({ general: err.message || __('Failed to save team', 'smart-woo-chatbot') });
+            setErrors({ general: err.message || __('Failed to save team', 'agentflow-ai') });
             setSaving(false);
         }
     };
@@ -219,7 +219,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                     <div className="w-16 h-16 border-4 border-primary/20 rounded-full" />
                     <div className="absolute inset-0 w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin" />
                 </div>
-                <p className="mt-4 text-gray-500 font-medium">{__('Loading...', 'smart-woo-chatbot')}</p>
+                <p className="mt-4 text-gray-500 font-medium">{__('Loading...', 'agentflow-ai')}</p>
             </div>
         );
     }
@@ -235,7 +235,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                         className="flex items-center gap-2 px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200"
                     >
                         <ChevronLeft className="w-5 h-5" />
-                        <span className="font-medium">{__('Back', 'smart-woo-chatbot')}</span>
+                        <span className="font-medium">{__('Back', 'agentflow-ai')}</span>
                     </button>
                     <div className="flex items-center gap-3">
                         <button
@@ -244,7 +244,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                             disabled={saving}
                             className="px-4 py-2.5 text-gray-700 bg-white border border-gray-300 rounded-xl font-medium hover:bg-gray-50 transition-all duration-200 disabled:opacity-50"
                         >
-                            {__('Cancel', 'smart-woo-chatbot')}
+                            {__('Cancel', 'agentflow-ai')}
                         </button>
                         <button
                             type="submit"
@@ -255,12 +255,12 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                             {saving ? (
                                 <>
                                     <Loader2 className="w-4 h-4 animate-spin" />
-                                    {__('Saving...', 'smart-woo-chatbot')}
+                                    {__('Saving...', 'agentflow-ai')}
                                 </>
                             ) : (
                                 <>
                                     <Save className="w-4 h-4" />
-                                    {isNew ? __('Create Team', 'smart-woo-chatbot') : __('Save Changes', 'smart-woo-chatbot')}
+                                    {isNew ? __('Create Team', 'agentflow-ai') : __('Save Changes', 'agentflow-ai')}
                                 </>
                             )}
                         </button>
@@ -273,7 +273,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                     <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
                         <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                         <div>
-                            <p className="font-medium text-red-800">{__('Error', 'smart-woo-chatbot')}</p>
+                            <p className="font-medium text-red-800">{__('Error', 'agentflow-ai')}</p>
                             <p className="text-sm text-red-600">{errors.general}</p>
                         </div>
                     </div>
@@ -292,10 +292,10 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-semibold text-gray-900">
-                                            {__('Team Settings', 'smart-woo-chatbot')}
+                                            {__('Team Settings', 'agentflow-ai')}
                                         </h3>
                                         <p className="text-sm text-gray-500">
-                                            {__('Basic information for your agent team', 'smart-woo-chatbot')}
+                                            {__('Basic information for your agent team', 'agentflow-ai')}
                                         </p>
                                     </div>
                                 </div>
@@ -308,7 +308,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                     <div className="space-y-2">
                                         <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
                                             <span className="flex items-center justify-center w-5 h-5 rounded bg-gray-100 text-xs text-gray-500 font-bold">ID</span>
-                                            {__('Team ID', 'smart-woo-chatbot')}
+                                            {__('Team ID', 'agentflow-ai')}
                                             <span className="text-red-500">*</span>
                                         </label>
                                         <input
@@ -325,7 +325,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                         />
                                         <p className="text-xs text-gray-500 flex items-center gap-1">
                                             <Info className="w-3 h-3" />
-                                            {__('Unique identifier (lowercase)', 'smart-woo-chatbot')}
+                                            {__('Unique identifier (lowercase)', 'agentflow-ai')}
                                         </p>
                                     </div>
                                 )}
@@ -334,7 +334,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
                                         <Users className="w-4 h-4 text-gray-400" />
-                                        {__('Team Name', 'smart-woo-chatbot')}
+                                        {__('Team Name', 'agentflow-ai')}
                                         <span className="text-red-500">*</span>
                                     </label>
                                     <input
@@ -355,7 +355,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
                                         <MessageSquare className="w-4 h-4 text-gray-400" />
-                                        {__('Description', 'smart-woo-chatbot')}
+                                        {__('Description', 'agentflow-ai')}
                                     </label>
                                     <textarea
                                         value={formData.description}
@@ -374,7 +374,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                 <div className="space-y-3">
                                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
                                         <Zap className="w-4 h-4 text-gray-400" />
-                                        {__('Orchestration Strategy', 'smart-woo-chatbot')}
+                                        {__('Orchestration Strategy', 'agentflow-ai')}
                                     </label>
                                     <select
                                         value={formData.orchestration_mode}
@@ -409,7 +409,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                 <div className="space-y-2">
                                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
                                         <MessageSquare className="w-4 h-4 text-gray-400" />
-                                        {__('Welcome Message', 'smart-woo-chatbot')}
+                                        {__('Welcome Message', 'agentflow-ai')}
                                     </label>
                                     <textarea
                                         value={formData.welcome_message}
@@ -423,7 +423,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
 										"
                                     />
                                     <p className="text-xs text-gray-500">
-                                        {__('Message displayed when the team chat starts', 'smart-woo-chatbot')}
+                                        {__('Message displayed when the team chat starts', 'agentflow-ai')}
                                     </p>
                                 </div>
                             </div>
@@ -440,10 +440,10 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                         </div>
                                         <div>
                                             <h3 className="text-lg font-semibold text-gray-900">
-                                                {__('Team Members', 'smart-woo-chatbot')}
+                                                {__('Team Members', 'agentflow-ai')}
                                             </h3>
                                             <p className="text-sm text-gray-500">
-                                                {formData.members.length} {formData.members.length === 1 ? __('agent', 'smart-woo-chatbot') : __('agents', 'smart-woo-chatbot')}
+                                                {formData.members.length} {formData.members.length === 1 ? __('agent', 'agentflow-ai') : __('agents', 'agentflow-ai')}
                                             </p>
                                         </div>
                                     </div>
@@ -460,7 +460,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
 												appearance-none
 											"
                                         >
-                                            <option value="">{__('+ Add Agent', 'smart-woo-chatbot')}</option>
+                                            <option value="">{__('+ Add Agent', 'agentflow-ai')}</option>
                                             {availableAgents.map((agent) => (
                                                 <option key={agent.id} value={agent.id}>
                                                     {agent.avatar || ''} {agent.name}
@@ -479,10 +479,10 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                             <Users className="w-8 h-8 text-gray-400" />
                                         </div>
                                         <h4 className="font-semibold text-gray-700 mb-1">
-                                            {__('No agents added yet', 'smart-woo-chatbot')}
+                                            {__('No agents added yet', 'agentflow-ai')}
                                         </h4>
                                         <p className="text-sm text-gray-500 max-w-xs mx-auto">
-                                            {__('Add agents to create a team. They will work together based on your orchestration strategy.', 'smart-woo-chatbot')}
+                                            {__('Add agents to create a team. They will work together based on your orchestration strategy.', 'agentflow-ai')}
                                         </p>
                                     </div>
                                 ) : (
@@ -534,7 +534,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                                                     type="text"
                                                                     value={member.routing_keywords || ''}
                                                                     onChange={(e) => updateMember(index, 'routing_keywords', e.target.value)}
-                                                                    placeholder={__('Routing keywords (comma-separated)', 'smart-woo-chatbot')}
+                                                                    placeholder={__('Routing keywords (comma-separated)', 'agentflow-ai')}
                                                                     className="w-full h-8 px-3 text-xs rounded-lg border border-gray-200 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
                                                                 />
                                                             </div>
@@ -556,7 +556,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                         {formData.orchestration_mode === 'sequential' && (
                                             <p className="text-sm text-gray-500 italic mt-4 flex items-center gap-2">
                                                 <Info className="w-4 h-4" />
-                                                {__('Drag to reorder. Agents will execute in the order shown above.', 'smart-woo-chatbot')}
+                                                {__('Drag to reorder. Agents will execute in the order shown above.', 'agentflow-ai')}
                                             </p>
                                         )}
                                     </div>
@@ -571,7 +571,7 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
                             <div className="p-6">
                                 <h3 className="text-sm font-semibold text-gray-700 mb-4">
-                                    {__('Team Status', 'smart-woo-chatbot')}
+                                    {__('Team Status', 'agentflow-ai')}
                                 </h3>
 
                                 {/* Status Toggle */}
@@ -590,12 +590,12 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                             </div>
                                             <div>
                                                 <p className="font-medium text-gray-900">
-                                                    {formData.is_active ? __('Active', 'smart-woo-chatbot') : __('Inactive', 'smart-woo-chatbot')}
+                                                    {formData.is_active ? __('Active', 'agentflow-ai') : __('Inactive', 'agentflow-ai')}
                                                 </p>
                                                 <p className="text-xs text-gray-500">
                                                     {formData.is_active
-                                                        ? __('Team is available for use', 'smart-woo-chatbot')
-                                                        : __('Team is disabled', 'smart-woo-chatbot')
+                                                        ? __('Team is available for use', 'agentflow-ai')
+                                                        : __('Team is disabled', 'agentflow-ai')
                                                     }
                                                 </p>
                                             </div>
@@ -628,11 +628,11 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                                 <div className="mt-4 grid grid-cols-2 gap-3">
                                     <div className="p-3 rounded-xl bg-indigo-50 border border-indigo-100">
                                         <p className="text-2xl font-bold text-indigo-600">{formData.members.length}</p>
-                                        <p className="text-xs text-indigo-600/70">{__('Team Members', 'smart-woo-chatbot')}</p>
+                                        <p className="text-xs text-indigo-600/70">{__('Team Members', 'agentflow-ai')}</p>
                                     </div>
                                     <div className="p-3 rounded-xl bg-purple-50 border border-purple-100">
                                         <p className="text-2xl font-bold text-purple-600">{selectedMode.value.charAt(0).toUpperCase()}</p>
-                                        <p className="text-xs text-purple-600/70">{__('Strategy', 'smart-woo-chatbot')}</p>
+                                        <p className="text-xs text-purple-600/70">{__('Strategy', 'agentflow-ai')}</p>
                                     </div>
                                 </div>
                             </div>
@@ -642,20 +642,20 @@ export default function AgentGroupEditor({ group, onSave, onCancel, isNew = true
                         <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl border border-indigo-100 p-6">
                             <div className="flex items-center gap-2 mb-3">
                                 <Info className="w-4 h-4 text-indigo-600" />
-                                <h4 className="font-semibold text-indigo-900">{__('Quick Tips', 'smart-woo-chatbot')}</h4>
+                                <h4 className="font-semibold text-indigo-900">{__('Quick Tips', 'agentflow-ai')}</h4>
                             </div>
                             <ul className="space-y-2 text-sm text-indigo-800/80">
                                 <li className="flex items-start gap-2">
                                     <span className="text-indigo-500 mt-1">•</span>
-                                    {__('Use Auto-Router for automatic agent selection', 'smart-woo-chatbot')}
+                                    {__('Use Auto-Router for automatic agent selection', 'agentflow-ai')}
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-indigo-500 mt-1">•</span>
-                                    {__('Add routing keywords to help with agent matching', 'smart-woo-chatbot')}
+                                    {__('Add routing keywords to help with agent matching', 'agentflow-ai')}
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-indigo-500 mt-1">•</span>
-                                    {__('Assign a Primary agent as the default handler', 'smart-woo-chatbot')}
+                                    {__('Assign a Primary agent as the default handler', 'agentflow-ai')}
                                 </li>
                             </ul>
                         </div>

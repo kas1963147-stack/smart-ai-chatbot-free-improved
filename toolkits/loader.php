@@ -7,16 +7,16 @@ if (!defined('ABSPATH')) {
  * 
  * Loads essential custom toolkits from the toolkits/ folder.
  * 
- * @package Toolkits
+ * @package Quarksol\AgentFlowAI\Toolkits
  */
 
 // Toolkit base path
-define('TOOLKITS_PATH', dirname(__FILE__) . '/');
+define('QAFAI_TOOLKITS_PATH', dirname(__FILE__) . '/');
 
 /**
  * Helper to inject toolkit ID into tool objects
  */
-function inject_toolkit_id(array $tools, string $toolkitId): array
+function qafai_inject_toolkit_id(array $tools, string $toolkitId): array
 {
     foreach ($tools as $tool) {
         $tool->_toolkit_id = $toolkitId;
@@ -27,7 +27,7 @@ function inject_toolkit_id(array $tools, string $toolkitId): array
 /**
  * Get toolkit ID from a tool object
  */
-function get_toolkit_id(object $tool): ?string
+function qafai_get_toolkit_id(object $tool): ?string
 {
     if (isset($tool->_toolkit_id)) {
         return $tool->_toolkit_id;
@@ -38,30 +38,30 @@ function get_toolkit_id(object $tool): ?string
 /**
  * Get all available toolkit tools
  */
-function get_all_toolkit_tools(): array
+function qafai_get_all_toolkit_tools(): array
 {
     $tools = [];
 
     // WordPress Core tools
-    if (class_exists('Toolkits\WordPress\WordPressToolkit')) {
-        $tools = array_merge($tools, inject_toolkit_id(
-            (new \Toolkits\WordPress\WordPressToolkit())->tools(),
+    if (class_exists('Quarksol\AgentFlowAI\Toolkits\WordPress\WordPressToolkit')) {
+        $tools = array_merge($tools, qafai_inject_toolkit_id(
+            (new \Quarksol\AgentFlowAI\Toolkits\WordPress\WordPressToolkit())->tools(),
             'wordpress_core'
         ));
     }
 
     // WordPress Content tools
-    if (class_exists('Toolkits\WordPressContent\WordPressContentToolkit')) {
-        $tools = array_merge($tools, inject_toolkit_id(
-            (new \Toolkits\WordPressContent\WordPressContentToolkit())->tools(),
+    if (class_exists('Quarksol\AgentFlowAI\Toolkits\WordPressContent\WordPressContentToolkit')) {
+        $tools = array_merge($tools, qafai_inject_toolkit_id(
+            (new \Quarksol\AgentFlowAI\Toolkits\WordPressContent\WordPressContentToolkit())->tools(),
             'wordpress_content'
         ));
     }
 
     // WooCommerce tools
-    if (class_exists('Toolkits\WooCommerce\WooCommerceToolkit')) {
-        $tools = array_merge($tools, inject_toolkit_id(
-            (new \Toolkits\WooCommerce\WooCommerceToolkit())->tools(),
+    if (class_exists('Quarksol\AgentFlowAI\Toolkits\WooCommerce\WooCommerceToolkit')) {
+        $tools = array_merge($tools, qafai_inject_toolkit_id(
+            (new \Quarksol\AgentFlowAI\Toolkits\WooCommerce\WooCommerceToolkit())->tools(),
             'woocommerce'
         ));
     }
@@ -72,48 +72,41 @@ function get_all_toolkit_tools(): array
 /**
  * Get available toolkits status for admin display
  */
-function get_toolkits_status(): array
+function qafai_get_toolkits_status(): array
 {
     $status = [
         'wordpress_core' => [
-            'name' => 'WordPress Core Essential',
-            'icon' => '🔧',
+            'name'      => 'WordPress Core Essential',
+            'icon'      => '🔧',
             'available' => true,
-            'tools' => [
-                'wp_search'
-            ],
-            'count' => 1
+            'tools'     => ['wp_search'],
+            'count'     => 1,
         ],
         'wordpress_content' => [
-            'name' => 'WordPress Content',
-            'icon' => '📝',
+            'name'      => 'WordPress Content',
+            'icon'      => '📝',
             'available' => true,
-            'tools' => [
-                'wp_read_posts'
-            ],
-            'count' => 1
-        ]
+            'tools'     => ['wp_read_posts'],
+            'count'     => 1,
+        ],
     ];
 
     if (class_exists('WooCommerce')) {
         $status['woocommerce'] = [
-            'name' => 'WooCommerce Basic',
-            'icon' => '🛒',
+            'name'      => 'WooCommerce Basic',
+            'icon'      => '🛒',
             'available' => true,
-            'tools' => [
-                'woo_search_products',
-                'woo_order_track'
-            ],
-            'count' => 2
+            'tools'     => ['woo_search_products', 'woo_order_track'],
+            'count'     => 2,
         ];
     } else {
         $status['woocommerce'] = [
-            'name' => 'WooCommerce Basic',
-            'icon' => '🛒',
+            'name'      => 'WooCommerce Basic',
+            'icon'      => '🛒',
             'available' => false,
-            'tools' => [],
-            'count' => 0,
-            'message' => 'Install WooCommerce to enable e-commerce tools'
+            'tools'     => [],
+            'count'     => 0,
+            'message'   => 'Install WooCommerce to enable e-commerce tools',
         ];
     }
 
@@ -123,7 +116,7 @@ function get_toolkits_status(): array
 /**
  * Get total tool count
  */
-function get_total_tools_count(): int
+function qafai_get_total_tools_count(): int
 {
     $count = 2; // Core + Content
     if (class_exists('WooCommerce')) {
@@ -135,26 +128,46 @@ function get_total_tools_count(): int
 /**
  * Get toolkit summary
  */
-function get_toolkit_summary(): array
+function qafai_get_toolkit_summary(): array
 {
     $woo = class_exists('WooCommerce');
 
     return [
         'toolkits' => [
-            'WordPress Core' => 1,
+            'WordPress Core'    => 1,
             'WordPress Content' => 1,
-            'WooCommerce' => $woo ? 2 : 0
+            'WooCommerce'       => $woo ? 2 : 0,
         ],
-        'total' => $woo ? 4 : 2,
+        'total'                => $woo ? 4 : 2,
         'woocommerce_available' => $woo,
-        'acf_available' => false,
-        'coverage' => [
-            'admin' => 'Basic',
-            'content' => 'Posts',
-            'ecommerce' => $woo ? 'Basic' : 'N/A',
-            'files' => 'N/A',
-            'integrations' => 'N/A',
-            'custom_fields' => 'N/A'
-        ]
+        'acf_available'        => false,
+        'coverage'             => [
+            'admin'         => 'Basic',
+            'content'       => 'Posts',
+            'ecommerce'     => $woo ? 'Basic' : 'N/A',
+            'files'         => 'N/A',
+            'integrations'  => 'N/A',
+            'custom_fields' => 'N/A',
+        ],
     ];
+}
+
+// Backward-compatibility aliases (deprecated — use the prefixed versions above)
+function inject_toolkit_id(array $tools, string $toolkitId): array {
+    return qafai_inject_toolkit_id($tools, $toolkitId);
+}
+function get_toolkit_id(object $tool): ?string {
+    return qafai_get_toolkit_id($tool);
+}
+function get_all_toolkit_tools(): array {
+    return qafai_get_all_toolkit_tools();
+}
+function get_toolkits_status(): array {
+    return qafai_get_toolkits_status();
+}
+function get_total_tools_count(): int {
+    return qafai_get_total_tools_count();
+}
+function get_toolkit_summary(): array {
+    return qafai_get_toolkit_summary();
 }

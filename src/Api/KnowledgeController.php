@@ -18,7 +18,7 @@ class KnowledgeController
 {
     public static function register(): void
     {
-        register_rest_route('smart-ai-chatbot/v1', '/knowledge-items', [
+        register_rest_route('quark-agentflow-ai/v1', '/knowledge-items', [
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'getItems'],
@@ -31,7 +31,7 @@ class KnowledgeController
             ],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/knowledge-items/(?P<id>\d+)', [
+        register_rest_route('quark-agentflow-ai/v1', '/knowledge-items/(?P<id>\d+)', [
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'getItem'],

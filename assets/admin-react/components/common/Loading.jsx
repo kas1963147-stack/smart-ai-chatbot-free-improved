@@ -35,7 +35,7 @@ function PremiumSpinner({ size = 'md' }) {
  * @param {string} size - 'sm' | 'md' | 'lg' | 'xl'
  */
 export default function Loading({
-    message = __('Loading...', 'smart-woo-chatbot'),
+    message = __('Loading...', 'agentflow-ai'),
     fullPage = false,
     size = 'md'
 }) {

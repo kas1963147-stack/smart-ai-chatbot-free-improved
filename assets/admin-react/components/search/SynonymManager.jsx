@@ -49,7 +49,7 @@ export default function SynonymManager() {
                 method: 'POST',
                 data: { synonyms: data },
             });
-            setNotice({ type: 'success', message: __('Synonyms saved!', 'smart-woo-chatbot') });
+            setNotice({ type: 'success', message: __('Synonyms saved!', 'agentflow-ai') });
             setTimeout(() => setNotice(null), 3000);
         } catch (err) {
             setNotice({ type: 'error', message: err.message || 'Failed to save' });
@@ -85,7 +85,7 @@ export default function SynonymManager() {
     };
 
     if (loading) {
-        return <Loading message={__('Loading synonyms…', 'smart-woo-chatbot')} fullPage />;
+        return <Loading message={__('Loading synonyms…', 'agentflow-ai')} fullPage />;
     }
 
     return (
@@ -107,37 +107,37 @@ export default function SynonymManager() {
             <div className="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
                 <div className="border-b border-slate-100 px-6 py-4 dark:border-slate-800">
                     <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                        {__('Add Synonym Pair', 'smart-woo-chatbot')}
+                        {__('Add Synonym Pair', 'agentflow-ai')}
                     </h3>
                     <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                        {__('Define custom synonyms that are always included when a user searches for the given term', 'smart-woo-chatbot')}
+                        {__('Define custom synonyms that are always included when a user searches for the given term', 'agentflow-ai')}
                     </p>
                 </div>
                 <div className="p-6">
                     <div className="flex items-end gap-3">
                         <div className="flex-1">
                             <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
-                                {__('Search Term', 'smart-woo-chatbot')}
+                                {__('Search Term', 'agentflow-ai')}
                             </label>
                             <input
                                 type="text"
                                 value={newTerm}
                                 onChange={(e) => setNewTerm(e.target.value)}
-                                placeholder={__('e.g. laptop', 'smart-woo-chatbot')}
+                                placeholder={__('e.g. laptop', 'agentflow-ai')}
                                 className="h-10 w-full rounded-lg border border-slate-300 bg-white px-4 text-sm text-slate-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
                             />
                         </div>
                         <div className="flex items-center px-2 pb-2 text-slate-400">→</div>
                         <div className="flex-[2]">
                             <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
-                                {__('Synonyms (comma-separated)', 'smart-woo-chatbot')}
+                                {__('Synonyms (comma-separated)', 'agentflow-ai')}
                             </label>
                             <input
                                 type="text"
                                 value={newSynonyms}
                                 onChange={(e) => setNewSynonyms(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && addSynonym()}
-                                placeholder={__('e.g. notebook, macbook, chromebook, ultrabook', 'smart-woo-chatbot')}
+                                placeholder={__('e.g. notebook, macbook, chromebook, ultrabook', 'agentflow-ai')}
                                 className="h-10 w-full rounded-lg border border-slate-300 bg-white px-4 text-sm text-slate-900 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-200 dark:border-slate-600 dark:bg-slate-700 dark:text-white"
                             />
                         </div>
@@ -146,7 +146,7 @@ export default function SynonymManager() {
                             disabled={!newTerm.trim() || !newSynonyms.trim() || saving}
                             className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-violet-600 px-4 text-sm font-semibold text-white transition hover:bg-violet-700 disabled:opacity-50"
                         >
-                            <span>+</span> {__('Add', 'smart-woo-chatbot')}
+                            <span>+</span> {__('Add', 'agentflow-ai')}
                         </button>
                     </div>
                 </div>
@@ -157,14 +157,14 @@ export default function SynonymManager() {
                 <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4 dark:border-slate-800">
                     <div>
                         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-                            {__('Configured Synonyms', 'smart-woo-chatbot')}
+                            {__('Configured Synonyms', 'agentflow-ai')}
                         </h3>
                         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                            {synonyms.length} {__('synonym pairs configured', 'smart-woo-chatbot')}
+                            {synonyms.length} {__('synonym pairs configured', 'agentflow-ai')}
                         </p>
                     </div>
                     {saving && (
-                        <span className="text-xs text-amber-600 dark:text-amber-400">{__('Saving…', 'smart-woo-chatbot')}</span>
+                        <span className="text-xs text-amber-600 dark:text-amber-400">{__('Saving…', 'agentflow-ai')}</span>
                     )}
                 </div>
 
@@ -172,7 +172,7 @@ export default function SynonymManager() {
                     <div className="flex flex-col items-center justify-center py-12 text-slate-400">
                         <span className="text-3xl"></span>
                         <p className="mt-3 text-sm">
-                            {__('No synonyms configured yet. Add your first synonym pair above.', 'smart-woo-chatbot')}
+                            {__('No synonyms configured yet. Add your first synonym pair above.', 'agentflow-ai')}
                         </p>
                     </div>
                 ) : (
@@ -201,7 +201,7 @@ export default function SynonymManager() {
                                 <button
                                     onClick={() => removeSynonym(idx)}
                                     className="ml-4 rounded-lg p-1.5 text-slate-400 transition hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30 dark:hover:text-red-400"
-                                    title={__('Remove', 'smart-woo-chatbot')}
+                                    title={__('Remove', 'agentflow-ai')}
                                 >
                                     
                                 </button>
@@ -216,9 +216,9 @@ export default function SynonymManager() {
                 <div className="flex gap-3">
                     <span className="text-xl"></span>
                     <div className="text-sm text-blue-800 dark:text-blue-200">
-                        <p className="font-semibold">{__('About Synonyms', 'smart-woo-chatbot')}</p>
+                        <p className="font-semibold">{__('About Synonyms', 'agentflow-ai')}</p>
                         <p className="mt-1 text-blue-700 dark:text-blue-300">
-                            {__('Custom synonyms are always applied in addition to AI-generated keywords. They are instant (no AI call needed) and work even when the AI search is temporarily unavailable. Use them for domain-specific terms that the AI might not know about.', 'smart-woo-chatbot')}
+                            {__('Custom synonyms are always applied in addition to AI-generated keywords. They are instant (no AI call needed) and work even when the AI search is temporarily unavailable. Use them for domain-specific terms that the AI might not know about.', 'agentflow-ai')}
                         </p>
                     </div>
                 </div>

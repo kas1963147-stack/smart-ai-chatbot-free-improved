@@ -277,7 +277,7 @@ class MessageRouter {
         
         return [
             'type' => 'text',
-            'message' => __('I apologize, but I could not generate a response. Please try again.', 'smart-ai-chatbot'),
+            'message' => __('I apologize, but I could not generate a response. Please try again.', 'quark-agentflow-ai'),
             'tool_calls' => $toolCalls,
         ];
     }
@@ -300,7 +300,7 @@ class MessageRouter {
         if (!ChatbotConfig::isAIEnabled() && !current_user_can('manage_options')) {
             return [
                 'type' => 'text', 
-                'message' => __('AI is not enabled. Please enable AI in the chatbot settings.', 'smart-ai-chatbot'),
+                'message' => __('AI is not enabled. Please enable AI in the chatbot settings.', 'quark-agentflow-ai'),
             ];
         }
 
@@ -356,7 +356,7 @@ class MessageRouter {
             
             return [
                 'type' => 'text',
-                'message' => __('Sorry, I encountered an error processing your request. Please try again.', 'smart-ai-chatbot'),
+                'message' => __('Sorry, I encountered an error processing your request. Please try again.', 'quark-agentflow-ai'),
                 'debug' => defined('WP_DEBUG') && \WP_DEBUG ? $e->getMessage() : null,
             ];
         } finally {
@@ -433,12 +433,12 @@ class MessageRouter {
         if (!empty($products)) {
             return [
                 'type' => 'products',
-                'message' => __("Here are some products I found for you!", 'smart-ai-chatbot'),
+                'message' => __("Here are some products I found for you!", 'quark-agentflow-ai'),
                 'products' => $products,
             ];
         }
         
-        return ['type' => 'text', 'message' => __("I couldn't find products matching that. Try different keywords!", 'smart-ai-chatbot')];
+        return ['type' => 'text', 'message' => __("I couldn't find products matching that. Try different keywords!", 'quark-agentflow-ai')];
     }
     
     /**
@@ -448,16 +448,16 @@ class MessageRouter {
         $orderId = preg_replace('/[^0-9]/', '', $orderId);
         
         if (empty($orderId)) {
-            return ['type' => 'text', 'message' => __("Please enter a valid order number.", 'smart-ai-chatbot')];
+            return ['type' => 'text', 'message' => __("Please enter a valid order number.", 'quark-agentflow-ai')];
         }
         
         if (!class_exists('WooCommerce')) {
-            return ['type' => 'text', 'message' => __("Order tracking is not available.", 'smart-ai-chatbot')];
+            return ['type' => 'text', 'message' => __("Order tracking is not available.", 'quark-agentflow-ai')];
         }
         
         $order = wc_get_order($orderId);
         if (!$order) {
-            return ['type' => 'text', 'message' => sprintf(__("Order #%s not found. Please check the number and try again.", 'smart-ai-chatbot'), $orderId)];
+            return ['type' => 'text', 'message' => sprintf(__("Order #%s not found. Please check the number and try again.", 'quark-agentflow-ai'), $orderId)];
         }
         
         $status = wc_get_order_status_name($order->get_status());
@@ -490,9 +490,9 @@ class MessageRouter {
     private function handleBestSellers(): array {
         $products = $this->getProductService()->getBestSellers(5);
         if (!empty($products)) {
-            return ['type' => 'products', 'message' => __(" Here are our best sellers!", 'smart-ai-chatbot'), 'products' => $products];
+            return ['type' => 'products', 'message' => __(" Here are our best sellers!", 'quark-agentflow-ai'), 'products' => $products];
         }
-        return ['type' => 'text', 'message' => __("Check out our featured products on the homepage!", 'smart-ai-chatbot')];
+        return ['type' => 'text', 'message' => __("Check out our featured products on the homepage!", 'quark-agentflow-ai')];
     }
     
     /**
@@ -501,9 +501,9 @@ class MessageRouter {
     private function handleOnSale(): array {
         $products = $this->getProductService()->getOnSale(5);
         if (!empty($products)) {
-            return ['type' => 'products', 'message' => __(" Check out these great deals!", 'smart-ai-chatbot'), 'products' => $products];
+            return ['type' => 'products', 'message' => __(" Check out these great deals!", 'quark-agentflow-ai'), 'products' => $products];
         }
-        return ['type' => 'text', 'message' => __("No active sales right now. Check back soon!", 'smart-ai-chatbot')];
+        return ['type' => 'text', 'message' => __("No active sales right now. Check back soon!", 'quark-agentflow-ai')];
     }
     
     /**
@@ -511,12 +511,12 @@ class MessageRouter {
      */
     private function handleKnowledgeSearch(string $query): array {
         if (!AgentContext::isKnowledgeEnabled() || !class_exists('\Quarksol\SmartChatbot\Knowledge\\HybridSearcher')) {
-            return ['type' => 'text', 'message' => __("Knowledge base is not available.", 'smart-ai-chatbot')];
+            return ['type' => 'text', 'message' => __("Knowledge base is not available.", 'quark-agentflow-ai')];
         }
         
         $allowedSources = AgentContext::getAllowedKnowledgeSources();
         if ($allowedSources !== null && empty($allowedSources)) {
-            return ['type' => 'text', 'message' => __('No knowledge sources are enabled for this agent.', 'smart-ai-chatbot')];
+            return ['type' => 'text', 'message' => __('No knowledge sources are enabled for this agent.', 'quark-agentflow-ai')];
         }
         
         try {
@@ -541,7 +541,7 @@ class MessageRouter {
         } catch (\Throwable $e) {
             Logger::warning('Knowledge search failed', ['error' => $e->getMessage()]);
         }
-        return ['type' => 'text', 'message' => sprintf(__("No knowledge base articles found for '%s'.", 'smart-ai-chatbot'), $query)];
+        return ['type' => 'text', 'message' => sprintf(__("No knowledge base articles found for '%s'.", 'quark-agentflow-ai'), $query)];
     }
     
     /**
@@ -590,7 +590,7 @@ class MessageRouter {
         // Simple fallback
         return [
             'type' => 'text',
-            'message' => __("I'm not sure I understood. Please try again or contact support if the issue persists.", 'smart-ai-chatbot'),
+            'message' => __("I'm not sure I understood. Please try again or contact support if the issue persists.", 'quark-agentflow-ai'),
         ];
     }
     
@@ -602,14 +602,14 @@ class MessageRouter {
         if (!empty($products)) {
             return [
                 'type' => 'products',
-                'message' => __("I found these products for you:", 'smart-ai-chatbot'),
+                'message' => __("I found these products for you:", 'quark-agentflow-ai'),
                 'products' => $products,
             ];
         }
         
         return [
             'type' => 'text',
-            'message' => __("I'm not sure I understood. You can search for products, ask for best sellers, or track an order!", 'smart-ai-chatbot'),
+            'message' => __("I'm not sure I understood. You can search for products, ask for best sellers, or track an order!", 'quark-agentflow-ai'),
         ];
     }
     

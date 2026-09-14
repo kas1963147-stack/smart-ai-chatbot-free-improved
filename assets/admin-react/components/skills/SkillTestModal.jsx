@@ -76,7 +76,7 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 					role: 'assistant',
 					content: __(
 						'(Error: Could not connect to AI)',
-						'smart-woo-chatbot'
+						'agentflow-ai'
 					),
 					isError: true,
 				},
@@ -98,16 +98,16 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 		<Modal
 			isOpen={isOpen}
 			onClose={onClose}
-			title={__('Test Skill', 'smart-woo-chatbot')}
+			title={__('Test Skill', 'agentflow-ai')}
 			subtitle={skill?.displayName || skill?.name}
 			size="md"
 			footer={
 				<div className="flex justify-end gap-3 w-full">
 					<button type="button" className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-700" onClick={resetConversation}>
-						{__('Clear Chat', 'smart-woo-chatbot')}
+						{__('Clear Chat', 'agentflow-ai')}
 					</button>
 					<button type="button" className="px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-lg hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 dark:bg-gray-700 dark:hover:bg-gray-600" onClick={onClose}>
-						{__('Close', 'smart-woo-chatbot')}
+						{__('Close', 'agentflow-ai')}
 					</button>
 				</div>
 			}
@@ -120,7 +120,7 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 					</span>
 					{skill?.toolsRequired?.length > 0 && (
 						<span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
-							{skill.toolsRequired.length}{' '}{__('tools', 'smart-woo-chatbot')}
+							{skill.toolsRequired.length}{' '}{__('tools', 'agentflow-ai')}
 						</span>
 					)}
 				</div>
@@ -137,14 +137,14 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 							<p className="mb-6 max-w-sm text-sm">
 								{__(
 									'Send a message to test how this skill responds.',
-									'smart-woo-chatbot'
+									'agentflow-ai'
 								)}
 							</p>
 							<div className="space-y-3 w-full max-w-xs">
 								<p className="font-semibold text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500 text-left">
 									{__(
 										'Example messages:',
-										'smart-woo-chatbot'
+										'agentflow-ai'
 									)}
 								</p>
 								<div className="flex flex-col gap-2">
@@ -257,7 +257,7 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 								e.target.style.height = (e.target.scrollHeight) + 'px';
 							}}
 							onKeyDown={handleKeyDown}
-							placeholder={__('Type a message to test…', 'smart-woo-chatbot')}
+							placeholder={__('Type a message to test…', 'agentflow-ai')}
 							disabled={loading}
 							style={{ minHeight: '44px' }}
 						/>
@@ -268,7 +268,7 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 							className="flex items-center justify-center w-10 h-10 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 hover:scale-[1.05] active:scale-[0.95]"
 							onClick={sendMessage}
 							disabled={loading || !message.trim()}
-							aria-label={__('Send', 'smart-woo-chatbot')}
+							aria-label={__('Send', 'agentflow-ai')}
 						>
 							{loading ? (
 								<svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -285,7 +285,7 @@ export default function SkillTestModal({ skill, isOpen, onClose }) {
 				</div>
 				<div className="mt-2 text-center">
 					<span className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wider">
-						{__('Press Enter to send, Shift+Enter for new line', 'smart-woo-chatbot')}
+						{__('Press Enter to send, Shift+Enter for new line', 'agentflow-ai')}
 					</span>
 				</div>
 			</div>

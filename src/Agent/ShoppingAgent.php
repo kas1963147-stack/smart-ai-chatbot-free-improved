@@ -1,13 +1,12 @@
 <?php
 declare(strict_types=1);
 
-
 /**
  * Shopping Agent
- * 
+ *
  * E-commerce shopping assistant powered by Neuron AI framework.
  * Uses WooCommerce toolkit with admin-configurable tool access.
- * 
+ *
  * @package Quarksol\SmartChatbot\Agent
  */
 
@@ -21,33 +20,33 @@ use NeuronAI\SystemPrompt;
 use Quarksol\SmartChatbot\Config\AgentConfig;
 use Quarksol\SmartChatbot\Config\ToolRegistry;
 
-// Load WooCommerce tools
-use Toolkits\WooCommerce\ProductSearchTool;
-use Toolkits\WooCommerce\ProductDetailsTool;
-use Toolkits\WooCommerce\ProductManageTool;
-use Toolkits\WooCommerce\VariationsTool;
-use Toolkits\WooCommerce\AttributesTool;
-use Toolkits\WooCommerce\CategoryBrowseTool;
-use Toolkits\WooCommerce\CartManageTool;
-use Toolkits\WooCommerce\CartEnhancedTool;
-use Toolkits\WooCommerce\CouponsTool;
-use Toolkits\WooCommerce\CouponManageTool;
-use Toolkits\WooCommerce\OrderTrackTool;
-use Toolkits\WooCommerce\OrderManageTool;
-use Toolkits\WooCommerce\CustomerTool;
-use Toolkits\WooCommerce\ReviewsTool;
-use Toolkits\WooCommerce\StoreInfoTool;
-use Toolkits\WooCommerce\ShippingInfoTool;
-use Toolkits\WooCommerce\ShippingZonesTool;
-use Toolkits\WooCommerce\SettingsTool;
-use Toolkits\WooCommerce\TaxTool;
-use Toolkits\WooCommerce\PaymentGatewaysTool;
-use Toolkits\WooCommerce\ReportsTool;
-use Toolkits\WooCommerce\WebhooksTool;
+// Load WooCommerce tools (namespace updated to Quarksol\AgentFlowAI\Toolkits\WooCommerce)
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\ProductSearchTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\ProductDetailsTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\ProductManageTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\VariationsTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\AttributesTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\CategoryBrowseTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\CartManageTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\CartEnhancedTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\CouponsTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\CouponManageTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\OrderTrackTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\OrderManageTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\CustomerTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\ReviewsTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\StoreInfoTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\ShippingInfoTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\ShippingZonesTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\SettingsTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\TaxTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\PaymentGatewaysTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\ReportsTool;
+use Quarksol\AgentFlowAI\Toolkits\WooCommerce\WebhooksTool;
 
 /**
  * Shopping Agent - E-commerce assistant
- * 
+ *
  * Features:
  * - Full WooCommerce toolkit (22 tools)
  * - Admin-configurable tool access
@@ -57,22 +56,22 @@ class ShoppingAgent extends NeuronAgent
 {
     /** Agent ID for configuration */
     const AGENT_ID = 'shopping';
-    
+
     /**
      * Get default instructions (when no config is set)
-     * 
+     *
      * NOTE: We still inject skills and system tool guidelines so load_skill works
      */
     protected function getDefaultInstructions(): string
     {
-        $settings = function_exists('get_option') 
-            ? \Quarksol\SmartChatbot\Config\ChatbotConfig::settings() 
+        $settings = function_exists('get_option')
+            ? \Quarksol\SmartChatbot\Config\ChatbotConfig::settings()
             : [];
         $storeName = $settings['store_name'] ?? 'our store';
-        $botName = $settings['bot_name'] ?? 'Shopping Assistant';
-        $siteName = function_exists('get_bloginfo') ? get_bloginfo('name') : $storeName;
-        $currency = function_exists('get_woocommerce_currency_symbol') ? get_woocommerce_currency_symbol() : '$';
-        
+        $botName   = $settings['bot_name'] ?? 'Shopping Assistant';
+        $siteName  = function_exists('get_bloginfo') ? get_bloginfo('name') : $storeName;
+        $currency  = function_exists('get_woocommerce_currency_symbol') ? get_woocommerce_currency_symbol() : '$';
+
         $prompt = (string) new SystemPrompt(
             background: [
                 "You are {$botName}, a shopping assistant for {$siteName}.",
@@ -143,22 +142,22 @@ class ShoppingAgent extends NeuronAgent
                 "SEARCH STRATEGY — When the customer's message is vague or describes an occasion/person (not a specific product), first call `woo_categories` to see what the store offers, then ask the customer what type of product they want. Only call `woo_search_products` when you have a specific product type to search for.",
             ]
         );
-        
+
         // Add skill summaries for on-demand loading
         $skillSummaries = \Quarksol\SmartChatbot\Skills\SkillRegistry::getSummariesForPrompt();
         if (!empty($skillSummaries)) {
             $prompt .= "\n\n" . $skillSummaries;
         }
-        
+
         // Add system tool guidelines
         $guidelines = \Quarksol\SmartChatbot\Config\SystemToolRegistry::getGuidelines();
         if (!empty($guidelines)) {
             $prompt .= "\n\n" . $guidelines;
         }
-        
+
         return $prompt;
     }
-    
+
     /**
      * Get default tools - ALL 22 WooCommerce tools
      * (filtering happens via config)
@@ -169,7 +168,7 @@ class ShoppingAgent extends NeuronAgent
         if (!class_exists('WooCommerce')) {
             return [];
         }
-        
+
         return [
             // === PRODUCT TOOLS (5) ===
             new ProductSearchTool(),
@@ -177,72 +176,71 @@ class ShoppingAgent extends NeuronAgent
             new ProductManageTool(),
             new VariationsTool(),
             new AttributesTool(),
-            
+
             // === CATEGORY (1) ===
             new CategoryBrowseTool(),
-            
+
             // === CART & CHECKOUT (4) ===
             new CartManageTool(),
             new CartEnhancedTool(),
             new CouponsTool(),
             new CouponManageTool(),
-            
+
             // === ORDERS (2) ===
             new OrderTrackTool(),
             new OrderManageTool(),
-            
+
             // === CUSTOMERS (1) ===
             new CustomerTool(),
-            
+
             // === REVIEWS (1) ===
             new ReviewsTool(),
-            
+
             // === STORE INFO (3) ===
             new StoreInfoTool(),
             new ShippingInfoTool(),
             new ShippingZonesTool(),
-            
+
             // === CONFIGURATION (3) ===
             new SettingsTool(),
             new TaxTool(),
             new PaymentGatewaysTool(),
-            
+
             // === ANALYTICS (1) ===
             new ReportsTool(),
-            
+
             // === INTEGRATIONS (1) ===
             new WebhooksTool(),
         ];
     }
-    
+
     /**
      * Create default configuration for shopping agent
      */
     protected function createDefaultConfig(string $agentId): AgentConfig
     {
-        $config = new AgentConfig($agentId, 'Shopping Assistant');
+        $config              = new AgentConfig($agentId, 'Shopping Assistant');
         $config->description = 'E-commerce shopping assistant for customers';
         $config->enabledToolkits = ['woocommerce'];
-        $config->isDefault = true;
-        
+        $config->isDefault   = true;
+
         // Disable admin-only tools by default
         $config->disabledTools = [
-            'woo_settings',          // Store settings - admin only
-            'woo_webhooks',          // Webhooks - admin only
-            'woo_tax',               // Tax config - admin only
-            'woo_payment_gateways',  // Payment gateways - admin only
-            // 'woo_product_manage', // Enabled for Admin usage
+            'woo_settings',         // Store settings - admin only
+            'woo_webhooks',         // Webhooks - admin only
+            'woo_tax',              // Tax config - admin only
+            'woo_payment_gateways', // Payment gateways - admin only
         ];
-        
+
         // Default editable prompt sections
         $config->promptSections = [
-            'behavior' => "Be friendly, helpful, and concise.",
+            'behavior'       => "Be friendly, helpful, and concise.",
             'response_style' => "Always show product prices and availability.\nFormat product lists nicely.",
         ];
-        
+
         return $config;
     }
-    
+
     /**
      * Factory with configuration loaded
      */

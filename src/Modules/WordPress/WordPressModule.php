@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 /**
  * WordPress Core Module
@@ -152,3 +152,4 @@ You can help with:
         // This runs when the module is loaded
     }
 }
+

@@ -217,31 +217,31 @@ export default function ChatControlsManager({ settings, onChange }) {
 		<div className="space-y-4">
 			<div>
 				<h3 className="text-lg font-semibold text-slate-900">
-					{__('Chat Controls', 'smart-woo-chatbot')}
+					{__('Chat Controls', 'agentflow-ai')}
 				</h3>
 				<p className="mt-1 text-sm text-slate-500">
-					{__('Enable or disable control buttons in the chat widget.', 'smart-woo-chatbot')}
+					{__('Enable or disable control buttons in the chat widget.', 'agentflow-ai')}
 				</p>
 			</div>
 
 			<Panel>
 				<ControlSection
-					title={__('Header Controls', 'smart-woo-chatbot')}
+					title={__('Header Controls', 'agentflow-ai')}
 					category="header"
 					controls={HEADER_CONTROLS}
 				/>
 				<ControlSection
-					title={__('Message Controls', 'smart-woo-chatbot')}
+					title={__('Message Controls', 'agentflow-ai')}
 					category="message"
 					controls={MESSAGE_CONTROLS}
 				/>
 				<ControlSection
-					title={__('Footer Controls', 'smart-woo-chatbot')}
+					title={__('Footer Controls', 'agentflow-ai')}
 					category="footer"
 					controls={FOOTER_CONTROLS}
 				/>
 				<ControlSection
-					title={__('Floating Controls', 'smart-woo-chatbot')}
+					title={__('Floating Controls', 'agentflow-ai')}
 					category="floating"
 					controls={FLOATING_CONTROLS}
 				/>
@@ -249,12 +249,12 @@ export default function ChatControlsManager({ settings, onChange }) {
 
 			<div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
 				<h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-					{__('Active Controls Preview', 'smart-woo-chatbot')}
+					{__('Active Controls Preview', 'agentflow-ai')}
 				</h4>
 				<div className="mt-3 space-y-3">
-					<PreviewRow label={__('Header', 'smart-woo-chatbot')} controls={HEADER_CONTROLS} categoryKey="controls_header" />
-					<PreviewRow label={__('Messages', 'smart-woo-chatbot')} controls={MESSAGE_CONTROLS} categoryKey="controls_message" />
-					<PreviewRow label={__('Footer', 'smart-woo-chatbot')} controls={FOOTER_CONTROLS} categoryKey="controls_footer" />
+					<PreviewRow label={__('Header', 'agentflow-ai')} controls={HEADER_CONTROLS} categoryKey="controls_header" />
+					<PreviewRow label={__('Messages', 'agentflow-ai')} controls={MESSAGE_CONTROLS} categoryKey="controls_message" />
+					<PreviewRow label={__('Footer', 'agentflow-ai')} controls={FOOTER_CONTROLS} categoryKey="controls_footer" />
 				</div>
 			</div>
 		</div>

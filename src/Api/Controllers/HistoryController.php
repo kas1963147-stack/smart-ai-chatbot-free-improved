@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 /**
  * History REST Controller
@@ -30,7 +30,7 @@ class HistoryController {
      */
     public static function register(): void {
         self::registerRoutes('swc/v1');
-        self::registerRoutes('smart-ai-chatbot/v1');
+        self::registerRoutes('quark-agentflow-ai/v1');
     }
 
     /**
@@ -458,3 +458,4 @@ class HistoryController {
         return 'Conversation started';
     }
 }
+

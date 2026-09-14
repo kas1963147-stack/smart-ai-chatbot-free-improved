@@ -184,13 +184,13 @@ export default function TasksPage() {
 			if (data.success) {
 				showNotification(
 					isCreate
-						? __('Task created successfully!', 'smart-woo-chatbot')
-						: __('Task updated successfully!', 'smart-woo-chatbot'),
+						? __('Task created successfully!', 'agentflow-ai')
+						: __('Task updated successfully!', 'agentflow-ai'),
 					'success'
 				);
 				handleBack();
 			} else {
-				showNotification(data.error || __('Failed to save task', 'smart-woo-chatbot'), 'error');
+				showNotification(data.error || __('Failed to save task', 'agentflow-ai'), 'error');
 			}
 		} catch (err) {
 			showNotification(err.message, 'error');
@@ -198,7 +198,7 @@ export default function TasksPage() {
 	};
 
 	const handleDelete = async (taskId) => {
-		if (!confirm(__('Are you sure you want to delete this task?', 'smart-woo-chatbot'))) return;
+		if (!confirm(__('Are you sure you want to delete this task?', 'agentflow-ai'))) return;
 
 		try {
 			const resp = await fetch(`${API_BASE}/tasks/${taskId}`, {
@@ -208,7 +208,7 @@ export default function TasksPage() {
 			const data = await resp.json();
 
 			if (data.success) {
-				showNotification(__('Task deleted successfully!', 'smart-woo-chatbot'), 'success');
+				showNotification(__('Task deleted successfully!', 'agentflow-ai'), 'success');
 				invalidateCache('tasks');
 				invalidateCache('tasks_stats');
 				fetchTasks();
@@ -228,7 +228,7 @@ export default function TasksPage() {
 			const data = await resp.json();
 
 			if (data.success) {
-				showNotification(__('Task queued for execution!', 'smart-woo-chatbot'), 'success');
+				showNotification(__('Task queued for execution!', 'agentflow-ai'), 'success');
 				fetchStats();
 			}
 		} catch (err) {
@@ -268,16 +268,16 @@ export default function TasksPage() {
 	// Get page title
 	const getPageTitle = () => {
 		switch (view) {
-			case 'create': return __('Create New Task', 'smart-woo-chatbot');
-			case 'edit': return __('Edit Task', 'smart-woo-chatbot');
-			case 'history': return selectedTask ? `${__('Execution History', 'smart-woo-chatbot')}: ${selectedTask.name}` : __('Execution History', 'smart-woo-chatbot');
-			default: return __('Scheduled Tasks', 'smart-woo-chatbot');
+			case 'create': return __('Create New Task', 'agentflow-ai');
+			case 'edit': return __('Edit Task', 'agentflow-ai');
+			case 'history': return selectedTask ? `${__('Execution History', 'agentflow-ai')}: ${selectedTask.name}` : __('Execution History', 'agentflow-ai');
+			default: return __('Scheduled Tasks', 'agentflow-ai');
 		}
 	};
 
 	// Loading state
 	if (loading && tasks.length === 0) {
-		return <Loading message={__('Loading scheduled tasks…', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading scheduled tasks…', 'agentflow-ai')} fullPage />;
 	}
 
 	return (
@@ -292,7 +292,7 @@ export default function TasksPage() {
 							className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors"
 						>
 							<span>+</span>
-							{__('New Task', 'smart-woo-chatbot')}
+							{__('New Task', 'agentflow-ai')}
 						</button>
 					) : (
 						<button
@@ -300,7 +300,7 @@ export default function TasksPage() {
 							className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
 						>
 							<span>←</span>
-							{__('Back to Tasks', 'smart-woo-chatbot')}
+							{__('Back to Tasks', 'agentflow-ai')}
 						</button>
 					)}
 				</div>
@@ -335,7 +335,7 @@ export default function TasksPage() {
 							</div>
 							<div>
 								<div className="text-2xl font-bold text-gray-900 dark:text-white">{stats.active_tasks || 0}</div>
-								<div className="text-sm text-gray-500 dark:text-gray-400">{__('Active Tasks', 'smart-woo-chatbot')}</div>
+								<div className="text-sm text-gray-500 dark:text-gray-400">{__('Active Tasks', 'agentflow-ai')}</div>
 							</div>
 						</div>
 						<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 flex items-center gap-4">
@@ -344,7 +344,7 @@ export default function TasksPage() {
 							</div>
 							<div>
 								<div className="text-2xl font-bold text-green-600">{stats.recent_successes || 0}</div>
-								<div className="text-sm text-gray-500 dark:text-gray-400">{__('Successes (24h)', 'smart-woo-chatbot')}</div>
+								<div className="text-sm text-gray-500 dark:text-gray-400">{__('Successes (24h)', 'agentflow-ai')}</div>
 							</div>
 						</div>
 						<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 flex items-center gap-4">
@@ -353,7 +353,7 @@ export default function TasksPage() {
 							</div>
 							<div>
 								<div className="text-2xl font-bold text-red-600">{stats.recent_failures || 0}</div>
-								<div className="text-sm text-gray-500 dark:text-gray-400">{__('Failures (24h)', 'smart-woo-chatbot')}</div>
+								<div className="text-sm text-gray-500 dark:text-gray-400">{__('Failures (24h)', 'agentflow-ai')}</div>
 							</div>
 						</div>
 						<div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4 flex items-center gap-4">
@@ -362,7 +362,7 @@ export default function TasksPage() {
 							</div>
 							<div>
 								<div className="text-2xl font-bold text-gray-900 dark:text-white">{stats.total_executions || 0}</div>
-								<div className="text-sm text-gray-500 dark:text-gray-400">{__('Total Executions', 'smart-woo-chatbot')}</div>
+								<div className="text-sm text-gray-500 dark:text-gray-400">{__('Total Executions', 'agentflow-ai')}</div>
 							</div>
 						</div>
 					</div>

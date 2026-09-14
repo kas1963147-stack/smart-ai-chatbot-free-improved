@@ -24,7 +24,7 @@ if (!defined('ABSPATH')) {
 class ApiPricingController {
     
     /** Route namespace */
-    private const NAMESPACE = 'smart-ai-chatbot/v1';
+    private const NAMESPACE = 'quark-agentflow-ai/v1';
     
     /** Cost calculator */
     private CostCalculator $calculator;
@@ -149,12 +149,12 @@ class ApiPricingController {
             if ($success) {
                 return new WP_REST_Response([
                     'success' => true,
-                    'message' => __('Pricing saved successfully', 'smart-ai-chatbot'),
+                    'message' => __('Pricing saved successfully', 'quark-agentflow-ai'),
                 ], 200);
             } else {
                 return new WP_REST_Response([
                     'success' => false,
-                    'message' => __('Failed to save pricing', 'smart-ai-chatbot'),
+                    'message' => __('Failed to save pricing', 'quark-agentflow-ai'),
                 ], 500);
             }
         } catch (\Exception $e) {
@@ -178,12 +178,12 @@ class ApiPricingController {
             if ($success) {
                 return new WP_REST_Response([
                     'success' => true,
-                    'message' => __('Custom pricing removed, reverted to default', 'smart-ai-chatbot'),
+                    'message' => __('Custom pricing removed, reverted to default', 'quark-agentflow-ai'),
                 ], 200);
             } else {
                 return new WP_REST_Response([
                     'success' => false,
-                    'message' => __('No custom pricing found to delete', 'smart-ai-chatbot'),
+                    'message' => __('No custom pricing found to delete', 'quark-agentflow-ai'),
                 ], 404);
             }
         } catch (\Exception $e) {

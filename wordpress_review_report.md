@@ -60,7 +60,7 @@ This report analyzes the current status of the issues identified in the WordPres
 * **Reviewer's Concern**: Text domain `swc-chatbot` did not match the new plugin slug `smart-ai-chatbot`.
 * **Current Status**: **100% Resolved**.
 * **Verification**:
-  * The main header in [smart-ai-chatbot.php](file:///c:/Users/QUARKSOL/Desktop/smart-ai-chatbot-free/smart-ai-chatbot.php#L7) has been updated to `Text Domain: smart-ai-chatbot`.
+  * The main header in [agentflow-ai.php](file:///c:/Users/QUARKSOL/Desktop/smart-ai-chatbot-free/agentflow-ai.php#L7) has been updated to `Text Domain: smart-ai-chatbot`.
   * All occurrences of `swc-chatbot` have been purged from gettext translate functions.
 
 ###  8. Nonce & Security Checks (Google OAuth Callback)

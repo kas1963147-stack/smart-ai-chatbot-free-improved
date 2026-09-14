@@ -77,7 +77,7 @@ function Toast( {
 			<button
 				className="swc-toast__dismiss"
 				onClick={ handleDismiss }
-				aria-label={ __( 'Dismiss', 'smart-woo-chatbot' ) }
+				aria-label={ __( 'Dismiss', 'agentflow-ai' ) }
 			>
 				
 			</button>

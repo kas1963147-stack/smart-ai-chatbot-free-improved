@@ -104,7 +104,7 @@ export default function ToolConfigModal( {
 		<Modal
 			title={
 				<>
-					️ { __( 'Configure', 'smart-woo-chatbot' ) }:{ ' ' }
+					️ { __( 'Configure', 'agentflow-ai' ) }:{ ' ' }
 					{ tool.name || tool.id }
 				</>
 			}
@@ -144,7 +144,7 @@ export default function ToolConfigModal( {
 							/>
 							{ field.required && (
 								<span className="swc-required-badge">
-									{ __( 'Required', 'smart-woo-chatbot' ) }
+									{ __( 'Required', 'agentflow-ai' ) }
 								</span>
 							) }
 						</div>
@@ -156,7 +156,7 @@ export default function ToolConfigModal( {
 					<Notice status="warning" isDismissible={ false }>
 						{ __(
 							'Some required fields are missing. The tool will not be available until configured.',
-							'smart-woo-chatbot'
+							'agentflow-ai'
 						) }
 					</Notice>
 				) }
@@ -169,7 +169,7 @@ export default function ToolConfigModal( {
 					onClick={ onCancel }
 					disabled={ saving }
 				>
-					{ __( 'Cancel', 'smart-woo-chatbot' ) }
+					{ __( 'Cancel', 'agentflow-ai' ) }
 				</Button>
 				<Button
 					variant="primary"
@@ -178,8 +178,8 @@ export default function ToolConfigModal( {
 					disabled={ saving }
 				>
 					{ saving
-						? __( 'Saving…', 'smart-woo-chatbot' )
-						: __( 'Save Configuration', 'smart-woo-chatbot' ) }
+						? __( 'Saving…', 'agentflow-ai' )
+						: __( 'Save Configuration', 'agentflow-ai' ) }
 				</Button>
 			</div>
 		</Modal>

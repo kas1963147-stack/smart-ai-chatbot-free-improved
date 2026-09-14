@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 class ModulesController {
     
     /** REST API namespace */
-    private const NAMESPACE = 'smart-ai-chatbot/v1';
+    private const NAMESPACE = 'quark-agentflow-ai/v1';
     
     /**
      * Register REST routes

@@ -66,7 +66,7 @@ export default function CostBreakdown({ period }) {
 	if (loading) {
 		return (
 			<div className="flex flex-col items-center justify-center py-12 gap-4">
-				<Loading message={__('Loading cost data...', 'smart-woo-chatbot')} />
+				<Loading message={__('Loading cost data...', 'agentflow-ai')} />
 			</div>
 		);
 	}
@@ -77,8 +77,8 @@ export default function CostBreakdown({ period }) {
 				<div className="w-16 h-16 bg-gray-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
 					<DollarSign className="w-8 h-8 text-gray-400 dark:text-slate-500" />
 				</div>
-				<p className="text-sm text-gray-500 dark:text-slate-400">{__('No cost data available', 'smart-woo-chatbot')}</p>
-				<p className="text-xs text-gray-400 dark:text-slate-500 mt-1">{__('Start chatting to generate usage data', 'smart-woo-chatbot')}</p>
+				<p className="text-sm text-gray-500 dark:text-slate-400">{__('No cost data available', 'agentflow-ai')}</p>
+				<p className="text-xs text-gray-400 dark:text-slate-500 mt-1">{__('Start chatting to generate usage data', 'agentflow-ai')}</p>
 			</div>
 		);
 	}
@@ -93,9 +93,9 @@ export default function CostBreakdown({ period }) {
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-2 bg-gray-100 dark:bg-slate-700 rounded-lg p-1">
 					{[
-						{ value: 'provider', label: __('Provider', 'smart-woo-chatbot') },
-						{ value: 'model', label: __('Model', 'smart-woo-chatbot') },
-						{ value: 'agent', label: __('Agent', 'smart-woo-chatbot') },
+						{ value: 'provider', label: __('Provider', 'agentflow-ai') },
+						{ value: 'model', label: __('Model', 'agentflow-ai') },
+						{ value: 'agent', label: __('Agent', 'agentflow-ai') },
 					].map((option) => (
 						<button
 							key={option.value}
@@ -204,7 +204,7 @@ export default function CostBreakdown({ period }) {
 			{/* Show more indicator */}
 			{data.length > 6 && (
 				<p className="text-xs text-center text-gray-400 dark:text-slate-500">
-					{__('+ ', 'smart-woo-chatbot')}{data.length - 6}{__(' more items', 'smart-woo-chatbot')}
+					{__('+ ', 'agentflow-ai')}{data.length - 6}{__(' more items', 'agentflow-ai')}
 				</p>
 			)}
 		</div>

@@ -135,7 +135,7 @@ export default function McpPage() {
 	};
 
 	const handleDelete = async (id) => {
-		if (!confirm(__('Are you sure you want to delete this external MCP? It may break agents using it.', 'smart-woo-chatbot'))) {
+		if (!confirm(__('Are you sure you want to delete this external MCP? It may break agents using it.', 'agentflow-ai'))) {
 			return;
 		}
 
@@ -178,7 +178,7 @@ export default function McpPage() {
 
 	// Loading state
 	if (loading) {
-		return <Loading message={__('Loading External MCPs...', 'smart-woo-chatbot')} fullPage />;
+		return <Loading message={__('Loading External MCPs...', 'agentflow-ai')} fullPage />;
 	}
 
 	// Modal footer
@@ -188,13 +188,13 @@ export default function McpPage() {
 				onClick={() => setModalOpen(false)}
 				className="inline-flex items-center justify-center h-9 px-4 text-[13px] font-medium rounded-md text-[#4B5675] bg-[#F5F8FA] hover:bg-[#EEF1F5] border border-gray-200 transition-colors dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700 dark:hover:bg-slate-700"
 			>
-				{__('Cancel', 'smart-woo-chatbot')}
+				{__('Cancel', 'agentflow-ai')}
 			</button>
 			<button
 				onClick={handleSave}
 				className="inline-flex items-center justify-center h-9 px-5 text-[13px] font-medium rounded-md text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors"
 			>
-				{editingMcp ? __('Update External MCP', 'smart-woo-chatbot') : __('Create External MCP', 'smart-woo-chatbot')}
+				{editingMcp ? __('Update External MCP', 'agentflow-ai') : __('Create External MCP', 'agentflow-ai')}
 			</button>
 		</>
 	);
@@ -212,7 +212,7 @@ export default function McpPage() {
 						<path d="M12 5v14" />
 						<path d="M5 12h14" />
 					</svg>
-					{__('Add New External MCP', 'smart-woo-chatbot')}
+					{__('Add New External MCP', 'agentflow-ai')}
 				</button>
 			</div>
 
@@ -247,14 +247,14 @@ export default function McpPage() {
 											className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
 										>
 											<EditIcon />
-											{__('Edit', 'smart-woo-chatbot')}
+											{__('Edit', 'agentflow-ai')}
 										</button>
 										<button
 											onClick={() => handleDelete(mcp.id)}
 											className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
 										>
 											<TrashIcon />
-											{__('Delete', 'smart-woo-chatbot')}
+											{__('Delete', 'agentflow-ai')}
 										</button>
 									</div>
 								)}
@@ -268,10 +268,10 @@ export default function McpPage() {
 			<Modal
 				isOpen={modalOpen}
 				onClose={() => setModalOpen(false)}
-				title={editingMcp ? __('Edit External MCP Server', 'smart-woo-chatbot') : __('Add New External MCP Server', 'smart-woo-chatbot')}
+				title={editingMcp ? __('Edit External MCP Server', 'agentflow-ai') : __('Add New External MCP Server', 'agentflow-ai')}
 				subtitle={editingMcp
-					? __('Update the configuration for this external MCP connection.', 'smart-woo-chatbot')
-					: __('Configure a new external Model Context Protocol server for your agents.', 'smart-woo-chatbot')
+					? __('Update the configuration for this external MCP connection.', 'agentflow-ai')
+					: __('Configure a new external Model Context Protocol server for your agents.', 'agentflow-ai')
 				}
 				footer={modalFooter}
 				size="xl"
@@ -281,25 +281,25 @@ export default function McpPage() {
 					<div className="grid grid-cols-2 gap-4">
 						<div>
 							<label className="block text-[13px] font-medium text-[#071437] dark:text-slate-200 mb-1">
-								{__('Name', 'smart-woo-chatbot')}
+								{__('Name', 'agentflow-ai')}
 							</label>
 							<input
 								type="text"
 								value={formData.name}
 								onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-								placeholder={__('e.g. GitHub MCP', 'smart-woo-chatbot')}
+								placeholder={__('e.g. GitHub MCP', 'agentflow-ai')}
 								className="w-full h-[36px] px-3 text-[13px] rounded-md border border-gray-200 bg-white text-[#071437] placeholder:text-[#99A1B7] focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:placeholder:text-slate-500"
 							/>
 						</div>
 						<div>
 							<label className="block text-[13px] font-medium text-[#071437] dark:text-slate-200 mb-1">
-								{__('Description', 'smart-woo-chatbot')}
+								{__('Description', 'agentflow-ai')}
 							</label>
 							<input
 								type="text"
 								value={formData.description}
 								onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-								placeholder={__('Brief description of this external MCP server...', 'smart-woo-chatbot')}
+								placeholder={__('Brief description of this external MCP server...', 'agentflow-ai')}
 								className="w-full h-[36px] px-3 text-[13px] rounded-md border border-gray-200 bg-white text-[#071437] placeholder:text-[#99A1B7] focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:placeholder:text-slate-500"
 							/>
 						</div>
@@ -308,7 +308,7 @@ export default function McpPage() {
 					{/* Row 2: Connection Type - compact inline buttons */}
 					<div>
 						<label className="block text-[13px] font-medium text-[#071437] dark:text-slate-200 mb-1.5">
-							{__('Connection Type', 'smart-woo-chatbot')}
+							{__('Connection Type', 'agentflow-ai')}
 						</label>
 						<div className="flex gap-3">
 							<button
@@ -327,10 +327,10 @@ export default function McpPage() {
 								</div>
 								<div className="text-left">
 									<div className={`text-[13px] font-semibold leading-tight ${formData.type === 'sse' ? 'text-primary' : 'text-[#071437] dark:text-slate-200'}`}>
-										{__('Remote (SSE)', 'smart-woo-chatbot')}
+										{__('Remote (SSE)', 'agentflow-ai')}
 									</div>
 									<div className="text-[11px] text-[#99A1B7] dark:text-slate-500">
-										{__('HTTP connection', 'smart-woo-chatbot')}
+										{__('HTTP connection', 'agentflow-ai')}
 									</div>
 								</div>
 							</button>
@@ -350,10 +350,10 @@ export default function McpPage() {
 								</div>
 								<div className="text-left">
 									<div className={`text-[13px] font-semibold leading-tight ${formData.type === 'stdio' ? 'text-primary' : 'text-[#071437] dark:text-slate-200'}`}>
-										{__('Local (Stdio)', 'smart-woo-chatbot')}
+										{__('Local (Stdio)', 'agentflow-ai')}
 									</div>
 									<div className="text-[11px] text-[#99A1B7] dark:text-slate-500">
-										{__('CLI process', 'smart-woo-chatbot')}
+										{__('CLI process', 'agentflow-ai')}
 									</div>
 								</div>
 							</button>
@@ -370,7 +370,7 @@ export default function McpPage() {
 							<div>
 								<label className="flex items-center gap-1.5 text-[13px] font-medium text-[#071437] dark:text-slate-200 mb-1">
 									<LinkIcon className="w-3.5 h-3.5 text-[#99A1B7]" />
-									{__('Server URL', 'smart-woo-chatbot')}
+									{__('Server URL', 'agentflow-ai')}
 								</label>
 								<input
 									type="text"
@@ -385,7 +385,7 @@ export default function McpPage() {
 								<div>
 									<label className="flex items-center gap-1.5 text-[13px] font-medium text-[#071437] dark:text-slate-200 mb-1">
 										<KeyIcon className="w-3.5 h-3.5 text-[#99A1B7]" />
-										{__('API Key', 'smart-woo-chatbot')}
+										{__('API Key', 'agentflow-ai')}
 									</label>
 									<input
 										type="password"
@@ -394,19 +394,19 @@ export default function McpPage() {
 										placeholder="sk-..."
 										className="w-full h-[36px] px-3 text-[13px] rounded-md border border-gray-200 bg-white text-[#071437] placeholder:text-[#99A1B7] focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:placeholder:text-slate-500"
 									/>
-									<p className="text-[11px] text-[#99A1B7] dark:text-slate-500 mt-0.5">{__('Required API key for this MCP service', 'smart-woo-chatbot')}</p>
+									<p className="text-[11px] text-[#99A1B7] dark:text-slate-500 mt-0.5">{__('Required API key for this MCP service', 'agentflow-ai')}</p>
 								</div>
 								<div>
 									<label className="flex items-center gap-1.5 text-[13px] font-medium text-[#071437] dark:text-slate-200 mb-1">
 										<ShieldIcon className="w-3.5 h-3.5 text-[#99A1B7]" />
-										{__('Auth Token', 'smart-woo-chatbot')}
-										<span className="text-[11px] text-[#99A1B7] font-normal">{__('(Optional)', 'smart-woo-chatbot')}</span>
+										{__('Auth Token', 'agentflow-ai')}
+										<span className="text-[11px] text-[#99A1B7] font-normal">{__('(Optional)', 'agentflow-ai')}</span>
 									</label>
 									<input
 										type="password"
 										value={formData.default_config?.token || ''}
 										onChange={(e) => updateConfig('token', e.target.value)}
-										placeholder={__('Bearer token...', 'smart-woo-chatbot')}
+										placeholder={__('Bearer token...', 'agentflow-ai')}
 										className="w-full h-[36px] px-3 text-[13px] rounded-md border border-gray-200 bg-white text-[#071437] placeholder:text-[#99A1B7] focus:outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:placeholder:text-slate-500"
 									/>
 								</div>
@@ -417,7 +417,7 @@ export default function McpPage() {
 							<div>
 								<label className="flex items-center gap-1.5 text-[13px] font-medium text-[#071437] dark:text-slate-200 mb-1">
 									<TerminalIcon className="w-3.5 h-3.5 text-[#99A1B7]" />
-									{__('Command', 'smart-woo-chatbot')}
+									{__('Command', 'agentflow-ai')}
 								</label>
 								<input
 									type="text"
@@ -429,8 +429,8 @@ export default function McpPage() {
 							</div>
 							<div>
 								<label className="block text-[13px] font-medium text-[#071437] dark:text-slate-200 mb-1">
-									{__('Arguments', 'smart-woo-chatbot')}
-									<span className="text-[11px] text-[#99A1B7] font-normal ml-1">{__('(JSON Array)', 'smart-woo-chatbot')}</span>
+									{__('Arguments', 'agentflow-ai')}
+									<span className="text-[11px] text-[#99A1B7] font-normal ml-1">{__('(JSON Array)', 'agentflow-ai')}</span>
 								</label>
 								<input
 									type="text"

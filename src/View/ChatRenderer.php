@@ -271,7 +271,7 @@ class ChatRenderer
             'behavior' => $behavior,
             'triggers' => $triggers,
             'engagement' => $engagement,
-            'apiUrl' => rest_url('smart-ai-chatbot/v1'),
+            'apiUrl' => rest_url('quark-agentflow-ai/v1'),
             'nonce' => wp_create_nonce('wp_rest'),
             'availableWidgets' => $availableWidgetsData,
             'hasMultipleWidgets' => count($availableWidgetsData) > 1,
@@ -313,7 +313,7 @@ class ChatRenderer
         return [
             'ajaxurl' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('swc_chatbot_nonce'),
-            'restUrl' => rest_url('smart-ai-chatbot/v1'),
+            'restUrl' => rest_url('quark-agentflow-ai/v1'),
             'settings' => [
                 'botName' => $this->settings['bot_name'] ?? 'Shopping Assistant',
                 'welcomeMessage' => $this->settings['welcome_message'] ?? 'Hi! How can I help you today?',
@@ -574,7 +574,7 @@ class ChatRenderer
         $position = $this->settings['position'] ?? 'right';
         $color = $this->settings['primary_color'] ?? '#6366f1';
         ?>
-        <div id="smart-ai-chatbot" class="smart-ai-chatbot swc-position-<?php echo esc_attr($position); ?>"
+        <div id="quark-agentflow-ai" class="smart-ai-chatbot swc-position-<?php echo esc_attr($position); ?>"
             style="--swc-primary: <?php echo esc_attr($color); ?>">
             <!-- Chat Toggle Button -->
             <button class="swc-toggle" aria-label="Open chat">

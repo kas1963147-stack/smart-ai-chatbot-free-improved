@@ -25,7 +25,7 @@ class ChatWidgetController
     public static function register(): void
     {
         // Widget CRUD
-        register_rest_route('smart-ai-chatbot/v1', '/chat-widgets', [
+        register_rest_route('quark-agentflow-ai/v1', '/chat-widgets', [
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'getWidgets'],
@@ -38,7 +38,7 @@ class ChatWidgetController
             ],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/chat-widgets/(?P<id>\d+)', [
+        register_rest_route('quark-agentflow-ai/v1', '/chat-widgets/(?P<id>\d+)', [
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'getWidget'],
@@ -57,7 +57,7 @@ class ChatWidgetController
         ]);
 
         // Assignments
-        register_rest_route('smart-ai-chatbot/v1', '/chat-widgets/(?P<id>\d+)/assignments', [
+        register_rest_route('quark-agentflow-ai/v1', '/chat-widgets/(?P<id>\d+)/assignments', [
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'getAssignments'],
@@ -70,7 +70,7 @@ class ChatWidgetController
             ],
         ]);
 
-        register_rest_route('smart-ai-chatbot/v1', '/chat-widgets/assignments/(?P<id>\d+)', [
+        register_rest_route('quark-agentflow-ai/v1', '/chat-widgets/assignments/(?P<id>\d+)', [
             [
                 'methods' => 'DELETE',
                 'callback' => [self::class, 'deleteAssignment'],
@@ -79,7 +79,7 @@ class ChatWidgetController
         ]);
 
         // Frontend resolution (public - no auth required)
-        register_rest_route('smart-ai-chatbot/v1', '/resolve', [
+        register_rest_route('quark-agentflow-ai/v1', '/resolve', [
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'resolveWidget'],
@@ -88,7 +88,7 @@ class ChatWidgetController
         ]);
 
         // Widget configuration for frontend
-        register_rest_route('smart-ai-chatbot/v1', '/widget-config', [
+        register_rest_route('quark-agentflow-ai/v1', '/widget-config', [
             [
                 'methods' => 'GET',
                 'callback' => [self::class, 'getWidgetConfig'],
@@ -350,11 +350,13 @@ class ChatWidgetController
         $agents = $matchedWidget->getAgents();
         $agentData = array_map(function($agent) {
             return [
-                'id' => $agent->agentId ?? $agent->id ?? '',
-                'name' => $agent->name ?? 'Assistant',
-                'avatar' => $agent->avatar ?? '',
-                'description' => $agent->description ?? '',
-                'welcome_message' => $agent->systemPrompt ?? '',
+                'id'              => $agent->agentId ?? $agent->id ?? '',
+                'name'            => $agent->name ?? 'Assistant',
+                'avatar'          => $agent->avatar ?? '',
+                'description'     => $agent->description ?? '',
+                // welcomeMessage is a separate public-facing greeting.
+                // systemPrompt is internal and must never be exposed publicly.
+                'welcome_message' => $agent->welcomeMessage ?? $agent->description ?? '',
             ];
         }, $agents);
 
@@ -382,14 +384,18 @@ class ChatWidgetController
     public static function getWidgetConfig(\WP_REST_Request $request): \WP_REST_Response
     {
         $widgetId = (int) ($request->get_param('widget_id') ?: 0);
-        
+
         $widget = null;
         if ($widgetId > 0) {
-            $widget = ChatWidget::find($widgetId);
+            // Only return active widgets — inactive widgets must not be exposed publicly.
+            $candidate = ChatWidget::find($widgetId);
+            if ($candidate && $candidate->isActive) {
+                $widget = $candidate;
+            }
         }
 
         if (!$widget) {
-            // Try to get first active widget
+            // Fall back to first active widget
             $widgets = ChatWidget::findActive();
             $widget = $widgets[0] ?? null;
         }
@@ -403,15 +409,15 @@ class ChatWidgetController
 
         return new \WP_REST_Response([
             'success' => true,
-            'config' => [
-                'widgetId' => $widget->id,
+            'config'  => [
+                'widgetId'    => $widget->id,
                 'displayName' => $widget->displayName,
-                'appearance' => $widget->appearance,
-                'behavior' => $widget->behavior,
-                'triggers' => $widget->triggers,
-                'engagement' => $widget->engagement,
-                'apiUrl' => rest_url('smart-ai-chatbot/v1'),
-                'nonce' => wp_create_nonce('wp_rest'),
+                'appearance'  => $widget->appearance,
+                'behavior'    => $widget->behavior,
+                'triggers'    => $widget->triggers,
+                'engagement'  => $widget->engagement,
+                'apiUrl'      => rest_url('quark-agentflow-ai/v1'),
+                'nonce'       => wp_create_nonce('wp_rest'),
             ],
         ]);
     }

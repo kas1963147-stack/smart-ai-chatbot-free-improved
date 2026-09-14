@@ -32,7 +32,7 @@ class CartService {
         if ($productId <= 0) {
             return [
                 'success' => false,
-                'message' => __('Invalid product ID', 'smart-ai-chatbot'),
+                'message' => __('Invalid product ID', 'quark-agentflow-ai'),
             ];
         }
         
@@ -41,7 +41,7 @@ class CartService {
         if (!$product) {
             return [
                 'success' => false,
-                'message' => __('Product not found', 'smart-ai-chatbot'),
+                'message' => __('Product not found', 'quark-agentflow-ai'),
             ];
         }
         
@@ -49,7 +49,7 @@ class CartService {
         if (!$product->is_in_stock()) {
             return [
                 'success' => false,
-                'message' => __('Sorry, this product is out of stock.', 'smart-ai-chatbot'),
+                'message' => __('Sorry, this product is out of stock.', 'quark-agentflow-ai'),
             ];
         }
         
@@ -61,13 +61,13 @@ class CartService {
                 if (!$variationId) {
                     return [
                         'success' => false,
-                        'message' => __('Please select product options.', 'smart-ai-chatbot'),
+                        'message' => __('Please select product options.', 'quark-agentflow-ai'),
                     ];
                 }
             } else {
                 return [
                     'success' => false,
-                    'message' => __('Please select product options.', 'smart-ai-chatbot'),
+                    'message' => __('Please select product options.', 'quark-agentflow-ai'),
                 ];
             }
         }
@@ -90,7 +90,7 @@ class CartService {
                 return [
                     'success' => true,
                     'message' => sprintf(
-                        __('%s has been added to your cart!', 'smart-ai-chatbot'),
+                        __('%s has been added to your cart!', 'quark-agentflow-ai'),
                         $product->get_name()
                     ),
                     'cart_item_key' => $cartItemKey,
@@ -103,7 +103,7 @@ class CartService {
             
             return [
                 'success' => false,
-                'message' => __('Could not add item to cart.', 'smart-ai-chatbot'),
+                'message' => __('Could not add item to cart.', 'quark-agentflow-ai'),
             ];
             
         } catch (\Exception $e) {

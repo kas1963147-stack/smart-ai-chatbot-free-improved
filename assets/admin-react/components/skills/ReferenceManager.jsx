@@ -82,7 +82,7 @@ export default function ReferenceManager({ references, onChange }) {
 			!confirm(
 				__(
 					'Are you sure you want to delete this reference document?',
-					'smart-woo-chatbot'
+					'agentflow-ai'
 				)
 			)
 		) {
@@ -96,7 +96,7 @@ export default function ReferenceManager({ references, onChange }) {
 			{references.length === 0 && editingId === null ? (
 				<div className="border border-dashed border-gray-300 dark:border-gray-700 rounded-xl p-8 text-center bg-gray-50 dark:bg-gray-800/50">
 					<p className="text-gray-500 dark:text-gray-400">
-						{__('Reference documents contain detailed policies, procedures, or information that the AI can load when needed.', 'smart-woo-chatbot')}
+						{__('Reference documents contain detailed policies, procedures, or information that the AI can load when needed.', 'agentflow-ai')}
 					</p>
 				</div>
 			) : (
@@ -108,18 +108,18 @@ export default function ReferenceManager({ references, onChange }) {
 								<div className="p-4 space-y-4 bg-gray-50 dark:bg-gray-800/50">
 									<div>
 										<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-											{__('Document Title', 'smart-woo-chatbot')}
+											{__('Document Title', 'agentflow-ai')}
 										</label>
 										<input
 											type="text"
 											className="block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
 											value={editData.title}
 											onChange={(e) => setEditData({ ...editData, title: e.target.value })}
-											placeholder={__('e.g., Refund Policy', 'smart-woo-chatbot')}
+											placeholder={__('e.g., Refund Policy', 'agentflow-ai')}
 										/>
 										{editData.title && (
 											<p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-												{__('Filename:', 'smart-woo-chatbot')}{' '}
+												{__('Filename:', 'agentflow-ai')}{' '}
 												<span className="font-mono bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded text-xs">
 													{generateFilename(editData.title)}
 												</span>
@@ -129,13 +129,13 @@ export default function ReferenceManager({ references, onChange }) {
 
 									<div>
 										<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-											{__('Content', 'smart-woo-chatbot')}
+											{__('Content', 'agentflow-ai')}
 										</label>
 										<textarea
 											className="block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm font-mono"
 											value={editData.content}
 											onChange={(e) => setEditData({ ...editData, content: e.target.value })}
-											placeholder={__('Enter document content…', 'smart-woo-chatbot')}
+											placeholder={__('Enter document content…', 'agentflow-ai')}
 											rows={8}
 										/>
 									</div>
@@ -146,7 +146,7 @@ export default function ReferenceManager({ references, onChange }) {
 											className="inline-flex items-center px-3 py-1.5 border border-gray-300 dark:border-gray-600 shadow-sm text-xs font-medium rounded text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
 											onClick={() => cancelEdit(ref.id)}
 										>
-											{__('Cancel', 'smart-woo-chatbot')}
+											{__('Cancel', 'agentflow-ai')}
 										</button>
 										<button
 											type="button"
@@ -154,7 +154,7 @@ export default function ReferenceManager({ references, onChange }) {
 											onClick={() => saveEdit(ref.id)}
 											disabled={!editData.title.trim()}
 										>
-											{__('Save', 'smart-woo-chatbot')}
+											{__('Save', 'agentflow-ai')}
 										</button>
 									</div>
 								</div>
@@ -178,7 +178,7 @@ export default function ReferenceManager({ references, onChange }) {
 												<span>•</span>
 												<span>
 													{ref.content?.length || 0}{' '}
-													{__('chars', 'smart-woo-chatbot')}
+													{__('chars', 'agentflow-ai')}
 												</span>
 											</div>
 										</div>
@@ -190,14 +190,14 @@ export default function ReferenceManager({ references, onChange }) {
 											className="inline-flex items-center px-3 py-1.5 border border-gray-300 dark:border-gray-600 shadow-sm text-xs font-medium rounded text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none"
 											onClick={() => startEdit(ref)}
 										>
-											{__('Edit', 'smart-woo-chatbot')}
+											{__('Edit', 'agentflow-ai')}
 										</button>
 										<button
 											type="button"
 											className="inline-flex items-center px-3 py-1.5 border border-red-200 dark:border-red-800 shadow-sm text-xs font-medium rounded text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/40 focus:outline-none"
 											onClick={() => deleteReference(ref.id)}
 										>
-											{__('Delete', 'smart-woo-chatbot')}
+											{__('Delete', 'agentflow-ai')}
 										</button>
 									</div>
 								</div>
@@ -215,7 +215,7 @@ export default function ReferenceManager({ references, onChange }) {
 					onClick={addReference}
 					disabled={editingId !== null}
 				>
-					+ {__('Add Reference Document', 'smart-woo-chatbot')}
+					+ {__('Add Reference Document', 'agentflow-ai')}
 				</button>
 			</div>
 		</div>

@@ -9,14 +9,14 @@ import PropTypes from 'prop-types';
 import useChatsApi from '../../hooks/useChatsApi';
 
 const ASSIGNMENT_TYPES = [
-	{ value: 'page', label: __('Specific Page', 'smart-woo-chatbot') },
-	{ value: 'post', label: __('Specific Post', 'smart-woo-chatbot') },
-	{ value: 'all_posts', label: __('All Posts', 'smart-woo-chatbot') },
-	{ value: 'homepage', label: __('Homepage', 'smart-woo-chatbot') },
-	{ value: 'woocommerce_shop', label: __('WooCommerce Shop', 'smart-woo-chatbot') },
-	{ value: 'woocommerce_product', label: __('WooCommerce Product Pages', 'smart-woo-chatbot') },
-	{ value: 'woocommerce_cart', label: __('WooCommerce Cart', 'smart-woo-chatbot') },
-	{ value: 'woocommerce_checkout', label: __('WooCommerce Checkout', 'smart-woo-chatbot') },
+	{ value: 'page', label: __('Specific Page', 'agentflow-ai') },
+	{ value: 'post', label: __('Specific Post', 'agentflow-ai') },
+	{ value: 'all_posts', label: __('All Posts', 'agentflow-ai') },
+	{ value: 'homepage', label: __('Homepage', 'agentflow-ai') },
+	{ value: 'woocommerce_shop', label: __('WooCommerce Shop', 'agentflow-ai') },
+	{ value: 'woocommerce_product', label: __('WooCommerce Product Pages', 'agentflow-ai') },
+	{ value: 'woocommerce_cart', label: __('WooCommerce Cart', 'agentflow-ai') },
+	{ value: 'woocommerce_checkout', label: __('WooCommerce Checkout', 'agentflow-ai') },
 ];
 
 const API_ROOT = window.swcChatbot?.siteUrl || window.location.origin;
@@ -49,7 +49,7 @@ export default function WidgetAssignmentManager({ widgetId }) {
 			const data = await fetchAssignments(widgetId);
 			setAssignments(Array.isArray(data) ? data : []);
 		} catch (err) {
-			setError(err.message || __('Failed to load assignments', 'smart-woo-chatbot'));
+			setError(err.message || __('Failed to load assignments', 'agentflow-ai'));
 		} finally {
 			setLoading(false);
 		}
@@ -91,7 +91,7 @@ export default function WidgetAssignmentManager({ widgetId }) {
 
 		if (assignmentType === 'page' || assignmentType === 'post') {
 			if (!selectedPostId) {
-				setError(__('Please select a page or post first.', 'smart-woo-chatbot'));
+				setError(__('Please select a page or post first.', 'agentflow-ai'));
 				return;
 			}
 			payload.post_id = parseInt(selectedPostId, 10);
@@ -109,22 +109,22 @@ export default function WidgetAssignmentManager({ widgetId }) {
 		try {
 			const resp = await createAssignment(payload);
 			if (resp?.success === false) {
-				throw new Error(resp?.message || __('Failed to create assignment', 'smart-woo-chatbot'));
+				throw new Error(resp?.message || __('Failed to create assignment', 'agentflow-ai'));
 			}
 			setSelectedPostId('');
 			await loadAssignments();
 		} catch (err) {
-			setError(err.message || __('Failed to create assignment', 'smart-woo-chatbot'));
+			setError(err.message || __('Failed to create assignment', 'agentflow-ai'));
 		}
 	};
 
 	const handleDelete = async (assignmentId) => {
-		if (!confirm(__('Remove this assignment?', 'smart-woo-chatbot'))) return;
+		if (!confirm(__('Remove this assignment?', 'agentflow-ai'))) return;
 		try {
 			await deleteAssignment(assignmentId, widgetId);
 			await loadAssignments();
 		} catch (err) {
-			setError(err.message || __('Failed to delete assignment', 'smart-woo-chatbot'));
+			setError(err.message || __('Failed to delete assignment', 'agentflow-ai'));
 		}
 	};
 
@@ -153,7 +153,7 @@ export default function WidgetAssignmentManager({ widgetId }) {
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 					<div>
 						<label className="block text-sm font-medium text-gray-700 mb-1.5">
-							{__('Assignment Type', 'smart-woo-chatbot')}
+							{__('Assignment Type', 'agentflow-ai')}
 						</label>
 						<select
 							value={assignmentType}
@@ -169,14 +169,14 @@ export default function WidgetAssignmentManager({ widgetId }) {
 					{canSelectPost && (
 						<div>
 							<label className="block text-sm font-medium text-gray-700 mb-1.5">
-								{assignmentType === 'page' ? __('Page', 'smart-woo-chatbot') : __('Post', 'smart-woo-chatbot')}
+								{assignmentType === 'page' ? __('Page', 'agentflow-ai') : __('Post', 'agentflow-ai')}
 							</label>
 							<select
 								value={selectedPostId}
 								onChange={(e) => setSelectedPostId(e.target.value)}
 								className="w-full h-10 px-4 text-sm rounded-lg border border-gray-300 bg-white text-gray-900"
 							>
-								<option value="">{__('Select…', 'smart-woo-chatbot')}</option>
+								<option value="">{__('Select…', 'agentflow-ai')}</option>
 								{availablePosts.map((post) => (
 									<option key={post.id} value={post.id}>
 										{post.title?.rendered || post.title || `#${post.id}`}
@@ -192,7 +192,7 @@ export default function WidgetAssignmentManager({ widgetId }) {
 							onClick={addAssignment}
 							className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
 						>
-							{__('Add Assignment', 'smart-woo-chatbot')}
+							{__('Add Assignment', 'agentflow-ai')}
 						</button>
 					</div>
 				</div>
@@ -201,14 +201,14 @@ export default function WidgetAssignmentManager({ widgetId }) {
 			<div className="bg-white border border-gray-200 rounded-xl">
 				<div className="px-4 py-3 border-b border-gray-100">
 					<h4 className="text-sm font-semibold text-gray-900">
-						{__('Current Assignments', 'smart-woo-chatbot')}
+						{__('Current Assignments', 'agentflow-ai')}
 					</h4>
 				</div>
 				<div className="p-4">
 					{loading ? (
-						<div className="text-sm text-gray-500">{__('Loading assignments…', 'smart-woo-chatbot')}</div>
+						<div className="text-sm text-gray-500">{__('Loading assignments…', 'agentflow-ai')}</div>
 					) : formattedAssignments.length === 0 ? (
-						<div className="text-sm text-gray-500">{__('No assignments yet.', 'smart-woo-chatbot')}</div>
+						<div className="text-sm text-gray-500">{__('No assignments yet.', 'agentflow-ai')}</div>
 					) : (
 						<div className="space-y-2">
 							{formattedAssignments.map((assignment) => (
@@ -228,7 +228,7 @@ export default function WidgetAssignmentManager({ widgetId }) {
 										onClick={() => handleDelete(assignment.id)}
 										className="text-xs text-red-600 hover:text-red-700 hover:bg-red-50 px-2 py-1 rounded"
 									>
-										{__('Remove', 'smart-woo-chatbot')}
+										{__('Remove', 'agentflow-ai')}
 									</button>
 								</div>
 							))}
